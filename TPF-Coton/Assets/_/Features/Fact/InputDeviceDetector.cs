@@ -87,6 +87,9 @@ namespace TheFundation.Runtime
             if (CurrentControlScheme != scheme)
             {
                 CurrentControlScheme = scheme;
+                
+                // Ici on invoque l'événement pour prévénir les abonnés
+                OnControlSchemeChanged?.Invoke(scheme);
                 GameManager.m_gameFacts.SetFact(GameFactKeys.InputType, scheme.ToString(), FactDictionary.FactPersistence.Normal);
                 Debug.Log($"Input scheme changed to {scheme}");
             }
