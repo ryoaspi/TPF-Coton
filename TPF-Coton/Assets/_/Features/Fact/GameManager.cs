@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TheFundation.Runtime
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : FBehaviour
     {
         #region Publics
 

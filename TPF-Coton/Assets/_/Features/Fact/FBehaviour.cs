@@ -4,7 +4,12 @@ namespace TheFundation.Runtime
 {
     public class FBehaviour : MonoBehaviour
     {
-        
+
+        public static FactDictionary FactPersistence
+        {
+            get => GameManager.m_gameFacts;
+        }
+
         // FACTS
         protected bool HasFact<T>(string key, out T value)
         {
