@@ -1,7 +1,11 @@
 {
     "name": "UIManager.Runtime",
     "rootNamespace": "UIManager.Runtime",
-    "references": [],
+    "references": [
+        "GUID:9b9c073f07118994196edc218b10ccc0",
+        "GUID:476fe10ca481cda4c8fba72a0f7c4667",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

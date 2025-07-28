@@ -9,7 +9,7 @@ namespace Player.Runtime
     {
         #region Public
 
-        
+        public Inventory m_inventory = new Inventory();
         
         #endregion
         
@@ -88,6 +88,9 @@ namespace Player.Runtime
             SetFact("MaxHealth",_MaxHealth, factPersistence);
             SetFact("CurrentHealth",_currentHealth, factPersistence);
             SetFact("Gold",_gold, factPersistence);
+            
+            string inventoryJson = JsonUtility.ToJson(_inventory);
+            SetFact("Inventory", inventoryJson, factPersistence);
         }
 
         public void LoadPlayerFacts()
@@ -100,6 +103,11 @@ namespace Player.Runtime
             TryGetFact("MaxHealth", out _MaxHealth);
             TryGetFact("CurrentHealth", out _currentHealth);
             TryGetFact("Gold", out _gold);
+
+            if (TryGetFact("Inventory", out string inventoryJson))
+            {
+                _inventory = JsonUtility.FromJson<Inventory>(inventoryJson);
+            }
         }
         
         #endregion
@@ -131,6 +139,7 @@ namespace Player.Runtime
         [SerializeField] private int _MaxHealth = 100;
         private int _currentHealth;
         
+        private Inventory _inventory = new ();
         #endregion
     }
 }
