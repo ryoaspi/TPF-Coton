@@ -10,5 +10,6 @@ namespace Player.Runtime
         public string m_name;
         public string m_description;
         public int m_quantity;
+        public Sprite m_icon;
     }
 }
