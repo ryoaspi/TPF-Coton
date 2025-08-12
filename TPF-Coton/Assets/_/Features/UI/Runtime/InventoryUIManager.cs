@@ -46,9 +46,8 @@ namespace UIManager.Runtime
                 _activeButton.Add(newButton);
                 
                 // Récupère item à l'index i, ou null si vide
-                ItemData item = null;
-                if (i < _playerController.m_inventory.m_items.Count) 
-                    item = _playerController.m_inventory.m_items[i];
+                ItemData item = ( i < _playerController.m_inventory.m_items.Count) 
+                    ? _playerController.m_inventory.m_items[i] : null; 
                 
                 // Mets à jour le slot avec item ou vide
                 newButton.GetComponent<InventorySlotUI>().SetItem(item);

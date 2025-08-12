@@ -8,9 +8,9 @@ namespace Player.Runtime
     public class PlayerController : FBehaviour
     {
         #region Public
-
+		
         public Inventory m_inventory = new Inventory();
-        
+	        
         #endregion
         
         
@@ -21,6 +21,7 @@ namespace Player.Runtime
             _playerInput = GetComponent<PlayerInput>();
             _rb = GetComponent<Rigidbody>();
             _currentHealth = _MaxHealth;
+			//_currentAttackTime = _AttackTime;
             
             LoadPlayerFacts();
 
@@ -56,6 +57,10 @@ namespace Player.Runtime
         {
             Vector3 move = new Vector3(_moveInput.x,0,_moveInput.y) * (_moveSpeed * Time.deltaTime);
             _rb.MovePosition(transform.position + move);
+			if (_attackState = true) 
+			{ 
+				_currentAttackTime -= Time.deltaTime;
+			}
         }
         
         public void OnMove(InputAction.CallbackContext context)
@@ -71,8 +76,16 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
+			Attack();
         }
 
+		public void OnInventory(InputAction.CallbackContext context)
+		{
+			//Implémentation de la logique pour l'inventaire
+			_isInventoryOpen = !_isInventoryOpen;
+			_inventoryPanel.SetActive(_isInventoryOpen);
+		}
+        
         #endregion
         
         
@@ -111,6 +124,24 @@ namespace Player.Runtime
         }
         
         #endregion
+
+		
+		#region Main Methods
+
+		private void Attack()
+		{
+			_attackState = true;
+			_attackCollider.gameObject.SetActive(true);
+
+			if (_currentAttackTime <= 0) 
+			{
+				_attackState = false;
+				_attackCollider.gameObject.SetActive(false);
+				_currentAttackTime = _attackTime;
+			}
+		}
+		
+		#endregion
         
         
         #region Private And Protected
@@ -128,6 +159,15 @@ namespace Player.Runtime
         
         //Combat
         [SerializeField] private int _attackPower = 5;
+		[SerializeField] private Collider _attackCollider;
+		[SerializeField] private float _attackTime = 1f;
+		private float _currentAttackTime =0;
+		private bool _attackState = false;
+        
+        //Inventory
+		[SerializeField] private GameObject _inventoryPanel;
+        private bool _isInventoryOpen = false;
+
         
         //Stat
         [Header("Stat")]
@@ -140,6 +180,7 @@ namespace Player.Runtime
         private int _currentHealth;
         
         private Inventory _inventory = new ();
+        
         #endregion
     }
 }
