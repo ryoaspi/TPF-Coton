@@ -57,10 +57,6 @@ namespace Player.Runtime
         {
             Vector3 move = new Vector3(_moveInput.x,0,_moveInput.y) * (_moveSpeed * Time.deltaTime);
             _rb.MovePosition(transform.position + move);
-			if (_attackState = true) 
-			{ 
-				_currentAttackTime -= Time.deltaTime;
-			}
         }
         
         public void OnMove(InputAction.CallbackContext context)
@@ -76,7 +72,7 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-			Attack();
+            _weapon.GetComponent<RapierControlle>().IsAttacking();
         }
 
 		public void OnInventory(InputAction.CallbackContext context)
@@ -128,19 +124,8 @@ namespace Player.Runtime
 		
 		#region Main Methods
 
-		private void Attack()
-		{
-			_attackState = true;
-			_attackCollider.gameObject.SetActive(true);
-
-			if (_currentAttackTime <= 0) 
-			{
-				_attackState = false;
-				_attackCollider.gameObject.SetActive(false);
-				_currentAttackTime = _attackTime;
-			}
-		}
-		
+        
+        
 		#endregion
         
         
@@ -159,10 +144,7 @@ namespace Player.Runtime
         
         //Combat
         [SerializeField] private int _attackPower = 5;
-		[SerializeField] private Collider _attackCollider;
-		[SerializeField] private float _attackTime = 1f;
-		private float _currentAttackTime =0;
-		private bool _attackState = false;
+        [SerializeField] private GameObject _weapon;
         
         //Inventory
 		[SerializeField] private GameObject _inventoryPanel;
