@@ -33,7 +33,7 @@ namespace Enemy.Runtime
             if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 var rapierController = other.gameObject.GetComponentInChildren<RapierControlle>();
-                if (rapierController != null)
+                if (rapierController != null && rapierController._isAttacking == true)
                 {
                     _currentHealth -= rapierController.m_damage - _block;
                     Hit();
@@ -61,11 +61,11 @@ namespace Enemy.Runtime
         
         [SerializeField] private int _health = 5;
         [SerializeField] private int _block = 0;
+        [SerializeField] private float _hits = 1f;
         
         private Renderer _renderer;
         private int _blessing;
         private int _currentHealth;
-        private float _hits = 1f;
 
 
         #endregion

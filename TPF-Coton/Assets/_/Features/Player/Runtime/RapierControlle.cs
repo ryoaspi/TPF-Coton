@@ -7,7 +7,7 @@ namespace Player.Runtime
         #region Public
         
         public int m_damage = 3;
-
+        [HideInInspector] public bool _isAttacking;
         
         #endregion
         
@@ -48,7 +48,7 @@ namespace Player.Runtime
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;
         
-        private bool _isAttacking;
+        
         
         #endregion
     }
