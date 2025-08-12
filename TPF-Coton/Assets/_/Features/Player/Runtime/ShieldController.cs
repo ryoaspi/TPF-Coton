@@ -16,17 +16,32 @@ namespace Player.Runtime
 
         private void Update()
         {
-            IsBlocking();
             if (_isBlocking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _shieldTarget.position, _shieldSpeed * Time.deltaTime);
-                transform.Rotate(Vector3.forward, 90 * Time.deltaTime);
+
+                if (!_isRotating)
+                {
+                    float rotationStep = 90 * Time.deltaTime;
+                    transform.Rotate(Vector3.forward, rotationStep);
+                    _rotationAmount += rotationStep;
+                    if (_rotationAmount >= 90)
+                    {
+                        _isRotating = true;
+                        _rotationAmount = 0f;
+                    }
+                        
+                }
+
                 if (Vector3.Distance(transform.position, _shieldTarget.position) <= 0.1f)
+                {
                     _isBlocking = false;
+                    _isRotating = false;
+                }
+                
             }
             
-            if (_isBlocking == false)
-                transform.position = Vector3.MoveTowards(transform.position, _shieldOrigin.position, _shieldSpeed * Time.deltaTime);
+            else transform.position = Vector3.MoveTowards(transform.position, _shieldOrigin.position, _shieldSpeed * Time.deltaTime);
         }
 
         #endregion
@@ -50,7 +65,9 @@ namespace Player.Runtime
         [SerializeField] private float _shieldSpeed = 10f;
         
         private bool _isBlocking;
-        
+        private float _rotationAmount = 0f;
+        private bool _isRotating;
+
         #endregion
     }
 }

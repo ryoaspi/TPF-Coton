@@ -4,6 +4,14 @@ namespace Player.Runtime
 {
     public class RapierControlle : MonoBehaviour
     {
+        #region Public
+        
+        public int m_damage = 3;
+
+        
+        #endregion
+        
+        
         #region Unity Api
 
         private void Update()
@@ -16,7 +24,7 @@ namespace Player.Runtime
                     _isAttacking = false;
             }
             
-            if (_isAttacking == false)
+            else
                 transform.position = Vector3.MoveTowards(transform.position, _origin.position, _speed * Time.deltaTime);
         }
 
@@ -36,7 +44,6 @@ namespace Player.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private int _damage = 3;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;

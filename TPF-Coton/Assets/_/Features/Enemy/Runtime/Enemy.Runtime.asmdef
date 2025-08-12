@@ -1,7 +1,9 @@
 {
     "name": "Enemy.Runtime",
     "rootNamespace": "Enemy.Runtime",
-    "references": [],
+    "references": [
+        "GUID:9b9c073f07118994196edc218b10ccc0"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
