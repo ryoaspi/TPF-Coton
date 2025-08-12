@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Unity.Cinemachine;
 using UnityEngine.InputSystem;
 using TheFundation.Runtime;
 
@@ -55,8 +56,39 @@ namespace Player.Runtime
 
         private void Update()
         {
-            Vector3 move = new Vector3(_moveInput.x,0,_moveInput.y) * (_moveSpeed * Time.deltaTime);
-            _rb.MovePosition(transform.position + move);
+            
+                if (_moveInput.sqrMagnitude < 0.01f) return;
+
+                
+                CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+                if (brain == null || brain.ActiveVirtualCamera == null) return;
+
+                Transform camTransform = brain.transform;
+
+                
+                Vector3 camForward = camTransform.forward;
+                Vector3 camRight = camTransform.right;
+
+                camForward.y = 0f;
+                camRight.y = 0f;
+                camForward.Normalize();
+                camRight.Normalize();
+
+                
+                Vector3 moveDirection = (camRight * _moveInput.x + camForward * _moveInput.y).normalized;
+
+                
+                if (moveDirection != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+                }
+
+                
+                Vector3 move = moveDirection * (_moveSpeed * Time.deltaTime);
+                _rb.MovePosition(transform.position + move);
+            
+
         }
         
         public void OnMove(InputAction.CallbackContext context)
