@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shield: 2
-  _shieldTarget: {fileID: 0}
+  _shieldTarget: {fileID: 3297518288009875373}
   _shieldOrigin: {fileID: 3676976785557334347}
   _shieldSpeed: 10
 --- !u!1 &849394320210856513
