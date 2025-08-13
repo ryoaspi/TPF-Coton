@@ -104,12 +104,15 @@ namespace Player.Runtime
 
         private void OnCollisionEnter(Collision other)
         {
-            Hit();
+            
             if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
             {
+                Hit();
                 var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
-                _currentHealth -= damage;
+                if (_renderer.material.color != Color.red)
+                    _currentHealth -= damage;
             }
+            
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -134,6 +137,13 @@ namespace Player.Runtime
 			_isInventoryOpen = !_isInventoryOpen;
 			_inventoryPanel.SetActive(_isInventoryOpen);
 		}
+
+        public void OnBlocking(InputAction.CallbackContext context)
+        {
+            if (context.performed) _shield.enabled = true;
+            
+            else _shield.enabled = false;
+        }
         
         #endregion
         
@@ -203,6 +213,7 @@ namespace Player.Runtime
         [SerializeField] private int _attackPower = 5;
         [SerializeField] private GameObject _weapon;
         [SerializeField] private float _hits = 1f;
+        [SerializeField] private Collider _shield;
         
         //Inventory
 		[SerializeField] private GameObject _inventoryPanel;

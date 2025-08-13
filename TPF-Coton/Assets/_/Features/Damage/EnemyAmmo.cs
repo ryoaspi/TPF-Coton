@@ -30,6 +30,11 @@ namespace Damage.Runtime
         {
             AmmoPool.Instance.ReturnToPool(gameObject);
         }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            AmmoPool.Instance.ReturnToPool(gameObject);
+        }
 
         #endregion
         
