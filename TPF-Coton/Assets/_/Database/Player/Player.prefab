@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8626066125660607020}
   - component: {fileID: 3534615728999486892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShieldAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160365672742816376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b33f2142c20f8ae4ab131072e898506f, type: 3}
   m_Name: 
@@ -60,7 +60,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3676976785557334347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OriginShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2050867249656885884}
   - component: {fileID: 8781363941836171210}
   - component: {fileID: 1255921219451955698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7407681881222823360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PointScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1738702575889207909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OriginSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,13 +370,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374765836647447604}
-  - component: {fileID: 4183347278526002495}
-  - component: {fileID: 7129983390281066856}
   - component: {fileID: 5442532010741238789}
   - component: {fileID: 6825787412825328618}
   - component: {fileID: 3470936859141013514}
   - component: {fileID: 8130931757048351921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,61 +396,9 @@ Transform:
   m_Children:
   - {fileID: 7407681881222823360}
   - {fileID: 4006083514912078312}
+  - {fileID: 1010470423057938801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4183347278526002495
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4210584169379710260}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7129983390281066856
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4210584169379710260}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &5442532010741238789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -493,12 +439,14 @@ MonoBehaviour:
   _interactionRange: 2
   _attackPower: 5
   _weapon: {fileID: 8824526586233317289}
-  _inventoryPanel: {fileID: 0}
+  _hits: 1
+  _inventoryPanel: {fileID: 6275070662304307612}
   _playerName: Flonflon
   _level: 1
   _experience: 0
   _gold: 0
   _MaxHealth: 100
+  _renderer: {fileID: 2656677349121253865}
 --- !u!114 &3470936859141013514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,10 +494,10 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8824526586233317289}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 6825787412825328618}
+        m_TargetAssemblyTypeName: Player.Runtime.PlayerController, Player.Runtime
+        m_MethodName: OnAttack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -670,7 +618,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!1 &4332095277533940298
 GameObject:
@@ -681,7 +629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3116562773486838218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SwordAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,6 +654,122 @@ Transform:
   - {fileID: 1738702575889207909}
   m_Father: {fileID: 4728744514463623538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6275070662304307612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010470423057938801}
+  - component: {fileID: 412818885164796612}
+  - component: {fileID: 2251037274993154910}
+  - component: {fileID: 8092935392009208123}
+  - component: {fileID: 3134125029905654662}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1010470423057938801
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275070662304307612}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 374765836647447604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 371.11, y: 338.5}
+  m_SizeDelta: {x: 630, y: 570}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &412818885164796612
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275070662304307612}
+  m_CullTransparentMesh: 1
+--- !u!114 &2251037274993154910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275070662304307612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8092935392009208123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275070662304307612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 128, y: 128}
+  m_Spacing: {x: 5, y: 5}
+  m_Constraint: 1
+  m_ConstraintCount: 5
+--- !u!114 &3134125029905654662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275070662304307612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfef7c40838d264b8d20ecff29c5b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 6825787412825328618}
+  _itemButtonPrefab: {fileID: 2900512484757565319, guid: 84fdc3842f4c01244a3fd79de80330f9, type: 3}
+  _contentPanel: {fileID: 1010470423057938801}
 --- !u!1 &7717536513131340061
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3297518288009875373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TargetShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7551633218737802140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TargetSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,8 +843,7 @@ GameObject:
   - component: {fileID: 4728744514463623538}
   - component: {fileID: 5268599744229254626}
   - component: {fileID: 2656677349121253865}
-  - component: {fileID: 762478850044279420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,27 +920,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &762478850044279420
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8207912710172691986}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8824526586233317289
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,8 +932,8 @@ GameObject:
   - component: {fileID: 2386301891222283080}
   - component: {fileID: 4827517320277371128}
   - component: {fileID: 2393908806521391084}
-  - component: {fileID: 8740073658780372995}
-  m_Layer: 0
+  - component: {fileID: 2009953275501644078}
+  m_Layer: 6
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +1029,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8740073658780372995
+--- !u!114 &2009953275501644078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -996,10 +1038,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8824526586233317289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97cad633d0cbcb245a2ff8d40975ac51, type: 3}
+  m_Script: {fileID: 11500000, guid: 3031afe7e04ac1d488f7cc336d5c1340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 3
+  m_damage: 2
+  m_isAttacking: 0
   _speed: 10
   _target: {fileID: 7551633218737802140}
   _origin: {fileID: 1738702575889207909}

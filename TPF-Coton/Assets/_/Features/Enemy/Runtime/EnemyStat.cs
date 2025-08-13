@@ -1,5 +1,4 @@
-using System;
-using Player.Runtime;
+using Damage.Runtime;
 using UnityEngine;
 
 namespace Enemy.Runtime
@@ -24,7 +23,6 @@ namespace Enemy.Runtime
                     _renderer.material.color = Color.gray;
                     _hits = 1f;
                 }
-                
             }
         }
 
@@ -32,15 +30,15 @@ namespace Enemy.Runtime
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                var rapierController = other.gameObject.GetComponentInChildren<RapierControlle>();
-                if (rapierController != null && rapierController._isAttacking == true)
+                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
+                if (rapierController != null && rapierController.m_isAttacking)
                 {
                     _currentHealth -= rapierController.m_damage - _block;
                     Hit();
                     if (_currentHealth <= 0)
                         Destroy(gameObject);
                 }
-                else Debug.LogWarning("No RapierController on Player");
+                else Debug.LogWarning("No WeaponDamage on Player");
             }
         }
 
