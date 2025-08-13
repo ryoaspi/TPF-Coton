@@ -51,7 +51,7 @@ Material:
     - _Random: 1
     - _RandomFreq: 0.7
     - _RandomMove: 0.261
-    - _ShellAmount: 33
+    - _ShellAmount: 36
     - _ShellCount: 10
     - _ShellStep: 0.00322
     - _SrcBlend: 5

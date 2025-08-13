@@ -42,7 +42,7 @@ Material:
     - _FinJointNum: 10
     - _FinLength: 0.402
     - _Occlusion: 0.7
-    - _RandomDirection: 0.42
+    - _RandomDirection: 0.596
     - _TessFactor: 22.6
     - _TessMaxDist: 23.7
     - _TessMinDist: 3
