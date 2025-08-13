@@ -1,8 +1,8 @@
-using System;
-using UnityEngine;
-using Unity.Cinemachine;
-using UnityEngine.InputSystem;
+using Damage.Runtime;
 using TheFundation.Runtime;
+using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player.Runtime
 {    
@@ -10,7 +10,7 @@ namespace Player.Runtime
     {
         #region Public
 		
-        public Inventory m_inventory = new Inventory();
+        public Inventory m_inventory = new ();
 	        
         #endregion
         
@@ -22,7 +22,7 @@ namespace Player.Runtime
             _playerInput = GetComponent<PlayerInput>();
             _rb = GetComponent<Rigidbody>();
             _currentHealth = _MaxHealth;
-			//_currentAttackTime = _AttackTime;
+			
             
             LoadPlayerFacts();
 
@@ -30,6 +30,8 @@ namespace Player.Runtime
             {
                 _currentHealth = _MaxHealth/2;
             }
+            
+            _renderer = GetComponentInChildren<Renderer>();
         }
 
         private void OnEnable()
@@ -87,10 +89,32 @@ namespace Player.Runtime
                 
                 Vector3 move = moveDirection * (_moveSpeed * Time.deltaTime);
                 _rb.MovePosition(transform.position + move);
-            
-
+                
+                // If Hits
+                if (_renderer.material.color == Color.red)
+                {
+                    _hits -= Time.deltaTime;
+                    if (_hits <= 0)
+                    {
+                        _renderer.material.color = Color.gray;
+                        _hits = 1f;
+                    }
+                }
         }
-        
+
+        private void OnCollisionEnter(Collision other)
+        {
+            
+            if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
+            {
+                Hit();
+                var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
+                if (_renderer.material.color != Color.red)
+                    _currentHealth -= damage;
+            }
+            
+        }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             _moveInput = context.ReadValue<Vector2>();    
@@ -104,7 +128,7 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-            _weapon.GetComponent<RapierControlle>().IsAttacking();
+            _weapon.GetComponent<WeaponDamage>().IsAttacking();
         }
 
 		public void OnInventory(InputAction.CallbackContext context)
@@ -113,6 +137,13 @@ namespace Player.Runtime
 			_isInventoryOpen = !_isInventoryOpen;
 			_inventoryPanel.SetActive(_isInventoryOpen);
 		}
+
+        public void OnBlocking(InputAction.CallbackContext context)
+        {
+            if (context.performed) _shield.enabled = true;
+            
+            else _shield.enabled = false;
+        }
         
         #endregion
         
@@ -156,7 +187,11 @@ namespace Player.Runtime
 		
 		#region Main Methods
 
-        
+        [ContextMenu("Hits")]
+        private void Hit()
+        {
+            _renderer.material.color = Color.red;
+        }
         
 		#endregion
         
@@ -177,6 +212,8 @@ namespace Player.Runtime
         //Combat
         [SerializeField] private int _attackPower = 5;
         [SerializeField] private GameObject _weapon;
+        [SerializeField] private float _hits = 1f;
+        [SerializeField] private Collider _shield;
         
         //Inventory
 		[SerializeField] private GameObject _inventoryPanel;
@@ -189,10 +226,10 @@ namespace Player.Runtime
         [SerializeField] private int _level = 1;
         [SerializeField] private int _experience = 0;
         [SerializeField] private int _gold = 0;
-        
         [SerializeField] private int _MaxHealth = 100;
-        private int _currentHealth;
         
+        private int _currentHealth;
+        [SerializeField] private Renderer _renderer;
         private Inventory _inventory = new ();
         
         #endregion
