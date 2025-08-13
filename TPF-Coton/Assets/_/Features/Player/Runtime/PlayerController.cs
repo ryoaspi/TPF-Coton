@@ -213,7 +213,16 @@ namespace Player.Runtime
                 _inventory = JsonUtility.FromJson<Inventory>(inventoryJson);
             }
         }
-        
+
+        public void GetRefCanvas(Canvas canvas,GameObject button1, GameObject button2,GameObject image1, GameObject image2 )
+        {
+            _loadSceneCanvas = canvas;
+            _assetLoadButton = button1;
+            _enemyLoad=button2;
+            _assetLoadSelect=image1;
+            _enemyLoadSelect=image2;
+            
+        }
         #endregion
 
 		
