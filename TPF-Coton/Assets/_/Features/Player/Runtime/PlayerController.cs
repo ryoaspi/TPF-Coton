@@ -3,7 +3,8 @@ using TheFundation.Runtime;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 namespace Player.Runtime
 {    
     public class PlayerController : FBehaviour
@@ -19,10 +20,10 @@ namespace Player.Runtime
 
         private void Awake()
         {
+            Cursor.visible = false;
             _playerInput = GetComponent<PlayerInput>();
             _rb = GetComponent<Rigidbody>();
             _currentHealth = _MaxHealth;
-			
             
             LoadPlayerFacts();
 
@@ -144,7 +145,38 @@ namespace Player.Runtime
             
             else _shield.enabled = false;
         }
-        
+
+        public void OnMenu(InputAction.CallbackContext context)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(_assetLoadButton);
+            _enemyLoadSelect.gameObject.SetActive(false);
+            _isLoadScene = true;
+            _playerInput.SwitchCurrentActionMap("UI");
+            _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        }
+
+        public void OnCloseMenu(InputAction.CallbackContext context)
+        {
+            _isLoadScene = false;
+            _playerInput.SwitchCurrentActionMap("Player");
+            _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        }
+
+        public void OnNavigate(InputAction.CallbackContext context)
+        {
+            _buttonSelected=EventSystem.current.currentSelectedGameObject;
+            if (_buttonSelected == _assetLoadButton)
+            {
+                _assetLoadSelect.gameObject.SetActive(true);
+                _enemyLoadSelect.gameObject.SetActive(false);
+            }
+            else if (_buttonSelected == _enemyLoad)
+            {
+                _assetLoadSelect.gameObject.SetActive(false);
+                _enemyLoadSelect.gameObject.SetActive(true);
+            }
+        }
         #endregion
         
         
@@ -219,6 +251,14 @@ namespace Player.Runtime
 		[SerializeField] private GameObject _inventoryPanel;
         private bool _isInventoryOpen = false;
 
+        //UI
+        [SerializeField] private Canvas  _loadSceneCanvas;
+        private bool _isLoadScene =true;
+        [SerializeField] private GameObject _assetLoadButton;
+        [SerializeField] private GameObject _enemyLoad;
+        private GameObject _buttonSelected;
+        [SerializeField] private GameObject _assetLoadSelect;
+        [SerializeField] private GameObject _enemyLoadSelect;
         
         //Stat
         [Header("Stat")]
