@@ -8,9 +8,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -91,6 +91,15 @@
                     "name": "Inventory",
                     "type": "Button",
                     "id": "8f765add-a4d1-4436-8386-85337d3c3263",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadSceneMenu",
+                    "type": "Button",
+                    "id": "9a01f250-5a24-468b-854b-97015ecc2629",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -502,6 +511,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c20417b-3d83-4aee-a1b6-5d2bf5a468af",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadSceneMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
