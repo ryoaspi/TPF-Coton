@@ -151,31 +151,31 @@ namespace Player.Runtime
         {
             //Implémentation de la logique de combat.
             _weapon.GetComponent<WeaponDamage>().IsAttacking();
-            if (context.started)
-            {
-                _isAttackingCharged = true;
-                _timeCharged += Time.deltaTime;
-                if (_timeCharged >= 1f)
-                {
-                    _rendererSword.material.color = Color.yellow;
-                    if ( context.canceled)
-                    {
-                        var charge = _weapon.GetComponent<WeaponDamage>().m_damage;
-                        charge = (int) (charge * 2f);
-                        _isAttackingCharged = false;
-                        _timeCharged = 0f;
-                        _rendererSword.material.color = Color.gray;
-                    }
-
-                }
-                
-                else
-                {
-                    _isAttackingCharged = false;
-                    _timeCharged = 0f;
-                    _rendererSword.material.color = Color.gray;
-                }
-            }
+            // if (context.started)
+            // {
+            //     _isAttackingCharged = true;
+            //     _timeCharged += Time.deltaTime;
+            //     if (_timeCharged >= 1f)
+            //     {
+            //         _rendererSword.material.color = Color.yellow;
+            //         if ( context.canceled)
+            //         {
+            //             var charge = _weapon.GetComponent<WeaponDamage>().m_damage;
+            //             charge = (int) (charge * 2f);
+            //             _isAttackingCharged = false;
+            //             _timeCharged = 0f;
+            //             _rendererSword.material.color = Color.gray;
+            //         }
+            //
+            //     }
+            //     
+            //     else
+            //     {
+            //         _isAttackingCharged = false;
+            //         _timeCharged = 0f;
+            //         _rendererSword.material.color = Color.gray;
+            //     }
+            // }
             
         }
 
@@ -318,9 +318,9 @@ namespace Player.Runtime
         [SerializeField] private float _hits = 1f;
         [SerializeField] private Collider _shield;
         private bool _isBlocking = false;
-        private bool _isAttackingCharged = false;
-        private float _timeCharged = 0f;
-        [SerializeField] private Renderer _rendererSword;
+        // private bool _isAttackingCharged = false;
+        // private float _timeCharged = 0f;
+        // [SerializeField] private Renderer _rendererSword;
         
         //Inventory
         [Header("Inventory")]
