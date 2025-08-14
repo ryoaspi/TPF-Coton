@@ -150,37 +150,37 @@ namespace Player.Runtime
             else _shield.enabled = false;
         }
 
-        public void OnMenu(InputAction.CallbackContext context)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(_assetLoadButton);
-            _enemyLoadSelect.gameObject.SetActive(false);
-            _isLoadScene = true;
-            _playerInput.SwitchCurrentActionMap("UI");
-            _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
-        }
-
-        public void OnCloseMenu(InputAction.CallbackContext context)
-        {
-            _isLoadScene = false;
-            _playerInput.SwitchCurrentActionMap("Player");
-            _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
-        }
-
-        public void OnNavigate(InputAction.CallbackContext context)
-        {
-            _buttonSelected=EventSystem.current.currentSelectedGameObject;
-            if (_buttonSelected == _assetLoadButton)
-            {
-                _assetLoadSelect.gameObject.SetActive(true);
-                _enemyLoadSelect.gameObject.SetActive(false);
-            }
-            else if (_buttonSelected == _enemyLoad)
-            {
-                _assetLoadSelect.gameObject.SetActive(false);
-                _enemyLoadSelect.gameObject.SetActive(true);
-            }
-        }
+        // public void OnMenu(InputAction.CallbackContext context)
+        // {
+        //     EventSystem.current.SetSelectedGameObject(null);
+        //     EventSystem.current.SetSelectedGameObject(_assetLoadButton);
+        //     _enemyLoadSelect.gameObject.SetActive(false);
+        //     _isLoadScene = true;
+        //     _playerInput.SwitchCurrentActionMap("UI");
+        //     _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        // }
+        //
+        // public void OnCloseMenu(InputAction.CallbackContext context)
+        // {
+        //     _isLoadScene = false;
+        //     _playerInput.SwitchCurrentActionMap("Player");
+        //     _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        // }
+        //
+        // public void OnNavigate(InputAction.CallbackContext context)
+        // {
+        //     _buttonSelected=EventSystem.current.currentSelectedGameObject;
+        //     if (_buttonSelected == _assetLoadButton)
+        //     {
+        //         _assetLoadSelect.gameObject.SetActive(true);
+        //         _enemyLoadSelect.gameObject.SetActive(false);
+        //     }
+        //     else if (_buttonSelected == _enemyLoad)
+        //     {
+        //         _assetLoadSelect.gameObject.SetActive(false);
+        //         _enemyLoadSelect.gameObject.SetActive(true);
+        //     }
+        // }
 
         
         
@@ -222,15 +222,15 @@ namespace Player.Runtime
             }
         }
 
-        public void GetRefCanvas(Canvas canvas,GameObject button1, GameObject button2,GameObject image1, GameObject image2 )
-        {
-            _loadSceneCanvas = canvas;
-            _assetLoadButton = button1;
-            _enemyLoad=button2;
-            _assetLoadSelect=image1;
-            _enemyLoadSelect=image2;
-            
-        }
+        // public void GetRefCanvas(Canvas canvas,GameObject button1, GameObject button2,GameObject image1, GameObject image2 )
+        // {
+        //     _loadSceneCanvas = canvas;
+        //     _assetLoadButton = button1;
+        //     _enemyLoad=button2;
+        //     _assetLoadSelect=image1;
+        //     _enemyLoadSelect=image2;
+        //     
+        // }
         #endregion
 
 		
