@@ -13,13 +13,13 @@ namespace SceneChanger.Runtime
         }
         public void LoadAssetScene()
         {
-            _playerInput.SwitchCurrentActionMap("Player");
+            
             SceneManager.LoadScene("Lucie");
         }
 
         public void LoadenemyScene()
         {
-            _playerInput.SwitchCurrentActionMap("Player");
+            
             SceneManager.LoadScene("Thomas");
         }
     }

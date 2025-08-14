@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 namespace Player.Runtime
 {    
+    
     public class PlayerController : FBehaviour
     {
         #region Public
@@ -44,6 +46,7 @@ namespace Player.Runtime
 
             actions["Interact"].performed += OnInteract;
             actions["Attack"].performed += OnAttack;
+            
         }
 
         private void OnDisable()
@@ -55,6 +58,7 @@ namespace Player.Runtime
 
             actions["Interact"].performed -= OnInteract;
             actions["Attack"].performed -= OnAttack;
+            
         }
 
         private void Update()
@@ -177,6 +181,10 @@ namespace Player.Runtime
                 _enemyLoadSelect.gameObject.SetActive(true);
             }
         }
+
+        
+        
+
         #endregion
         
         
