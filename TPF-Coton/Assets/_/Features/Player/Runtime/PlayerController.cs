@@ -104,11 +104,18 @@ namespace Player.Runtime
 
         private void OnCollisionEnter(Collision other)
         {
-            
             if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
             {
                 Hit();
                 var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
+                if (_renderer.material.color != Color.red)
+                    _currentHealth -= damage;
+            }
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("WeaponEnemy"))
+            {
+                Hit();
+                var damage = other.gameObject.GetComponent<WeaponEnemyDamage>().m_damage;
                 if (_renderer.material.color != Color.red)
                     _currentHealth -= damage;
             }
