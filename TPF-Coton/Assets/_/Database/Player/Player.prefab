@@ -441,6 +441,11 @@ MonoBehaviour:
   _hits: 1
   _shield: {fileID: 5106490372926830278}
   _inventoryPanel: {fileID: 0}
+  _loadSceneCanvas: {fileID: 7382938481884967919, guid: a5d2c5f99983a7e49812ba96a5eaabec, type: 3}
+  _assetLoadButton: {fileID: 0}
+  _enemyLoad: {fileID: 0}
+  _assetLoadSelect: {fileID: 0}
+  _enemyLoadSelect: {fileID: 0}
   _playerName: Flonflon
   _level: 1
   _experience: 0
@@ -545,7 +550,19 @@ MonoBehaviour:
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6825787412825328618}
+        m_TargetAssemblyTypeName: Player.Runtime.PlayerController, Player.Runtime
+        m_MethodName: OnNavigate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -600,9 +617,41 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8f765add-a4d1-4436-8386-85337d3c3263
     m_ActionName: Player/Inventory
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6825787412825328618}
+        m_TargetAssemblyTypeName: Player.Runtime.PlayerController, Player.Runtime
+        m_MethodName: OnMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a01f250-5a24-468b-854b-97015ecc2629
+    m_ActionName: 'Player/LoadSceneMenu[/XInputControllerWindows/select,/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6825787412825328618}
+        m_TargetAssemblyTypeName: Player.Runtime.PlayerController, Player.Runtime
+        m_MethodName: OnCloseMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a3062360-13a8-4c61-8716-91d722c5577f
+    m_ActionName: 'UI/CloseMenu[/XInputControllerWindows/select,/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!54 &8130931757048351921
@@ -630,7 +679,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!1 &4332095277533940298
 GameObject:
