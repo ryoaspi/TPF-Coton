@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4220592525425445618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -192,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfe1e4032c6f234699349a135bf139c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  m_assetLoadButton: {fileID: 0}
-  m_enemyLoadButton: {fileID: 0}
-  m_assetButtonSelector: {fileID: 0}
-  m_enemyButtonSelector1: {fileID: 0}
+  canvas: {fileID: 7382938481884967919}
+  m_assetLoadButton: {fileID: 3798406539665256247}
+  m_enemyLoadButton: {fileID: 8248925670522352016}
+  m_assetButtonSelector: {fileID: 900099848396015631}
+  m_enemyButtonSelector1: {fileID: 3522465143717814752}
 --- !u!114 &341801891669319916
 MonoBehaviour:
   m_ObjectHideFlags: 0

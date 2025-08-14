@@ -1,3 +1,4 @@
+using System;
 using Damage.Runtime;
 using TheFundation.Runtime;
 using Unity.Cinemachine;
@@ -107,6 +108,11 @@ namespace Player.Runtime
                 }
         }
 
+        private void FixedUpdate()
+        {
+
+        }
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
@@ -119,11 +125,15 @@ namespace Player.Runtime
 
             if (other.gameObject.layer == LayerMask.NameToLayer("WeaponEnemy"))
             {
-                Hit();
-                var damage = other.gameObject.GetComponent<WeaponEnemyDamage>().m_damage;
-                if (_renderer.material.color != Color.red)
-                    _currentHealth -= damage;
+                if (_isBlocking == false)
+                {
+                    Hit();
+                    var damage = other.gameObject.GetComponent<WeaponEnemyDamage>().m_damage;
+                    if (_renderer.material.color != Color.red)
+                        _currentHealth -= damage;
+                }
             }
+            
             
         }
 
@@ -152,9 +162,17 @@ namespace Player.Runtime
 
         public void OnBlocking(InputAction.CallbackContext context)
         {
-            if (context.performed) _shield.enabled = true;
-            
-            else _shield.enabled = false;
+            if (context.performed)
+            {
+                _shield.enabled = true;
+                _isBlocking = true;
+            }
+
+            else
+            {
+                _shield.enabled = false;
+                _isBlocking = false;
+            }
         }
 
         public void OnMenu(InputAction.CallbackContext context)
@@ -270,6 +288,7 @@ namespace Player.Runtime
         [SerializeField] private GameObject _weapon;
         [SerializeField] private float _hits = 1f;
         [SerializeField] private Collider _shield;
+        private bool _isBlocking = false;
         
         //Inventory
 		[SerializeField] private GameObject _inventoryPanel;
