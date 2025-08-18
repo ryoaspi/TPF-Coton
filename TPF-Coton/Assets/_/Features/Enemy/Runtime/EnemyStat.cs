@@ -5,6 +5,13 @@ namespace Enemy.Runtime
 {
     public class EnemyStat : MonoBehaviour
     {
+        #region Public
+        
+        [HideInInspector] public bool m_isDeath;
+        
+        #endregion
+        
+        
         #region Unity Api
 
         private void OnEnable()
@@ -36,7 +43,31 @@ namespace Enemy.Runtime
                     _currentHealth -= rapierController.m_damage - _block;
                     Hit();
                     if (_currentHealth <= 0)
-                        Destroy(gameObject);
+                    {
+                        gameObject.SetActive(false);
+                        m_isDeath = true;
+                    }
+                        
+                }
+                else Debug.LogWarning("No WeaponDamage on Player");
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
+                if (rapierController != null && rapierController.m_isAttacking)
+                {
+                    _currentHealth -= rapierController.m_damage - _block;
+                    Hit();
+                    if (_currentHealth <= 0)
+                    {
+                        gameObject.SetActive(false);
+                        m_isDeath = true;
+                    }
+                        
                 }
                 else Debug.LogWarning("No WeaponDamage on Player");
             }
@@ -51,21 +82,24 @@ namespace Enemy.Runtime
         {
             _renderer.material.color = Color.red;
         }
+
+        
         
         #endregion
         
         
         #region Private And Protected
         
+        [Header("Stats")]
         [SerializeField] private int _health = 5;
         [SerializeField] private int _block = 0;
         [SerializeField] private float _hits = 1f;
+        [SerializeField] private float _speed = 10f;
         
         private Renderer _renderer;
         private int _blessing;
         private int _currentHealth;
-
-
+        
         #endregion
     }
 }
