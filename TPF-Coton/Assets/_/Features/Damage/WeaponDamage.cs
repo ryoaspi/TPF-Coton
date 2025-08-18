@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace Player.Runtime
+namespace Damage.Runtime
 {
-    public class RapierControlle : MonoBehaviour
+    public class WeaponDamage : MonoBehaviour
     {
         #region Public
         
-        public int m_damage = 3;
-
+        public int m_damage;
+        [HideInInspector] public bool m_isAttacking;
         
         #endregion
         
@@ -16,18 +16,17 @@ namespace Player.Runtime
 
         private void Update()
         {
-            
-            if (_isAttacking)
+            if (m_isAttacking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, _target.position) <= 0.1f)
-                    _isAttacking = false;
+                    m_isAttacking = false;
             }
-            
+
             else
                 transform.position = Vector3.MoveTowards(transform.position, _origin.position, _speed * Time.deltaTime);
         }
-
+        
         #endregion
         
         
@@ -35,8 +34,13 @@ namespace Player.Runtime
 
         public bool IsAttacking()
         {
-            _isAttacking = true;
-            return _isAttacking;
+            m_isAttacking = true;
+            return m_isAttacking;
+        }
+
+        public void AddDamage(int damage)
+        {
+            m_damage += damage;
         }
         
         #endregion
@@ -47,8 +51,6 @@ namespace Player.Runtime
         [SerializeField] private float _speed = 10f;
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;
-        
-        private bool _isAttacking;
         
         #endregion
     }

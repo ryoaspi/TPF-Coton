@@ -1,16 +1,20 @@
 using System;
-using UnityEngine;
-using Unity.Cinemachine;
-using UnityEngine.InputSystem;
+using Damage.Runtime;
 using TheFundation.Runtime;
-
+using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 namespace Player.Runtime
 {    
+    
     public class PlayerController : FBehaviour
     {
         #region Public
 		
-        public Inventory m_inventory = new Inventory();
+        public Inventory m_inventory = new ();
 	        
         #endregion
         
@@ -19,10 +23,10 @@ namespace Player.Runtime
 
         private void Awake()
         {
+            Cursor.visible = false;
             _playerInput = GetComponent<PlayerInput>();
             _rb = GetComponent<Rigidbody>();
             _currentHealth = _MaxHealth;
-			//_currentAttackTime = _AttackTime;
             
             LoadPlayerFacts();
 
@@ -30,6 +34,8 @@ namespace Player.Runtime
             {
                 _currentHealth = _MaxHealth/2;
             }
+            
+            _renderer = GetComponentInChildren<Renderer>();
         }
 
         private void OnEnable()
@@ -41,6 +47,7 @@ namespace Player.Runtime
 
             actions["Interact"].performed += OnInteract;
             actions["Attack"].performed += OnAttack;
+            
         }
 
         private void OnDisable()
@@ -52,6 +59,7 @@ namespace Player.Runtime
 
             actions["Interact"].performed -= OnInteract;
             actions["Attack"].performed -= OnAttack;
+            
         }
 
         private void Update()
@@ -87,10 +95,48 @@ namespace Player.Runtime
                 
                 Vector3 move = moveDirection * (_moveSpeed * Time.deltaTime);
                 _rb.MovePosition(transform.position + move);
-            
+                
+                // If Hits
+                if (_renderer.material.color == Color.red)
+                {
+                    _hits -= Time.deltaTime;
+                    if (_hits <= 0)
+                    {
+                        _renderer.material.color = Color.gray;
+                        _hits = 1f;
+                    }
+                }
+        }
+
+        private void FixedUpdate()
+        {
 
         }
-        
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
+            {
+                Hit();
+                var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
+                if (_renderer.material.color != Color.red)
+                    _currentHealth -= damage;
+            }
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("WeaponEnemy"))
+            {
+                if (_isBlocking == false)
+                {
+                    Hit();
+                    var damage = other.gameObject.GetComponent<WeaponEnemyDamage>().m_damage;
+                    if (_renderer.material.color != Color.red)
+                        _currentHealth -= damage;
+                }
+            }
+            
+            
+        }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             _moveInput = context.ReadValue<Vector2>();    
@@ -104,7 +150,33 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-            _weapon.GetComponent<RapierControlle>().IsAttacking();
+            _weapon.GetComponent<WeaponDamage>().IsAttacking();
+            // if (context.started)
+            // {
+            //     _isAttackingCharged = true;
+            //     _timeCharged += Time.deltaTime;
+            //     if (_timeCharged >= 1f)
+            //     {
+            //         _rendererSword.material.color = Color.yellow;
+            //         if ( context.canceled)
+            //         {
+            //             var charge = _weapon.GetComponent<WeaponDamage>().m_damage;
+            //             charge = (int) (charge * 2f);
+            //             _isAttackingCharged = false;
+            //             _timeCharged = 0f;
+            //             _rendererSword.material.color = Color.gray;
+            //         }
+            //
+            //     }
+            //     
+            //     else
+            //     {
+            //         _isAttackingCharged = false;
+            //         _timeCharged = 0f;
+            //         _rendererSword.material.color = Color.gray;
+            //     }
+            // }
+            
         }
 
 		public void OnInventory(InputAction.CallbackContext context)
@@ -113,7 +185,57 @@ namespace Player.Runtime
 			_isInventoryOpen = !_isInventoryOpen;
 			_inventoryPanel.SetActive(_isInventoryOpen);
 		}
+
+        public void OnBlocking(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _shield.enabled = true;
+                _isBlocking = true;
+            }
+
+            else
+            {
+                _shield.enabled = false;
+                _isBlocking = false;
+            }
+        }
+
+        // public void OnMenu(InputAction.CallbackContext context)
+        // {
+        //     EventSystem.current.SetSelectedGameObject(null);
+        //     EventSystem.current.SetSelectedGameObject(_assetLoadButton);
+        //     _enemyLoadSelect.gameObject.SetActive(false);
+        //     _isLoadScene = true;
+        //     _playerInput.SwitchCurrentActionMap("UI");
+        //     _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        // }
+        //
+        // public void OnCloseMenu(InputAction.CallbackContext context)
+        // {
+        //     _isLoadScene = false;
+        //     _playerInput.SwitchCurrentActionMap("Player");
+        //     _loadSceneCanvas.gameObject.SetActive(_isLoadScene);
+        // }
+        //
+        // public void OnNavigate(InputAction.CallbackContext context)
+        // {
+        //     _buttonSelected=EventSystem.current.currentSelectedGameObject;
+        //     if (_buttonSelected == _assetLoadButton)
+        //     {
+        //         _assetLoadSelect.gameObject.SetActive(true);
+        //         _enemyLoadSelect.gameObject.SetActive(false);
+        //     }
+        //     else if (_buttonSelected == _enemyLoad)
+        //     {
+        //         _assetLoadSelect.gameObject.SetActive(false);
+        //         _enemyLoadSelect.gameObject.SetActive(true);
+        //     }
+        // }
+
         
+        
+
         #endregion
         
         
@@ -150,13 +272,26 @@ namespace Player.Runtime
                 _inventory = JsonUtility.FromJson<Inventory>(inventoryJson);
             }
         }
-        
+
+        // public void GetRefCanvas(Canvas canvas,GameObject button1, GameObject button2,GameObject image1, GameObject image2 )
+        // {
+        //     _loadSceneCanvas = canvas;
+        //     _assetLoadButton = button1;
+        //     _enemyLoad=button2;
+        //     _assetLoadSelect=image1;
+        //     _enemyLoadSelect=image2;
+        //     
+        // }
         #endregion
 
 		
 		#region Main Methods
 
-        
+        [ContextMenu("Hits")]
+        private void Hit()
+        {
+            _renderer.material.color = Color.red;
+        }
         
 		#endregion
         
@@ -167,21 +302,39 @@ namespace Player.Runtime
         private PlayerInput _playerInput;
         
         //Movement
+        [Header("Movement")]
         [SerializeField] private float _moveSpeed = 5f;
         private Vector2 _moveInput;
         private Rigidbody _rb;
         
         //Interaction
+        [Header("Interaction")]
         [SerializeField] private float _interactionRange =2f;
         
         //Combat
+        [Header("Fight")]
         [SerializeField] private int _attackPower = 5;
         [SerializeField] private GameObject _weapon;
+        [SerializeField] private float _hits = 1f;
+        [SerializeField] private Collider _shield;
+        private bool _isBlocking = false;
+        // private bool _isAttackingCharged = false;
+        // private float _timeCharged = 0f;
+        // [SerializeField] private Renderer _rendererSword;
         
         //Inventory
+        [Header("Inventory")]
 		[SerializeField] private GameObject _inventoryPanel;
         private bool _isInventoryOpen = false;
 
+        //UI
+        // [SerializeField] private Canvas  _loadSceneCanvas;
+        // private bool _isLoadScene =true;
+        // [SerializeField] private GameObject _assetLoadButton;
+        // [SerializeField] private GameObject _enemyLoad;
+        // private GameObject _buttonSelected;
+        // [SerializeField] private GameObject _assetLoadSelect;
+        // [SerializeField] private GameObject _enemyLoadSelect;
         
         //Stat
         [Header("Stat")]
@@ -189,10 +342,11 @@ namespace Player.Runtime
         [SerializeField] private int _level = 1;
         [SerializeField] private int _experience = 0;
         [SerializeField] private int _gold = 0;
-        
         [SerializeField] private int _MaxHealth = 100;
-        private int _currentHealth;
         
+        [Header("Other")]
+        private int _currentHealth;
+        [SerializeField] private Renderer _renderer;
         private Inventory _inventory = new ();
         
         #endregion
