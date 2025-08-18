@@ -34,17 +34,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0
+    - _AlphaCutout: 0.027
     - _AppendMoreFins: 0
-    - _Density: 7.22
+    - _Density: 4.28
     - _DrawOrigPolygon: 1
     - _FaceViewProdThresh: 1
-    - _FinJointNum: 10
-    - _FinLength: 0.789
-    - _Occlusion: 0.619
-    - _RandomDirection: 0.247
-    - _TessFactor: 10.5
-    - _TessMaxDist: 15
+    - _FinJointNum: 6
+    - _FinLength: 0.157
+    - _Occlusion: 0.549
+    - _RandomDirection: 0.306
+    - _TessFactor: 10
+    - _TessMaxDist: 19.2
     - _TessMinDist: 0.1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
