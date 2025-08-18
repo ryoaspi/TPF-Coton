@@ -1,3 +1,4 @@
+using System;
 using Damage.Runtime;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Enemy.Runtime
         #region Public
         
         [HideInInspector] public bool m_isDeath;
-        
+        public event Action OnDeath;
         #endregion
         
         
@@ -64,8 +65,7 @@ namespace Enemy.Runtime
                     Hit();
                     if (_currentHealth <= 0)
                     {
-                        gameObject.SetActive(false);
-                        m_isDeath = true;
+                        Death();
                     }
                         
                 }
@@ -82,8 +82,18 @@ namespace Enemy.Runtime
         {
             _renderer.material.color = Color.red;
         }
-
         
+        [ContextMenu("Death")]
+        private void Death()
+        {
+            // if (m_isDeath) return;
+            
+            m_isDeath = true;
+            
+            gameObject.SetActive(false);
+
+            OnDeath?.Invoke();
+        }
         
         #endregion
         
