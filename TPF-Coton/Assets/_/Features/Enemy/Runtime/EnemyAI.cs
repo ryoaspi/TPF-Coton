@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using Damage.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
+
 namespace Enemy.Runtime
 {
     public class EnemyAI : MonoBehaviour
@@ -19,18 +22,29 @@ namespace Enemy.Runtime
            _agent = GetComponent<NavMeshAgent>();
            _agent.updateRotation = true;
            if (_agent == null) Debug.LogError("Naw Mesh Agent is null");
+           if (!_enemyDistant)
+           {
+               _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
+           }
        }
        
        private void Update()
        {
            IsPlayerDetected();
            
-           if (m_playerDetected)
+           if (m_playerDetected && _enemyDistant)
            {
                transform.LookAt(_hit);
                // _agent.SetDestination(_hit);
                return;
            }
+           if (m_playerDetected && !_enemyDistant)
+           {
+               transform.LookAt(_hit);
+               _enemySword.Attack();
+               return;
+           }
+           
            // Vector3 velocivty = _agent.velocity;
            // float speed = velocivty.magnitude;
            Move();
@@ -86,7 +100,7 @@ namespace Enemy.Runtime
                             m_playerDetected = true;
                             _hit = collider.transform.position;
 
-                            if (_EnemyDistant)
+                            if (_enemyDistant)
                             {
                                 // Ne se rapproche pas si trop proche
                                 if (distance > _minAttackDistance)
@@ -99,7 +113,14 @@ namespace Enemy.Runtime
                                 }
 
                             }
-                            else _agent.SetDestination(_hit);
+
+                            if (!_enemyDistant)
+                            {
+                                _minAttackDistance = 0.5f;
+                                if (distance > _minAttackDistance) _agent.SetDestination(_hit);
+                                else _agent.ResetPath();
+                            }
+                            // else _agent.SetDestination(_hit);
 
                             _lostPlayerTimer = 0;
                             return;
@@ -136,8 +157,10 @@ namespace Enemy.Runtime
        
        #region Private
 
+       [FormerlySerializedAs("_EnemyDistant")]
        [Header("Enemy Distant")]
-       [SerializeField] private bool _EnemyDistant;
+       [SerializeField] private bool _enemyDistant;
+       [SerializeField] private float _minAttackDistance = 3f;
        
        private NavMeshAgent _agent;
        [Header("Waypoints List")]
@@ -150,8 +173,8 @@ namespace Enemy.Runtime
        private Vector3 _hit;
        [SerializeField] private float _lostPlayerTimer;
        [SerializeField] private float _lostPlayerDelay = 3 ;
-       [SerializeField] private float _minAttackDistance = 3f;
        [SerializeField] private float _rotationSpeed = 5f;
+       private WeaponEnemyDamage _enemySword;
 
        #endregion
     }

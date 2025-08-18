@@ -7,7 +7,7 @@ namespace Damage.Runtime
     {
         #region Public
         
-        
+        [HideInInspector] public bool m_isAttacking;
         public int m_damage;
         
         #endregion
@@ -17,11 +17,21 @@ namespace Damage.Runtime
 
         private void Update()
         {
-            if (_isAttacking)
+            
+        }
+
+        #endregion
+        
+        
+        #region Utils
+
+        public void Attack()
+        {
+            if (m_isAttacking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, _target.position) <= 0.1f)
-                    _isAttacking = false;
+                    m_isAttacking = false;
                 
 
             }
@@ -29,10 +39,10 @@ namespace Damage.Runtime
             {
                 transform.position = Vector3.MoveTowards(transform.position, _origin.position, _speed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, _origin.position) <= 0.1f)
-                    _isAttacking = true;
+                    m_isAttacking = true;
             }
         }
-
+        
         #endregion
         
         
@@ -42,7 +52,7 @@ namespace Damage.Runtime
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;
         
-        private bool _isAttacking;
+        
         
         #endregion
     }
