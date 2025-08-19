@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetected: 0
-  _enemyDistant: 0
-  _minAttackDistance: 3
+  _enemyIsRanged: 0
+  _minAttackDistance: 0.5
+  _attackCooldown: 2
   _target:
   - {fileID: 0}
   - {fileID: 0}

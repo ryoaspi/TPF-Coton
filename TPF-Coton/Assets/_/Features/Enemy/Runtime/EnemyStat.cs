@@ -32,6 +32,7 @@ namespace Enemy.Runtime
                     _hits = 1f;
                 }
             }
+            
         }
 
         private void OnCollisionEnter(Collision other)
@@ -45,8 +46,7 @@ namespace Enemy.Runtime
                     Hit();
                     if (_currentHealth <= 0)
                     {
-                        gameObject.SetActive(false);
-                        m_isDeath = true;
+                        Death();
                     }
                         
                 }
@@ -90,9 +90,9 @@ namespace Enemy.Runtime
             
             m_isDeath = true;
             
-            gameObject.SetActive(false);
-
             OnDeath?.Invoke();
+            
+            gameObject.SetActive(false);
         }
         
         #endregion
@@ -104,7 +104,6 @@ namespace Enemy.Runtime
         [SerializeField] private int _health = 5;
         [SerializeField] private int _block = 0;
         [SerializeField] private float _hits = 1f;
-        [SerializeField] private float _speed = 10f;
         
         private Renderer _renderer;
         private int _blessing;

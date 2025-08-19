@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Damage.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace Enemy.Runtime
 {
@@ -34,10 +33,12 @@ namespace Enemy.Runtime
 
            if (m_playerDetected)
            {
+               HandleCombat();
+
                transform.LookAt(_hit);
-
+               
                float distanceToPlayer = Vector3.Distance(transform.position, _hit);
-
+               
                if (!_enemyIsRanged)
                {
                    //Melee Logic
@@ -51,8 +52,16 @@ namespace Enemy.Runtime
                } 
                return;
            }
+        
+           if (_isSearching)
+           {
+               SearchAtLastKnownPosition();
+               return;
+           }
            
-           Move();
+           Patrol(); 
+           
+           
            
        }
        
@@ -60,18 +69,6 @@ namespace Enemy.Runtime
        
        
        #region Main Method
-
-       private void Move()
-       {
-           if ( m_playerDetected || _target.Count == 0) return;
-           
-          
-           if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
-           {
-               _currentTarget = (_currentTarget + 1) % _target.Count;
-               _agent.SetDestination(_target[_currentTarget].position);
-           }
-       }
        
        private void IsPlayerDetected()
        {
@@ -95,28 +92,22 @@ namespace Enemy.Runtime
                         {
                             m_playerDetected = true;
                             _hit = collider.transform.position;
-
-                            if (_enemyIsRanged)
+                            _lastKnowPlayerPosition = _hit;
+                            _isSearching = false;
+                            _lostPlayerTimer = 0;
+                            _hasSeenPlayer = true;
+                            
+                            // Ne se rapproche pas si trop proche
+                            if (distance > _minAttackDistance)
                             {
-                                // Ne se rapproche pas si trop proche
-                                if (distance > _minAttackDistance)
-                                {
-                                    _agent.SetDestination(_hit);
-                                }
-                                else
-                                {
-                                    _agent.ResetPath();
-                                }
-
+                                _agent.SetDestination(_hit);
                             }
-
                             else
                             {
-                                if (distance > _minAttackDistance) _agent.SetDestination(_hit);
-                                else _agent.ResetPath();
+                                _agent.ResetPath();
                             }
 
-                            _lostPlayerTimer = 0;
+
                             return;
                         }
                     }
@@ -126,9 +117,24 @@ namespace Enemy.Runtime
            if (!m_playerDetected)
            {
                _lostPlayerTimer += Time.deltaTime;
+
+               if (_hasSeenPlayer)
+               {
+                    _agent.SetDestination(_lastKnowPlayerPosition);
+               }
+               
                if (_lostPlayerTimer >= _lostPlayerDelay)
                {
                    m_playerDetected = false;
+                   if (_hasSeenPlayer)
+                   {
+                       _isSearching = true; // active le mode recherche
+                       _agent.ResetPath();
+                       _searchTimer = 0;    
+                   }
+                   
+                   
+
                }
            }
        }
@@ -144,6 +150,75 @@ namespace Enemy.Runtime
            Gizmos.color = Color.green;
            Gizmos.DrawRay(transform.position, left * _detectionDistance);
            Gizmos.DrawRay(transform.position, right * _detectionDistance);
+       }
+
+       private void SearchAtLastKnownPosition()
+       {
+           float distance = Vector3.Distance(transform.position, _lastKnowPlayerPosition);
+
+           if (distance > _agent.stoppingDistance)
+           {
+               _agent.SetDestination(_lastKnowPlayerPosition);
+               return;
+           }
+           
+           _agent.ResetPath();
+           
+           //Regarder autour
+           transform.Rotate(Vector3.up * (45f * Time.deltaTime));
+           
+           _searchTimer += Time.deltaTime;
+           if (_searchTimer >= _searchDuration)
+           {
+               _searchTimer = 0;
+               _isSearching = false;
+               _hasSeenPlayer = false;
+               _agent.ResetPath();
+           }
+       }
+
+       private void HandleCombat()
+       {
+           // Rotation vers le joueur
+           Vector3 direction = (_hit - transform.position).normalized;
+           direction.y = 0;
+           Quaternion rotation = Quaternion.LookRotation(direction);
+           transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _rotationSpeed * Time.deltaTime);
+
+           float distanceToPlayer = Vector3.Distance(transform.position, _hit);
+
+           if (_enemyIsRanged)
+           {
+               if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
+               else _agent.ResetPath();
+           }
+           else
+           {
+               if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
+
+               else
+               {
+                   _agent.ResetPath();
+                   if (!_enemySword.m_isAttacking && Time.time >= _lastAttackTime + _attackCooldown)
+                   {
+                       _enemySword.m_isAttacking = true;
+                       _lastAttackTime = Time.time;
+                       _enemySword.Attack();
+                   }
+               }
+           }
+       }
+
+       private void Patrol()
+       {
+           if ( m_playerDetected || _target.Count == 0) return;
+           
+          
+           if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+           {
+               _currentTarget = (_currentTarget + 1) % _target.Count;
+               _agent.SetDestination(_target[_currentTarget].position);
+           }
        }
        
        #endregion
@@ -173,7 +248,11 @@ namespace Enemy.Runtime
        [SerializeField] private float _rotationSpeed = 5f;
        private WeaponEnemyDamage _enemySword;
        
-
+        private float _searchDuration = 3f;
+        private bool _isSearching;
+        private float _searchTimer;
+        private Vector3 _lastKnowPlayerPosition;
+        private bool _hasSeenPlayer;
        
        #endregion
     }
