@@ -22,7 +22,7 @@ namespace Enemy.Runtime
            _agent = GetComponent<NavMeshAgent>();
            _agent.updateRotation = true;
            if (_agent == null) Debug.LogError("Naw Mesh Agent is null");
-           if (!_enemyDistant)
+           if (!_enemyIsRanged)
            {
                _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
            }
@@ -31,22 +31,27 @@ namespace Enemy.Runtime
        private void Update()
        {
            IsPlayerDetected();
-           
-           if (m_playerDetected && _enemyDistant)
+
+           if (m_playerDetected)
            {
                transform.LookAt(_hit);
-               // _agent.SetDestination(_hit);
-               return;
-           }
-           if (m_playerDetected && !_enemyDistant)
-           {
-               transform.LookAt(_hit);
-               _enemySword.Attack();
+
+               float distanceToPlayer = Vector3.Distance(transform.position, _hit);
+
+               if (!_enemyIsRanged)
+               {
+                   //Melee Logic
+                   if (!_enemySword.m_isAttacking && distanceToPlayer <= _minAttackDistance &&
+                       Time.time >= _lastAttackTime + _attackCooldown)
+                   {
+                       _enemySword.m_isAttacking = true;
+                       _lastAttackTime = Time.time;
+                   }
+                   _enemySword.Attack();
+               } 
                return;
            }
            
-           // Vector3 velocivty = _agent.velocity;
-           // float speed = velocivty.magnitude;
            Move();
            
        }
@@ -60,16 +65,7 @@ namespace Enemy.Runtime
        {
            if ( m_playerDetected || _target.Count == 0) return;
            
-           // Transform target = _target[_currentTarget];
-           // float distance = Vector3.Distance(_target[_currentTarget].position, transform.position);
-           
-           // if (distance <= 0.5f)
-           // {
-           //     _currentTarget = (_currentTarget + 1) % _target.Count;
-           //     target = _target[_currentTarget];
-           //     _agent.SetDestination(target.position);
-           // }
-           
+          
            if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
            {
                _currentTarget = (_currentTarget + 1) % _target.Count;
@@ -90,8 +86,8 @@ namespace Enemy.Runtime
                {
                     Vector3 direction = (collider.transform.position - transform.position).normalized;
                     float distance = Vector3.Distance(collider.transform.position, transform.position);
-                    
                     float angle = Vector3.Angle(transform.forward, direction);
+                    
                     if (angle <= _detectionAngle / 2f)
                     {
                         Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
@@ -100,7 +96,7 @@ namespace Enemy.Runtime
                             m_playerDetected = true;
                             _hit = collider.transform.position;
 
-                            if (_enemyDistant)
+                            if (_enemyIsRanged)
                             {
                                 // Ne se rapproche pas si trop proche
                                 if (distance > _minAttackDistance)
@@ -114,13 +110,11 @@ namespace Enemy.Runtime
 
                             }
 
-                            if (!_enemyDistant)
+                            else
                             {
-                                _minAttackDistance = 0.5f;
                                 if (distance > _minAttackDistance) _agent.SetDestination(_hit);
                                 else _agent.ResetPath();
                             }
-                            // else _agent.SetDestination(_hit);
 
                             _lostPlayerTimer = 0;
                             return;
@@ -157,10 +151,13 @@ namespace Enemy.Runtime
        
        #region Private
 
-       [FormerlySerializedAs("_EnemyDistant")]
        [Header("Enemy Distant")]
-       [SerializeField] private bool _enemyDistant;
+       [SerializeField] private bool _enemyIsRanged;
+       
+       [Header("Attack Settings")]
        [SerializeField] private float _minAttackDistance = 3f;
+       [SerializeField] private float _attackCooldown = 2f;
+       private float _lastAttackTime;
        
        private NavMeshAgent _agent;
        [Header("Waypoints List")]
@@ -175,7 +172,9 @@ namespace Enemy.Runtime
        [SerializeField] private float _lostPlayerDelay = 3 ;
        [SerializeField] private float _rotationSpeed = 5f;
        private WeaponEnemyDamage _enemySword;
+       
 
+       
        #endregion
     }
 }

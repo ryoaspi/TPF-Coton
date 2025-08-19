@@ -36,7 +36,11 @@ namespace Enemy.Runtime
             {
                 Debug.Log("All enemies are dead");
                 // Action à faire quand tous les ennemis sont morts.
-                _door.SetActive(false);
+                if (_addGameObjects)
+                {
+                    _door.SetActive(true);
+                }
+                else _door.SetActive(false);
             }
         }
         
@@ -46,6 +50,7 @@ namespace Enemy.Runtime
         #region Private And Protected
         
         [SerializeField] private List<GameObject> _enemies;
+        [SerializeField] private bool _addGameObjects;
         private int _deadCount;
 
         [Header("Open")] [SerializeField] private GameObject _door;
