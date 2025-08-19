@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: adaf085100d486f46b6cbb5bf493ae64, type: 3}
+        m_Texture: {fileID: 2800000, guid: a4ff84ac47b4691498ec77149da728bf, type: 3}
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _FurMap:
@@ -46,14 +46,14 @@ Material:
     - _Cull: 2
     - _DstBlend: 10
     - _FaceViewProdThresh: 0
-    - _FurScale: 2.22
-    - _Occlusion: 0.671
+    - _FurScale: 3.95
+    - _Occlusion: 0.641
     - _Random: 1
     - _RandomFreq: 0.7
     - _RandomMove: 0.261
     - _ShellAmount: 32
     - _ShellCount: 10
-    - _ShellStep: 0.00322
+    - _ShellStep: 0.00342
     - _SrcBlend: 5
     - _ZWrite: 1
     m_Colors:

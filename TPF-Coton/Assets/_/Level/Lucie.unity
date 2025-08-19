@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 21ebc750473ff824c960945214a5e9e3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c9c1c73b0a99593418a07dd9230b3edf, type: 2}
     - target: {fileID: 919132149155446097, guid: 21ebc750473ff824c960945214a5e9e3, type: 3}
       propertyPath: m_Name
       value: Floor
@@ -482,6 +486,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 60b81d5170705334d879bbbbb860c289, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 60b81d5170705334d879bbbbb860c289, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 849138eb7f07e99438bd5e9a7e48b721, type: 2}
     - target: {fileID: 919132149155446097, guid: 60b81d5170705334d879bbbbb860c289, type: 3}
       propertyPath: m_Name
       value: Arbre1_small_smooth
@@ -653,6 +665,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9c5701919fcbdac43a6f13fb766a2307, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9c5701919fcbdac43a6f13fb766a2307, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 849138eb7f07e99438bd5e9a7e48b721, type: 2}
     - target: {fileID: 919132149155446097, guid: 9c5701919fcbdac43a6f13fb766a2307, type: 3}
       propertyPath: m_Name
       value: Arbre1_small_lowpolly
@@ -824,6 +844,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3c019aca5e6d811408c3c0de0512dfe2, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
     - target: {fileID: 919132149155446097, guid: 3c019aca5e6d811408c3c0de0512dfe2, type: 3}
       propertyPath: m_Name
       value: Arbre2_big_lowpoly
@@ -938,6 +962,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c310605494d9ddf40a8fe7ef45b34ef0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
     - target: {fileID: 919132149155446097, guid: c310605494d9ddf40a8fe7ef45b34ef0, type: 3}
       propertyPath: m_Name
       value: Arbre3_big_lowpoly
@@ -995,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fa81ae7c9e1ca38428214c39677d7716, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
     - target: {fileID: 919132149155446097, guid: fa81ae7c9e1ca38428214c39677d7716, type: 3}
       propertyPath: m_Name
       value: Arbre3_big_Smooth
@@ -1109,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5e3f5860e759e3c44ac4d6aaa473f6af, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99bc3bff102889749b5b791d10f2dbbc, type: 2}
     - target: {fileID: 919132149155446097, guid: 5e3f5860e759e3c44ac4d6aaa473f6af, type: 3}
       propertyPath: m_Name
       value: Arbre2_big_Smooth

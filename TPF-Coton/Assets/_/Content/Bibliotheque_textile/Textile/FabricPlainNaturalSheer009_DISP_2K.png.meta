@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 5d106ba4f3ac89140bcc596d9d76d265
-AssetOrigin:
-  serializedVersion: 1
-  productId: 13002
-  packageName: Yughues Free Fabric Materials
-  packageVersion: 1.2
-  assetPath: Assets/YughuesFreeFabricMaterials/Textures/T_YFFaM_Burlap01_d.tga
-  uploadId: 743862
+guid: a024b5022fd45714db8ba489d12a4cdc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -41,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -58,7 +51,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 0
+  alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
@@ -76,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
