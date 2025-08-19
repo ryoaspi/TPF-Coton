@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_fin_tree_variant
+  m_Name: M_fin_tree3
   m_Shader: {fileID: 4800000, guid: b2b893f23aa3cca45893c5c8c061df2f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -34,18 +34,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.1
+    - _AlphaCutout: 0.027
     - _AppendMoreFins: 0
-    - _Density: 2.49
+    - _Density: 4.28
     - _DrawOrigPolygon: 1
     - _FaceViewProdThresh: 1
-    - _FinJointNum: 10
-    - _FinLength: 0.402
-    - _Occlusion: 0.7
-    - _RandomDirection: 0.42
-    - _TessFactor: 32.1
-    - _TessMaxDist: 19.4
-    - _TessMinDist: 3
+    - _FinJointNum: 6
+    - _FinLength: 0.157
+    - _Occlusion: 0.549
+    - _RandomDirection: 0.306
+    - _TessFactor: 10
+    - _TessMaxDist: 19.2
+    - _TessMinDist: 0.9
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseMove: {r: 0, g: -0.4, b: 0, a: 3}

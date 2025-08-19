@@ -493,7 +493,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 60b81d5170705334d879bbbbb860c289, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 849138eb7f07e99438bd5e9a7e48b721, type: 2}
+      objectReference: {fileID: 2100000, guid: 8ffa797cfc3796f46bbe5c52ff260dce, type: 2}
     - target: {fileID: 919132149155446097, guid: 60b81d5170705334d879bbbbb860c289, type: 3}
       propertyPath: m_Name
       value: Arbre1_small_smooth
@@ -672,7 +672,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9c5701919fcbdac43a6f13fb766a2307, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 849138eb7f07e99438bd5e9a7e48b721, type: 2}
+      objectReference: {fileID: 2100000, guid: 8ffa797cfc3796f46bbe5c52ff260dce, type: 2}
     - target: {fileID: 919132149155446097, guid: 9c5701919fcbdac43a6f13fb766a2307, type: 3}
       propertyPath: m_Name
       value: Arbre1_small_lowpolly
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48764d603ccd508408625965cd58057c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48764d603ccd508408625965cd58057c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a65ae864b6ca9aa4ebb77bf10dad5f77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 5.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a65ae864b6ca9aa4ebb77bf10dad5f77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -905,6 +905,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a65ae864b6ca9aa4ebb77bf10dad5f77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a583f36f72ce614cbc6a34736815a54, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a65ae864b6ca9aa4ebb77bf10dad5f77, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea1c3bbea0244aa469d25cc7c7fe46e7, type: 2}
     - target: {fileID: 919132149155446097, guid: a65ae864b6ca9aa4ebb77bf10dad5f77, type: 3}
       propertyPath: m_Name
       value: Falaise_smooth
@@ -1084,6 +1092,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 89823a94077ea034e9a27cf0c2de34f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a583f36f72ce614cbc6a34736815a54, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 89823a94077ea034e9a27cf0c2de34f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea1c3bbea0244aa469d25cc7c7fe46e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 89823a94077ea034e9a27cf0c2de34f7, type: 3}
       propertyPath: m_Name
       value: caillou
