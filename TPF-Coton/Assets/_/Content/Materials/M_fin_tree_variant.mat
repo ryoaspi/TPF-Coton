@@ -43,7 +43,7 @@ Material:
     - _FinLength: 0.402
     - _Occlusion: 0.7
     - _RandomDirection: 0.42
-    - _TessFactor: 32.1
+    - _TessFactor: 6
     - _TessMaxDist: 19.4
     - _TessMinDist: 3
     m_Colors:
