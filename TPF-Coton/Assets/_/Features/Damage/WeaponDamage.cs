@@ -40,7 +40,6 @@ namespace Damage.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private float _speed = 10f;
         
         
         #endregion
