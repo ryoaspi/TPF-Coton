@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 0
-  _damage: 0
-  _firePoint: {fileID: 0}
+  _damage: 1
   _speed: 10
   _duration: 1
