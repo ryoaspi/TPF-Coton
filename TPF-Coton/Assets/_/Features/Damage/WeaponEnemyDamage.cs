@@ -27,6 +27,8 @@ namespace Damage.Runtime
 
         public void Attack()
         {
+            if (!_target || !_origin) return;
+            
             if (m_isAttacking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
@@ -38,8 +40,8 @@ namespace Damage.Runtime
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, _origin.position, _speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, _origin.position) <= 0.1f)
-                    m_isAttacking = true;
+                // if (Vector3.Distance(transform.position, _origin.position) <= 0.1f)
+                //     m_isAttacking = true;
             }
         }
         
@@ -51,9 +53,12 @@ namespace Damage.Runtime
         [SerializeField] private float _speed = 10f;
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;
+
         
-        
-        
+
+
+
+
         #endregion
     }
 }
