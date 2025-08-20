@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Damage.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,11 +20,8 @@ namespace Enemy.Runtime
             _agent = GetComponent<NavMeshAgent>();
             if (_agent == null) Debug.LogError("Naw Mesh Agent is null");
             _agent.updateRotation = true;
-
-            if (!_enemyIsRanged)
-            {
-                _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
-            }
+            _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
+            _enemyShoot = GetComponentInChildren<EnemyShoot>();
         }
 
         private void Update()
@@ -223,8 +219,20 @@ namespace Enemy.Runtime
 
             if (_enemyIsRanged)
             {
-                if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
-                else _agent.ResetPath();
+                if (distanceToPlayer > _minAttackDistance)
+                {
+                    _agent.SetDestination(_hit);
+                    
+                }
+                else
+                {
+                    _agent.ResetPath();
+                    if (Time.time >= _lastAttackTime + _attackCooldown)
+                    {
+                        _lastAttackTime = Time.time;
+                        _enemyShoot.Shooting();
+                    }
+                }
             }
             else
             {
@@ -263,17 +271,17 @@ namespace Enemy.Runtime
         [Header("Enemy Distant")] [SerializeField]
         private bool _enemyIsRanged;
 
-        [Header("Attack Settings")] [SerializeField]
-        private float _minAttackDistance = 3f;
-
+        [Header("Attack Settings")]
+        [SerializeField] private float _minAttackDistance = 3f;
         [SerializeField] private float _attackCooldown = 2f;
+        private WeaponEnemyDamage _enemySword;
         private float _lastAttackTime;
 
         private NavMeshAgent _agent;
 
         [Header("Waypoints List")] [SerializeField]
         private List<Transform> _target;
-
+        
         private int _currentTarget;
 
         [Header("Detected Player")] [SerializeField]
@@ -284,7 +292,7 @@ namespace Enemy.Runtime
         private float _lostPlayerTimer;
         [SerializeField] private float _lostPlayerDelay = 3;
         [SerializeField] private float _rotationSpeed = 5f;
-        private WeaponEnemyDamage _enemySword;
+        
 
         [SerializeField] private float _searchDuration = 3f;
         [SerializeField] private float _maxsearchTimer = 8f;
@@ -295,7 +303,8 @@ namespace Enemy.Runtime
         private float _searchTimer;
         private Vector3 _lastKnowPlayerPosition;
         private bool _hasSeenPlayer;
-       
-       #endregion
+        private EnemyShoot _enemyShoot;
+
+        #endregion
     }
 }

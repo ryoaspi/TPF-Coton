@@ -1,7 +1,9 @@
 {
     "name": "Damage.Runtime",
     "rootNamespace": "Damage.Runtime",
-    "references": [],
+    "references": [
+        "GUID:823739e0add690e45b4d2b83fc49034c"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

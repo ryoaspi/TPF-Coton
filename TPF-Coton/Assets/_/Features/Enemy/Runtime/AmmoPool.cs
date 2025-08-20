@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Damage.Runtime
+namespace Enemy.Runtime
 {
-    [DefaultExecutionOrder(-100)]
     public class AmmoPool : MonoBehaviour
     {
         #region Public

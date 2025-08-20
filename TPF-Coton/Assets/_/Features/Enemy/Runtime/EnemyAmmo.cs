@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Damage.Runtime
+namespace Enemy.Runtime
 {
     public class EnemyAmmo : MonoBehaviour
     {
@@ -13,11 +13,11 @@ namespace Damage.Runtime
         
         
         #region Unity Api
-
+        
         private void OnEnable()
         {
             _timer = 0;
-            m_damage = _damage;
+
         }
 
         private void Update()
@@ -61,12 +61,11 @@ namespace Damage.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private int _damage;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _duration = 1;
         
         private float _timer;
-        
+
         #endregion
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using Damage.Runtime;
 using UnityEngine;
 
 namespace Enemy.Runtime
@@ -9,11 +8,17 @@ namespace Enemy.Runtime
         #region Public
         
         [HideInInspector] public bool m_isDeath;
+        [HideInInspector] public int m_damage;
         public event Action OnDeath;
         #endregion
         
         
         #region Unity Api
+
+        private void Start()
+        {
+            m_damage = _Damage;
+        }
 
         private void OnEnable()
         {
@@ -34,45 +39,25 @@ namespace Enemy.Runtime
             }
             
         }
+        
+        #endregion
+        
+        
+        #region Utils
 
-        private void OnCollisionEnter(Collision other)
+        public int DoDamage(int damage)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            _currentHealth -= damage;
+            Hit();
+            if (_currentHealth <= 0)
             {
-                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
-                if (rapierController != null && rapierController.m_isAttacking)
-                {
-                    _currentHealth -= rapierController.m_damage - _block;
-                    Hit();
-                    if (_currentHealth <= 0)
-                    {
-                        Death();
-                    }
-                        
-                }
-                else Debug.LogWarning("No WeaponDamage on Player");
+                Death();
             }
+            
+            return _currentHealth;
+            
         }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
-                if (rapierController != null && rapierController.m_isAttacking)
-                {
-                    _currentHealth -= rapierController.m_damage - _block;
-                    Hit();
-                    if (_currentHealth <= 0)
-                    {
-                        Death();
-                    }
-                        
-                }
-                else Debug.LogWarning("No WeaponDamage on Player");
-            }
-        }
-
+        
         #endregion
         
         
@@ -103,6 +88,7 @@ namespace Enemy.Runtime
         [Header("Stats")]
         [SerializeField] private int _health = 5;
         [SerializeField] private int _block = 0;
+        [SerializeField] private int _Damage = 1;
         [SerializeField] private float _hits = 1f;
         
         private Renderer _renderer;
