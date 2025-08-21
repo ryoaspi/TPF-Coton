@@ -9,6 +9,7 @@ namespace Enemy.Runtime
         #region Public
 
         [HideInInspector] public bool m_playerDetected;
+        
 
         #endregion
 

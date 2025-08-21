@@ -10,6 +10,10 @@ namespace Object.Runtime
         private void OnEnable()
         {
             _currentTime = 0;
+            _col = GetComponent<Collider>();
+            _rb = GetComponent<Rigidbody>();
+            _rb.isKinematic = false;
+            _col.isTrigger = false;
         }
 
         private void Update()
@@ -22,6 +26,15 @@ namespace Object.Runtime
             }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+            {
+                _rb.isKinematic = true;
+                _col.isTrigger = true;
+            }
+        }
+
         #endregion
         
         #region Utils
@@ -30,6 +43,12 @@ namespace Object.Runtime
         {
             _collected = true;
             return 1;
+        }
+
+        public void SetPhysicsActive(bool active)
+        {
+            _rb.isKinematic = !active;
+            _col.isTrigger = !active;
         }
         
         #endregion
@@ -48,6 +67,8 @@ namespace Object.Runtime
         [SerializeField] private float _lifeTime;
         private float _currentTime;
         private bool _isDone;
+        private Collider _col;
+        private Rigidbody _rb;
 
         #endregion
     }

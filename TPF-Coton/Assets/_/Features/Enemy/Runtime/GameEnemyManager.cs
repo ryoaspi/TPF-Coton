@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy.Runtime
 {
-    public class EnemySpawner : MonoBehaviour
+    public class GameEnemyManager : MonoBehaviour
     {
         #region Api Unity
        
