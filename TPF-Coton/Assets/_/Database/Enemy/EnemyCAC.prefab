@@ -128,10 +128,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDeath: 0
+  m_damage: 0
+  m_currentHealth: 0
+  m_block: 0
   _health: 5
   _block: 0
   _Damage: 1
   _hits: 1
+  _coton: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
+  _distance: 1.5
+  _arcHeight: 2
+  _arcDuration: 1
 --- !u!114 &5780551411846716902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +233,7 @@ GameObject:
   - component: {fileID: 4172007540344757666}
   - component: {fileID: 589464488422108263}
   - component: {fileID: 8762444895739988241}
+  - component: {fileID: 3389698861178972017}
   m_Layer: 8
   m_Name: sword
   m_TagString: Untagged
@@ -316,7 +324,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -335,10 +343,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isAttacking: 0
-  m_damage: 0
   _speed: 10
-  _target: {fileID: 0}
-  _origin: {fileID: 0}
+  _target: {fileID: 7437149015852332239}
+  _origin: {fileID: 1929690037110820102}
+--- !u!114 &3389698861178972017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548971002891076676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669b62b0704e8ed4ba20026358b5fa98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4433451171335736482
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 4433451171335736482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.492, y: 0, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

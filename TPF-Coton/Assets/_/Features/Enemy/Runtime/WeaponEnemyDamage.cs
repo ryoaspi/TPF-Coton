@@ -7,7 +7,6 @@ namespace Enemy.Runtime
         #region Public
         
         [HideInInspector] public bool m_isAttacking;
-        public int m_damage;
         
         #endregion
         

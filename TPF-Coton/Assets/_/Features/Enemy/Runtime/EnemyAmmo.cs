@@ -24,16 +24,13 @@ namespace Enemy.Runtime
         {
             Move();
             LifeTime();
+            AppDamage();
         }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            AmmoPool.Instance.ReturnToPool(gameObject);
-        }
+        
         
         private void OnTriggerEnter(Collider other)
         {
-            AmmoPool.Instance.ReturnToPool(gameObject);
+            _isTouch = true;
         }
 
         #endregion
@@ -55,6 +52,21 @@ namespace Enemy.Runtime
                 AmmoPool.Instance.ReturnToPool(gameObject);
             }
         }
+
+        private void AppDamage()
+        {
+            if (_isTouch)
+            {
+                _timeTouch += Time.deltaTime;
+                if (_timeTouch >= 1)
+                {
+                    _timeTouch = 0;
+                    _isTouch = false;
+                    AmmoPool.Instance.ReturnToPool(gameObject);
+                }
+            }
+            
+        }
         
         #endregion
         
@@ -64,7 +76,9 @@ namespace Enemy.Runtime
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _duration = 1;
         
+        private bool _isTouch;
         private float _timer;
+        private float _timeTouch;
 
         #endregion
     }

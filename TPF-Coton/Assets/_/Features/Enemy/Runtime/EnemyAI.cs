@@ -25,7 +25,7 @@ namespace Enemy.Runtime
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             IsPlayerDetected();
 
@@ -60,8 +60,6 @@ namespace Enemy.Runtime
             }
 
             Patrol();
-
-
 
         }
 

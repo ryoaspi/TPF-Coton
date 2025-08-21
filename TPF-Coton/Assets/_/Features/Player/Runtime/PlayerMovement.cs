@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Runtime
 {
     public class PlayerMovement : MonoBehaviour
     {
+        #region Public
+        
+        [FormerlySerializedAs("speed")] [SerializeField] public  float m_speed = 5;
+        [HideInInspector] public float m_speedSave;
+        
+        #endregion
+        
         #region UnityAPI
 
         private void Awake()
         {
             _playerInput=GetComponent<PlayerInput>();
             _moveAction=_playerInput.actions["Move"];
+            m_speedSave=m_speed;
         }
 
         private void Start()
@@ -30,11 +39,6 @@ namespace Player.Runtime
         private void FixedUpdate()
         {
             GroundCheck();
-        }
-        
-        void Update()
-        {
-            
             if (_isGrounded &&_moveDirection.sqrMagnitude > 0.01f && _mainCamera != null)
             {
                 
@@ -55,7 +59,7 @@ namespace Player.Runtime
                 movement.Normalize();
                 _lastDirection =  _moveDir.normalized;
                 
-                _rb.AddForce(movement * (speed * stickMagnitude), ForceMode.VelocityChange);
+                _rb.AddForce(movement * (m_speed * stickMagnitude * Time.fixedDeltaTime), ForceMode.VelocityChange);
                 
                 _rb.linearDamping = groundedDrag;
                
@@ -66,10 +70,18 @@ namespace Player.Runtime
             }
             
             Quaternion targetRotation = Quaternion.LookRotation(_lastDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+        }
+        
+        void Update()
+        {
             
+           
         }
 
+
+        
         #endregion
         
         
@@ -136,9 +148,8 @@ namespace Player.Runtime
         private bool _isGrounded;
         
         
-        [SerializeField] float speed = 5;
-        [SerializeField] private float rotationSpeed = 10f;
         
+        [SerializeField] private float rotationSpeed = 10f;
         [Header("Ground Check Settings")]
         [SerializeField] private float groundCheckDistance = 1.5f;
         [SerializeField] private float groundCheckRadius = 0.4f;
