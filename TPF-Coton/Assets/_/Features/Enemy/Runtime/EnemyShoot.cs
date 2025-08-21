@@ -1,5 +1,4 @@
 using System;
-using Damage.Runtime;
 using UnityEngine;
 
 namespace Enemy.Runtime
@@ -8,34 +7,27 @@ namespace Enemy.Runtime
     {
         #region Unity Api
 
-        private void Start()
+        private void Awake()
         {
-            _enemyAI = GetComponentInParent<EnemyAI>();
+            _enemyStat = GetComponentInParent<EnemyStat>();
         }
-
-        private void Update()
-        {
-            _nextFire += Time.deltaTime;
-            _playerDetected = _enemyAI.m_playerDetected;
-            Shooting();
-        }
-
+        
         #endregion
         
-        #region Main Method
+        #region Utils
 
-        private void Shooting()
+        public void Shooting()
         {
-            if (!_playerDetected) return;
-            
-            if (_nextFire >= _fireRate)
+            Debug.Log("Je tire");
+            _bullet = AmmoPool.Instance.GetFromPool();
+            _bullet.transform.position = _firePoint.position;
+            _bullet.transform.rotation = _firePoint.rotation;
+
+            var enemyAmmo = _bullet.GetComponent<EnemyAmmo>();
+            if (enemyAmmo != null)
             {
-                GameObject bullet = AmmoPool.Instance.GetFromPool();
-                bullet.transform.position = _firePoint.position;
-                bullet.transform.rotation = _firePoint.rotation;
-                
-                _nextFire = 0;
-            }
+                enemyAmmo.m_damage = _enemyStat.m_damage;
+            }       
         }
         
         #endregion
@@ -43,12 +35,10 @@ namespace Enemy.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private float _fireRate = 2;
         [SerializeField] private Transform _firePoint;
-        private float _nextFire;
-        private bool _playerDetected;
-        private EnemyAI _enemyAI;
-
+        
+        private EnemyStat _enemyStat;
+        private GameObject _bullet;
 
         #endregion
     }

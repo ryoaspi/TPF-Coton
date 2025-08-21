@@ -1,10 +1,7 @@
 {
-    "name": "Damage.Runtime",
-    "rootNamespace": "Damage.Runtime",
-    "references": [
-        "GUID:823739e0add690e45b4d2b83fc49034c",
-        "GUID:9b9c073f07118994196edc218b10ccc0"
-    ],
+    "name": "Interface.Runtime",
+    "rootNamespace": "Interface.Runtime",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

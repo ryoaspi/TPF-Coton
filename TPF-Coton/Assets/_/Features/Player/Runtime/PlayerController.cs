@@ -1,12 +1,8 @@
-using System;
-using Damage.Runtime;
 using TheFundation.Runtime;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+
 namespace Player.Runtime
 {    
     
@@ -113,30 +109,6 @@ namespace Player.Runtime
 
         }
 
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
-            {
-                Hit();
-                var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
-                if (_renderer.material.color != Color.red)
-                    _currentHealth -= damage;
-            }
-
-            if (other.gameObject.layer == LayerMask.NameToLayer("WeaponEnemy"))
-            {
-                if (_isBlocking == false)
-                {
-                    Hit();
-                    var damage = other.gameObject.GetComponent<WeaponEnemyDamage>().m_damage;
-                    if (_renderer.material.color != Color.red)
-                        _currentHealth -= damage;
-                }
-            }
-            
-            
-        }
-
         public void OnMove(InputAction.CallbackContext context)
         {
             _moveInput = context.ReadValue<Vector2>();    
@@ -150,7 +122,7 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-            _weapon.GetComponent<WeaponDamage>().IsAttacking();
+            //_weapon.GetComponent<WeaponDamage>().IsAttacking();
             // if (context.started)
             // {
             //     _isAttackingCharged = true;

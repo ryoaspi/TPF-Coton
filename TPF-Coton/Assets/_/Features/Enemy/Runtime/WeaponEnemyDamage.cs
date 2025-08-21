@@ -1,7 +1,6 @@
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
-namespace Damage.Runtime
+namespace Enemy.Runtime
 {
     public class WeaponEnemyDamage : MonoBehaviour
     {
@@ -53,11 +52,6 @@ namespace Damage.Runtime
         [SerializeField] private float _speed = 10f;
         [SerializeField] private Transform _target;
         [SerializeField] private Transform _origin;
-
-        
-
-
-
 
         #endregion
     }

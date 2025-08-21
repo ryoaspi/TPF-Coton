@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3856873843764690262
+--- !u!1 &2963133468622554239
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4133569659807016377}
-  - component: {fileID: 8994418844073211593}
-  - component: {fileID: 1189704551083298488}
-  - component: {fileID: 757882882241942416}
-  - component: {fileID: 5548432995282235763}
-  m_Layer: 8
-  m_Name: Bullet
+  - component: {fileID: 1158027755384850881}
+  - component: {fileID: 8601657186618849611}
+  - component: {fileID: 4695565217488157066}
+  - component: {fileID: 7355247947997686497}
+  - component: {fileID: 8731708812903246641}
+  - component: {fileID: 1573892852865808651}
+  m_Layer: 0
+  m_Name: Coton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4133569659807016377
+--- !u!4 &1158027755384850881
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856873843764690262}
+  m_GameObject: {fileID: 2963133468622554239}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -14.223132, y: -15.426448, z: 36.26764}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.111422, y: 1.1815003, z: -1.4668317}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &8994418844073211593
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8601657186618849611
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856873843764690262}
+  m_GameObject: {fileID: 2963133468622554239}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1189704551083298488
+--- !u!23 &4695565217488157066
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856873843764690262}
+  m_GameObject: {fileID: 2963133468622554239}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,13 +89,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &757882882241942416
+--- !u!135 &7355247947997686497
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856873843764690262}
+  m_GameObject: {fileID: 2963133468622554239}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -109,19 +110,28 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5548432995282235763
+--- !u!114 &8731708812903246641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856873843764690262}
+  m_GameObject: {fileID: 2963133468622554239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7c8712ba55fa2469a0fc5bf2c96780, type: 3}
+  m_Script: {fileID: 11500000, guid: e5915ea836a296741b9f58e105300a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 0
-  _damage: 1
-  _speed: 10
-  _duration: 1
+  _lifeTime: 10
+--- !u!114 &1573892852865808651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963133468622554239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0749478dc793cd47ab0a778f4e36fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

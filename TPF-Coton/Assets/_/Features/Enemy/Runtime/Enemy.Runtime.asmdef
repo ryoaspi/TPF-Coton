@@ -2,7 +2,7 @@
     "name": "Enemy.Runtime",
     "rootNamespace": "Enemy.Runtime",
     "references": [
-        "GUID:2cf739bce2fc473488cb5fa6ed163b25"
+        "GUID:1782eacf253e7694f8613e81e9e40fd2"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

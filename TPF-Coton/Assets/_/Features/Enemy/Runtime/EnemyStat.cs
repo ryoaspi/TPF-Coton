@@ -1,6 +1,7 @@
 using System;
-using Damage.Runtime;
+using Object.Runtime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemy.Runtime
 {
@@ -9,11 +10,17 @@ namespace Enemy.Runtime
         #region Public
         
         [HideInInspector] public bool m_isDeath;
+        [HideInInspector] public int m_damage;
         public event Action OnDeath;
         #endregion
         
         
         #region Unity Api
+
+        private void Start()
+        {
+            m_damage = _Damage;
+        }
 
         private void OnEnable()
         {
@@ -34,42 +41,41 @@ namespace Enemy.Runtime
             }
             
         }
+        
+        #endregion
+        
+        
+        #region Utils
 
-        private void OnCollisionEnter(Collision other)
+        public void DoDamage(int damage)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            int damageToApply = damage - _block;
+            _currentHealth -= damageToApply;
+            
+            Hit();
+            DropCotonDamage(damageToApply);
+            
+            if (_currentHealth <= 0)
             {
-                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
-                if (rapierController != null && rapierController.m_isAttacking)
-                {
-                    _currentHealth -= rapierController.m_damage - _block;
-                    Hit();
-                    if (_currentHealth <= 0)
-                    {
-                        Death();
-                    }
-                        
-                }
-                else Debug.LogWarning("No WeaponDamage on Player");
+                Death();
             }
+            
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void DropCotonDamage(int damageToApply)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (damageToApply <= 0) return;
+            
+            for (int i = 0; i < damageToApply; i++)
             {
-                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
-                if (rapierController != null && rapierController.m_isAttacking)
-                {
-                    _currentHealth -= rapierController.m_damage - _block;
-                    Hit();
-                    if (_currentHealth <= 0)
-                    {
-                        Death();
-                    }
-                        
-                }
-                else Debug.LogWarning("No WeaponDamage on Player");
+                GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
+
+                Vector2 offset = Random.insideUnitCircle;
+                offset.y = Mathf.Abs(offset.y);
+                
+                Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
+                
+                newCoton.GetComponent<ParabolLerp>().Lerp(transform.position, targetPos, _arcHeight, _arcDuration);
             }
         }
 
@@ -94,6 +100,8 @@ namespace Enemy.Runtime
             
             gameObject.SetActive(false);
         }
+        [ContextMenu("Damage")]
+        private void Damage() => DoDamage(1);
         
         #endregion
         
@@ -103,12 +111,24 @@ namespace Enemy.Runtime
         [Header("Stats")]
         [SerializeField] private int _health = 5;
         [SerializeField] private int _block = 0;
+        [SerializeField] private int _Damage = 1;
         [SerializeField] private float _hits = 1f;
         
         private Renderer _renderer;
         private int _blessing;
         private int _currentHealth;
         
+        [Header("Loot")]
+        [SerializeField] private GameObject _coton;
+
+        [Header("Loot Comportement")] 
+        [SerializeField] private float _distance = 1.5f;
+        [SerializeField] private float _arcHeight = 2f;
+        [SerializeField] private float _arcDuration = 1f;
+        
+
+
+
         #endregion
     }
 }
