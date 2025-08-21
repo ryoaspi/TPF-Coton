@@ -133,7 +133,7 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-            _weapon.GetComponent<WeaponDamage>().IsAttacking();
+           // _weapon.GetComponent<WeaponDamage>().IsAttacking();
         }
 
 		public void OnInventory(InputAction.CallbackContext context)

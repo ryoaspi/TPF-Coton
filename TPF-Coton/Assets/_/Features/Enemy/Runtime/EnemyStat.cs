@@ -28,18 +28,18 @@ namespace Enemy.Runtime
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
-                if (rapierController != null && rapierController.m_isAttacking)
-                {
-                    _currentHealth -= rapierController.m_damage - _block;
-                    Hit();
-                    if (_currentHealth <= 0)
-                        Destroy(gameObject);
-                }
-                else Debug.LogWarning("No WeaponDamage on Player");
-            }
+            // if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            // {
+            //     var rapierController = other.gameObject.GetComponentInChildren<WeaponDamage>();
+            //     if (rapierController != null && rapierController.m_isAttacking)
+            //     {
+            //         _currentHealth -= rapierController.m_damage - _block;
+            //         Hit();
+            //         if (_currentHealth <= 0)
+            //             Destroy(gameObject);
+            //     }
+            //     else Debug.LogWarning("No WeaponDamage on Player");
+            // }
         }
 
         #endregion

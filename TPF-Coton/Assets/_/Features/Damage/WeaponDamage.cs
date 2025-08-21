@@ -6,8 +6,6 @@ namespace Damage.Runtime
     {
         #region Public
         
-        public int m_damage;
-        [HideInInspector] public bool m_isAttacking;
         
         #endregion
         
@@ -24,16 +22,8 @@ namespace Damage.Runtime
         
         #region Utils
 
-        public bool IsAttacking()
-        {
-            m_isAttacking = true;
-            return m_isAttacking;
-        }
-
-        public void AddDamage(int damage)
-        {
-            m_damage += damage;
-        }
+       
+        
         
         #endregion
         
