@@ -4,11 +4,18 @@ namespace Object.Runtime
 {
     public class ParabolLerp : MonoBehaviour
     {
+        #region Public
+        
+        public event System.Action OnLerpComplete;
+        
+        #endregion
+        
+        
         #region Unity Api
 
         private void Update()
         {
-            if (_isLerping) return;
+            if (!_isLerping) return;
         
             if (_time < _duration)
             {
@@ -21,6 +28,11 @@ namespace Object.Runtime
                 basePos.y += arc;
             
                 transform.position = basePos;
+            }
+            else
+            {
+                _isLerping = false;
+                OnLerpComplete?.Invoke();
             }
         }
 
@@ -35,6 +47,8 @@ namespace Object.Runtime
             _endPos = endPos;
             _height = height;
             _duration = duration;
+            _time = 0;
+            _isLerping = true;
         }
     
         #endregion

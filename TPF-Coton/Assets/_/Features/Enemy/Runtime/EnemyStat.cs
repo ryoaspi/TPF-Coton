@@ -75,7 +75,17 @@ namespace Enemy.Runtime
                 
                 Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
                 
-                newCoton.GetComponent<ParabolLerp>().Lerp(transform.position, targetPos, _arcHeight, _arcDuration);
+                var contonComp = newCoton.GetComponent<Coton>();
+                var lerpComp = newCoton.GetComponent<ParabolLerp>();
+                
+                // Désactive la physique pendant le lerp
+                contonComp.SetPhysicsActive(false);
+                
+                // Lance le lerp
+                lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
+                
+                // Quand le Lerp est terminé, réactive la physique pour la chute naturell.
+                lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
             }
         }
 
