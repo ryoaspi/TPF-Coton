@@ -1,8 +1,11 @@
+using Damage.Runtime;
 using TheFundation.Runtime;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 namespace Player.Runtime
 {    
     
@@ -104,9 +107,17 @@ namespace Player.Runtime
                 }
         }
 
-        private void FixedUpdate()
+        private void OnCollisionEnter(Collision other)
         {
-
+            
+            if (other.gameObject.layer == LayerMask.NameToLayer("BulletEnemy"))
+            {
+                Hit();
+                var damage = other.gameObject.GetComponent<EnemyAmmo>().m_damage;
+                if (_renderer.material.color != Color.red)
+                    _currentHealth -= damage;
+            }
+            
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -122,33 +133,7 @@ namespace Player.Runtime
         public void OnAttack(InputAction.CallbackContext context)
         {
             //Implémentation de la logique de combat.
-            //_weapon.GetComponent<WeaponDamage>().IsAttacking();
-            // if (context.started)
-            // {
-            //     _isAttackingCharged = true;
-            //     _timeCharged += Time.deltaTime;
-            //     if (_timeCharged >= 1f)
-            //     {
-            //         _rendererSword.material.color = Color.yellow;
-            //         if ( context.canceled)
-            //         {
-            //             var charge = _weapon.GetComponent<WeaponDamage>().m_damage;
-            //             charge = (int) (charge * 2f);
-            //             _isAttackingCharged = false;
-            //             _timeCharged = 0f;
-            //             _rendererSword.material.color = Color.gray;
-            //         }
-            //
-            //     }
-            //     
-            //     else
-            //     {
-            //         _isAttackingCharged = false;
-            //         _timeCharged = 0f;
-            //         _rendererSword.material.color = Color.gray;
-            //     }
-            // }
-            
+           // _weapon.GetComponent<WeaponDamage>().IsAttacking();
         }
 
 		public void OnInventory(InputAction.CallbackContext context)
@@ -160,17 +145,9 @@ namespace Player.Runtime
 
         public void OnBlocking(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                _shield.enabled = true;
-                _isBlocking = true;
-            }
-
-            else
-            {
-                _shield.enabled = false;
-                _isBlocking = false;
-            }
+            if (context.performed) _shield.enabled = true;
+            
+            else _shield.enabled = false;
         }
 
         // public void OnMenu(InputAction.CallbackContext context)
@@ -274,39 +251,31 @@ namespace Player.Runtime
         private PlayerInput _playerInput;
         
         //Movement
-        [Header("Movement")]
         [SerializeField] private float _moveSpeed = 5f;
         private Vector2 _moveInput;
         private Rigidbody _rb;
         
         //Interaction
-        [Header("Interaction")]
         [SerializeField] private float _interactionRange =2f;
         
         //Combat
-        [Header("Fight")]
         [SerializeField] private int _attackPower = 5;
         [SerializeField] private GameObject _weapon;
         [SerializeField] private float _hits = 1f;
         [SerializeField] private Collider _shield;
-        private bool _isBlocking = false;
-        // private bool _isAttackingCharged = false;
-        // private float _timeCharged = 0f;
-        // [SerializeField] private Renderer _rendererSword;
         
         //Inventory
-        [Header("Inventory")]
 		[SerializeField] private GameObject _inventoryPanel;
         private bool _isInventoryOpen = false;
 
         //UI
-        // [SerializeField] private Canvas  _loadSceneCanvas;
-        // private bool _isLoadScene =true;
-        // [SerializeField] private GameObject _assetLoadButton;
-        // [SerializeField] private GameObject _enemyLoad;
-        // private GameObject _buttonSelected;
-        // [SerializeField] private GameObject _assetLoadSelect;
-        // [SerializeField] private GameObject _enemyLoadSelect;
+        [SerializeField] private Canvas  _loadSceneCanvas;
+        private bool _isLoadScene =true;
+        [SerializeField] private GameObject _assetLoadButton;
+        [SerializeField] private GameObject _enemyLoad;
+        private GameObject _buttonSelected;
+        [SerializeField] private GameObject _assetLoadSelect;
+        [SerializeField] private GameObject _enemyLoadSelect;
         
         //Stat
         [Header("Stat")]
@@ -316,7 +285,6 @@ namespace Player.Runtime
         [SerializeField] private int _gold = 0;
         [SerializeField] private int _MaxHealth = 100;
         
-        [Header("Other")]
         private int _currentHealth;
         [SerializeField] private Renderer _renderer;
         private Inventory _inventory = new ();

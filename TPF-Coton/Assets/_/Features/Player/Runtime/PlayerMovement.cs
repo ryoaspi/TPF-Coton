@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Runtime
 {
     public class PlayerMovement : MonoBehaviour
     {
+        #region Public
+        
+        [FormerlySerializedAs("speed")] [SerializeField] public  float m_speed = 5;
+        [HideInInspector] public float m_speedSave;
+        
+        #endregion
+        
         #region UnityAPI
 
         private void Awake()
         {
             _playerInput=GetComponent<PlayerInput>();
             _moveAction=_playerInput.actions["Move"];
+            m_speedSave=m_speed;
         }
 
         private void Start()
@@ -55,7 +64,7 @@ namespace Player.Runtime
                 movement.Normalize();
                 _lastDirection =  _moveDir.normalized;
                 
-                _rb.AddForce(movement * (speed * stickMagnitude), ForceMode.VelocityChange);
+                _rb.AddForce(movement * (m_speed * stickMagnitude * Time.deltaTime), ForceMode.VelocityChange);
                 
                 _rb.linearDamping = groundedDrag;
                
@@ -136,9 +145,8 @@ namespace Player.Runtime
         private bool _isGrounded;
         
         
-        [SerializeField] float speed = 5;
-        [SerializeField] private float rotationSpeed = 10f;
         
+        [SerializeField] private float rotationSpeed = 10f;
         [Header("Ground Check Settings")]
         [SerializeField] private float groundCheckDistance = 1.5f;
         [SerializeField] private float groundCheckRadius = 0.4f;
