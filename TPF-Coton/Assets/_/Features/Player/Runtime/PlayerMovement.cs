@@ -39,11 +39,6 @@ namespace Player.Runtime
         private void FixedUpdate()
         {
             GroundCheck();
-        }
-        
-        void Update()
-        {
-            
             if (_isGrounded &&_moveDirection.sqrMagnitude > 0.01f && _mainCamera != null)
             {
                 
@@ -64,7 +59,7 @@ namespace Player.Runtime
                 movement.Normalize();
                 _lastDirection =  _moveDir.normalized;
                 
-                _rb.AddForce(movement * (m_speed * stickMagnitude * Time.deltaTime), ForceMode.VelocityChange);
+                _rb.AddForce(movement * (m_speed * stickMagnitude * Time.fixedDeltaTime), ForceMode.VelocityChange);
                 
                 _rb.linearDamping = groundedDrag;
                
@@ -75,10 +70,18 @@ namespace Player.Runtime
             }
             
             Quaternion targetRotation = Quaternion.LookRotation(_lastDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+        }
+        
+        void Update()
+        {
             
+           
         }
 
+
+        
         #endregion
         
         
