@@ -1,5 +1,7 @@
 using System;
+using Object.Runtime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemy.Runtime
 {
@@ -45,19 +47,38 @@ namespace Enemy.Runtime
         
         #region Utils
 
-        public int DoDamage(int damage)
+        public void DoDamage(int damage)
         {
-            _currentHealth -= damage;
+            int damageToApply = damage - _block;
+            _currentHealth -= damageToApply;
+            
             Hit();
+            DropCotonDamage(damageToApply);
+            
             if (_currentHealth <= 0)
             {
                 Death();
             }
             
-            return _currentHealth;
-            
         }
-        
+
+        private void DropCotonDamage(int damageToApply)
+        {
+            if (damageToApply <= 0) return;
+            
+            for (int i = 0; i < damageToApply; i++)
+            {
+                GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
+
+                Vector2 offset = Random.insideUnitCircle;
+                offset.y = Mathf.Abs(offset.y);
+                
+                Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
+                
+                newCoton.GetComponent<ParabolLerp>().Lerp(transform.position, targetPos, _arcHeight, _arcDuration);
+            }
+        }
+
         #endregion
         
         
@@ -79,6 +100,8 @@ namespace Enemy.Runtime
             
             gameObject.SetActive(false);
         }
+        [ContextMenu("Damage")]
+        private void Damage() => DoDamage(1);
         
         #endregion
         
@@ -95,6 +118,17 @@ namespace Enemy.Runtime
         private int _blessing;
         private int _currentHealth;
         
+        [Header("Loot")]
+        [SerializeField] private GameObject _coton;
+
+        [Header("Loot Comportement")] 
+        [SerializeField] private float _distance = 1.5f;
+        [SerializeField] private float _arcHeight = 2f;
+        [SerializeField] private float _arcDuration = 1f;
+        
+
+
+
         #endregion
     }
 }

@@ -2416,6 +2416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DistantEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6909996992349034166, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+      propertyPath: _coton
+      value: 
+      objectReference: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
     - target: {fileID: 9190793146105787206, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: _enemyIsRanged
       value: 1
@@ -2473,6 +2477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCAC
       objectReference: {fileID: 0}
+    - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+      propertyPath: _coton
+      value: 
+      objectReference: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
     - target: {fileID: 2761811216651445954, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.14
