@@ -21,7 +21,7 @@ namespace Enemy.Runtime
             _agent = GetComponent<NavMeshAgent>();
             if (_agent == null) Debug.LogError("Naw Mesh Agent is null");
             _agent.updateRotation = true;
-            _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
+            //_enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
         }
 
