@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damage: 0
   _speed: 10
-  _duration: 1
+  _duration: 2
 --- !u!54 &-2097459193306459075
 Rigidbody:
   m_ObjectHideFlags: 0

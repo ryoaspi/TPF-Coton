@@ -8,13 +8,14 @@ namespace Damage.Runtime
     {
         #region Unity Api
 
-        private void Awake()
+        private void OnEnable()
         {
             _enemyStat = GetComponentInParent<EnemyStat>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            
             if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 PlayerStats playerStat = other.GetComponentInParent<PlayerStats>();
