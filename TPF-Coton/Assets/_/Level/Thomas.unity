@@ -458,6 +458,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3339340373670870957, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339340373670870957, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: maxSlopeAngle
       value: 50
       objectReference: {fileID: 0}
@@ -1100,6 +1104,13 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   _itemButtonPrefab: {fileID: 5206993024202553632, guid: 0ebae509991b66b469485ce138e5a209, type: 3}
   _contentPanel: {fileID: 608104667}
+  _activeButton: []
+  _selectedIndex: 0
+--- !u!1 &669310989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736623639850828311, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+  m_PrefabInstance: {fileID: 2113149784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &716388416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1225,28 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   _itemButtonPrefab: {fileID: 5206993024202553632, guid: 0ebae509991b66b469485ce138e5a209, type: 3}
   _contentPanel: {fileID: 608104667}
+  _activeButton: []
+  _selectedIndex: 0
+--- !u!1 &1073986816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3548971002891076676, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 1356212858793814227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073986822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073986816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3031afe7e04ac1d488f7cc336d5c1340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStat: {fileID: 0}
+  _playerStat: {fileID: 0}
+  _damage: 0
 --- !u!1 &1111069302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1755,8 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   _itemButtonPrefab: {fileID: 2900512484757565319, guid: 84fdc3842f4c01244a3fd79de80330f9, type: 3}
   _contentPanel: {fileID: 1446846931}
+  _activeButton: []
+  _selectedIndex: 0
 --- !u!114 &1446846928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,6 +1941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ammoPrefab: {fileID: 3856873843764690262, guid: a97c26f2e949b224b8291e6572ccf95b, type: 3}
   _ammoCount: 10
+  _ammoParent: {fileID: 669310989}
 --- !u!1 &1720489138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6867236647363046533, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6909996992349034166, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: _coton
@@ -2648,10 +2684,17 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1455929417}
+    - target: {fileID: 8762444895739988241, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+      propertyPath: m_damage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3548971002891076676, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1073986822}
   m_SourcePrefab: {fileID: 100100000, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
