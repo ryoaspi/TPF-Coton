@@ -160,7 +160,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _detectionDistance: 3
+  _detectionDistance: 5
   _detectionAngle: 120
   _lostPlayerDelay: 3
   _rotationSpeed: 5
