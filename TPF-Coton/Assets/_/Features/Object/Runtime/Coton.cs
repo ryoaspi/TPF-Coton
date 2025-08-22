@@ -13,7 +13,7 @@ namespace Object.Runtime
             _col = GetComponent<Collider>();
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
-            _col.isTrigger = false;
+            _col.isTrigger = true;
         }
 
         private void Update()

@@ -20,15 +20,21 @@ namespace Enemy.Runtime
         
         #region Unity Api
 
-        private void Start()
+        private void Awake()
         {
-            m_damage = _Damage;
+            _origin = transform.position;
+            _enemyAI = GetComponent<EnemyAI>();
         }
 
         private void OnEnable()
         {
             _currentHealth = _health;
             _renderer = GetComponent<Renderer>();
+            m_damage = _Damage;
+            m_block = _block;
+            m_isDeath = false;
+            transform.position = _origin;
+
         }
         
         private void Update()
@@ -87,6 +93,7 @@ namespace Enemy.Runtime
         private void Hit()
         {
             _renderer.material.color = Color.red;
+            _enemyAI.m_playerDetected = true;
         }
         
         [ContextMenu("Death")]
@@ -156,6 +163,9 @@ namespace Enemy.Runtime
         [SerializeField] private float _arcHeight = 2f;
         [SerializeField] private float _arcDuration = 1f;
         
+        private Vector3 _origin;
+        private EnemyAI _enemyAI;
+
 
 
 

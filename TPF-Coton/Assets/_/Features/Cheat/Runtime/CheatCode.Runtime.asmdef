@@ -1,0 +1,19 @@
+{
+    "name": "CheatCode.Runtime",
+    "rootNamespace": "CheatCode.Runtime",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:9b9c073f07118994196edc218b10ccc0",
+        "GUID:823739e0add690e45b4d2b83fc49034c",
+        "GUID:b0a4e234891adab42be2d720165eb41f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

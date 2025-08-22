@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,11 @@ namespace Enemy.Runtime
             _agent.updateRotation = true;
             _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
+        }
+
+        private void OnEnable()
+        {
+            _agent.SetDestination(_target[1].position);
         }
 
         private void FixedUpdate()
@@ -63,6 +69,20 @@ namespace Enemy.Runtime
 
         }
 
+        #endregion
+        
+        
+        #region Utils
+        
+        public void PlayerDetected() => IsPlayerDetected();
+
+        public void IsCotonDetected()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Coton"));
+            
+            
+        }
+        
         #endregion
 
 
