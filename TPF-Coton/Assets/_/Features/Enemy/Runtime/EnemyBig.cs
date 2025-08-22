@@ -65,13 +65,6 @@ namespace Enemy.Runtime
             _enemyStat.SetStat(newDamage,newBlock,newHealth);
         }
 
-        private void Priority()
-        {
-            if (_enemyAI.m_playerDetected)
-            {
-                _enemyAI.PlayerDetected();
-            }
-        }
         
         #endregion
         

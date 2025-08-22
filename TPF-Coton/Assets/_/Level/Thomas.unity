@@ -484,6 +484,30 @@ PrefabInstance:
       propertyPath: maxSlopeAngle
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionId
+      value: f176c582-8733-40b4-8d3b-28f858e67e8e
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_ActionId
+      value: f694dd27-ad1d-4672-a85b-a0246042aecc
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_ActionName
+      value: 'Player/ResetEnemy[/Keyboard/r]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470936859141013514, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_ActionName
+      value: 'Player/RespawnPlayer[/Keyboard/p]'
+      objectReference: {fileID: 0}
     - target: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_Name
       value: Player
@@ -499,7 +523,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2102216380}
   m_SourcePrefab: {fileID: 100100000, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
 --- !u!4 &317691189 stripped
 Transform:
@@ -547,9 +574,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 410131807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bf7d119c1f4f94ebb544f8f74cca31, type: 3}
+  m_Script: {fileID: 11500000, guid: 2755c8661ae50a9428daea605d76664c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemies:
+  - {fileID: 916500033}
+  - {fileID: 812945362}
+  _addGameObjects: 1
+  _door: {fileID: 1896082081}
 --- !u!1 &436174335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2544,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
   m_PrefabInstance: {fileID: 317691188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2102216380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102216372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a42c98c9e9e7de4b88998496a4ad7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRespawn: {fileID: 2111573047}
+  _resetEnemy: {fileID: 519582571}
 --- !u!1 &2111573044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111573046}
-  - component: {fileID: 2111573045}
+  - component: {fileID: 2111573047}
   m_Layer: 0
   m_Name: PointSpawnPlayer
   m_TagString: Untagged
@@ -2529,20 +2575,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2111573045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111573044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac584d64db321654ebc9bcf37fe89aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 2102216372}
-  _spawnPoint: {fileID: 2111573046}
 --- !u!4 &2111573046
 Transform:
   m_ObjectHideFlags: 0
@@ -2558,6 +2590,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111573047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111573044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ea5266c82fa0c42962f7ae34f7c1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 2102216372}
+  _spawnPoint: {fileID: 2111573046}
 --- !u!1001 &2113149784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2610,6 +2656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DistantEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6867236647363046533, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9190793146105787206, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: '_target.Array.data[0]'
       value: 
@@ -2642,6 +2692,10 @@ PrefabInstance:
     - target: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_Name
       value: EnemyCAC
+      objectReference: {fileID: 0}
+    - target: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2761811216651445954, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_LocalPosition.x

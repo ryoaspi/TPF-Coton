@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8731708812903246641}
   - component: {fileID: 1573892852865808651}
   - component: {fileID: 2597216285778252283}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Coton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

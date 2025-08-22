@@ -10,6 +10,7 @@ namespace Enemy.Runtime
         #region Public
 
         [HideInInspector] public bool m_playerDetected;
+        [HideInInspector] public bool m_isCotonDetected;
         
 
         #endregion
@@ -80,7 +81,40 @@ namespace Enemy.Runtime
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Coton"));
             
+            m_isCotonDetected = false;
             
+            foreach (Collider collider in colliders)
+            {
+                if (collider.gameObject.layer == LayerMask.NameToLayer("Coton"))
+                {
+                    Vector3 direction = (collider.transform.position - transform.position).normalized;
+                    float distance = Vector3.Distance(collider.transform.position, transform.position);
+                    float angle = Vector3.Angle(transform.forward, direction);
+
+                    if (angle <= _detectionAngle / 2f)
+                    {
+                        Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
+                        if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
+                        {
+                            m_isCotonDetected = true;
+                            _hit = collider.transform.position;
+ 
+                            // Ne se rapproche pas si trop proche
+                            if (distance > _minAttackDistance)
+                            {
+                                _agent.SetDestination(_hit);
+                            }
+                            else
+                            {
+                                _agent.ResetPath();
+                            }
+
+                            return;
+                        }
+                    }
+                }
+            }
+
         }
         
         #endregion
@@ -323,6 +357,7 @@ namespace Enemy.Runtime
         private Vector3 _lastKnowPlayerPosition;
         private bool _hasSeenPlayer;
         private EnemyShoot _enemyShoot;
+        
 
         #endregion
     }
