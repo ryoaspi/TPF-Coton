@@ -25,11 +25,13 @@ namespace Enemy.Runtime
             _agent.updateRotation = true;
             _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
+            
+            _canInitOnEnable = true;
         }
 
         private void OnEnable()
         {
-            _agent.SetDestination(_target[1].position);
+            if (_canInitOnEnable) _agent.SetDestination(_target[1].position);
         }
 
         private void FixedUpdate()
@@ -74,6 +76,37 @@ namespace Enemy.Runtime
         
         
         #region Utils
+
+        public void OnHitByPlayer(Vector3 playerPosition)
+        {
+            m_playerDetected = true;
+            _hit = playerPosition;
+            _lastKnowPlayerPosition = _hit;
+            
+            //Reset Timer to prevent search mode
+            _isSearching = false;
+            _lostPlayerTimer = 0;
+            _hasSeenPlayer = true;
+            _searchTimer = 0;
+            _globalSearchTimer = 0;
+            
+            //Tourne immédiatement vers le joueur
+            Vector3 direction = (_hit - transform.position).normalized;
+            direction.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = rotation;
+            
+            //va vers le joueur si nécessaire
+            float distanceToPlayer = Vector3.Distance(transform.position, _hit);
+            if (distanceToPlayer > _minAttackDistance)
+            {
+                _agent.SetDestination(_hit);
+            }
+            else
+            {
+                _agent.ResetPath();
+            }
+        }
         
         public void PlayerDetected() => IsPlayerDetected();
 
@@ -358,6 +391,7 @@ namespace Enemy.Runtime
         private bool _hasSeenPlayer;
         private EnemyShoot _enemyShoot;
         
+        private bool _canInitOnEnable;
 
         #endregion
     }

@@ -6,6 +6,13 @@ namespace CheatCode.Runtime
     {
        
         #region Utils
+
+        
+        private void Awake()
+        {
+            _spawnPoint = new GameObject("SpawnPoint").transform;
+            _spawnPoint.position = _player.transform.position;
+        }
         
         [ContextMenu("Respawn point")]
         public void Respawn()
@@ -19,7 +26,7 @@ namespace CheatCode.Runtime
         #region Private And Protected
         
         [SerializeField] private GameObject _player;
-        [SerializeField] private Transform _spawnPoint;
+        private Transform _spawnPoint;
         
         #endregion
     }

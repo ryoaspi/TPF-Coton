@@ -22,7 +22,7 @@ namespace Damage.Runtime
                 if (enemyStat != null && _playerStats != null)
                 {
                     _damage = _playerStats.m_publicDamage;
-                    enemyStat.DoDamage(_damage);
+                    enemyStat.DoDamage(_damage, _playerStats.transform);
                 }
             }
         }

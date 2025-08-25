@@ -56,13 +56,20 @@ namespace Enemy.Runtime
         
         #region Utils
 
-        public void DoDamage(int damage)
+        public void DoDamage(int damage, Transform playerTransform)
         {
             int damageToApply = damage - _block;
+            if (damageToApply <= 0) damageToApply = 0;
+            
             _currentHealth -= damageToApply;
             
             Hit();
             DropCotonDamage(damageToApply);
+
+            if (_enemyAI != null && playerTransform != null)
+            {
+                _enemyAI.OnHitByPlayer(playerTransform.position);
+            }
             
             if (_currentHealth <= 0)
             {
@@ -93,7 +100,6 @@ namespace Enemy.Runtime
         private void Hit()
         {
             _renderer.material.color = Color.red;
-            _enemyAI.m_playerDetected = true;
         }
         
         [ContextMenu("Death")]
@@ -109,7 +115,7 @@ namespace Enemy.Runtime
         }
         
         [ContextMenu("Damage")]
-        private void DebugDamage() => DoDamage(1);
+        private void DebugDamage() => DoDamage(1,null);
         
         private void DropCotonDamage(int damageToApply)
         {
