@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Object.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -108,8 +109,7 @@ namespace Enemy.Runtime
         [ContextMenu("Death")]
         private void Death()
         {
-            // if (m_isDeath) return;
-            
+           
             m_isDeath = true;
             
             OnDeath?.Invoke();
@@ -144,7 +144,7 @@ namespace Enemy.Runtime
                 // Lance le lerp
                 lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
                 
-                // Quand le Lerp est terminé, réactive la physique pour la chute naturell.
+                // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
                 lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
             }
         }
@@ -167,15 +167,13 @@ namespace Enemy.Runtime
         [Header("Loot")]
         [SerializeField] private GameObject _coton;
 
-        [Header("Loot Comportement")] 
+        [Header("Loot Comportment")] 
         [SerializeField] private float _distance = 1.5f;
         [SerializeField] private float _arcHeight = 2f;
         [SerializeField] private float _arcDuration = 1f;
         
         private Vector3 _origin;
         private EnemyAI _enemyAI;
-
-
 
 
         #endregion
