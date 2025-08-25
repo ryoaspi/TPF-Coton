@@ -1,3 +1,4 @@
+using System;
 using Interface.Runtime;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Enemy.Runtime
         
         #region Unity Api
 
-        private void Awake()
+        private void Start()
         {
             _enemyStat = GetComponent<EnemyStat>();
             _enemyAI = GetComponent<EnemyAI>();
@@ -23,6 +24,11 @@ namespace Enemy.Runtime
             _baseDamage = _enemyStat.m_damage;
             _baseBlock = _enemyStat.m_block;
             _baseHealth = _enemyStat.m_currentHealth;
+        }
+
+        private void Update()
+        {
+            
         }
 
         private void OnTriggerEnter(Collider other)
@@ -62,7 +68,11 @@ namespace Enemy.Runtime
             int newBlock = _baseBlock + buffLevel;
             int newHealth = _baseHealth + buffLevel;
             
+            GameObject parent = transform.parent.gameObject;
+            float upScale = buffLevel * 0.1f;
+            parent.transform.localScale = new Vector3(1 + upScale, 1 + upScale, 1 + upScale);
             _enemyStat.SetStat(newDamage,newBlock,newHealth);
+            
         }
 
         
@@ -81,6 +91,8 @@ namespace Enemy.Runtime
         private int _baseDamage;
         private int _baseBlock;
         private int _baseHealth;
+        
+        [SerializeField] private LayerMask _layerCoton;
         
         #endregion
     }

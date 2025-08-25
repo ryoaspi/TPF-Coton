@@ -11,6 +11,13 @@ namespace Enemy.Runtime
 
         [HideInInspector] public bool m_playerDetected;
         [HideInInspector] public bool m_isCotonDetected;
+
+        public enum EnemyType
+        {
+            Melee,
+            Ranged,
+            Puffed
+        }
         
 
         #endregion
@@ -37,6 +44,41 @@ namespace Enemy.Runtime
         private void FixedUpdate()
         {
             IsPlayerDetected();
+            
+            
+            if (_enemyType == EnemyType.Puffed)
+            {
+                bool cotonHitRecent = _lastCotonPosition.HasValue && Time.time - _lastCotonHitTime < _cotonHitPriorityDuration;
+
+                if (cotonHitRecent)
+                {
+                    m_isCotonDetected = true;
+                    _hit = _lastCotonPosition.Value;
+                    _agent.SetDestination(_hit);
+                    return; // priorité coton
+                }
+                else
+                {
+                    m_isCotonDetected = false;
+                    _lastCotonPosition = null;
+                    
+                    //ajouter détection coton en temps réel
+                    IsCotonDetected(LayerMask.NameToLayer("Coton"));
+
+                    if (m_isCotonDetected)
+                    {
+                        _hit = _lastCotonPosition ?? _hit; //garder position coton détectée si dispo
+                        _agent.SetDestination(_hit);
+                        return;
+                    }
+                }
+                
+                if (!m_playerDetected)
+                {
+                    Patrol();
+                    return;
+                }
+            }
 
             if (m_playerDetected)
             {
@@ -45,8 +87,8 @@ namespace Enemy.Runtime
                 transform.LookAt(_hit);
 
                 float distanceToPlayer = Vector3.Distance(transform.position, _hit);
-
-                if (!_enemyIsRanged)
+                
+                if (_enemyType == EnemyType.Melee && _enemySword is not null)
                 {
                     //Melee Logic
                     if (!_enemySword.m_isAttacking && distanceToPlayer <= _minAttackDistance &&
@@ -55,7 +97,7 @@ namespace Enemy.Runtime
                         _enemySword.m_isAttacking = true;
                         _lastAttackTime = Time.time;
                     }
-
+                
                     _enemySword.Attack();
                 }
 
@@ -107,10 +149,25 @@ namespace Enemy.Runtime
                 _agent.ResetPath();
             }
         }
+
+        public void OnHitByCoton(Vector3 cotonPosition)
+        {
+            _lastCotonPosition = cotonPosition;
+            _lastCotonHitTime = Time.time;
+            m_isCotonDetected = true;
+            
+            // Priorité directe vers coton
+            _hit = cotonPosition;
+            _agent.SetDestination(_hit);
+            
+            //Reset recherche Joueur
+            _isSearching = false;
+            _lostPlayerTimer = 0;
+        }
         
         public void PlayerDetected() => IsPlayerDetected();
 
-        public void IsCotonDetected()
+        public void IsCotonDetected(int cotonLayer)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Coton"));
             
@@ -126,21 +183,13 @@ namespace Enemy.Runtime
 
                     if (angle <= _detectionAngle / 2f)
                     {
-                        Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
+                        Vector3 raycastOrigin = transform.position + Vector3.up * 0.1f;
                         if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
                         {
                             m_isCotonDetected = true;
                             _hit = collider.transform.position;
  
-                            // Ne se rapproche pas si trop proche
-                            if (distance > _minAttackDistance)
-                            {
-                                _agent.SetDestination(_hit);
-                            }
-                            else
-                            {
-                                _agent.ResetPath();
-                            }
+                            _agent.SetDestination(_hit);
 
                             return;
                         }
@@ -161,7 +210,7 @@ namespace Enemy.Runtime
             if (_isSearching)
             {
                 m_playerDetected = false;
-                return;
+                // return;
             }
             //Détection de tous les objets dans le rayon
             Collider[] colliders =
@@ -303,38 +352,57 @@ namespace Enemy.Runtime
 
             float distanceToPlayer = Vector3.Distance(transform.position, _hit);
 
-            if (_enemyIsRanged)
+            switch (_enemyType)
             {
-                if (distanceToPlayer > _minAttackDistance)
-                {
-                    _agent.SetDestination(_hit);
-                    
-                }
-                else
-                {
-                    _agent.ResetPath();
-                    if (Time.time >= _lastAttackTime + _attackCooldown)
-                    {
-                        _lastAttackTime = Time.time;
-                        _enemyShoot.Shooting();
-                    }
-                }
-            }
-            else
-            {
-                if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
+                case EnemyType.Melee:
+                    if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
 
-                else
-                {
-                    _agent.ResetPath();
-                    if (!_enemySword.m_isAttacking && Time.time >= _lastAttackTime + _attackCooldown)
+                    else
                     {
-                        _enemySword.m_isAttacking = true;
-                        _lastAttackTime = Time.time;
-                        _enemySword.Attack();
+                        _agent.ResetPath();
+
+                        if (_enemySword is null)
+                        {
+                            break;
+                        }
+                        if (!_enemySword.m_isAttacking && Time.time >= _lastAttackTime + _attackCooldown)
+                        {
+                            _enemySword.m_isAttacking = true;
+                            _lastAttackTime = Time.time;
+                            _enemySword.Attack();
+                        }
                     }
-                }
+                    break;
+                
+                case EnemyType.Ranged:
+                    if (distanceToPlayer > _minAttackDistance)
+                    {
+                        _agent.SetDestination(_hit);
+                    
+                    }
+                    else
+                    {
+                        _agent.ResetPath();
+                        if (_enemyShoot is not null && Time.time >= _lastAttackTime + _attackCooldown)
+                        {
+                            _lastAttackTime = Time.time;
+                            _enemyShoot.Shooting();
+                        }
+                    }
+                    break;
+                
+                case EnemyType.Puffed:
+                    if (distanceToPlayer > _minAttackDistance)
+                    {
+                        _agent.SetDestination(_hit);
+                    }
+                    else
+                    {
+                        _agent.ResetPath();
+                    }
+                    break;
             }
+
         }
 
         private void Patrol()
@@ -354,8 +422,8 @@ namespace Enemy.Runtime
 
         #region Private
 
-        [Header("Enemy Distant")] [SerializeField]
-        private bool _enemyIsRanged;
+        [Header("Enemy Type")] 
+        [SerializeField] private EnemyType _enemyType;
 
         [Header("Attack Settings")]
         [SerializeField] private float _minAttackDistance = 3f;
@@ -392,6 +460,11 @@ namespace Enemy.Runtime
         private EnemyShoot _enemyShoot;
         
         private bool _canInitOnEnable;
+        
+        [Header("Hit Coton")]
+        private Vector3? _lastCotonPosition = null;
+        private float _lastCotonHitTime = 0f;
+        [SerializeField] private float _cotonHitPriorityDuration = 3f;
 
         #endregion
     }

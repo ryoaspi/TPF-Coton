@@ -34,7 +34,6 @@ namespace Enemy.Runtime
 
             if (_deadCount == _enemies.Count && _enemies.Count > 0)
             {
-                Debug.Log("All enemies are dead");
                 // Action à faire quand tous les ennemis sont morts.
                 if (_addGameObjects)
                 {

@@ -29,6 +29,7 @@ namespace Enemy.Runtime
         private void OnEnable()
         {
             _currentHealth = _health;
+            m_currentHealth = _currentHealth;
             _renderer = GetComponent<Renderer>();
             m_damage = _Damage;
             m_block = _block;
@@ -82,14 +83,16 @@ namespace Enemy.Runtime
         {
             m_damage = damage;
             m_block = block;
-            _currentHealth = health;
-            m_currentHealth = _currentHealth;
+            m_currentHealth = health;
+            _currentHealth = m_currentHealth;
             
             //Si on est en pleine form (buff avant dégâts), augmente les PV max
             if (_currentHealth >= _health)
             {
                 _health = _currentHealth;
             }
+            
+            Debug.Log("Damage : " + damage + " Block : " + block + " Health : " + health);
         }
 
         #endregion

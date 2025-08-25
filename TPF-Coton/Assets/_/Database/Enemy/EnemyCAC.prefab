@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetected: 0
-  _enemyIsRanged: 0
+  m_isCotonDetected: 0
+  _enemyType: 0
   _minAttackDistance: 2
   _attackCooldown: 2
   _target:
