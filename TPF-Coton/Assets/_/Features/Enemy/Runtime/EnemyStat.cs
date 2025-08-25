@@ -20,15 +20,21 @@ namespace Enemy.Runtime
         
         #region Unity Api
 
-        private void Start()
+        private void Awake()
         {
-            m_damage = _Damage;
+            _origin = transform.position;
+            _enemyAI = GetComponent<EnemyAI>();
         }
 
         private void OnEnable()
         {
             _currentHealth = _health;
             _renderer = GetComponent<Renderer>();
+            m_damage = _Damage;
+            m_block = _block;
+            m_isDeath = false;
+            transform.position = _origin;
+
         }
         
         private void Update()
@@ -50,13 +56,20 @@ namespace Enemy.Runtime
         
         #region Utils
 
-        public void DoDamage(int damage)
+        public void DoDamage(int damage, Transform playerTransform)
         {
             int damageToApply = damage - _block;
+            if (damageToApply <= 0) damageToApply = 0;
+            
             _currentHealth -= damageToApply;
             
             Hit();
             DropCotonDamage(damageToApply);
+
+            if (_enemyAI != null && playerTransform != null)
+            {
+                _enemyAI.OnHitByPlayer(playerTransform.position);
+            }
             
             if (_currentHealth <= 0)
             {
@@ -102,7 +115,7 @@ namespace Enemy.Runtime
         }
         
         [ContextMenu("Damage")]
-        private void DebugDamage() => DoDamage(1);
+        private void DebugDamage() => DoDamage(1,null);
         
         private void DropCotonDamage(int damageToApply)
         {
@@ -156,6 +169,9 @@ namespace Enemy.Runtime
         [SerializeField] private float _arcHeight = 2f;
         [SerializeField] private float _arcDuration = 1f;
         
+        private Vector3 _origin;
+        private EnemyAI _enemyAI;
+
 
 
 

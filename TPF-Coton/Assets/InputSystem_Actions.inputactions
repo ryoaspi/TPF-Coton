@@ -64,7 +64,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -100,6 +100,24 @@
                     "name": "LoadSceneMenu",
                     "type": "Button",
                     "id": "9a01f250-5a24-468b-854b-97015ecc2629",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetEnemy",
+                    "type": "Button",
+                    "id": "f176c582-8733-40b4-8d3b-28f858e67e8e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RespawnPlayer",
+                    "type": "Button",
+                    "id": "f694dd27-ad1d-4672-a85b-a0246042aecc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -533,6 +551,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "LoadSceneMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a8bf5e3-b039-42b0-b6f5-2234531d9d10",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ResetEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11a2e9ac-7e70-47ed-8184-cb305f3f719a",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RespawnPlayer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

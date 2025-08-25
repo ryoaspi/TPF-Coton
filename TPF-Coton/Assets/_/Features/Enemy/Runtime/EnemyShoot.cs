@@ -18,13 +18,12 @@ namespace Enemy.Runtime
 
         public void Shooting()
         {
-            Debug.Log("Je tire");
             _bullet = AmmoPool.Instance.GetFromPool();
             _bullet.transform.position = _firePoint.position;
             _bullet.transform.rotation = _firePoint.rotation;
 
-            var enemyAmmo = _bullet.GetComponent<EnemyAmmo>();
-            if (enemyAmmo != null)
+            
+            if (_enemyStat is not null && _bullet.TryGetComponent<EnemyAmmo>(out var enemyAmmo))
             {
                 enemyAmmo.m_damage = _enemyStat.m_damage;
             }       
@@ -39,6 +38,7 @@ namespace Enemy.Runtime
         
         private EnemyStat _enemyStat;
         private GameObject _bullet;
+        private EnemyAmmo _enemyAmmo;
 
         #endregion
     }

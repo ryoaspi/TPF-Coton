@@ -13,12 +13,12 @@ namespace Object.Runtime
             _col = GetComponent<Collider>();
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
-            _col.isTrigger = false;
+            _col.isTrigger = true;
         }
 
         private void Update()
         {
-            _currentTime += Time.deltaTime;
+            if (_liveCoton) _currentTime += Time.deltaTime;
             
             if (_currentTime >= _lifeTime || _collected)
             {
@@ -69,6 +69,7 @@ namespace Object.Runtime
         private bool _isDone;
         private Collider _col;
         private Rigidbody _rb;
+        [SerializeField] private bool _liveCoton;
 
         #endregion
     }

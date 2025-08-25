@@ -158,10 +158,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isDeath: 0
+  m_damage: 0
+  m_currentHealth: 0
+  m_block: 0
   _health: 5
   _block: 0
+  _Damage: 1
   _hits: 1
-  _speed: 0
+  _coton: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
+  _distance: 1.5
+  _arcHeight: 2
+  _arcDuration: 1
 --- !u!195 &4540544634294862179
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,7 +183,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -197,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetected: 0
-  _enemyIsRanged: 0
+  _enemyIsRanged: 1
   _minAttackDistance: 3
   _attackCooldown: 2
   _target:
@@ -206,10 +213,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _detectionDistance: 3
-  _detectionAngle: 45
-  _lostPlayerTimer: 0
+  _detectionAngle: 120
   _lostPlayerDelay: 3
   _rotationSpeed: 0
+  _searchDuration: 3
+  _maxsearchTimer: 2
+  _arrivalEpsilon: 0.3
 --- !u!1 &8466843828519450460
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +232,7 @@ GameObject:
   - component: {fileID: 5559825577182109879}
   - component: {fileID: 7145444681251595461}
   - component: {fileID: 6534009388063453841}
-  - component: {fileID: 6399911179114940444}
+  - component: {fileID: 2786709208933214602}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -333,9 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d1a4a3233bb3749aa5a57363959543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 2
   _firePoint: {fileID: 662336004345961540}
---- !u!114 &6399911179114940444
+--- !u!114 &2786709208933214602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,8 +352,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8466843828519450460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64fe99352d332ea4d9638ad8090db40f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fd9a2f7afe24b74a90608609f429386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoPrefab: {fileID: 3856873843764690262, guid: a97c26f2e949b224b8291e6572ccf95b, type: 3}
   _ammoCount: 10
+  _ammoParent: {fileID: 6867236647363046533}

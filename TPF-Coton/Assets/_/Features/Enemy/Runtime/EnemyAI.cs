@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +10,7 @@ namespace Enemy.Runtime
         #region Public
 
         [HideInInspector] public bool m_playerDetected;
+        [HideInInspector] public bool m_isCotonDetected;
         
 
         #endregion
@@ -23,6 +25,13 @@ namespace Enemy.Runtime
             _agent.updateRotation = true;
             _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
+            
+            _canInitOnEnable = true;
+        }
+
+        private void OnEnable()
+        {
+            if (_canInitOnEnable) _agent.SetDestination(_target[1].position);
         }
 
         private void FixedUpdate()
@@ -63,6 +72,84 @@ namespace Enemy.Runtime
 
         }
 
+        #endregion
+        
+        
+        #region Utils
+
+        public void OnHitByPlayer(Vector3 playerPosition)
+        {
+            m_playerDetected = true;
+            _hit = playerPosition;
+            _lastKnowPlayerPosition = _hit;
+            
+            //Reset Timer to prevent search mode
+            _isSearching = false;
+            _lostPlayerTimer = 0;
+            _hasSeenPlayer = true;
+            _searchTimer = 0;
+            _globalSearchTimer = 0;
+            
+            //Tourne immédiatement vers le joueur
+            Vector3 direction = (_hit - transform.position).normalized;
+            direction.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = rotation;
+            
+            //va vers le joueur si nécessaire
+            float distanceToPlayer = Vector3.Distance(transform.position, _hit);
+            if (distanceToPlayer > _minAttackDistance)
+            {
+                _agent.SetDestination(_hit);
+            }
+            else
+            {
+                _agent.ResetPath();
+            }
+        }
+        
+        public void PlayerDetected() => IsPlayerDetected();
+
+        public void IsCotonDetected()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Coton"));
+            
+            m_isCotonDetected = false;
+            
+            foreach (Collider collider in colliders)
+            {
+                if (collider.gameObject.layer == LayerMask.NameToLayer("Coton"))
+                {
+                    Vector3 direction = (collider.transform.position - transform.position).normalized;
+                    float distance = Vector3.Distance(collider.transform.position, transform.position);
+                    float angle = Vector3.Angle(transform.forward, direction);
+
+                    if (angle <= _detectionAngle / 2f)
+                    {
+                        Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
+                        if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
+                        {
+                            m_isCotonDetected = true;
+                            _hit = collider.transform.position;
+ 
+                            // Ne se rapproche pas si trop proche
+                            if (distance > _minAttackDistance)
+                            {
+                                _agent.SetDestination(_hit);
+                            }
+                            else
+                            {
+                                _agent.ResetPath();
+                            }
+
+                            return;
+                        }
+                    }
+                }
+            }
+
+        }
+        
         #endregion
 
 
@@ -303,6 +390,8 @@ namespace Enemy.Runtime
         private Vector3 _lastKnowPlayerPosition;
         private bool _hasSeenPlayer;
         private EnemyShoot _enemyShoot;
+        
+        private bool _canInitOnEnable;
 
         #endregion
     }

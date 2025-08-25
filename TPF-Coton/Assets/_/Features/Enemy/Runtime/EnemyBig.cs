@@ -17,6 +17,7 @@ namespace Enemy.Runtime
         private void Awake()
         {
             _enemyStat = GetComponent<EnemyStat>();
+            _enemyAI = GetComponent<EnemyAI>();
             _enemyStat.OnCotonLost += LoseCoton;
             
             _baseDamage = _enemyStat.m_damage;
@@ -64,6 +65,7 @@ namespace Enemy.Runtime
             _enemyStat.SetStat(newDamage,newBlock,newHealth);
         }
 
+        
         #endregion
         
         
@@ -74,11 +76,12 @@ namespace Enemy.Runtime
         private int _coton;
         private int _currentCoton;
         private EnemyStat _enemyStat;
+        private EnemyAI _enemyAI;
 
         private int _baseDamage;
         private int _baseBlock;
         private int _baseHealth;
-
+        
         #endregion
     }
 }
