@@ -483,7 +483,6 @@ namespace Enemy.Runtime
         [Header("Hit Coton")]
         private Vector3? _lastCotonPosition;
         private float _lastCotonHitTime = 0f;
-        [SerializeField] private float _cotonHitPriorityDuration = 3f;
         private Queue<Vector3> _cotonQueue = new ();
 		private bool _isCollectingCoton;
         private bool _isWaitingToCollectNext;
