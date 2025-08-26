@@ -25,6 +25,7 @@ namespace Enemy.Runtime
         {
             _origin = transform.position;
             _enemyAI = GetComponent<EnemyAI>();
+            _enemyBig = GetComponent<EnemyBig>();
         }
 
         private void OnEnable()
@@ -63,37 +64,59 @@ namespace Enemy.Runtime
             int damageToApply = damage - _block;
             if (damageToApply <= 0) damageToApply = 0;
             
+            damageToApply = Mathf.Min(damageToApply, _currentHealth);
+            
             _currentHealth -= damageToApply;
             
             Hit();
             DropCotonDamage(damageToApply);
-
+            
             if (_enemyAI != null && playerTransform != null)
             {
                 _enemyAI.OnHitByPlayer(playerTransform.position);
             }
             
+            if (_enemyBig is not null) _enemyBig.LoseCoton(damageToApply);
+            
             if (_currentHealth <= 0)
             {
                 Death();
             }
-            
         }
 
-        public void SetStat(int damage, int block, int health)
+        public void SetStat(int damage, int block, int newMaxHealth)
         {
             m_damage = damage;
             m_block = block;
-            m_currentHealth = health;
-            _currentHealth = m_currentHealth;
+            _block = block;
+
+			bool wasAtFullHealth = _currentHealth == _health;
             
-            //Si on est en pleine form (buff avant dégâts), augmente les PV max
-            if (_currentHealth >= _health)
+            if (newMaxHealth > _health)
             {
-                _health = _currentHealth;
+                _health = newMaxHealth;
+
+                if (wasAtFullHealth)
+                {
+                    _currentHealth = _health;
+                }
+			
             }
             
-            Debug.Log("Damage : " + damage + " Block : " + block + " Health : " + health);
+            m_currentHealth = _currentHealth;
+            
+            Debug.Log("Damage : " + damage + " Block : " + block + " Health : " + newMaxHealth);
+        }
+
+        public void Heal(int amount)
+        {
+            _currentHealth += amount;
+            if (_currentHealth > _health)
+            {
+                _currentHealth = _health;
+            }
+            
+            m_currentHealth = _currentHealth;
         }
 
         #endregion
@@ -174,6 +197,7 @@ namespace Enemy.Runtime
         
         private Vector3 _origin;
         private EnemyAI _enemyAI;
+        private EnemyBig _enemyBig;
 
 
         #endregion

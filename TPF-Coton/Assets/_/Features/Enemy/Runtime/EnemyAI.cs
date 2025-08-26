@@ -48,30 +48,28 @@ namespace Enemy.Runtime
             
             if (_enemyType == EnemyType.Puffed)
             {
-                bool cotonHitRecent = _lastCotonPosition.HasValue && Time.time - _lastCotonHitTime < _cotonHitPriorityDuration;
-
-                if (cotonHitRecent)
+                
+                if (_isCollectingCoton && _lastCotonPosition.HasValue)
                 {
                     m_isCotonDetected = true;
                     _hit = _lastCotonPosition.Value;
                     _agent.SetDestination(_hit);
+
                     return; // priorité coton
                 }
-                else
-                {
-                    m_isCotonDetected = false;
-                    _lastCotonPosition = null;
-                    
-                    //ajouter détection coton en temps réel
-                    IsCotonDetected(LayerMask.NameToLayer("Coton"));
 
-                    if (m_isCotonDetected)
-                    {
-                        _hit = _lastCotonPosition ?? _hit; //garder position coton détectée si dispo
-                        _agent.SetDestination(_hit);
-                        return;
-                    }
+				IsCotonDetected(LayerMask.NameToLayer("Coton"));
+                
+                if(m_isCotonDetected && _lastCotonPosition.HasValue)
+                {
+                    _hit = _lastCotonPosition.Value;
+                    _agent.SetDestination(_hit);
+                    _isCollectingCoton = true;
+ 
+                    return;
                 }
+                
+                _isCollectingCoton = false;
                 
                 if (!m_playerDetected)
                 {
@@ -118,6 +116,12 @@ namespace Enemy.Runtime
         
         
         #region Utils
+
+        public void ResetCotonCollection()
+        {
+            _isCollectingCoton = false;
+            _lastCotonPosition = null;
+        }
 
         public void OnHitByPlayer(Vector3 playerPosition)
         {
@@ -465,6 +469,7 @@ namespace Enemy.Runtime
         private Vector3? _lastCotonPosition = null;
         private float _lastCotonHitTime = 0f;
         [SerializeField] private float _cotonHitPriorityDuration = 3f;
+		private bool _isCollectingCoton;
 
         #endregion
     }

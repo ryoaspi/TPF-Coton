@@ -1,5 +1,6 @@
 using System;
 using Interface.Runtime;
+using Object.Runtime;
 using UnityEngine;
 
 namespace Enemy.Runtime
@@ -35,11 +36,33 @@ namespace Enemy.Runtime
         {
             if (other.TryGetComponent(out ICollectable collectable))
             {
-                _coton = collectable.Collect();
-                _currentCoton += _coton;
-                other.gameObject.SetActive(false);
+                Coton coton = other.GetComponent<Coton>();
+                if (coton is not null && !coton.CanBeCollected()) return;
                 
-                UpdateStats();
+                int cotonCollected = collectable.Collect();
+                other.gameObject.SetActive(false);
+
+				_enemyAI.ResetCotonCollection();
+                
+                // === Soin si PV perdus ===
+                int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
+                
+                int healAmount = Mathf.Min(cotonCollected, missingHealth);
+
+                if (healAmount > 0)
+                {
+                    _enemyStat.Heal(healAmount);
+                }
+                
+                // === le surplus est utilisé pour le buff ===
+                int cotonForBuff = cotonCollected - healAmount;
+                if (cotonForBuff > 0)
+                {
+                    _currentCoton += cotonForBuff;
+                    UpdateStats();
+                    
+                }
+                
             }
         }
 
@@ -53,6 +76,8 @@ namespace Enemy.Runtime
             _currentCoton -= amout;
             if (_currentCoton < 0) _currentCoton = 0;
             UpdateStats();
+            
+            Debug.Log(_currentCoton);
         }
         
         #endregion

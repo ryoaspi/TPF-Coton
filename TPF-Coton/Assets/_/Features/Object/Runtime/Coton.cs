@@ -9,6 +9,7 @@ namespace Object.Runtime
 
         private void OnEnable()
         {
+            _spawnTime = Time.time;
             _currentTime = 0;
             _col = GetComponent<Collider>();
             _rb = GetComponent<Rigidbody>();
@@ -50,6 +51,11 @@ namespace Object.Runtime
             _rb.isKinematic = !active;
             _col.isTrigger = !active;
         }
+
+        public bool CanBeCollected()
+        {
+            return Time.time >= _spawnTime + _collectibleDelay;
+        }
         
         #endregion
         
@@ -70,6 +76,9 @@ namespace Object.Runtime
         private Collider _col;
         private Rigidbody _rb;
         [SerializeField] private bool _liveCoton;
+        
+        private float _spawnTime;
+        [SerializeField] private float _collectibleDelay = 0.5f;
 
         #endregion
     }
