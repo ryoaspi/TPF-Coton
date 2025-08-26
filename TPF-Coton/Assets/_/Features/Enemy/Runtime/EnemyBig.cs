@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using UnityEngine;
@@ -76,8 +75,6 @@ namespace Enemy.Runtime
             _currentCoton -= amout;
             if (_currentCoton < 0) _currentCoton = 0;
             UpdateStats();
-            
-            Debug.Log(_currentCoton);
         }
         
         #endregion
