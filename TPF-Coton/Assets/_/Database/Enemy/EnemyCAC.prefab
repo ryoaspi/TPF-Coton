@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerDetected: 0
-  _enemyIsRanged: 0
+  m_isCotonDetected: 0
+  _enemyType: 0
   _minAttackDistance: 2
   _attackCooldown: 2
   _target:
@@ -167,6 +168,7 @@ MonoBehaviour:
   _searchDuration: 3
   _maxsearchTimer: 2
   _arrivalEpsilon: 0.3
+  _cotonHitPriorityDuration: 3
 --- !u!195 &2873384023500811797
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -234,7 +236,7 @@ GameObject:
   - component: {fileID: 589464488422108263}
   - component: {fileID: 8762444895739988241}
   - component: {fileID: 3389698861178972017}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Object.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,15 +21,23 @@ namespace Enemy.Runtime
         
         #region Unity Api
 
-        private void Start()
+        private void Awake()
         {
-            m_damage = _Damage;
+            _origin = transform.position;
+            _enemyAI = GetComponent<EnemyAI>();
+            _enemyBig = GetComponent<EnemyBig>();
         }
 
         private void OnEnable()
         {
             _currentHealth = _health;
+            m_currentHealth = _currentHealth;
             _renderer = GetComponent<Renderer>();
+            m_damage = _Damage;
+            m_block = _block;
+            m_isDeath = false;
+            transform.position = _origin;
+
         }
         
         private void Update()
@@ -50,33 +59,64 @@ namespace Enemy.Runtime
         
         #region Utils
 
-        public void DoDamage(int damage)
+        public void DoDamage(int damage, Transform playerTransform)
         {
             int damageToApply = damage - _block;
+            if (damageToApply <= 0) damageToApply = 0;
+            
+            damageToApply = Mathf.Min(damageToApply, _currentHealth);
+            
             _currentHealth -= damageToApply;
             
             Hit();
             DropCotonDamage(damageToApply);
             
+            if (_enemyAI != null && playerTransform != null)
+            {
+                _enemyAI.OnHitByPlayer(playerTransform.position);
+            }
+            
+            if (_enemyBig is not null) _enemyBig.LoseCoton(damageToApply);
+            
             if (_currentHealth <= 0)
             {
                 Death();
             }
-            
         }
 
-        public void SetStat(int damage, int block, int health)
+        public void SetStat(int damage, int block, int newMaxHealth)
         {
             m_damage = damage;
             m_block = block;
-            _currentHealth = health;
+            _block = block;
+
+			bool wasAtFullHealth = _currentHealth == _health;
+            
+            if (newMaxHealth > _health)
+            {
+                _health = newMaxHealth;
+
+                if (wasAtFullHealth)
+                {
+                    _currentHealth = _health;
+                }
+			
+            }
+            
             m_currentHealth = _currentHealth;
             
-            //Si on est en pleine form (buff avant dégâts), augmente les PV max
-            if (_currentHealth >= _health)
+            Debug.Log("Damage : " + damage + " Block : " + block + " Health : " + newMaxHealth);
+        }
+
+        public void Heal(int amount)
+        {
+            _currentHealth += amount;
+            if (_currentHealth > _health)
             {
-                _health = _currentHealth;
+                _currentHealth = _health;
             }
+            
+            m_currentHealth = _currentHealth;
         }
 
         #endregion
@@ -92,8 +132,7 @@ namespace Enemy.Runtime
         [ContextMenu("Death")]
         private void Death()
         {
-            // if (m_isDeath) return;
-            
+           
             m_isDeath = true;
             
             OnDeath?.Invoke();
@@ -102,7 +141,7 @@ namespace Enemy.Runtime
         }
         
         [ContextMenu("Damage")]
-        private void DebugDamage() => DoDamage(1);
+        private void DebugDamage() => DoDamage(1,null);
         
         private void DropCotonDamage(int damageToApply)
         {
@@ -128,7 +167,7 @@ namespace Enemy.Runtime
                 // Lance le lerp
                 lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
                 
-                // Quand le Lerp est terminé, réactive la physique pour la chute naturell.
+                // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
                 lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
             }
         }
@@ -151,12 +190,14 @@ namespace Enemy.Runtime
         [Header("Loot")]
         [SerializeField] private GameObject _coton;
 
-        [Header("Loot Comportement")] 
+        [Header("Loot Comportment")] 
         [SerializeField] private float _distance = 1.5f;
         [SerializeField] private float _arcHeight = 2f;
         [SerializeField] private float _arcDuration = 1f;
         
-
+        private Vector3 _origin;
+        private EnemyAI _enemyAI;
+        private EnemyBig _enemyBig;
 
 
         #endregion
