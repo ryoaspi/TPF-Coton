@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 454b5894e3cee41488eee841f2e2e0ae
+guid: 79c6038c0bee2f149b0e327ea0b070fa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -12,18 +12,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Ear
-    second: {fileID: 2100000, guid: 84b74527fa240af44b8c98965ccc9fe0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: M_Eyes
     second: {fileID: 2100000, guid: f4d0496fe6f71a34f940b3502710ba61, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Hat
-    second: {fileID: 2100000, guid: c6457329f34580d43ae9df6379d79747, type: 2}
+      name: M_Hat.005
+    second: {fileID: 2100000, guid: 0ca2714b79dff524eac219ef4db949d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
