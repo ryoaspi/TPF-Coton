@@ -168,6 +168,7 @@ MonoBehaviour:
   _searchDuration: 3
   _maxsearchTimer: 2
   _arrivalEpsilon: 0.3
+  _cotonHitPriorityDuration: 3
 --- !u!195 &2873384023500811797
 NavMeshAgent:
   m_ObjectHideFlags: 0

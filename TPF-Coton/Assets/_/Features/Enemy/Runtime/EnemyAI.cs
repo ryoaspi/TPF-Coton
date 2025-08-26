@@ -49,28 +49,39 @@ namespace Enemy.Runtime
             if (_enemyType == EnemyType.Puffed)
             {
                 
-                if (_isCollectingCoton && _lastCotonPosition.HasValue)
+                if (_isCollectingCoton)
                 {
-                    m_isCotonDetected = true;
-                    _hit = _lastCotonPosition.Value;
+                    //Si on attend entre deux cotons, on ne bouge pas
+                    if (_isWaitingToCollectNext) return;
+                    
+                    //Si on n'a plus rien à collecter, on arrête
+                    if (_cotonQueue.Count == 0)
+                    {
+                        _isCollectingCoton = false;
+                        return;
+                    }
+                    
+                    // Aller au prochain coton
+                    
+                    Vector3 nextCotonPosition = _cotonQueue.Dequeue();
+                    _hit = nextCotonPosition;
                     _agent.SetDestination(_hit);
-
-                    return; // priorité coton
-                }
-
-				IsCotonDetected(LayerMask.NameToLayer("Coton"));
-                
-                if(m_isCotonDetected && _lastCotonPosition.HasValue)
-                {
-                    _hit = _lastCotonPosition.Value;
-                    _agent.SetDestination(_hit);
-                    _isCollectingCoton = true;
- 
+                    _isWaitingToCollectNext = true;
+                    
+                    //Attendre un petit temps avant de lancer la suite
+                    Invoke(nameof(ContinueCotonCollect), _timeBetweenCotonCollects);
                     return;
                 }
                 
-                _isCollectingCoton = false;
+                // Si pas déjà en collecte, tenter d'en détecter
+				IsCotonDetected(LayerMask.NameToLayer("Coton"));
+                if (_cotonQueue.Count > 0)
+                {
+                    _isCollectingCoton = true;
+                    return;
+                }
                 
+                //Sinon comportement par défaut
                 if (!m_playerDetected)
                 {
                     Patrol();
@@ -119,8 +130,9 @@ namespace Enemy.Runtime
 
         public void ResetCotonCollection()
         {
+            _cotonQueue.Clear();
             _isCollectingCoton = false;
-            _lastCotonPosition = null;
+            _isWaitingToCollectNext = false;
         }
 
         public void OnHitByPlayer(Vector3 playerPosition)
@@ -175,11 +187,12 @@ namespace Enemy.Runtime
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Coton"));
             
+            _cotonQueue.Clear();
             m_isCotonDetected = false;
             
             foreach (Collider collider in colliders)
             {
-                if (collider.gameObject.layer == LayerMask.NameToLayer("Coton"))
+                if (collider.gameObject.layer == LayerMask.NameToLayer("Coton") && collider.gameObject.activeInHierarchy)
                 {
                     Vector3 direction = (collider.transform.position - transform.position).normalized;
                     float distance = Vector3.Distance(collider.transform.position, transform.position);
@@ -190,12 +203,9 @@ namespace Enemy.Runtime
                         Vector3 raycastOrigin = transform.position + Vector3.up * 0.1f;
                         if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
                         {
+                            _cotonQueue.Enqueue(collider.transform.position);
                             m_isCotonDetected = true;
-                            _hit = collider.transform.position;
- 
-                            _agent.SetDestination(_hit);
-
-                            return;
+                            
                         }
                     }
                 }
@@ -207,6 +217,11 @@ namespace Enemy.Runtime
 
 
         #region Main Method
+
+        private void ContinueCotonCollect()
+        {
+            _isWaitingToCollectNext = false;
+        }
 
         private void IsPlayerDetected()
         {
@@ -466,10 +481,14 @@ namespace Enemy.Runtime
         private bool _canInitOnEnable;
         
         [Header("Hit Coton")]
-        private Vector3? _lastCotonPosition = null;
+        private Vector3? _lastCotonPosition;
         private float _lastCotonHitTime = 0f;
         [SerializeField] private float _cotonHitPriorityDuration = 3f;
+        private Queue<Vector3> _cotonQueue = new ();
 		private bool _isCollectingCoton;
+        private bool _isWaitingToCollectNext;
+        private float _timeBetweenCotonCollects = 1f;
+
 
         #endregion
     }

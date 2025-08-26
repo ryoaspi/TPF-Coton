@@ -220,6 +220,7 @@ MonoBehaviour:
   _searchDuration: 3
   _maxsearchTimer: 2
   _arrivalEpsilon: 0.3
+  _cotonHitPriorityDuration: 3
 --- !u!1 &8466843828519450460
 GameObject:
   m_ObjectHideFlags: 0
