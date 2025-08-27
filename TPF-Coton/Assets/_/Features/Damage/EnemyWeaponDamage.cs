@@ -25,6 +25,11 @@ namespace Damage.Runtime
                     playerStat.DoDamage(_damage);
                 }
             }
+
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed && other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                
+            }
         }
 
         #endregion
@@ -34,7 +39,8 @@ namespace Damage.Runtime
         
         private EnemyStat _enemyStat;
         private int _damage;
-        
+        private EnemyAI _enemyAI;
+
         #endregion
     }
 }

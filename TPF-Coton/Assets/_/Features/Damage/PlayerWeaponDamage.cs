@@ -21,7 +21,7 @@ namespace Damage.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Glouton"))
             {
                 EnemyStat enemyStat = other.GetComponentInParent<EnemyStat>();
                 if (enemyStat != null && _playerStats != null && !_enemiesHitThisSwing.Contains(enemyStat))

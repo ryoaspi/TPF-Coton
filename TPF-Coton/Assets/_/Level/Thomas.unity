@@ -2293,9 +2293,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1730634588216693546, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: m_Name
       value: EnemyGScale
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: m_IsActive
