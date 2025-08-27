@@ -9,7 +9,9 @@ namespace Enemy.Runtime
     {
         #region publics
 
-        
+        public Collider m_colliderDommage;
+        [HideInInspector] public int m_currentCoton;
+
 
         #endregion
         
@@ -20,7 +22,7 @@ namespace Enemy.Runtime
         {
             _enemyStat = GetComponent<EnemyStat>();
             _enemyAI = GetComponent<EnemyAI>();
-            _enemyStat.OnCotonLost += LoseCoton;
+            _enemyStat.OnCotonLost += (int amount) => LoseCoton(amount, true);
             
             _baseDamage = _enemyStat.m_damage;
             _baseBlock = _enemyStat.m_block;
@@ -29,7 +31,16 @@ namespace Enemy.Runtime
 
         private void Update()
         {
-            
+            if (_isAttacking)
+            {
+                _attackTimer += Time.deltaTime;
+                if (_attackTimer >= _attackDuration)
+                {
+                    m_colliderDommage.enabled = false;
+                    _isAttacking = false;
+                    _attackTimer = 0;
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -42,7 +53,7 @@ namespace Enemy.Runtime
                 int cotonCollected = collectable.Collect();
                 other.gameObject.SetActive(false);
 
-				_enemyAI.ResetCotonCollection();
+                _enemyAI.ResetCotonCollection();
                 
                 // === Soin si PV perdus ===
                 int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
@@ -58,11 +69,19 @@ namespace Enemy.Runtime
                 int cotonForBuff = cotonCollected - healAmount;
                 if (cotonForBuff > 0)
                 {
-                    _currentCoton += cotonForBuff;
+                    m_currentCoton += cotonForBuff;
                     UpdateStats();
                     
                 }
                 
+            }
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                Fight();
             }
         }
 
@@ -71,13 +90,22 @@ namespace Enemy.Runtime
         
         #region Utils
 
-        public void LoseCoton(int amout)
+        public void LoseCoton(int amout, bool fromStat = false)
         {
-            _currentCoton -= amout;
-            if (_currentCoton < 0) _currentCoton = 0;
+            m_currentCoton -= amout;
+            if (m_currentCoton < 0) m_currentCoton = 0;
+            if (!fromStat)_enemyStat.DropCotonDamage(amout);
             UpdateStats();
             
-            Debug.Log(_currentCoton);
+        }
+
+        public void Fight()
+        {
+            Debug.Log("Fight");
+            if(_isAttacking) return;
+            _isAttacking = true;
+            _attackTimer = 0f;
+            m_colliderDommage.enabled = true;
         }
         
         #endregion
@@ -87,7 +115,7 @@ namespace Enemy.Runtime
 
         private void UpdateStats()
         {
-            int buffLevel = _currentCoton / _counter;
+            int buffLevel = m_currentCoton / _counter;
             
             int newDamage = _baseDamage + buffLevel;
             int newBlock = _baseBlock + buffLevel;
@@ -109,7 +137,6 @@ namespace Enemy.Runtime
 
         [SerializeField] private int _counter = 5;
         private int _coton;
-        private int _currentCoton;
         private EnemyStat _enemyStat;
         private EnemyAI _enemyAI;
 
@@ -119,6 +146,10 @@ namespace Enemy.Runtime
         
         [SerializeField] private LayerMask _layerCoton;
         
+        private float _attackTimer;
+        private float _attackDuration =1f;
+        private bool _isAttacking;
+
         #endregion
     }
 }
