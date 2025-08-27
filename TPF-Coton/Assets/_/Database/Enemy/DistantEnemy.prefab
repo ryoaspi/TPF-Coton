@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerDetected: 0
   m_isCotonDetected: 0
-  _enemyType: 1
+  m_enemyType: 1
   _minAttackDistance: 3
   _attackCooldown: 2
   _target:
@@ -220,7 +220,6 @@ MonoBehaviour:
   _searchDuration: 3
   _maxsearchTimer: 2
   _arrivalEpsilon: 0.3
-  _cotonHitPriorityDuration: 3
 --- !u!1 &8466843828519450460
 GameObject:
   m_ObjectHideFlags: 0

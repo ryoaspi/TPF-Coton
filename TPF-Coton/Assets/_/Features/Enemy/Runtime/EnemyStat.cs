@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Object.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,6 +13,7 @@ namespace Enemy.Runtime
         [HideInInspector] public int m_damage;
         [HideInInspector] public int m_currentHealth;
         [HideInInspector] public int m_block;
+        [HideInInspector] public int m_maxHealth;
         public event Action OnDeath;
         public event Action<int> OnCotonLost;
         #endregion
@@ -37,6 +37,7 @@ namespace Enemy.Runtime
             m_block = _block;
             m_isDeath = false;
             transform.position = _origin;
+            m_maxHealth = _health;
 
         }
         
@@ -65,8 +66,13 @@ namespace Enemy.Runtime
             if (damageToApply <= 0) damageToApply = 0;
             
             damageToApply = Mathf.Min(damageToApply, _currentHealth);
-            
+
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
+            {
+                _enemyBig.LoseCoton(damageToApply);
+            }
             _currentHealth -= damageToApply;
+            m_currentHealth = _currentHealth;
             
             Hit();
             DropCotonDamage(damageToApply);
@@ -76,7 +82,6 @@ namespace Enemy.Runtime
                 _enemyAI.OnHitByPlayer(playerTransform.position);
             }
             
-            if (_enemyBig is not null) _enemyBig.LoseCoton(damageToApply);
             
             if (_currentHealth <= 0)
             {
@@ -86,26 +91,18 @@ namespace Enemy.Runtime
 
         public void SetStat(int damage, int block, int newMaxHealth)
         {
+			bool wasAtFullHealth = m_currentHealth == _health;
+            
             m_damage = damage;
             m_block = block;
-            _block = block;
+            m_maxHealth = newMaxHealth;
 
-			bool wasAtFullHealth = _currentHealth == _health;
-            
-            if (newMaxHealth > _health)
+            if (wasAtFullHealth)
             {
-                _health = newMaxHealth;
-
-                if (wasAtFullHealth)
-                {
-                    _currentHealth = _health;
-                }
-			
+                _currentHealth = m_maxHealth;
             }
             
             m_currentHealth = _currentHealth;
-            
-            Debug.Log("Damage : " + damage + " Block : " + block + " Health : " + newMaxHealth);
         }
 
         public void Heal(int amount)
@@ -143,11 +140,10 @@ namespace Enemy.Runtime
         [ContextMenu("Damage")]
         private void DebugDamage() => DoDamage(1,null);
         
-        private void DropCotonDamage(int damageToApply)
+        public void DropCotonDamage(int damageToApply)
         {
             
-            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Ranged) return;
-            if (damageToApply <= 0) return;
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Ranged || damageToApply <= 0) return;
             
             OnCotonLost?.Invoke(damageToApply);
             
@@ -171,6 +167,11 @@ namespace Enemy.Runtime
                 
                 // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
                 lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
+            }
+
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
+            {
+                _enemyBig.LoseCoton(damageToApply,true);
             }
         }
         
