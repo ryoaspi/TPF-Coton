@@ -21,6 +21,7 @@ namespace Player.Runtime
         private void Start()
         {
             _playerStats=GetComponent<PlayerStats>();
+            _playerMovement=GetComponent<PlayerMovement>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -68,6 +69,12 @@ namespace Player.Runtime
             m_buff = m_coton / _numberCotonForBuff;
             _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
             _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
+            if (_playerMovement.m_speed > _minimalSpeed)
+            {
+                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
+            }
+            
+            
             Debug.Log(m_buff);
         }
         
@@ -80,6 +87,8 @@ namespace Player.Runtime
         [SerializeField] private TMP_Text _textCoton;
         private PlayerStats _playerStats;
         private PlayerMovement _playerMovement;
+        [SerializeField] private float _minimalSpeed=5;
+
         #endregion
     }
 }

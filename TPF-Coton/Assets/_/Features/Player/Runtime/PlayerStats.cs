@@ -26,6 +26,7 @@ namespace Player.Runtime
             _isChronoOn = false;
             _shield = GetComponent<Shield>();
             _playerBuff = GetComponent<PlayerBuff>();
+            _playerDropCoton=GetComponent<PlayerDropCoton>();
 
         }
 
@@ -64,6 +65,8 @@ namespace Player.Runtime
 
         #region Utils
 
+        [ContextMenu("DoDamage")]
+        private void DoDamage() => DoDamage(1);
         [ContextMenu("Hits")]
         private void Hit()
         {
@@ -75,6 +78,7 @@ namespace Player.Runtime
         {
             if (_shield.m_isShielding == false)
             {
+                _playerDropCoton.DropCotonDamage(damage);
                 m_currentHealth -= damage;
                 _playerBuff.LoseCoton(damage);
                 Hit();
@@ -99,7 +103,7 @@ namespace Player.Runtime
         {
             m_privateHP = _maxHealth;
         }
-
+    
         #endregion
         #region private
         
@@ -116,6 +120,7 @@ namespace Player.Runtime
         private bool _isChronoOn;
         private Shield _shield;
         private PlayerBuff _playerBuff;
+        private PlayerDropCoton _playerDropCoton;
         #endregion
     }
 }
