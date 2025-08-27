@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +7,11 @@ namespace Player.Runtime
 {
     public class PlayerDamage : MonoBehaviour
     {
+        #region Public
+
+        [HideInInspector]public bool m_isAttacking;
+        
+        #endregion 
         
         #region UnityAPi
 
@@ -29,7 +33,7 @@ namespace Player.Runtime
             
             _sword.SetActive(false);
             _isOnCooldown = false;
-            _isAttacking = false;
+            m_isAttacking = false;
             
         }
         
@@ -46,7 +50,7 @@ namespace Player.Runtime
                 
             }
 
-            if (_isAttacking)
+            if (m_isAttacking)
             {
                 
               
@@ -56,7 +60,7 @@ namespace Player.Runtime
                 Debug.Log(_targetPositionConverted+" target");
                 if (Quaternion.Angle(_currentSwordRotationConverted, _targetPositionConverted) < 0.1f)
                 {
-                    _isAttacking = false;
+                    m_isAttacking = false;
                     _sword.SetActive(false);
                     
                     _swordAnchor.transform.localRotation = _baseSwordRotationConverted;
@@ -89,7 +93,7 @@ namespace Player.Runtime
                
                 _sword.SetActive(true);
                 _isOnCooldown = true;
-                _isAttacking = true;
+                m_isAttacking = true;
             }
         }
 
@@ -112,7 +116,6 @@ namespace Player.Runtime
         private Quaternion _targetPositionConverted;
         [SerializeField] private float _hitCooldown =1f;
         [SerializeField] private float _anglepPerSecond;
-        private bool _isAttacking;
         private Shield _shield;
 
         #endregion
