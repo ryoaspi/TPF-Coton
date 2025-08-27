@@ -1,3 +1,4 @@
+using System;
 using Interface.Runtime;
 using Object.Runtime;
 using TMPro;
@@ -17,6 +18,11 @@ namespace Player.Runtime
 
         #region Unity Api
 
+        private void Start()
+        {
+            _playerStats=GetComponent<PlayerStats>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out ICollectable collectable))
@@ -24,10 +30,18 @@ namespace Player.Runtime
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
-                int cotonCollected = collectable.Collect();
-                other.gameObject.SetActive(false);
-                m_coton += cotonCollected;
-                BuffStat();
+                
+                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
+                {
+                    int cotonCollected = collectable.Collect();
+                    other.gameObject.SetActive(false);
+                    m_coton += cotonCollected;
+                    BuffStat();  
+                }
+                else
+                {
+                    _playerStats.m_currentHealth++;
+                }
                 _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
             }
         }
@@ -52,6 +66,8 @@ namespace Player.Runtime
         private void BuffStat()
         {
             m_buff = m_coton / _numberCotonForBuff;
+            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
+            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
             Debug.Log(m_buff);
         }
         
@@ -62,7 +78,8 @@ namespace Player.Runtime
 
         [SerializeField] private int _numberCotonForBuff = 5;
         [SerializeField] private TMP_Text _textCoton;
-
+        private PlayerStats _playerStats;
+        private PlayerMovement _playerMovement;
         #endregion
     }
 }

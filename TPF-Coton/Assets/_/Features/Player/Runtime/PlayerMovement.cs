@@ -22,6 +22,7 @@ namespace Player.Runtime
             m_speedSave = m_speed;
             _playerDamage = GetComponent<PlayerDamage>();
             _baseGravity=Physics.gravity;
+            _groundCheckMask=LayerMask.GetMask("Ground");
         }
 
         private void Start()
@@ -117,7 +118,7 @@ namespace Player.Runtime
         private void GroundCheck()
         {
             Vector3 origin = transform.position + Vector3.up * 0.1f; 
-            _isGrounded = Physics.SphereCast(origin, groundCheckRadius, Vector3.down, out _slopeHit, groundCheckDistance);
+            _isGrounded = Physics.SphereCast(origin, groundCheckRadius, Vector3.down, out _slopeHit, groundCheckDistance, _groundCheckMask);
             
             if (_isGrounded)
             {
@@ -189,7 +190,9 @@ namespace Player.Runtime
         [SerializeField] private float groundedDrag = 5f;
         [SerializeField] private float airDrag = 0.1f;
         [FormerlySerializedAs("m_downwardSlopeForce")] [SerializeField] private float _downwardSlopeForce = 80f;
-
+        private LayerMask _groundCheckMask;
+        
+        
         [Header("Climbing Settings")]
         [Tooltip("The max angle (in degrees) that the player can climb.")]
         [HideInInspector] private float _maxClimbAngle = 60f;

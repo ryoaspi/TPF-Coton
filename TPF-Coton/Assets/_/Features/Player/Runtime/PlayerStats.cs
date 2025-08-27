@@ -5,53 +5,63 @@ namespace Player.Runtime
 {
     public class PlayerStats : MonoBehaviour
     {
-        
+
         #region public
 
-        [HideInInspector]public int m_publicDamage; 
-        
+        [Header("Damage")] [HideInInspector] public int m_publicDamage;
+        [HideInInspector] public int m_privateDamage;
+
+        [Header("HP")] [HideInInspector] public int m_publicHP;
+        [HideInInspector] public int m_privateHP;
+        [HideInInspector]public int m_currentHealth;
         #endregion
-        
-        
+
+
         #region UnityApi
+
         void Awake()
         {
 
-            _currentHealth = _MaxHealth;
+
             _isChronoOn = false;
-            _shield=GetComponent<Shield>();
-            
+            _shield = GetComponent<Shield>();
+            _playerBuff = GetComponent<PlayerBuff>();
+
         }
 
         void Start()
         {
+            m_currentHealth = _maxHealth;
+            m_publicHP = _maxHealth;
+            m_publicDamage = _statDamage;
+           
             
             DamageUpdate();
-            
+            UpdateMaxHealth();
         }
-        
-        
+
+
         private void Update()
         {
 
             if (_isChronoOn)
             {
-                
-                _chrono+=Time.deltaTime;
+
+                _chrono += Time.deltaTime;
                 if (_chrono >= _colorHitTime)
                 {
                     _renderer.material.color = Color.gray;
                     _chrono = 0;
                     _isChronoOn = false;
                 }
-                
+
             }
-            
+
         }
 
         #endregion
-        
-        
+
+
         #region Utils
 
         [ContextMenu("Hits")]
@@ -60,23 +70,21 @@ namespace Player.Runtime
             _renderer.material.color = Color.red;
             _isChronoOn = true;
         }
-        
+
         public void DoDamage(int damage)
         {
             if (_shield.m_isShielding == false)
             {
-                _currentHealth -= damage;
+                m_currentHealth -= damage;
+                _playerBuff.LoseCoton(damage);
                 Hit();
                 IsDead();
             }
-            
-            
-            
         }
 
         public void IsDead()
         {
-            if (_currentHealth <= 0)
+            if (m_currentHealth <= 0)
             {
                 gameObject.SetActive(false);
             }
@@ -84,21 +92,22 @@ namespace Player.Runtime
 
         private void DamageUpdate()
         {
-
-            m_publicDamage = _statDamage;
+            m_privateDamage = _statDamage;
         }
-        
+
+        private void UpdateMaxHealth()
+        {
+            m_privateHP = _maxHealth;
+        }
+
         #endregion
         #region private
         
         [Header("Stat")]
         [SerializeField] private string _playerName = "Flonflon";
-        [SerializeField] private int _level = 1;
-        [SerializeField] private int _experience = 0;
-        [SerializeField] private int _gold = 0;
-        [SerializeField] private int _MaxHealth = 100;
         [SerializeField] private int _statDamage =1;
-        private float _currentHealth;
+        [SerializeField] private int _maxHealth=100;
+        
         
         [Header("Hit")]
         [SerializeField] private Renderer _renderer;
@@ -106,7 +115,7 @@ namespace Player.Runtime
         [SerializeField]private float _chrono;
         private bool _isChronoOn;
         private Shield _shield;
-        
+        private PlayerBuff _playerBuff;
         #endregion
     }
 }
