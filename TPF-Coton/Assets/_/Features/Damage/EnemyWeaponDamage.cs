@@ -11,6 +11,7 @@ namespace Damage.Runtime
         private void OnEnable()
         {
             _enemyStat = GetComponentInParent<EnemyStat>();
+            _enemyAI = GetComponentInParent<EnemyAI>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -24,10 +25,17 @@ namespace Damage.Runtime
                     _damage = _enemyStat.m_damage;
                     playerStat.DoDamage(_damage);
                 }
+
+                return;
             }
 
             if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed && other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
+                if (_enemyStat != null)
+                {
+                    _damage = _enemyStat.m_currentHealth;
+                    _enemyStat.DoDamage(_damage,null);
+                }
                 
             }
         }
