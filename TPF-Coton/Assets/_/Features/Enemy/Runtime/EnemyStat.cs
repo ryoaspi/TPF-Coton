@@ -145,6 +145,8 @@ namespace Enemy.Runtime
         
         private void DropCotonDamage(int damageToApply)
         {
+            
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Ranged) return;
             if (damageToApply <= 0) return;
             
             OnCotonLost?.Invoke(damageToApply);
