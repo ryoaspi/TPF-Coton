@@ -57,6 +57,7 @@ namespace Player.Runtime
             m_coton -= amout;
             if (m_coton < 0) m_coton = 0;
             BuffStat();
+            _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
         }
         
         #endregion

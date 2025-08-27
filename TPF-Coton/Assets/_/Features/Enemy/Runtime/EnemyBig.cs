@@ -73,18 +73,9 @@ namespace Enemy.Runtime
                     UpdateStats();
                     
                 }
-                
             }
         }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                Fight();
-            }
-        }
-
+        
         #endregion
         
         
@@ -101,8 +92,14 @@ namespace Enemy.Runtime
 
         public void Fight()
         {
-            Debug.Log("Fight");
             if(_isAttacking) return;
+
+            var damageReset = m_colliderDommage.GetComponent<IWeaponDamageResettable>();
+            if (damageReset != null)
+            {
+                damageReset.ResetHit();
+            }
+            
             _isAttacking = true;
             _attackTimer = 0f;
             m_colliderDommage.enabled = true;
@@ -149,7 +146,7 @@ namespace Enemy.Runtime
         private float _attackTimer;
         private float _attackDuration =1f;
         private bool _isAttacking;
-
+        
         #endregion
     }
 }

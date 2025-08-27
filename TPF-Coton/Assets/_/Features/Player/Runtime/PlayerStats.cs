@@ -105,6 +105,8 @@ namespace Player.Runtime
         }
     
         #endregion
+        
+        
         #region private
         
         [Header("Stat")]
