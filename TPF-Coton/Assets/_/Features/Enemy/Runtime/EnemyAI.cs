@@ -11,6 +11,8 @@ namespace Enemy.Runtime
 
         [HideInInspector] public bool m_playerDetected;
         [HideInInspector] public bool m_isCotonDetected;
+        [Header("Enemy Type")] 
+        public EnemyType m_enemyType;
 
         public enum EnemyType
         {
@@ -46,7 +48,7 @@ namespace Enemy.Runtime
             IsPlayerDetected();
             
             
-            if (_enemyType == EnemyType.Puffed)
+            if (m_enemyType == EnemyType.Puffed)
             {
                 
                 if (_isCollectingCoton)
@@ -97,7 +99,7 @@ namespace Enemy.Runtime
 
                 float distanceToPlayer = Vector3.Distance(transform.position, _hit);
                 
-                if (_enemyType == EnemyType.Melee && _enemySword is not null)
+                if (m_enemyType == EnemyType.Melee && _enemySword is not null)
                 {
                     //Melee Logic
                     if (!_enemySword.m_isAttacking && distanceToPlayer <= _minAttackDistance &&
@@ -371,7 +373,7 @@ namespace Enemy.Runtime
 
             float distanceToPlayer = Vector3.Distance(transform.position, _hit);
 
-            switch (_enemyType)
+            switch (m_enemyType)
             {
                 case EnemyType.Melee:
                     if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
@@ -441,8 +443,7 @@ namespace Enemy.Runtime
 
         #region Private
 
-        [Header("Enemy Type")] 
-        [SerializeField] private EnemyType _enemyType;
+
 
         [Header("Attack Settings")]
         [SerializeField] private float _minAttackDistance = 3f;
@@ -483,7 +484,6 @@ namespace Enemy.Runtime
         [Header("Hit Coton")]
         private Vector3? _lastCotonPosition;
         private float _lastCotonHitTime = 0f;
-        [SerializeField] private float _cotonHitPriorityDuration = 3f;
         private Queue<Vector3> _cotonQueue = new ();
 		private bool _isCollectingCoton;
         private bool _isWaitingToCollectNext;
