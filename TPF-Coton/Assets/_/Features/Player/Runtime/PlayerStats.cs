@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player.Runtime
 {
@@ -36,7 +38,7 @@ namespace Player.Runtime
             m_publicHP = _maxHealth;
             m_publicDamage = _statDamage;
            
-            
+            UpdateTextHealth();
             DamageUpdate();
             UpdateMaxHealth();
         }
@@ -49,7 +51,7 @@ namespace Player.Runtime
             {
 
                 _chrono += Time.deltaTime;
-                if (_chrono >= _colorHitTime)
+                if (_chrono >= _invinsibilityTime)
                 {
                     _renderer.material.color = Color.gray;
                     _chrono = 0;
@@ -76,11 +78,12 @@ namespace Player.Runtime
 
         public void DoDamage(int damage)
         {
-            if (_shield.m_isShielding == false)
+            if (_shield.m_isShielding == false && _isChronoOn==false)
             {
                 _playerDropCoton.DropCotonDamage(damage);
                 m_currentHealth -= damage;
                 _playerBuff.LoseCoton(damage);
+                UpdateTextHealth();
                 Hit();
                 IsDead();
             }
@@ -103,7 +106,11 @@ namespace Player.Runtime
         {
             m_privateHP = _maxHealth;
         }
-    
+
+        public void UpdateTextHealth()
+        {
+            _textCurrentHealth.text = $"{m_currentHealth}/{m_publicHP}";
+        }
         #endregion
         #region private
         
@@ -112,11 +119,15 @@ namespace Player.Runtime
         [SerializeField] private int _statDamage =1;
         [SerializeField] private int _maxHealth=100;
         
+        [Header ("UI")]
+        [SerializeField] private TextMeshProUGUI _textCurrentHealth;
+        
+        
         
         [Header("Hit")]
         [SerializeField] private Renderer _renderer;
-        [SerializeField] private float _colorHitTime = 1f;
-        [SerializeField]private float _chrono;
+        [FormerlySerializedAs("_colorHitTime")] [SerializeField] private float _invinsibilityTime = 1f;
+        private float _chrono;
         private bool _isChronoOn;
         private Shield _shield;
         private PlayerBuff _playerBuff;

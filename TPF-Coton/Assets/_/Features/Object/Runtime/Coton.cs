@@ -29,7 +29,7 @@ namespace Object.Runtime
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 _rb.isKinematic = true;
                 _col.isTrigger = true;

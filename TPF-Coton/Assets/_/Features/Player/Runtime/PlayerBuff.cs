@@ -35,15 +35,17 @@ namespace Player.Runtime
                 if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
                 {
                     int cotonCollected = collectable.Collect();
-                    other.gameObject.SetActive(false);
                     m_coton += cotonCollected;
+                    other.gameObject.SetActive(false);
                     BuffStat();  
                 }
                 else
                 {
                     _playerStats.m_currentHealth++;
+                    _playerStats.UpdateTextHealth();
+                    other.gameObject.SetActive(false);
                 }
-                _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+                
             }
         }
 
@@ -69,12 +71,15 @@ namespace Player.Runtime
             m_buff = m_coton / _numberCotonForBuff;
             _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
             _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
+            if (_playerStats.m_currentHealth == _playerStats.m_publicHP-m_buff)
+            {
+                _playerStats.m_currentHealth=_playerStats.m_publicHP;
+            }
             if (_playerMovement.m_speed > _minimalSpeed)
             {
                 _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
             }
-            
-            
+            _playerStats.UpdateTextHealth();
             Debug.Log(m_buff);
         }
         
