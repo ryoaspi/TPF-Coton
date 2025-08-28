@@ -17,6 +17,8 @@ namespace Player.Runtime
 
         private void Awake()
         {
+           
+            
             _playerInput = GetComponent<PlayerInput>();
             _moveAction = _playerInput.actions["Move"];
             m_speedSave = m_speed;
@@ -28,6 +30,7 @@ namespace Player.Runtime
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
+            _rb.freezeRotation = true;
             _mainCamera = Camera.main;
         }
 
@@ -69,7 +72,7 @@ namespace Player.Runtime
             else
             {
                 _rb.linearDamping = airDrag;
-                Physics.gravity= _baseGravity*3;
+                Physics.gravity= _baseGravity*10;
             }
             
         }
@@ -117,7 +120,7 @@ namespace Player.Runtime
 
         private void GroundCheck()
         {
-            Vector3 origin = transform.position + Vector3.up * 0.1f; 
+            Vector3 origin = transform.position + Vector3.up *0.05f; 
             _isGrounded = Physics.SphereCast(origin, groundCheckRadius, Vector3.down, out _slopeHit, groundCheckDistance, _groundCheckMask);
             
             if (_isGrounded)
@@ -138,10 +141,31 @@ namespace Player.Runtime
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
             {
-                float capsuleHeight = _rb.gameObject.GetComponent<CapsuleCollider>().height;
+                float capsuleHeight = _rb.GetComponent<CapsuleCollider>().height * transform.localScale.y;
                 transform.position = hit.point + new Vector3(0, capsuleHeight / 2, 0);
             }
         }
+        
+            [SerializeField] private float radius = 0.2f;
+            [SerializeField] private float distance = 0.38f;
+            [SerializeField] private Color color = Color.green;
+
+            private void OnDrawGizmos()
+            {
+                // Position de départ (exemple comme ton GroundCheck)
+                Vector3 origin = transform.position + Vector3.up * 0.05f;
+                Vector3 direction = Vector3.down;
+
+                // Dessine la ligne du cast
+                Gizmos.color = color;
+                Gizmos.DrawLine(origin, origin + direction * distance);
+
+                // Dessine une sphère au départ
+                Gizmos.DrawWireSphere(origin, radius);
+
+                // Dessine une sphère à la fin du cast
+                Gizmos.DrawWireSphere(origin + direction * distance, radius);
+            }
         
         #endregion
         
