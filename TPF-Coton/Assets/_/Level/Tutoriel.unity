@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -787,6 +791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -891,6 +899,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1331,6 +1343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1506,6 +1522,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &67825675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 1347474553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &73579962
 Mesh:
   m_ObjectHideFlags: 0
@@ -1905,6 +1926,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &83325675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+  m_PrefabInstance: {fileID: 924340492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &84003494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488313452677943802, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
@@ -1925,6 +1951,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -2047,11 +2077,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+--- !u!1 &103688458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 1168734942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &114180548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2120,6 +2159,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2150,6 +2193,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -2408,6 +2455,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
@@ -2778,6 +2829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2840,7 +2895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147026876}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Falaise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3122,6 +3177,10 @@ PrefabInstance:
     - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Name
       value: Falaise50m (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
@@ -4287,7 +4346,7 @@ GameObject:
   - component: {fileID: 210931072}
   - component: {fileID: 210931071}
   - component: {fileID: 210931070}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Transition 1-1 to 1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4954,6 +5013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -5186,6 +5249,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
@@ -5521,6 +5588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5663,6 +5734,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6643,6 +6718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise50m (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7144,6 +7223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7254,6 +7337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7351,6 +7438,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -7639,6 +7730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7659,6 +7754,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -8126,6 +8225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8461,6 +8564,142 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &421553450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421553451}
+  - component: {fileID: 421553453}
+  - component: {fileID: 421553452}
+  m_Layer: 5
+  m_Name: buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &421553451
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421553450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 624535680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &421553452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421553450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &421553453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421553450}
+  m_CullTransparentMesh: 1
 --- !u!4 &422706664 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5839317647113693116, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
@@ -9252,6 +9491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9661,6 +9904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9895,6 +10142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9967,6 +10218,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -10262,6 +10517,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10724,6 +10983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -10932,6 +11195,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
@@ -12051,6 +12318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12076,6 +12347,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -12325,6 +12600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -12490,6 +12769,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 810959850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &595794940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 972003678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &598949688
 Mesh:
   m_ObjectHideFlags: 0
@@ -12706,6 +12990,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -12998,6 +13286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13168,6 +13460,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!224 &624535680 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2057385638939358488, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+  m_PrefabInstance: {fileID: 924340492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &625668047
 Mesh:
   m_ObjectHideFlags: 0
@@ -13352,7 +13649,7 @@ GameObject:
   - component: {fileID: 646769168}
   - component: {fileID: 646769167}
   - component: {fileID: 646769166}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Transition 1-2 to 1-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13689,6 +13986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -13985,6 +14286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14053,6 +14358,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14541,6 +14850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -14661,6 +14974,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15033,6 +15350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -15290,6 +15611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15428,6 +15753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15565,6 +15894,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16315,6 +16648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16851,7 +17188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 830653138}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Arbre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17084,6 +17421,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
@@ -18093,6 +18434,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8505155518802604387, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
   m_PrefabInstance: {fileID: 950178972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &879164423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6867236647363046533, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+  m_PrefabInstance: {fileID: 1053080544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &880590162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18172,6 +18518,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 374765836647447604, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
   m_PrefabInstance: {fileID: 924340492}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &886240236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83325675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a42c98c9e9e7de4b88998496a4ad7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRespawn: {fileID: 1111125227}
+  _resetEnemy: {fileID: 1111125228}
 --- !u!43 &909889208
 Mesh:
   m_ObjectHideFlags: 0
@@ -18353,6 +18713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -18495,10 +18859,24 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8448680040762364299, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: _textCoton
+      value: 
+      objectReference: {fileID: 421553452}
+    - target: {fileID: 8448680040762364299, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: _numberCotonForBuff
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2057385638939358488, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 421553451}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 886240236}
   m_SourcePrefab: {fileID: 100100000, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
 --- !u!1001 &933133111
 PrefabInstance:
@@ -18563,6 +18941,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18641,6 +19023,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18991,7 +19377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 949605889}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Arbre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19095,6 +19481,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19431,6 +19821,54 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &967065064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967065066}
+  - component: {fileID: 967065065}
+  m_Layer: 0
+  m_Name: door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967065065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967065064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2755c8661ae50a9428daea605d76664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemies:
+  - {fileID: 1024949405}
+  _addGameObjects: 0
+  _door: {fileID: 1111125220}
+--- !u!4 &967065066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967065064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.604187, y: -2.8106272, z: 76.38547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &968419947
 Mesh:
   m_ObjectHideFlags: 0
@@ -19834,6 +20272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19916,6 +20358,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+--- !u!1 &973836887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 1541062943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &976686102
 Mesh:
   m_ObjectHideFlags: 0
@@ -21085,6 +21532,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1024949405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6867236647363046533, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+  m_PrefabInstance: {fileID: 1669144466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1028422364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21100,6 +21552,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -21173,6 +21629,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -21871,6 +22331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22115,6 +22579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22188,6 +22656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22208,6 +22680,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -22852,6 +23328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGScale
       objectReference: {fileID: 0}
+    - target: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6942405200674824671, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -68.42723
@@ -22923,6 +23403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -22980,6 +23464,167 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+--- !u!1 &1111125220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1111125225}
+  - component: {fileID: 1111125224}
+  - component: {fileID: 1111125223}
+  - component: {fileID: 1111125222}
+  - component: {fileID: 1111125228}
+  - component: {fileID: 1111125227}
+  - component: {fileID: 1111125226}
+  m_Layer: 0
+  m_Name: zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1111125222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1111125223
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1111125224
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1111125225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.39, y: -1.15, z: 68.75}
+  m_LocalScale: {x: 4.455, y: 2.6898296, z: 5.3366}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111125226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966bbeb5acd82ff42ad5ae682fd85a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToActivate:
+  - {fileID: 1624253708}
+--- !u!114 &1111125227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ea5266c82fa0c42962f7ae34f7c1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 83325675}
+--- !u!114 &1111125228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111125220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86e28232bc51e0418c420eaa9179dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemies:
+  - {fileID: 595794940}
+  - {fileID: 1339698858}
+  - {fileID: 1581909445}
+  - {fileID: 103688458}
+  - {fileID: 879164423}
+  - {fileID: 1432222768}
+  - {fileID: 1953253617}
+  - {fileID: 1919450906}
+  - {fileID: 67825675}
+  - {fileID: 973836887}
 --- !u!4 &1115165305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5839317647113693116, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
@@ -23052,6 +23697,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23127,6 +23776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23147,7 +23800,7 @@ GameObject:
   - component: {fileID: 1144239340}
   - component: {fileID: 1144239339}
   - component: {fileID: 1144239338}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: ground 1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23691,7 +24344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1145653241}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Falaise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24423,6 +25076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise50m (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -24993,6 +25650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25314,6 +25975,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -25968,6 +26633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -26044,6 +26713,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26608,6 +27281,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27316,6 +27993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27522,6 +28203,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1339698858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 586100056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1340704354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27586,6 +28272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27606,6 +28296,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -27976,6 +28670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28045,6 +28743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28096,6 +28798,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -28429,6 +29135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28673,6 +29383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28741,6 +29455,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29146,11 +29864,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+--- !u!1 &1432222768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6867236647363046533, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
+  m_PrefabInstance: {fileID: 511067201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1433070503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29210,6 +29937,10 @@ PrefabInstance:
     - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Name
       value: Falaise50m
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
@@ -30149,6 +30880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30169,6 +30904,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -30290,6 +31029,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30491,6 +31234,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
@@ -30732,6 +31479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -30809,6 +31560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30829,6 +31584,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -31116,6 +31875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31184,6 +31947,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31257,11 +32024,11 @@ PrefabInstance:
     - target: {fileID: 5780551411846716902, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: '_target.Array.data[2]'
       value: 
-      objectReference: {fileID: 295735775}
+      objectReference: {fileID: 2097791558}
     - target: {fileID: 5780551411846716902, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: '_target.Array.data[3]'
       value: 
-      objectReference: {fileID: 333013731}
+      objectReference: {fileID: 295735775}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31453,6 +32220,10 @@ PrefabInstance:
     - target: {fileID: 135115122290444548, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
       propertyPath: m_Name
       value: SoucheArbreGeant_2x0.4x2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 135115122290444548, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3710142702324499363, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
       propertyPath: m_Mesh
@@ -32341,6 +33112,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1581909445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 244786311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1590832804
 Mesh:
   m_ObjectHideFlags: 0
@@ -32569,6 +33345,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32814,6 +33594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32828,6 +33612,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 488313452677943802, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
   m_PrefabInstance: {fileID: 1520921238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1624253708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+  m_PrefabInstance: {fileID: 1106016173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624286295
 GameObject:
@@ -32844,7 +33633,7 @@ GameObject:
   - component: {fileID: 1624286297}
   - component: {fileID: 1624286296}
   - component: {fileID: 1624286302}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: ground 1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33277,6 +34066,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33842,7 +34635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 206284781596041287, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1.025
       objectReference: {fileID: 0}
     - target: {fileID: 206284781596041287, guid: 38d0f4fb7934ff44eb240f2e05b8a229, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33976,6 +34769,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34114,6 +34911,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34336,6 +35137,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -34819,6 +35624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34891,6 +35700,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35213,6 +36026,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35766,6 +36583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -36287,6 +37108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise50m (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -36363,6 +37188,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36485,6 +37314,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37001,7 +37834,7 @@ GameObject:
   - component: {fileID: 1800942621}
   - component: {fileID: 1800942620}
   - component: {fileID: 1800942619}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: ground 1-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37935,6 +38768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38003,6 +38840,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38191,6 +39032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoucheArbreGeant_2x0.4x2
       objectReference: {fileID: 0}
+    - target: {fileID: 135115122290444548, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 3710142702324499363, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -38257,7 +39102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825815281}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Falaise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38689,6 +39534,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39547,6 +40396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 7
@@ -39569,7 +40422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867346240}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Arbre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39818,6 +40671,10 @@ PrefabInstance:
     - target: {fileID: 135115122290444548, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
       propertyPath: m_Name
       value: SoucheArbreGeant_2x0.4x2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 135115122290444548, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3710142702324499363, guid: 636c0d14e6cee974ebfb99e297cdbf73, type: 3}
       propertyPath: m_Mesh
@@ -40177,6 +41034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7219114049869056644, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -40199,6 +41060,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2716065848414455673, guid: 43397e265cd37544e8d891c5a5b0f62f, type: 3}
   m_PrefabInstance: {fileID: 2143100586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919450906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 871287106}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1922400850 stripped
 Transform:
@@ -48626,6 +49492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48869,11 +49739,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+--- !u!1 &1953253617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371436168318919955, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
+  m_PrefabInstance: {fileID: 1682305018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1954935959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488313452677943802, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
@@ -49129,6 +50008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -49258,6 +50141,10 @@ PrefabInstance:
     - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
       propertyPath: m_Name
       value: ArbreGeant_2x8x2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003606872508639107, guid: cc735238aeb3f0d43bd359a850c485da, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49673,6 +50560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49921,6 +50812,10 @@ PrefabInstance:
     - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
       propertyPath: m_Name
       value: Falaise (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50653,6 +51548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -50944,6 +51843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise50m
       objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -51180,6 +52083,10 @@ PrefabInstance:
     - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Name
       value: ArbreNormal_1.2x3x1.2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340478581926264566, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5488698801536121432, guid: e1ab0d484c1c42f438a0accfef06c330, type: 3}
       propertyPath: m_Mesh
@@ -51468,6 +52375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51707,6 +52618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51807,6 +52722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51875,6 +52794,10 @@ PrefabInstance:
     - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Name
       value: Falaise50m
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
@@ -52628,6 +53551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise50m (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6341188233002781336, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7510370034105726484, guid: 4365447dbd1434246a8c74bb23853776, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -52844,6 +53771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Falaise (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4949672166556712921, guid: dfd6588346b1a4b4e81decca79ebc061, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52862,3 +53793,5 @@ SceneRoots:
   - {fileID: 646769171}
   - {fileID: 340073559}
   - {fileID: 1106016173}
+  - {fileID: 1111125225}
+  - {fileID: 967065066}

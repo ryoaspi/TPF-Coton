@@ -17,15 +17,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_/Level/Emilie.unity
     guid: f2c311e018b55014b9f7ac13f2ea4944
-  - enabled: 1
+  - enabled: 0
     path: Assets/_/Level/Thomas.unity
     guid: 8dac891ce4c993a4a817c579d4b280ef
   - enabled: 0
     path: Assets/_/Level/Adam.unity
     guid: 347860fc59885b54388893f42199478e
-  - enabled: 1
+  - enabled: 0
     path: Assets/_/Level/Scene_metric_coton.unity
     guid: 806ae8f2c41ecf643a4c66a0591bb935
+  - enabled: 1
+    path: Assets/_/Level/Tutoriel.unity
+    guid: fb35c24528e89334e9e93e71bad99013
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a9f9dbcb6030e95468fabc1bd73894e7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
