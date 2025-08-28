@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace Enemy.Runtime
     {
         #region publics
 
-        public Collider m_colliderDommage;
+        public GameObject m_colliderDommage;
         [HideInInspector] public int m_currentCoton;
 
 
@@ -36,7 +35,7 @@ namespace Enemy.Runtime
                 _attackTimer += Time.deltaTime;
                 if (_attackTimer >= _attackDuration)
                 {
-                    m_colliderDommage.enabled = false;
+                    m_colliderDommage.SetActive(false);
                     _isAttacking = false;
                     _attackTimer = 0;
                 }
@@ -102,7 +101,7 @@ namespace Enemy.Runtime
             
             _isAttacking = true;
             _attackTimer = 0f;
-            m_colliderDommage.enabled = true;
+            m_colliderDommage.SetActive(true);
         }
         
         #endregion

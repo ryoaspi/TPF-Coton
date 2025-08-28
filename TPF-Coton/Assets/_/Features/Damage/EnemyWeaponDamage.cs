@@ -23,11 +23,6 @@ namespace Damage.Runtime
             HandleCollision(other);
         }
 
-        private void OnTriggerStay(Collider other)
-        {
-            HandleCollision(other);
-        }
-
         #endregion
         
         
