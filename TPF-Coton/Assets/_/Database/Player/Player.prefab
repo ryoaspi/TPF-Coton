@@ -542,8 +542,8 @@ Transform:
   m_GameObject: {fileID: 4210584169379710260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.11, y: 0.5, z: 1.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.11, y: 0, z: 1.05}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7407681881222823360}
@@ -783,9 +783,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 15
   m_speedSave: 0
+  radius: 0.2
+  distance: 0.38
+  color: {r: 0, g: 1, b: 0, a: 1}
   rotationSpeed: 90
-  groundCheckDistance: 0.75
-  groundCheckRadius: 0.4
+  groundCheckDistance: 0.38
+  groundCheckRadius: 0.2
   maxSlopeAngle: 90
   groundedDrag: 5
   airDrag: 0.1
@@ -847,7 +850,7 @@ MonoBehaviour:
   m_buff: 0
   m_coton: 0
   _numberCotonForBuff: 5
-  _textCoton: {fileID: 0}
+  _textCoton: {fileID: 3612489006438887114}
   _minimalSpeed: 5
 --- !u!114 &1963540472488252563
 MonoBehaviour:
@@ -912,9 +915,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5088601
-  m_Height: 2.0073628
+  m_Height: 1.9757419
   m_Direction: 1
-  m_Center: {x: -0.00000011920929, y: 0.00000834465, z: 0}
+  m_Center: {x: -0.00000011920929, y: 0.015818834, z: -5.498601e-16}
 --- !u!1 &4527197302954071222
 GameObject:
   m_ObjectHideFlags: 0
