@@ -1,3 +1,4 @@
+using System;
 using Interface.Runtime;
 using Object.Runtime;
 using TMPro;
@@ -17,6 +18,12 @@ namespace Player.Runtime
 
         #region Unity Api
 
+        private void Start()
+        {
+            _playerStats=GetComponent<PlayerStats>();
+            _playerMovement=GetComponent<PlayerMovement>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out ICollectable collectable))
@@ -24,11 +31,21 @@ namespace Player.Runtime
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
-                int cotonCollected = collectable.Collect();
-                other.gameObject.SetActive(false);
-                m_coton += cotonCollected;
-                BuffStat();
-                _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+                
+                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
+                {
+                    int cotonCollected = collectable.Collect();
+                    m_coton += cotonCollected;
+                    other.gameObject.SetActive(false);
+                    BuffStat();  
+                }
+                else
+                {
+                    _playerStats.m_currentHealth++;
+                    _playerStats.UpdateTextHealth();
+                    other.gameObject.SetActive(false);
+                }
+                
             }
         }
 
@@ -42,6 +59,7 @@ namespace Player.Runtime
             m_coton -= amout;
             if (m_coton < 0) m_coton = 0;
             BuffStat();
+            _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
         }
         
         #endregion
@@ -52,6 +70,17 @@ namespace Player.Runtime
         private void BuffStat()
         {
             m_buff = m_coton / _numberCotonForBuff;
+            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
+            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
+            if (_playerStats.m_currentHealth == _playerStats.m_publicHP-m_buff)
+            {
+                _playerStats.m_currentHealth=_playerStats.m_publicHP;
+            }
+            if (_playerMovement.m_speed > _minimalSpeed)
+            {
+                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
+            }
+            _playerStats.UpdateTextHealth();
             Debug.Log(m_buff);
         }
         
@@ -62,6 +91,9 @@ namespace Player.Runtime
 
         [SerializeField] private int _numberCotonForBuff = 5;
         [SerializeField] private TMP_Text _textCoton;
+        private PlayerStats _playerStats;
+        private PlayerMovement _playerMovement;
+        [SerializeField] private float _minimalSpeed=5;
 
         #endregion
     }

@@ -131,6 +131,7 @@ MonoBehaviour:
   m_damage: 0
   m_currentHealth: 0
   m_block: 0
+  m_maxHealth: 0
   _health: 5
   _block: 0
   _Damage: 1
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerDetected: 0
   m_isCotonDetected: 0
-  _enemyType: 0
+  m_enemyType: 0
   _minAttackDistance: 2
   _attackCooldown: 2
   _target:
@@ -168,7 +169,6 @@ MonoBehaviour:
   _searchDuration: 3
   _maxsearchTimer: 2
   _arrivalEpsilon: 0.3
-  _cotonHitPriorityDuration: 3
 --- !u!195 &2873384023500811797
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -35,7 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Ground
   - Obstacle
   m_SortingLayers:
   - name: Default
