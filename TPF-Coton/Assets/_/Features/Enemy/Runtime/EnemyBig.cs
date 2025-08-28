@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using UnityEngine;
@@ -9,7 +8,7 @@ namespace Enemy.Runtime
     {
         #region publics
 
-        public Collider m_colliderDommage;
+        public GameObject m_colliderDommage;
         [HideInInspector] public int m_currentCoton;
 
 
@@ -36,7 +35,7 @@ namespace Enemy.Runtime
                 _attackTimer += Time.deltaTime;
                 if (_attackTimer >= _attackDuration)
                 {
-                    m_colliderDommage.enabled = false;
+                    m_colliderDommage.SetActive(false);
                     _isAttacking = false;
                     _attackTimer = 0;
                 }
@@ -73,18 +72,9 @@ namespace Enemy.Runtime
                     UpdateStats();
                     
                 }
-                
             }
         }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                Fight();
-            }
-        }
-
+        
         #endregion
         
         
@@ -101,11 +91,17 @@ namespace Enemy.Runtime
 
         public void Fight()
         {
-            Debug.Log("Fight");
             if(_isAttacking) return;
+
+            var damageReset = m_colliderDommage.GetComponent<IWeaponDamageResettable>();
+            if (damageReset != null)
+            {
+                damageReset.ResetHit();
+            }
+            
             _isAttacking = true;
             _attackTimer = 0f;
-            m_colliderDommage.enabled = true;
+            m_colliderDommage.SetActive(true);
         }
         
         #endregion
@@ -149,7 +145,7 @@ namespace Enemy.Runtime
         private float _attackTimer;
         private float _attackDuration =1f;
         private bool _isAttacking;
-
+        
         #endregion
     }
 }

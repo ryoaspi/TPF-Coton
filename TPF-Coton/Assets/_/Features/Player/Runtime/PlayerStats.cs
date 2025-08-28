@@ -112,6 +112,8 @@ namespace Player.Runtime
             _textCurrentHealth.text = $"{m_currentHealth}/{m_publicHP}";
         }
         #endregion
+        
+        
         #region private
         
         [Header("Stat")]

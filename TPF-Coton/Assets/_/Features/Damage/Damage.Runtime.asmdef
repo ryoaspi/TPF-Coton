@@ -3,7 +3,8 @@
     "rootNamespace": "Damage.Runtime",
     "references": [
         "GUID:823739e0add690e45b4d2b83fc49034c",
-        "GUID:9b9c073f07118994196edc218b10ccc0"
+        "GUID:9b9c073f07118994196edc218b10ccc0",
+        "GUID:ad6a5aaf6973dd14d9bf25d71f33d633"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

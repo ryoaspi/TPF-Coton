@@ -83,7 +83,7 @@ namespace Enemy.Runtime
             }
             
             
-            if (_currentHealth <= 0)
+            if (m_currentHealth <= 0)
             {
                 Death();
             }
