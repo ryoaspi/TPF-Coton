@@ -54,8 +54,7 @@ namespace Damage.Runtime
                 if (otherEnemy != null && otherEnemy != _enemyStat)
                 {
                     _damage = _enemyStat.m_currentHealth;
-                    Debug.Log($"[EnemyWeaponDamage] Puffed enemy deals {_damage} damage to {otherEnemy.gameObject.name}");
-
+                    
                     otherEnemy.DoDamage(_damage, transform);
                     _hasDamagedPlayer = true;
                 }
@@ -68,7 +67,6 @@ namespace Damage.Runtime
                 if (playerStat != null)
                 {
                     _damage = _enemyStat.m_damage;
-                    Debug.Log($"[EnemyWeaponDamage] Deals {_damage} damage to player {playerStat.gameObject.name}");
 
                     playerStat.DoDamage(_damage);
                 }
