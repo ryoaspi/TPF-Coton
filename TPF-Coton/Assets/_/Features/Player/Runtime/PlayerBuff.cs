@@ -73,10 +73,6 @@ namespace Player.Runtime
             m_buff = m_coton / _numberCotonForBuff;
             _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
             _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
-            if (_playerStats.m_currentHealth == _playerStats.m_publicHP-m_buff)
-            {
-                _playerStats.m_currentHealth=_playerStats.m_publicHP;
-            }
             if (_playerMovement.m_speed > _minimalSpeed)
             {
                 _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
