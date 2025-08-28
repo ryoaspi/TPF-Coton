@@ -24,6 +24,7 @@ namespace Player.Runtime
             _playerMovement=GetComponent<PlayerMovement>();
         }
 
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out ICollectable collectable))
