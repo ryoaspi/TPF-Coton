@@ -1,9 +1,12 @@
 {
-    "name": "Environment.Runtime",
-    "rootNamespace": "Environment.Runtime",
+    "name": "Craft.Runtime",
+    "rootNamespace": "Craft.Runtime",
     "references": [
         "GUID:9b9c073f07118994196edc218b10ccc0",
-        "GUID:ef9e753b0ceb9fc4faddefd68c03659e"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:ad6a5aaf6973dd14d9bf25d71f33d633",
+        "GUID:3431c28941788974d8096e7b787a8bc8",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

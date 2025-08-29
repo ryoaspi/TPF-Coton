@@ -12,7 +12,6 @@ namespace CheatCode.Runtime
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-            
         }
 
         private void OnEnable()
