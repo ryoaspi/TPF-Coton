@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lifeTime: 10
   _liveCoton: 0
+  _collectibleDelay: 0.5
 --- !u!114 &1573892852865808651
 MonoBehaviour:
   m_ObjectHideFlags: 0

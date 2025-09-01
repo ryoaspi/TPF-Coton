@@ -11,7 +11,7 @@ namespace Craft.Runtime
         private void Awake()
         {
             _camera = Camera.main;
-            _uiManager = FindObjectOfType<UIManager.Runtime.UIManager>();
+            _uiManager = FindFirstObjectByType<UIManager.Runtime.UIManager>();
             if (_camera == null) _camera = Camera.main;
             _countObject = FindObjectOfType<CraftObject>();
             
@@ -38,8 +38,8 @@ namespace Craft.Runtime
                 {
                     _lastCollider = hit.collider;
                     _currentInteractable = hit.collider.GetComponentInParent<IInteractable>();
-                    if (_currentInteractable is  not null) ShowPrompt(_currentInteractable.InteractionLabel, _countObject.m_craftCost );
                 }
+                if (_currentInteractable is  not null) ShowPrompt(_currentInteractable.InteractionLabel[0], _countObject.m_craftLife );
             }
             else
             {
@@ -47,6 +47,7 @@ namespace Craft.Runtime
                 {
                     _lastCollider = null;
                     _currentInteractable = null;
+                    _lastPromptText = string.Empty;
                     HidePrompt();
                 }
             }
@@ -69,7 +70,12 @@ namespace Craft.Runtime
 
         private void ShowPrompt(string text, int count)
         {
-            _uiManager.ShowPrompt($"[E] {text} pour : {count}");
+            string composedText = $"[E] {text} pour : {count}";
+            
+            if (composedText == _lastPromptText) return;
+            
+            _lastPromptText = composedText;
+            _uiManager.ShowPrompt(composedText);
         }
         
         private void HidePrompt()
@@ -96,6 +102,8 @@ namespace Craft.Runtime
         private CraftObject _countObject;
         
         [SerializeField] private Transform _playerTransform;
+        private CraftObject _craftObject;
+        private string _lastPromptText;
 
         #endregion
     }

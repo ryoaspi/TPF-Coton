@@ -8,7 +8,7 @@ namespace Craft.Runtime
     {
         #region Public
         
-        [HideInInspector] public int m_craftCost;
+        [HideInInspector] public int m_craftLife;
         
         #endregion
         
@@ -18,8 +18,17 @@ namespace Craft.Runtime
         private void Awake()
         {
             _coton = FindFirstObjectByType<PlayerBuff>();
-            if (_craftPrefab is not null) _craftPrefab.SetActive(false);
-            m_craftCost = _craftCost;
+
+            if (_craftPrefab is null)
+            {
+                return;           
+            }
+            m_craftLife = _craftCost;
+        }
+
+        private void OnEnable()
+        {
+            if (_craftPrefab is not null) _craftPrefab.gameObject.SetActive(false);
         }
 
         #endregion
@@ -29,10 +38,11 @@ namespace Craft.Runtime
 
         public void Interact()
         {
-            Craft();
+            if (!_isCrafted) Craft();
+            else Decraft();
         }
 
-        public string InteractionLabel => _interactionLabel;
+        public string[] InteractionLabel => new [] {_isCrafted ? _interactionLabel[1] : _interactionLabel[0]} ;
         
         #endregion
         
@@ -41,13 +51,27 @@ namespace Craft.Runtime
 
         private bool Craft()
         {
+            if (_craftPrefab.activeSelf) return false;
+            
             if (_coton.m_coton >= _craftCost + 1)
             {
                 _coton.LoseCoton(_craftCost);
-                _craftPrefab.SetActive(true);
+                _craftPrefab.gameObject.SetActive(true);
+                _isCrafted = true;
                 return true;
             }
-            
+            return false;
+        }
+
+        private bool Decraft()
+        {
+            if (_craftPrefab.activeSelf)
+            {
+                _coton.LoseCoton(-_craftCost);
+                _craftPrefab.gameObject.SetActive(false);
+                _isCrafted = false;
+                return true;
+            }
             return false;
         }
         
@@ -56,11 +80,13 @@ namespace Craft.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private int _craftCost = 20;
+        [SerializeField] private int _craftCost = 5;
         private PlayerBuff _coton;
         [SerializeField] private GameObject _craftPrefab;
-        [SerializeField] private string _interactionLabel;
+        [SerializeField] private string[] _interactionLabel;
+        private bool _isCrafted;
 
         #endregion
     }
+    
 }
