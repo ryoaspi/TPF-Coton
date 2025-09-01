@@ -24,26 +24,29 @@ namespace Player.Runtime
             _playerMovement=GetComponent<PlayerMovement>();
         }
 
+        
         private void OnTriggerEnter(Collider other)
         {
-
             if (other.TryGetComponent(out ICollectable collectable))
             {
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
+                
                 if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
                 {
                     int cotonCollected = collectable.Collect();
-                    other.gameObject.SetActive(false);
                     m_coton += cotonCollected;
+                    other.gameObject.SetActive(false);
                     BuffStat();  
                 }
                 else
                 {
                     _playerStats.m_currentHealth++;
+                    _playerStats.UpdateTextHealth();
+                    other.gameObject.SetActive(false);
                 }
-                _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+                
             }
         }
 
@@ -74,6 +77,8 @@ namespace Player.Runtime
             {
                 _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
             }
+            _playerStats.UpdateTextHealth();
+            Debug.Log(m_buff);
         }
         
         #endregion
