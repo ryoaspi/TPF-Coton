@@ -290,7 +290,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7462244509680332415}
-  - component: {fileID: 2119354106529563345}
   m_Layer: 14
   m_Name: PontTestModel
   m_TagString: Untagged
@@ -316,22 +315,6 @@ Transform:
   - {fileID: 6066994570433789172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2119354106529563345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4689028750206766413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c912d8b52e83b4a9f87f6b9b5321ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_insteractionLabels:
-  - Activer
-  - "D\xE9sactiver"
-  _visualRepresentation: {fileID: 0}
 --- !u!1 &6834807134021941330
 GameObject:
   m_ObjectHideFlags: 0
