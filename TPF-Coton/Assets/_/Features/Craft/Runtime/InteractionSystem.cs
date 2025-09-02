@@ -29,28 +29,33 @@ namespace Craft.Runtime
             
             Vector3 screenPoint = new Vector3(Screen.width / 2 + offsetX, Screen.height / 2 + offsetY, 0f);
             
-            Ray ray = new Ray(_playerTransform.position, _camera.ScreenPointToRay(screenPoint).direction);
-            Debug.DrawRay(ray.origin, ray.direction * _interactionRange, Color.red);
-            if (Physics.Raycast(ray, out RaycastHit hit, _interactionRange, _layerMask))
+            Ray ray = new Ray(_playerTransform.position, _playerTransform.forward.normalized);
+            Debug.DrawRay(ray.origin, ray.direction * _interactionDetected, Color.red);
+            
+            if (Physics.Raycast(ray, out RaycastHit hit, _interactionDetected, _layerMask, QueryTriggerInteraction.Collide))
             {
+                IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
+                float distanceToHit = Vector3.Distance(_playerTransform.position, hit.point);
+
+                if (Physics.Raycast(_playerTransform.position, (hit.point - _playerTransform.position).normalized,
+                        out RaycastHit obstacleHit, distanceToHit, _obstacleMask))
+                {
+                    ResetInteraction();
+                    return;
+                }
                 
-                if (_lastCollider != hit.collider)
+                if (interactable is not null && distanceToHit <= _maxInteractionDistance)
                 {
                     _lastCollider = hit.collider;
-                    _currentInteractable = hit.collider.GetComponentInParent<IInteractable>();
+                    _currentInteractable = interactable;
+                    ShowPrompt(interactable.InteractionLabel[0], _countObject.m_craftLife);
+                    
+                    return;
                 }
-                if (_currentInteractable is  not null) ShowPrompt(_currentInteractable.InteractionLabel[0], _countObject.m_craftLife );
+                
             }
-            else
-            {
-                if (_lastCollider is not null)
-                {
-                    _lastCollider = null;
-                    _currentInteractable = null;
-                    _lastPromptText = string.Empty;
-                    HidePrompt();
-                }
-            }
+            
+            ResetInteraction();
         }
 
         private void OnDisable()
@@ -60,7 +65,16 @@ namespace Craft.Runtime
 
         private void OnInteract(InputAction.CallbackContext context)
         {
-            _currentInteractable?.Interact();
+            if (_currentInteractable is not null && _lastCollider is not null)
+            {
+                float distance = Vector3.Distance(_playerTransform.position, _lastCollider.transform.position);
+                
+                if (distance <= _maxInteractionDistance)
+                {
+                    _currentInteractable.Interact();
+                }
+            }
+            
         }
 
         #endregion
@@ -83,14 +97,24 @@ namespace Craft.Runtime
             _uiManager.HidePrompt();
         }
         
+        private void ResetInteraction()
+        {
+            _lastCollider = null;
+            _currentInteractable = null;
+            _lastPromptText = string.Empty;
+            HidePrompt();
+        }
+        
         #endregion
         
         
         #region Private And Protected
         
         [Header("Params")]
-        [SerializeField] private float _interactionRange = 2f;
+        [SerializeField] private float _interactionDetected = 30f;
+        [SerializeField] private float _maxInteractionDistance = 2f;
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _obstacleMask;
         
         [Header("References")]
         private Camera _camera;

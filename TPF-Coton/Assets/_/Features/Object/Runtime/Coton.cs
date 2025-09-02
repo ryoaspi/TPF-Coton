@@ -37,23 +37,7 @@ namespace Object.Runtime
             }
         }
         
-        private void LateUpdate()
-        {
-            // // Ce test est fait uniquement pour DEBUG — à enlever ensuite
-            // Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.GetMask("Player"));
-            // foreach (var hit in hits)
-            // {
-            //     if (CanBeCollected())
-            //     {
-            //         Debug.LogWarning("⚠ Coton trop proche du joueur à la frame de collecte. Forçage de déplacement.");
-            //
-            //         // Repousse légèrement le coton
-            //         Vector3 dir = (transform.position - hit.transform.position).normalized;
-            //         dir.y = 0; // Ne pas le faire sauter
-            //         transform.position += dir * 0.5f;
-            //     }
-            // }
-        }
+
 
         private void OnCollisionEnter(Collision other)
         {
