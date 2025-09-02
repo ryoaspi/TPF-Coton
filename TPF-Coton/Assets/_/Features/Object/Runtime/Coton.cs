@@ -33,7 +33,6 @@ namespace Object.Runtime
                 _col.enabled = false;
                 _col.enabled = true;
                 
-                Debug.Log("Coton collectable");
             }
         }
         
@@ -51,7 +50,6 @@ namespace Object.Runtime
         private void OntriggerEnter(Collider other)
         {
             if (!CanBeCollected())return;
-            Debug.Log($"Coton touché par : {other.gameObject.name}");
         }
 
         #endregion
@@ -61,7 +59,7 @@ namespace Object.Runtime
         public int Collect()
         {
             _collected = true;
-            return 1;
+            return _valueCoton;
         }
 
         public void SetPhysicsActive(bool active)
@@ -73,10 +71,14 @@ namespace Object.Runtime
         public bool CanBeCollected()
         {
             bool canCollect = Time.time >= _spawnTime + _collectibleDelay;
-            Debug.Log($"Can be collected : {canCollect}");
             return canCollect;
         }
-        
+
+        public int GetCotonValue(int damage)
+        {
+            _valueCoton = damage;
+            return _valueCoton;
+        }
         
         #endregion
         
@@ -102,6 +104,8 @@ namespace Object.Runtime
         [SerializeField] private float _collectibleDelay = 0.5f;
 
         private bool _wasCollectable;
+        private int _valueCoton = 1;
+
 
         #endregion
     }
