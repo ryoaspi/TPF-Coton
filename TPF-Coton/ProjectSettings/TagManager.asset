@@ -34,7 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - BulletPlayer
   - Ground
   - Obstacle
   m_SortingLayers:

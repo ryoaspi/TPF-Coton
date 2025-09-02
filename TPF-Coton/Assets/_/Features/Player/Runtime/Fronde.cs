@@ -1,0 +1,165 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
+namespace Player.Runtime
+{
+    public class Fronde : MonoBehaviour
+    {
+        #region Public
+        [Header("Références")]
+        public Transform m_firePoint;
+        [HideInInspector] public FrondePool m_projectilePool;
+        
+        [FormerlySerializedAs("_coolDownCharge")] [HideInInspector]public bool m_coolDownCharge;
+        
+        [Header("Indicateur de visée")]
+        public GameObject m_aimVisualPrefab;
+        public float m_rayLength = 5f;
+        #endregion
+
+        #region UnityAPI
+        private void Awake()
+        {
+            _playerInput = GetComponent<PlayerInput>();
+            _playerMovement = GetComponent<PlayerMovement>();
+            _playerDamage = GetComponent<PlayerDamage>();
+            _shield = GetComponent<Shield>();
+            _playerStats = GetComponent<PlayerStats>();
+
+            if (m_aimVisualPrefab != null)
+            {
+                _aimVisual = Instantiate(m_aimVisualPrefab, transform);
+                _aimVisual.SetActive(false);
+                _line = _aimVisual.GetComponent<LineRenderer>();
+            }
+        }
+
+        private void Start()
+        {
+            m_projectilePool = FrondePool.Instance;
+            m_coolDownCharge=false;
+        }
+
+        private void Update()
+        {
+            if (_isCharging)
+            {
+                _chargeTimer += Time.deltaTime;
+                UpdateAimVisual();
+            }
+
+            if (m_coolDownCharge)
+            {
+                _timeCharge+=Time.deltaTime;
+                if (_timeCharge >= _maxCoolDown)
+                {
+                    m_coolDownCharge = false;
+                    _timeCharge = 0;
+                }
+            }
+        }
+        #endregion
+
+        #region Utils
+       
+
+        private void UpdateAimVisual()
+        {
+            if (_aimVisual != null && _line != null)
+            {
+                _aimVisual.SetActive(true);
+                Vector3 startPos = m_firePoint.position;
+                Vector3 endPos = m_firePoint.position + m_firePoint.forward * m_rayLength;
+
+                _line.SetPosition(0, startPos);
+                _line.SetPosition(1, endPos);
+            }
+        }
+
+        private void HideAimVisual()
+        {
+            if (_aimVisual != null)
+                _aimVisual.SetActive(false);
+        }
+        #endregion
+
+        #region New input system
+        private void OnEnable()
+        {
+            var actions = _playerInput.actions;
+            actions["Shoot"].started += Shoot;
+            actions["Shoot"].canceled += Shoot;
+        }
+
+        private void OnDisable()
+        {
+            var actions = _playerInput.actions;
+            actions["Shoot"].started -= Shoot;
+            actions["Shoot"].canceled -= Shoot;
+        }
+
+        public void Shoot(InputAction.CallbackContext context)
+        {
+            if (m_coolDownCharge || _playerDamage.m_isAttacking || _shield.m_isShielding)
+                return;
+
+            if (context.started)
+            {
+                
+                _chargeTimer = 0f;
+                _isCharging = true;
+                if (_aimVisual != null) _aimVisual.SetActive(true);
+                _playerMovement.m_speed -= _hpLoss;
+            }
+            else if (context.canceled && _isCharging)
+            {
+                
+                _isCharging = false;
+                _playerMovement.m_speed = _playerMovement.m_speedSave;
+                HideAimVisual();
+
+                
+                _bullet = FrondePool.Instance.GetFromPool();
+                if (_bullet == null) return;
+
+                
+                _bullet.transform.position = m_firePoint.position;
+                _bullet.transform.rotation = m_firePoint.rotation;
+                _bullet.transform.parent = null;
+
+                _playerStats.m_currentHealth -= 1;
+                _playerStats.UpdateTextHealth();
+                // Reset cooldown
+                m_coolDownCharge = true;
+                _timeCharge = 0f;
+            }
+            
+            
+        }
+        #endregion
+
+        #region Private
+        private PlayerInput _playerInput;
+        private float _chargeTimer;
+        private bool _isCharging;
+        private GameObject _bullet;
+
+        [Header("Fronde Variables")]
+        [SerializeField] private float _maxCoolDown=3;
+        [SerializeField] private int _hpLoss=1;
+        
+        
+        
+        private float _timeCharge;
+        
+        private GameObject _aimVisual;
+        private LineRenderer _line;
+        
+        private PlayerDamage _playerDamage;
+        private PlayerMovement _playerMovement;
+        private Shield _shield;
+        private PlayerStats _playerStats;
+        #endregion
+    }
+}

@@ -11,7 +11,7 @@ namespace Damage.Runtime
 
         private void Awake()
         {
-            _playerStats = GetComponentInParent<PlayerStats>();
+            _playerStats = FindFirstObjectByType<PlayerStats>();
         }
         
         private void OnEnable()
