@@ -25,6 +25,34 @@ namespace Object.Runtime
             {
                 gameObject.SetActive(false);
             }
+
+            if (!_wasCollectable && CanBeCollected())
+            {
+                _wasCollectable = true;
+                
+                _col.enabled = false;
+                _col.enabled = true;
+                
+                Debug.Log("Coton collectable");
+            }
+        }
+        
+        private void LateUpdate()
+        {
+            // // Ce test est fait uniquement pour DEBUG — à enlever ensuite
+            // Collider[] hits = Physics.OverlapSphere(transform.position, 0.5f, LayerMask.GetMask("Player"));
+            // foreach (var hit in hits)
+            // {
+            //     if (CanBeCollected())
+            //     {
+            //         Debug.LogWarning("⚠ Coton trop proche du joueur à la frame de collecte. Forçage de déplacement.");
+            //
+            //         // Repousse légèrement le coton
+            //         Vector3 dir = (transform.position - hit.transform.position).normalized;
+            //         dir.y = 0; // Ne pas le faire sauter
+            //         transform.position += dir * 0.5f;
+            //     }
+            // }
         }
 
         private void OnCollisionEnter(Collision other)
@@ -34,6 +62,12 @@ namespace Object.Runtime
                 _rb.isKinematic = true;
                 _col.isTrigger = true;
             }
+        }
+
+        private void OntriggerEnter(Collider other)
+        {
+            if (!CanBeCollected())return;
+            Debug.Log($"Coton touché par : {other.gameObject.name}");
         }
 
         #endregion
@@ -54,8 +88,11 @@ namespace Object.Runtime
 
         public bool CanBeCollected()
         {
-            return Time.time >= _spawnTime + _collectibleDelay;
+            bool canCollect = Time.time >= _spawnTime + _collectibleDelay;
+            Debug.Log($"Can be collected : {canCollect}");
+            return canCollect;
         }
+        
         
         #endregion
         
@@ -79,6 +116,8 @@ namespace Object.Runtime
         
         private float _spawnTime;
         [SerializeField] private float _collectibleDelay = 0.5f;
+
+        private bool _wasCollectable;
 
         #endregion
     }

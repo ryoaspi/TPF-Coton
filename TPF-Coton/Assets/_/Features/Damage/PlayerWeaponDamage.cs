@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Craft.Runtime;
 using Enemy.Runtime;
 using Player.Runtime;
 using UnityEngine;
@@ -30,7 +31,9 @@ namespace Damage.Runtime
                     enemyStat.DoDamage(_damage, _playerStats.transform);
                     _enemiesHitThisSwing.Add(enemyStat);
                 }
+                return;
             }
+
         }
 
         #endregion

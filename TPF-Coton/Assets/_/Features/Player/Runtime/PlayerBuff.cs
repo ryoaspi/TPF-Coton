@@ -27,11 +27,11 @@ namespace Player.Runtime
         
         private void OnTriggerEnter(Collider other)
         {
+
             if (other.TryGetComponent(out ICollectable collectable))
             {
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
-                
                 
                 if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
                 {
@@ -60,6 +60,7 @@ namespace Player.Runtime
             m_coton -= amout;
             if (m_coton < 0) m_coton = 0;
             BuffStat();
+         
         }
         
         #endregion
