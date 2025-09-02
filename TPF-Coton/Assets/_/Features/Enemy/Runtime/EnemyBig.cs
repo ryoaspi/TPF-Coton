@@ -82,9 +82,10 @@ namespace Enemy.Runtime
 
         public void LoseCoton(int amout, bool fromStat = false)
         {
-            m_currentCoton -= amout;
-            if (m_currentCoton < 0) m_currentCoton = 0;
-            if (!fromStat)_enemyStat.DropCotonDamage(amout);
+            if (m_currentCoton <= 0) return;
+            int actualLoss = Mathf.Min(amout, m_currentCoton);
+            m_currentCoton -= actualLoss;
+            if (!fromStat)_enemyStat.DropCotonDamage(actualLoss);
             UpdateStats();
             
         }

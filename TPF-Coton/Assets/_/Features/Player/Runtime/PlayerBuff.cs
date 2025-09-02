@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using TMPro;
@@ -9,8 +8,7 @@ namespace Player.Runtime
     public class PlayerBuff : MonoBehaviour
     {
         #region Publics
-
-        [HideInInspector] public int m_buff;
+        
         [HideInInspector] public int m_coton;
 
         #endregion
@@ -21,7 +19,8 @@ namespace Player.Runtime
         private void Start()
         {
             _playerStats=GetComponent<PlayerStats>();
-            _playerMovement=GetComponent<PlayerMovement>();
+            m_coton = _playerStats.m_currentHealth;
+            _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth}" ;
         }
 
         
@@ -32,21 +31,9 @@ namespace Player.Runtime
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
-                
-                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
-                {
-                    int cotonCollected = collectable.Collect();
-                    m_coton += cotonCollected;
-                    other.gameObject.SetActive(false);
-                    BuffStat();  
-                }
-                else
-                {
-                    _playerStats.m_currentHealth++;
-                    _playerStats.UpdateTextHealth();
-                    other.gameObject.SetActive(false);
-                }
-                
+                _playerStats.m_currentHealth += collectable.Collect();
+                m_coton = _playerStats.m_currentHealth;
+                _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth} " ;
             }
         }
 
@@ -57,28 +44,9 @@ namespace Player.Runtime
 
         public void LoseCoton(int amout)
         {
-            m_coton -= amout;
-            if (m_coton < 0) m_coton = 0;
-            BuffStat();
-            _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
-        }
-        
-        #endregion
-        
-        
-        #region Main Methods
-
-        private void BuffStat()
-        {
-            m_buff = m_coton / _numberCotonForBuff;
-            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
-            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
-            if (_playerMovement.m_speed > _minimalSpeed)
-            {
-                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
-            }
-            _playerStats.UpdateTextHealth();
-            Debug.Log(m_buff);
+            _playerStats.m_currentHealth -= amout;
+            m_coton = _playerStats.m_currentHealth;
+            _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth}" ;
         }
         
         #endregion
@@ -89,7 +57,6 @@ namespace Player.Runtime
         [SerializeField] private int _numberCotonForBuff = 5;
         [SerializeField] private TMP_Text _textCoton;
         private PlayerStats _playerStats;
-        private PlayerMovement _playerMovement;
         [SerializeField] private float _minimalSpeed=5;
 
         #endregion
