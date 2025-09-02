@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using TMPro;
@@ -22,6 +21,8 @@ namespace Player.Runtime
         {
             _playerStats=GetComponent<PlayerStats>();
             _playerMovement=GetComponent<PlayerMovement>();
+            m_coton = _playerStats.m_currentHealth;
+            _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth}" ;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -32,18 +33,10 @@ namespace Player.Runtime
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
-                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
-                {
-                    int cotonCollected = collectable.Collect();
-                    other.gameObject.SetActive(false);
-                    m_coton += cotonCollected;
-                    BuffStat();  
-                }
-                else
-                {
-                    _playerStats.m_currentHealth++;
-                }
-                _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+                _playerStats.m_currentHealth++;
+                m_coton = _playerStats.m_currentHealth;
+                _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth} " ;
+                collectable.Collect();
             }
         }
 
@@ -54,10 +47,9 @@ namespace Player.Runtime
 
         public void LoseCoton(int amout)
         {
-            m_coton -= amout;
-            if (m_coton < 0) m_coton = 0;
-            BuffStat();
-            _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+            _playerStats.m_currentHealth -= amout;
+            m_coton = _playerStats.m_currentHealth;
+            _textCoton.text = $"nombre de coton : {_playerStats.m_currentHealth}" ;
         }
         
         #endregion
@@ -65,16 +57,16 @@ namespace Player.Runtime
         
         #region Main Methods
 
-        private void BuffStat()
-        {
-            m_buff = m_coton / _numberCotonForBuff;
-            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
-            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
-            if (_playerMovement.m_speed > _minimalSpeed)
-            {
-                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
-            }
-        }
+        // private void BuffStat()
+        // {
+        //     m_buff = m_coton / _numberCotonForBuff;
+        //     _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
+        //     _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
+        //     if (_playerMovement.m_speed > _minimalSpeed)
+        //     {
+        //         _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
+        //     }
+        // }
         
         #endregion
         
