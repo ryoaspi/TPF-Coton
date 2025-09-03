@@ -15,17 +15,12 @@ namespace Object.Runtime
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
             _col.isTrigger = true;
+
+
         }
 
         private void Update()
         {
-            if (_liveCoton) _currentTime += Time.deltaTime;
-            
-            if (_currentTime >= _lifeTime || _collected)
-            {
-                gameObject.SetActive(false);
-            }
-
             if (!_wasCollectable && CanBeCollected())
             {
                 _wasCollectable = true;
@@ -35,8 +30,6 @@ namespace Object.Runtime
                 
             }
         }
-        
-
 
         private void OnCollisionEnter(Collision other)
         {
@@ -77,6 +70,13 @@ namespace Object.Runtime
         public int GetCotonValue(int damage)
         {
             _valueCoton = damage;
+            
+            if (_valueCoton >= 2)
+            {
+                float upSize = _valueCoton * _multiplicateurScale;
+                transform.localScale = new Vector3(transform.localScale.x + upSize, transform.localScale.y + upSize,transform.localScale.z + upSize);    
+            }
+            
             return _valueCoton;
         }
         
@@ -93,15 +93,14 @@ namespace Object.Runtime
         #region private and protected
         
         private bool _collected;
-        [SerializeField] private float _lifeTime;
         private float _currentTime;
         private bool _isDone;
         private Collider _col;
         private Rigidbody _rb;
-        [SerializeField] private bool _liveCoton;
         
         private float _spawnTime;
         [SerializeField] private float _collectibleDelay = 0.5f;
+        [SerializeField] private float _multiplicateurScale = 0.05f;
 
         private bool _wasCollectable;
         private int _valueCoton = 1;
