@@ -10,7 +10,8 @@ namespace Player.Runtime
         
         [FormerlySerializedAs("speed")] [SerializeField] public  float m_speed = 5;
         [HideInInspector] public float m_speedSave;
-        
+        [SerializeField] public float groundCheckDistance ;
+        [SerializeField] public float groundCheckRadius;
         #endregion
         
         #region UnityAPI
@@ -37,7 +38,7 @@ namespace Player.Runtime
         private void FixedUpdate()
         {
             // Update _lastDirection based on current input
-            if (_moveDirection.sqrMagnitude > 0.01f && _playerDamage.m_isAttacking == false)
+            if (_moveDirection.sqrMagnitude > 0.001f && _playerDamage.m_isAttacking == false)
             {
                 Vector3 camForward = _mainCamera.transform.forward;
                 Vector3 camRight = _mainCamera.transform.right;
@@ -208,8 +209,6 @@ namespace Player.Runtime
         
         [SerializeField] private float rotationSpeed = 10f;
         [Header("Ground Check Settings")]
-        [SerializeField] private float groundCheckDistance = 1.5f;
-        [SerializeField] private float groundCheckRadius = 0.4f;
         [SerializeField] private float maxSlopeAngle;
         [SerializeField] private float groundedDrag = 5f;
         [SerializeField] private float airDrag = 0.1f;

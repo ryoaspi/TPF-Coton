@@ -147,27 +147,48 @@ namespace Enemy.Runtime
             
             OnCotonLost?.Invoke(damageToApply);
             
-            for (int i = 0; i < damageToApply; i++)
-            {
-                GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
+            GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
+            
+            Vector2 offset = Random.insideUnitCircle;
+            offset.y = Mathf.Abs(offset.y);
+                
+            Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
+                
+            var contonComp = newCoton.GetComponent<Coton>();
+            var lerpComp = newCoton.GetComponent<ParabolLerp>();
 
-                Vector2 offset = Random.insideUnitCircle;
-                offset.y = Mathf.Abs(offset.y);
+            contonComp.GetCotonValue(damageToApply);
                 
-                Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
+            // Désactive la physique pendant le lerp
+            contonComp.SetPhysicsActive(false);
                 
-                var contonComp = newCoton.GetComponent<Coton>();
-                var lerpComp = newCoton.GetComponent<ParabolLerp>();
+            // Lance le lerp
+            lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
                 
-                // Désactive la physique pendant le lerp
-                contonComp.SetPhysicsActive(false);
-                
-                // Lance le lerp
-                lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
-                
-                // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
-                lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
-            }
+            // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
+            lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
+            
+            // for (int i = 0; i < damageToApply; i++)
+            // {
+            //     GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
+            //
+            //     Vector2 offset = Random.insideUnitCircle;
+            //     offset.y = Mathf.Abs(offset.y);
+            //     
+            //     Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
+            //     
+            //     var contonComp = newCoton.GetComponent<Coton>();
+            //     var lerpComp = newCoton.GetComponent<ParabolLerp>();
+            //     
+            //     // Désactive la physique pendant le lerp
+            //     contonComp.SetPhysicsActive(false);
+            //     
+            //     // Lance le lerp
+            //     lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
+            //     
+            //     // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
+            //     lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
+            // }
 
             if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
             {

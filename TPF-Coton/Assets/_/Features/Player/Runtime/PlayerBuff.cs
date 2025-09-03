@@ -1,4 +1,3 @@
-using System;
 using Interface.Runtime;
 using Object.Runtime;
 using TMPro;
@@ -9,8 +8,7 @@ namespace Player.Runtime
     public class PlayerBuff : MonoBehaviour
     {
         #region Publics
-
-        [HideInInspector] public int m_buff;
+        
         [HideInInspector] public int m_coton;
 
         #endregion
@@ -22,34 +20,32 @@ namespace Player.Runtime
         {
             _playerStats=GetComponent<PlayerStats>();
             _playerMovement=GetComponent<PlayerMovement>();
+            m_coton = _playerStats.m_currentHealth;
+            CheckSize();
         }
-
         
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out ICollectable collectable))
             {
-                Coton coton = other.GetComponent<Coton>();
-                if (coton is not null && !coton.CanBeCollected()) return;
-                
-                
-                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
+                if (_playerStats.m_currentHealth < _playerStats.m_privateHP)
                 {
-                    int cotonCollected = collectable.Collect();
-                    m_coton += cotonCollected;
-                    other.gameObject.SetActive(false);
-                    BuffStat();  
-                }
-                else
-                {
-                    _playerStats.m_currentHealth++;
-                    _playerStats.UpdateTextHealth();
+                    Coton coton = other.GetComponent<Coton>();
+                    if (coton is not null && !coton.CanBeCollected()) return;
+                    _playerStats.m_currentHealth += collectable.Collect();
+                    m_coton = _playerStats.m_currentHealth; 
+                    CheckSize();
+                    _playerStats.UpdateTextHealth(); 
                     other.gameObject.SetActive(false);
                 }
-                
             }
         }
 
+        private void Update()
+        {
+
+            
+        }
         #endregion
         
         
@@ -57,43 +53,47 @@ namespace Player.Runtime
 
         public void LoseCoton(int amout)
         {
-            m_coton -= amout;
-            if (m_coton < 0) m_coton = 0;
-            BuffStat();
-            _textCoton.text = $"nombre de coton : {m_coton} \n Level Buff : {m_buff} " ;
+            _playerStats.m_currentHealth -= amout;
+            m_coton = _playerStats.m_currentHealth;
+            _playerStats.UpdateTextHealth();
         }
-        
+
+        public void CheckSize()
+        {
+            if (m_coton <= _cotonForLittleState)
+            {
+                _playerStats.LittleState();
+            }
+            else if (m_coton >= _cotonForBigState)
+            {
+                _playerStats.BigState();
+            }
+            else
+            {
+                _playerStats.MediumState();
+            }
+        }
         #endregion
         
         
         #region Main Methods
 
-        private void BuffStat()
-        {
-            m_buff = m_coton / _numberCotonForBuff;
-            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
-            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
-            if (_playerStats.m_currentHealth == _playerStats.m_publicHP-m_buff)
-            {
-                _playerStats.m_currentHealth=_playerStats.m_publicHP;
-            }
-            if (_playerMovement.m_speed > _minimalSpeed)
-            {
-                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
-            }
-            _playerStats.UpdateTextHealth();
-            Debug.Log(m_buff);
-        }
+       
         
         #endregion
         
         
         #region Private And Protected
 
-        [SerializeField] private int _numberCotonForBuff = 5;
+        [Header("State")] 
+        [SerializeField] private int _cotonForLittleState;
+        [SerializeField] private int _cotonForBigState;
         [SerializeField] private TMP_Text _textCoton;
+        private int _cotonState;
         private PlayerStats _playerStats;
         private PlayerMovement _playerMovement;
+        
+        [Header("Speed")]
         [SerializeField] private float _minimalSpeed=5;
 
         #endregion

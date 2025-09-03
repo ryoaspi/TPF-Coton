@@ -19,6 +19,8 @@ TagManager:
   - Loot
   - Coton
   - Glouton
+  - Crafted
+  - Destructible
   - 
   - 
   - 
@@ -32,9 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - BulletPlayer
   - Ground
   - Obstacle
   m_SortingLayers:
