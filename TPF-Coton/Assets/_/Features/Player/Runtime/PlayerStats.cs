@@ -134,6 +134,7 @@ namespace Player.Runtime
             m_frondeDamage = _littleFrondeDamage;
             m_publicDamage = _littleStatDamage;
             _playerMovement.m_speed = _littleSpeed;
+            _playerMovement.m_speedSave = _littleSpeed;
             transform.localScale= new Vector3(0.5f-_littleScale,0.5f-_littleScale,0.5f-_littleScale);
             m_currentState = 1;
             _playerMovement.groundCheckDistance = 0.27f;
@@ -145,6 +146,7 @@ namespace Player.Runtime
             m_frondeDamage = _mediumfrondeDamage;
             m_publicDamage = _mediumStatDamage;
             _playerMovement.m_speed = _mediumSpeed;
+            _playerMovement.m_speedSave = _mediumSpeed;
             transform.localScale= new Vector3(0.5f,0.5f,0.5f);
             m_currentState = 2;
             _playerMovement.groundCheckDistance = 0.38f;
@@ -155,6 +157,7 @@ namespace Player.Runtime
             m_frondeDamage = _bigFrondeDamage;
             m_publicDamage = _bigStatDamage;
             _playerMovement.m_speed = _bigSpeed;
+            _playerMovement.m_speedSave = _bigSpeed;
             transform.localScale= new Vector3(0.5f+_bigScale,0.5f+_bigScale,0.5f+_bigScale);  
             m_currentState = 3;
             _playerMovement.groundCheckDistance = 0.8f;
