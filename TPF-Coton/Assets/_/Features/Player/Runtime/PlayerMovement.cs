@@ -10,13 +10,16 @@ namespace Player.Runtime
         
         [FormerlySerializedAs("speed")] [SerializeField] public  float m_speed = 5;
         [HideInInspector] public float m_speedSave;
-        
+        [SerializeField] public float groundCheckDistance ;
+        [SerializeField] public float groundCheckRadius;
         #endregion
         
         #region UnityAPI
 
         private void Awake()
         {
+           
+            
             _playerInput = GetComponent<PlayerInput>();
             _moveAction = _playerInput.actions["Move"];
             m_speedSave = m_speed;
@@ -28,13 +31,14 @@ namespace Player.Runtime
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
+            _rb.freezeRotation = true;
             _mainCamera = Camera.main;
         }
 
         private void FixedUpdate()
         {
             // Update _lastDirection based on current input
-            if (_moveDirection.sqrMagnitude > 0.01f && _playerDamage.m_isAttacking == false)
+            if (_moveDirection.sqrMagnitude > 0.001f && _playerDamage.m_isAttacking == false)
             {
                 Vector3 camForward = _mainCamera.transform.forward;
                 Vector3 camRight = _mainCamera.transform.right;
@@ -69,7 +73,7 @@ namespace Player.Runtime
             else
             {
                 _rb.linearDamping = airDrag;
-                Physics.gravity= _baseGravity*3;
+                Physics.gravity= _baseGravity*10;
             }
             
         }
@@ -117,7 +121,7 @@ namespace Player.Runtime
 
         private void GroundCheck()
         {
-            Vector3 origin = transform.position + Vector3.up * 0.1f; 
+            Vector3 origin = transform.position + Vector3.up *0.05f; 
             _isGrounded = Physics.SphereCast(origin, groundCheckRadius, Vector3.down, out _slopeHit, groundCheckDistance, _groundCheckMask);
             
             if (_isGrounded)
@@ -138,10 +142,31 @@ namespace Player.Runtime
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
             {
-                float capsuleHeight = _rb.gameObject.GetComponent<CapsuleCollider>().height;
+                float capsuleHeight = _rb.GetComponent<CapsuleCollider>().height * transform.localScale.y;
                 transform.position = hit.point + new Vector3(0, capsuleHeight / 2, 0);
             }
         }
+        
+            [SerializeField] private float radius = 0.2f;
+            [SerializeField] private float distance = 0.38f;
+            [SerializeField] private Color color = Color.green;
+
+            private void OnDrawGizmos()
+            {
+                // Position de départ (exemple comme ton GroundCheck)
+                Vector3 origin = transform.position + Vector3.up * 0.05f;
+                Vector3 direction = Vector3.down;
+
+                // Dessine la ligne du cast
+                Gizmos.color = color;
+                Gizmos.DrawLine(origin, origin + direction * distance);
+
+                // Dessine une sphère au départ
+                Gizmos.DrawWireSphere(origin, radius);
+
+                // Dessine une sphère à la fin du cast
+                Gizmos.DrawWireSphere(origin + direction * distance, radius);
+            }
         
         #endregion
         
@@ -184,8 +209,6 @@ namespace Player.Runtime
         
         [SerializeField] private float rotationSpeed = 10f;
         [Header("Ground Check Settings")]
-        [SerializeField] private float groundCheckDistance = 1.5f;
-        [SerializeField] private float groundCheckRadius = 0.4f;
         [SerializeField] private float maxSlopeAngle;
         [SerializeField] private float groundedDrag = 5f;
         [SerializeField] private float airDrag = 0.1f;

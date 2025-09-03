@@ -12,7 +12,8 @@ namespace Damage.Runtime
 
         private void Awake()
         {
-            _playerStats = GetComponentInParent<PlayerStats>();
+            _playerStats = FindFirstObjectByType<PlayerStats>();
+            _playerDamage = FindFirstObjectByType<PlayerDamage>();
         }
         
         private void OnEnable()
@@ -27,9 +28,19 @@ namespace Damage.Runtime
                 EnemyStat enemyStat = other.GetComponentInParent<EnemyStat>();
                 if (enemyStat != null && _playerStats != null && !_enemiesHitThisSwing.Contains(enemyStat))
                 {
-                    _damage = _playerStats.m_publicDamage;
-                    enemyStat.DoDamage(_damage, _playerStats.transform);
-                    _enemiesHitThisSwing.Add(enemyStat);
+                    if (_playerDamage.m_isAttacking)
+                    {
+                         _damage = _playerStats.m_publicDamage;
+                         enemyStat.DoDamage(_damage, _playerStats.transform);
+                        _enemiesHitThisSwing.Add(enemyStat);
+                    }
+                    else
+                    {
+                        _damage = _playerStats.m_frondeDamage;
+                        enemyStat.DoDamage(_damage, _playerStats.transform);
+                        _enemiesHitThisSwing.Add(enemyStat);
+                    }
+                   
                 }
                 return;
             }
@@ -53,7 +64,7 @@ namespace Damage.Runtime
         
         private PlayerStats _playerStats;
         private int _damage;
-        
+        private PlayerDamage _playerDamage;
         private HashSet<EnemyStat> _enemiesHitThisSwing = new HashSet<EnemyStat>();
         
         #endregion
