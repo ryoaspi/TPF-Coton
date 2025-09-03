@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+using UnityEngine.UI;
 namespace Player.Runtime
 {
     public class PlayerStats : MonoBehaviour
@@ -49,6 +49,8 @@ namespace Player.Runtime
             UpdateTextHealth();
             DamageUpdate();
             UpdateMaxHealth();
+            healthSlider.maxValue = m_privateHP;
+            healthSlider.value = m_currentHealth;
         }
 
 
@@ -124,7 +126,7 @@ namespace Player.Runtime
 
         public void UpdateTextHealth()
         {
-            _textCurrentHealth.text = $"{m_currentHealth}/{m_publicHP}";
+           healthSlider.value = m_currentHealth;
         }
         
         
@@ -185,8 +187,7 @@ namespace Player.Runtime
         [SerializeField] private int _maxHealth=100;
         
         [Header ("UI")]
-        [SerializeField] private TextMeshProUGUI _textCurrentHealth;
-        
+        [SerializeField]public Slider healthSlider;
         
         
         [Header("Hit")]
@@ -199,6 +200,7 @@ namespace Player.Runtime
         private PlayerDropCoton _playerDropCoton;
         private PlayerMovement _playerMovement;
         private Fronde _fronde;
+        
         #endregion
     }
 }
