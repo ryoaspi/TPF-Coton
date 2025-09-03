@@ -124,7 +124,12 @@ namespace Enemy.Runtime
                 return;
             }
 
-            Patrol();
+            if (!_isSearching && !m_playerDetected && !_agent.hasPath)
+            {
+                Patrol();
+                return;
+            }
+
 
         }
 
@@ -401,6 +406,13 @@ namespace Enemy.Runtime
             _hasSeenPlayer = false;
             _lostPlayerTimer = 0;
             _agent.ResetPath();
+            
+            //Ajout : recommencer la patrouille
+            if (_target.Count > 0)
+            {
+                _currentTarget = 0;
+                _agent.SetDestination(_target[_currentTarget].position);
+            }
         }
         private void HandleCombat()
         {
