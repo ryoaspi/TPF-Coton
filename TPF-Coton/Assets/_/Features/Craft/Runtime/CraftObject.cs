@@ -56,6 +56,7 @@ namespace Craft.Runtime
             if (_coton.m_coton >= _craftCost + 1)
             {
                 _coton.LoseCoton(_craftCost);
+                foreach (var collider in _colliderSecurity) collider.enabled= false;
                 _craftPrefab.gameObject.SetActive(true);
                 _isCrafted = true;
                 return true;
@@ -68,6 +69,7 @@ namespace Craft.Runtime
             if (_craftPrefab.activeSelf)
             {
                 _coton.LoseCoton(-_craftCost);
+                foreach (var collider in _colliderSecurity) collider.enabled = true;
                 _craftPrefab.gameObject.SetActive(false);
                 _isCrafted = false;
                 return true;
@@ -84,6 +86,7 @@ namespace Craft.Runtime
         private PlayerBuff _coton;
         [SerializeField] private GameObject _craftPrefab;
         [SerializeField] private string[] _interactionLabel;
+        [SerializeField] private Collider[] _colliderSecurity;
         private bool _isCrafted;
 
         #endregion
