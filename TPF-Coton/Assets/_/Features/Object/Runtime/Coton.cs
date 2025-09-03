@@ -1,3 +1,4 @@
+using System;
 using Interface.Runtime;
 using UnityEngine;
 
@@ -5,7 +6,13 @@ namespace Object.Runtime
 {
     public class Coton : MonoBehaviour, ICollectable
     {
+        
         #region Unity Api
+
+        private void Awake()
+        {
+            
+        }
 
         private void OnEnable()
         {
@@ -15,8 +22,7 @@ namespace Object.Runtime
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
             _col.isTrigger = true;
-
-
+            
         }
 
         private void Update()
@@ -31,6 +37,11 @@ namespace Object.Runtime
             }
         }
 
+        private void OnDisable()
+        {
+            Destroy(gameObject);
+        }
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
@@ -38,6 +49,7 @@ namespace Object.Runtime
                 _rb.isKinematic = true;
                 _col.isTrigger = true;
             }
+            
         }
 
         private void OntriggerEnter(Collider other)
@@ -76,7 +88,7 @@ namespace Object.Runtime
                 float upSize = _valueCoton * _multiplicateurScale;
                 transform.localScale = new Vector3(transform.localScale.x + upSize, transform.localScale.y + upSize,transform.localScale.z + upSize);    
             }
-            
+            Debug.Log(_valueCoton);
             return _valueCoton;
         }
         

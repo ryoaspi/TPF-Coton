@@ -17,6 +17,8 @@ namespace Player.Runtime
         {
             _playerInput=GetComponent<PlayerInput>();
             _playerMovement =  GetComponent<PlayerMovement>();
+            _playerDamage= GetComponent<PlayerDamage>();
+            _fronde = GetComponent<Fronde>();
         }
 
         private void Start()
@@ -58,10 +60,13 @@ namespace Player.Runtime
 
         private void OnBlock(InputAction.CallbackContext context)
         {
-
+            if (!_playerDamage.m_isAttacking && !_fronde.m_coolDownCharge)
+            {
                 m_isShielding = true;
                 _shield.SetActive(true);
                 _playerMovement.m_speed = 0;
+            }
+                
             
         }
 
@@ -80,7 +85,8 @@ namespace Player.Runtime
         private PlayerInput _playerInput;
         [SerializeField] private GameObject _shield;
         private PlayerMovement _playerMovement;
-
+        private PlayerDamage _playerDamage;
+        private Fronde _fronde;
         #endregion
     }
 }

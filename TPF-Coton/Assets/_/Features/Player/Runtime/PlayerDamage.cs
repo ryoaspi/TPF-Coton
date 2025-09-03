@@ -19,6 +19,7 @@ namespace Player.Runtime
         {
             _playerInput=GetComponent<PlayerInput>();
             _shield=GetComponent<Shield>();
+            _fronde=GetComponent<Fronde>();
         }
 
         void Start()
@@ -88,7 +89,7 @@ namespace Player.Runtime
         
         private void OnAttack(InputAction.CallbackContext context)
         {
-            if (!_isOnCooldown && _shield.m_isShielding==false)
+            if (!_isOnCooldown && _shield.m_isShielding==false && !_fronde.m_coolDownCharge)
             {
                
                 _sword.SetActive(true);
@@ -117,7 +118,7 @@ namespace Player.Runtime
         [SerializeField] private float _hitCooldown =1f;
         [SerializeField] private float _anglepPerSecond;
         private Shield _shield;
-
+        private Fronde _fronde;
         #endregion
     }
 }
