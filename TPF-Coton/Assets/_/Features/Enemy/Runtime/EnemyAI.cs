@@ -81,6 +81,7 @@ namespace Enemy.Runtime
 				IsCotonDetected(LayerMask.NameToLayer("Coton"));
                 if (_cotonQueue.Count > 0)
                 {
+                    _isSearching = false;
                     _isCollectingCoton = true;
                     return;
                 }
@@ -121,13 +122,13 @@ namespace Enemy.Runtime
             if (_isSearching)
             {
                 SearchAtLastKnownPosition();
+                EndSearch();
                 return;
             }
 
             if (!_isSearching && !m_playerDetected && !_agent.hasPath)
             {
                 Patrol();
-                return;
             }
 
 
