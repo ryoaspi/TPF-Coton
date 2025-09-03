@@ -31,9 +31,13 @@ namespace Player.Runtime
         
         private void OnTriggerEnter(Collider other)
         {
-            _isTouch = true;
-            _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
-            FrondePool.Instance.ReturnToPool(gameObject);
+            if (LayerMask.LayerToName(other.gameObject.layer) == "WeaponEnemy") return;
+            
+               _isTouch = true;
+                _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
+                FrondePool.Instance.ReturnToPool(gameObject); 
+            
+            
         }
 
         #endregion
