@@ -367,7 +367,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4728744514463623538}
   m_Father: {fileID: 374765836647447604}
@@ -558,6 +558,8 @@ GameObject:
   - component: {fileID: 7583605206407293535}
   - component: {fileID: 8130931757048351921}
   - component: {fileID: 971324248943201526}
+  - component: {fileID: 5399143446865916344}
+  - component: {fileID: 923647024602392687}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -576,7 +578,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.11, y: 0, z: 1.05}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7407681881222823360}
   - {fileID: 4006083514912078312}
@@ -785,6 +787,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a3062360-13a8-4c61-8716-91d722c5577f
     m_ActionName: 'UI/CloseMenu[/XInputControllerWindows/select,/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f176c582-8733-40b4-8d3b-28f858e67e8e
+    m_ActionName: 'Player/ResetEnemy[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f694dd27-ad1d-4672-a85b-a0246042aecc
+    m_ActionName: 'Player/RespawnPlayer[/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -818,13 +828,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_speedSave: 0
-  groundCheckDistance: 0.38
+  groundCheckDistance: 0.75
   groundCheckRadius: 0.2
   radius: 0.2
   distance: 0.38
   color: {r: 0, g: 1, b: 0, a: 1}
   rotationSpeed: 90
-  maxSlopeAngle: 90
+  maxSlopeAngle: 50
   groundedDrag: 5
   airDrag: 0.1
   _downwardSlopeForce: 80
@@ -879,7 +889,7 @@ MonoBehaviour:
   _baseSwordPositionObject: {fileID: 5688941513506866089}
   _targetPositionObject: {fileID: 1230725641334125171}
   _hitCooldown: 1
-  _anglepPerSecond: 180
+  _anglepPerSecond: 900
 --- !u!114 &8448680040762364299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,7 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef9c7e67d0bad94da870b5384f1651d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_buff: 0
   m_coton: 0
   _cotonForLittleState: 30
   _cotonForBigState: 70
@@ -984,6 +993,42 @@ CapsuleCollider:
   m_Height: 1.9757419
   m_Direction: 1
   m_Center: {x: -0.00000011920929, y: 0.015818834, z: -5.498601e-16}
+--- !u!114 &5399143446865916344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210584169379710260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a42c98c9e9e7de4b88998496a4ad7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRespawn: {fileID: 0}
+  _resetEnemy: {fileID: 0}
+--- !u!114 &923647024602392687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210584169379710260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a25e8859e123f44ebabae0f2bfa6b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionDetected: 1.8
+  _maxInteractionDistance: 2
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 16384
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 2147483777
+  _playerInput: {fileID: 3470936859141013514}
+  _playerTransform: {fileID: 374765836647447604}
 --- !u!1 &4527197302954071222
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,17 +91,14 @@ namespace Player.Runtime
                 _playerDropCoton.DropCotonDamage(damage);
                 _playerBuff.LoseCoton(damage);
                 _playerBuff.CheckSize();
-                UpdateTextHealth();
                 Hit();
                 IsDead();
             }
         }
         public void FrondeSelfDamage (int damage)
         {
-                
                 _playerBuff.LoseCoton(damage);
                 _playerBuff.CheckSize();
-                UpdateTextHealth();
                 IsDead();
         }
         public void IsDead()

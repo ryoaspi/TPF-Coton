@@ -26,7 +26,6 @@ namespace Player.Runtime
         
         private void OnTriggerEnter(Collider other)
         {
-
             if (other.TryGetComponent(out ICollectable collectable))
             {
                 if (_playerStats.m_currentHealth < _playerStats.m_privateHP)
@@ -35,13 +34,10 @@ namespace Player.Runtime
                     if (coton is not null && !coton.CanBeCollected()) return;
                     _playerStats.m_currentHealth += collectable.Collect();
                     m_coton = _playerStats.m_currentHealth; 
-                    collectable.Collect();
                     CheckSize();
                     _playerStats.UpdateTextHealth(); 
-                    
+                    other.gameObject.SetActive(false);
                 }
-               
-                
             }
         }
 
@@ -59,6 +55,7 @@ namespace Player.Runtime
         {
             _playerStats.m_currentHealth -= amout;
             m_coton = _playerStats.m_currentHealth;
+            _playerStats.UpdateTextHealth();
         }
 
         public void CheckSize()
@@ -94,6 +91,9 @@ namespace Player.Runtime
         [SerializeField] private TMP_Text _textCoton;
         private int _cotonState;
         private PlayerStats _playerStats;
+        private PlayerMovement _playerMovement;
+        
+        [Header("Speed")]
         [SerializeField] private float _minimalSpeed=5;
 
         #endregion
