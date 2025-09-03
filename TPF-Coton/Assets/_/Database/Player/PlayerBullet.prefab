@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8137431916551650845}
   - component: {fileID: -3274131201546165017}
   - component: {fileID: 7748857069219086580}
+  - component: {fileID: 220873573080999123}
   - component: {fileID: 7996004037671167693}
   - component: {fileID: 6575003668570416283}
   m_Layer: 0
@@ -102,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca436faf14a3b240a23a1a94d15a165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 0
   _speed: 13
   _duration: 5
 --- !u!114 &7748857069219086580
@@ -117,6 +117,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8885bc97fa75d046b53bdb68cc4be77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &220873573080999123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6411377434916270506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070613573ca557a48a4ff9b8959fcebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coton: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
+  _distance: 0.5
+  _arcHeight: 3
+  _arcDuration: 0.4
 --- !u!135 &7996004037671167693
 SphereCollider:
   m_ObjectHideFlags: 0

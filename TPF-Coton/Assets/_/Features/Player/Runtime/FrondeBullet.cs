@@ -6,7 +6,7 @@ namespace Player.Runtime
     {
         #region Public
         
-        [HideInInspector] public int m_damage;
+        
         
         #endregion
         
@@ -16,6 +16,8 @@ namespace Player.Runtime
         private void OnEnable()
         {
             _timer = 0;
+            _playerDropCoton=GetComponent<PlayerDropCoton>();
+            _fronde = FindFirstObjectByType<Fronde>();
 
         }
 
@@ -30,7 +32,8 @@ namespace Player.Runtime
         private void OnTriggerEnter(Collider other)
         {
             _isTouch = true;
-            gameObject.SetActive(false);
+            _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
+            FrondePool.Instance.ReturnToPool(gameObject);
         }
 
         #endregion
@@ -49,6 +52,7 @@ namespace Player.Runtime
             
             if (_timer >= _duration)
             {
+                _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
                 FrondePool.Instance.ReturnToPool(gameObject);
             }
         }
@@ -62,6 +66,7 @@ namespace Player.Runtime
                 {
                     _timeTouch = 0;
                     _isTouch = false;
+                    _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
                     FrondePool.Instance.ReturnToPool(gameObject);
                 }
             }
@@ -79,7 +84,8 @@ namespace Player.Runtime
         private bool _isTouch;
         private float _timer;
         private float _timeTouch;
-
+        private Fronde _fronde;
+        private PlayerDropCoton _playerDropCoton;
         #endregion
     }
 }

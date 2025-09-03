@@ -22,34 +22,36 @@ namespace Player.Runtime
         {
             _playerStats=GetComponent<PlayerStats>();
             _playerMovement=GetComponent<PlayerMovement>();
+            m_coton = _playerStats.m_currentHealth;
+            CheckSize();
         }
-
         
         private void OnTriggerEnter(Collider other)
         {
 
             if (other.TryGetComponent(out ICollectable collectable))
             {
-                Coton coton = other.GetComponent<Coton>();
-                if (coton is not null && !coton.CanBeCollected()) return;
-                
-                if (_playerStats.m_currentHealth == _playerStats.m_publicHP)
+                if (_playerStats.m_currentHealth < _playerStats.m_privateHP)
                 {
-                    int cotonCollected = collectable.Collect();
-                    m_coton += cotonCollected;
-                    other.gameObject.SetActive(false);
-                    BuffStat();  
-                }
-                else
-                {
+                    Coton coton = other.GetComponent<Coton>();
+                    if (coton is not null && !coton.CanBeCollected()) return;
                     _playerStats.m_currentHealth++;
-                    _playerStats.UpdateTextHealth();
-                    other.gameObject.SetActive(false);
+                    m_coton = _playerStats.m_currentHealth; 
+                    collectable.Collect();
+                    CheckSize();
+                    _playerStats.UpdateTextHealth(); 
+                    
                 }
+               
                 
             }
         }
 
+        private void Update()
+        {
+
+            
+        }
         #endregion
         
         
@@ -57,37 +59,42 @@ namespace Player.Runtime
 
         public void LoseCoton(int amout)
         {
-            m_coton -= amout;
-            if (m_coton < 0) m_coton = 0;
-            BuffStat();
-         
+            _playerStats.m_currentHealth -= amout;
+            m_coton = _playerStats.m_currentHealth;
         }
-        
+
+        public void CheckSize()
+        {
+            if (m_coton <= _cotonForLittleState)
+            {
+                _playerStats.LittleState();
+            }
+            else if (m_coton >= _cotonForBigState)
+            {
+                _playerStats.BigState();
+            }
+            else
+            {
+                _playerStats.MediumState();
+            }
+        }
         #endregion
         
         
         #region Main Methods
 
-        private void BuffStat()
-        {
-            m_buff = m_coton / _numberCotonForBuff;
-            _playerStats.m_publicDamage=_playerStats.m_privateDamage+m_buff;
-            _playerStats.m_publicHP=_playerStats.m_privateHP+m_buff;
-            if (_playerMovement.m_speed > _minimalSpeed)
-            {
-                _playerMovement.m_speed = _playerMovement.m_speedSave - m_buff;
-            }
-            _playerStats.UpdateTextHealth();
-            Debug.Log(m_buff);
-        }
+       
         
         #endregion
         
         
         #region Private And Protected
 
-        [SerializeField] private int _numberCotonForBuff = 5;
+        [Header("State")] 
+        [SerializeField] private int _cotonForLittleState;
+        [SerializeField] private int _cotonForBigState;
         [SerializeField] private TMP_Text _textCoton;
+        private int _cotonState;
         private PlayerStats _playerStats;
         private PlayerMovement _playerMovement;
         [SerializeField] private float _minimalSpeed=5;

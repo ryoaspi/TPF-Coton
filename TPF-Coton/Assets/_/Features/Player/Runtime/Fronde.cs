@@ -10,7 +10,7 @@ namespace Player.Runtime
         [Header("Références")]
         public Transform m_firePoint;
         [HideInInspector] public FrondePool m_projectilePool;
-        
+        [FormerlySerializedAs("_hpLoss")] public int m_hpLoss=1;
         [FormerlySerializedAs("_coolDownCharge")] [HideInInspector]public bool m_coolDownCharge;
         
         [Header("Indicateur de visée")]
@@ -26,6 +26,7 @@ namespace Player.Runtime
             _playerDamage = GetComponent<PlayerDamage>();
             _shield = GetComponent<Shield>();
             _playerStats = GetComponent<PlayerStats>();
+            _playerBuff= GetComponent<PlayerBuff>();
 
             if (m_aimVisualPrefab != null)
             {
@@ -101,7 +102,7 @@ namespace Player.Runtime
 
         public void Shoot(InputAction.CallbackContext context)
         {
-            if (m_coolDownCharge || _playerDamage.m_isAttacking || _shield.m_isShielding)
+            if (m_coolDownCharge || _playerDamage.m_isAttacking || _shield.m_isShielding || _playerStats.m_currentHealth <=m_hpLoss)
                 return;
 
             if (context.started)
@@ -110,11 +111,11 @@ namespace Player.Runtime
                 _chargeTimer = 0f;
                 _isCharging = true;
                 if (_aimVisual != null) _aimVisual.SetActive(true);
-                _playerMovement.m_speed -= _hpLoss;
+                _playerMovement.m_speed -= _speedLoss;
             }
             else if (context.canceled && _isCharging)
             {
-                
+                _playerStats.FrondeSelfDamage(m_hpLoss);
                 _isCharging = false;
                 _playerMovement.m_speed = _playerMovement.m_speedSave;
                 HideAimVisual();
@@ -127,9 +128,9 @@ namespace Player.Runtime
                 _bullet.transform.position = m_firePoint.position;
                 _bullet.transform.rotation = m_firePoint.rotation;
                 _bullet.transform.parent = null;
-
-                _playerStats.m_currentHealth -= 1;
-                _playerStats.UpdateTextHealth();
+                
+                
+                
                 // Reset cooldown
                 m_coolDownCharge = true;
                 _timeCharge = 0f;
@@ -147,7 +148,8 @@ namespace Player.Runtime
 
         [Header("Fronde Variables")]
         [SerializeField] private float _maxCoolDown=3;
-        [SerializeField] private int _hpLoss=1;
+        
+        [SerializeField] private int _speedLoss=3;
         
         
         
@@ -160,6 +162,7 @@ namespace Player.Runtime
         private PlayerMovement _playerMovement;
         private Shield _shield;
         private PlayerStats _playerStats;
+        private PlayerBuff _playerBuff;
         #endregion
     }
 }
