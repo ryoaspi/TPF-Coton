@@ -93,6 +93,18 @@ namespace Enemy.Runtime
                     HandleCombat();
                     return;
                 }
+                
+                if (_isSearching)
+                {
+                    SearchAtLastKnownPosition();
+                    EndSearch();
+                    return;
+                }
+
+                if (!_isSearching && !m_playerDetected && !_agent.hasPath)
+                {
+                    Patrol();
+                }
             }
 
             if (m_playerDetected)
@@ -115,14 +127,13 @@ namespace Enemy.Runtime
                 
                     _enemySword.Attack();
                 }
-
-                return;
+                
             }
 
             if (_isSearching)
             {
                 SearchAtLastKnownPosition();
-                EndSearch();
+                // EndSearch();
                 return;
             }
 
@@ -273,12 +284,13 @@ namespace Enemy.Runtime
         private void IsPlayerDetected()
         {
 
-            if (_isSearching)
-            {
-                m_playerDetected = false;
-                // return;
-            }
-            //Détection de tous les objets dans le rayon
+             if (_isSearching)
+             {
+                 m_playerDetected = false;
+                 return;
+             }
+             
+            // Détection de tous les objets dans le rayon
             Collider[] colliders =
                 Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Player"));
             
@@ -303,6 +315,8 @@ namespace Enemy.Runtime
                             
                             //reset importants
                             _isSearching = false;
+                            
+                            
                             _lostPlayerTimer = 0;
                             _hasSeenPlayer = true;
                             _searchTimer = 0f;
@@ -386,15 +400,19 @@ namespace Enemy.Runtime
 
             if (pathbad || arrived)
             {
-                _agent.ResetPath();
-                
-                transform.Rotate(Vector3.up * (45f * Time.deltaTime));
-                
-                _searchTimer += Time.deltaTime;
-                if (_searchTimer >= _searchDuration)
+                if (!_agent.hasPath || _agent.remainingDistance <= _arrivalEpsilon)
                 {
-                    EndSearch();
-                }
+                    _searchTimer += Time.deltaTime;
+                    // _agent.ResetPath();
+                
+                    transform.Rotate(Vector3.up * (45f * Time.deltaTime));
+                
+                    if (_searchTimer >= _searchDuration)
+                    {
+                        EndSearch();
+                    }
+                } 
+
             }
 
         }
