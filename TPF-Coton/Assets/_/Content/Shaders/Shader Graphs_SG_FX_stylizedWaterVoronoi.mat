@@ -52,10 +52,10 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_063d8ad067e84f24a36d29a5d040c525: 30
-    - Vector1_1d30b7a3bef3453892ed125d510161d5: 0.612
+    - Vector1_1d30b7a3bef3453892ed125d510161d5: 0.544
     - Vector1_320b00fb1e0b4117837c42094f521177: 0
-    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.25
-    - Vector1_69e265a5284f48d4ba341450a5e85e75: 0.12
+    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.01
+    - Vector1_69e265a5284f48d4ba341450a5e85e75: 0.18
     - Vector1_d2bec4241b694aabab28b22ddfd9c59a: 30
     - _QueueControl: 0
     - _QueueOffset: 0
