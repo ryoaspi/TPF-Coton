@@ -1623,7 +1623,7 @@ MonoBehaviour:
   _littleScale: 0.3
   _bigScale: 0.1
   _maxHealth: 100
-  _textCurrentHealth: {fileID: 3612489006438887114}
+  healthSlider: {fileID: 0}
   _renderer: {fileID: 2656677349121253865}
   _invinsibilityTime: 1
 --- !u!114 &305251056436206390
