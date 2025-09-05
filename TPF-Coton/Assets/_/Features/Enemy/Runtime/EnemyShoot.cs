@@ -21,11 +21,13 @@ namespace Enemy.Runtime
             _bullet = AmmoPool.Instance.GetFromPool();
             _bullet.transform.position = _firePoint.position;
             _bullet.transform.rotation = _firePoint.rotation;
+            _bullet.transform.parent = null;
 
             
             if (_enemyStat is not null && _bullet.TryGetComponent<EnemyAmmo>(out var enemyAmmo))
             {
                 enemyAmmo.m_damage = _enemyStat.m_damage;
+                enemyAmmo.InitDirection(_firePoint.forward);
             }       
         }
         
