@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+using UnityEngine.UI;
 namespace Player.Runtime
 {
     public class PlayerStats : MonoBehaviour
@@ -49,6 +49,8 @@ namespace Player.Runtime
             UpdateTextHealth();
             DamageUpdate();
             UpdateMaxHealth();
+            healthSlider.maxValue = m_privateHP;
+            healthSlider.value = m_currentHealth;
         }
 
 
@@ -124,7 +126,7 @@ namespace Player.Runtime
 
         public void UpdateTextHealth()
         {
-            _textCurrentHealth.text = $"{m_currentHealth}/{m_publicHP}";
+           healthSlider.value = m_currentHealth;
         }
         
         
@@ -133,6 +135,7 @@ namespace Player.Runtime
         {
             m_frondeDamage = _littleFrondeDamage;
             m_publicDamage = _littleStatDamage;
+            _playerMovement.m_speedSave=_littleSpeed;
             _playerMovement.m_speed = _littleSpeed;
             _playerMovement.m_speedSave = _littleSpeed;
             transform.localScale= new Vector3(0.5f-_littleScale,0.5f-_littleScale,0.5f-_littleScale);
@@ -145,6 +148,7 @@ namespace Player.Runtime
         {
             m_frondeDamage = _mediumfrondeDamage;
             m_publicDamage = _mediumStatDamage;
+            _playerMovement.m_speedSave=_mediumSpeed;
             _playerMovement.m_speed = _mediumSpeed;
             _playerMovement.m_speedSave = _mediumSpeed;
             transform.localScale= new Vector3(0.5f,0.5f,0.5f);
@@ -156,6 +160,7 @@ namespace Player.Runtime
         {
             m_frondeDamage = _bigFrondeDamage;
             m_publicDamage = _bigStatDamage;
+            _playerMovement.m_speedSave=_bigSpeed;
             _playerMovement.m_speed = _bigSpeed;
             _playerMovement.m_speedSave = _bigSpeed;
             transform.localScale= new Vector3(0.5f+_bigScale,0.5f+_bigScale,0.5f+_bigScale);  
@@ -185,8 +190,7 @@ namespace Player.Runtime
         [SerializeField] private int _maxHealth=100;
         
         [Header ("UI")]
-        [SerializeField] private TextMeshProUGUI _textCurrentHealth;
-        
+        [SerializeField]public Slider healthSlider;
         
         
         [Header("Hit")]
@@ -199,6 +203,7 @@ namespace Player.Runtime
         private PlayerDropCoton _playerDropCoton;
         private PlayerMovement _playerMovement;
         private Fronde _fronde;
+        
         #endregion
     }
 }
