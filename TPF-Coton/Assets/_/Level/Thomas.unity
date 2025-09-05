@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 670959206365110277, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_Name
       value: Player
@@ -783,7 +787,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1158027755384850881, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.55
+      value: -4.85
       objectReference: {fileID: 0}
     - target: {fileID: 1158027755384850881, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2545,6 +2549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGScale
       objectReference: {fileID: 0}
+    - target: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6942405200674824671, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.052923
@@ -2586,6 +2594,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7121802832196409701, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
+      propertyPath: _arrivalEpsilon
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121802832196409701, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: _maxsearchTimer
       value: 5
       objectReference: {fileID: 0}
@@ -2615,7 +2627,7 @@ PrefabInstance:
       objectReference: {fileID: 931645563}
     - target: {fileID: 9006169997761729185, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2640,7 +2652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2761811216651445954, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.84
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 2761811216651445954, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_LocalPosition.z

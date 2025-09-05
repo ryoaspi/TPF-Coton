@@ -20,7 +20,10 @@ namespace Enemy.Runtime
         {
             if (agent == null) return;
 
-            agent.isStopped = true;
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+            }
             knockbackVelocity = direction.normalized * force;
             knockbackTimer = knockbackDuration;
         }
@@ -29,8 +32,11 @@ namespace Enemy.Runtime
         {
             if (knockbackTimer > 0f)
             {
-                // ✅ Utilisation de agent.Move() pour respecter les collisions
-                agent.Move(knockbackVelocity * Time.deltaTime);
+                if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+                {
+                    // ✅ Utilisation de agent.Move() pour respecter les collisions
+                    agent.Move(knockbackVelocity * Time.deltaTime);    
+                }
 
                 knockbackTimer -= Time.deltaTime;
 
