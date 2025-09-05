@@ -1,11 +1,7 @@
 {
-    "name": "Enemy.Runtime",
-    "rootNamespace": "Enemy.Runtime",
-    "references": [
-        "GUID:1782eacf253e7694f8613e81e9e40fd2",
-        "GUID:ad6a5aaf6973dd14d9bf25d71f33d633",
-        "GUID:3cb1c8af20060e045bd372c2e18407be"
-    ],
+    "name": "Knockback.Runtime",
+    "rootNamespace": "Knockback.Runtime",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
