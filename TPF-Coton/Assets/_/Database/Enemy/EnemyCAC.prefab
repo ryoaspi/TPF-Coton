@@ -155,7 +155,7 @@ MonoBehaviour:
   m_playerDetected: 0
   m_isCotonDetected: 0
   m_enemyType: 0
-  _minAttackDistance: 2
+  _minAttackDistance: 1.5
   _attackCooldown: 2
   _target:
   - {fileID: 0}

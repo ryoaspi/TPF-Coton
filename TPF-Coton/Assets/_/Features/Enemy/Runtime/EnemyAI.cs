@@ -81,6 +81,7 @@ namespace Enemy.Runtime
 				IsCotonDetected(LayerMask.NameToLayer("Coton"));
                 if (_cotonQueue.Count > 0)
                 {
+                    _isSearching = false;
                     _isCollectingCoton = true;
                     return;
                 }
@@ -91,6 +92,18 @@ namespace Enemy.Runtime
                 {
                     HandleCombat();
                     return;
+                }
+                
+                if (_isSearching)
+                {
+                    SearchAtLastKnownPosition();
+                    EndSearch();
+                    return;
+                }
+
+                if (!_isSearching && !m_playerDetected && !_agent.hasPath)
+                {
+                    Patrol();
                 }
             }
 
@@ -114,17 +127,21 @@ namespace Enemy.Runtime
                 
                     _enemySword.Attack();
                 }
-
-                return;
+                
             }
 
             if (_isSearching)
             {
                 SearchAtLastKnownPosition();
+                // EndSearch();
                 return;
             }
 
-            Patrol();
+            if (!_isSearching && !m_playerDetected && !_agent.hasPath)
+            {
+                Patrol();
+            }
+
 
         }
 
@@ -267,12 +284,13 @@ namespace Enemy.Runtime
         private void IsPlayerDetected()
         {
 
-            if (_isSearching)
-            {
-                m_playerDetected = false;
-                // return;
-            }
-            //Détection de tous les objets dans le rayon
+             if (_isSearching)
+             {
+                 m_playerDetected = false;
+                 return;
+             }
+             
+            // Détection de tous les objets dans le rayon
             Collider[] colliders =
                 Physics.OverlapSphere(transform.position, _detectionDistance, LayerMask.GetMask("Player"));
             
@@ -297,6 +315,8 @@ namespace Enemy.Runtime
                             
                             //reset importants
                             _isSearching = false;
+                            
+                            
                             _lostPlayerTimer = 0;
                             _hasSeenPlayer = true;
                             _searchTimer = 0f;
@@ -380,15 +400,19 @@ namespace Enemy.Runtime
 
             if (pathbad || arrived)
             {
-                _agent.ResetPath();
-                
-                transform.Rotate(Vector3.up * (45f * Time.deltaTime));
-                
-                _searchTimer += Time.deltaTime;
-                if (_searchTimer >= _searchDuration)
+                if (!_agent.hasPath || _agent.remainingDistance <= _arrivalEpsilon)
                 {
-                    EndSearch();
-                }
+                    _searchTimer += Time.deltaTime;
+                    // _agent.ResetPath();
+                
+                    transform.Rotate(Vector3.up * (45f * Time.deltaTime));
+                
+                    if (_searchTimer >= _searchDuration)
+                    {
+                        EndSearch();
+                    }
+                } 
+
             }
 
         }
@@ -401,6 +425,13 @@ namespace Enemy.Runtime
             _hasSeenPlayer = false;
             _lostPlayerTimer = 0;
             _agent.ResetPath();
+            
+            //Ajout : recommencer la patrouille
+            if (_target.Count > 0)
+            {
+                _currentTarget = 0;
+                _agent.SetDestination(_target[_currentTarget].position);
+            }
         }
         private void HandleCombat()
         {

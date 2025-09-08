@@ -1,6 +1,7 @@
 using Interface.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Craft.Runtime
 {
@@ -84,12 +85,12 @@ namespace Craft.Runtime
 
         private void ShowPrompt(string text, int count)
         {
-            string composedText = $"[E] {text} pour : {count}";
+            string composedText = $" {text} pour : {count}";
             
             if (composedText == _lastPromptText) return;
             
             _lastPromptText = composedText;
-            _uiManager.ShowPrompt(composedText);
+            _uiManager.ShowPrompt(composedText, _sprite);
         }
         
         private void HidePrompt()
@@ -128,6 +129,8 @@ namespace Craft.Runtime
         [SerializeField] private Transform _playerTransform;
         private CraftObject _craftObject;
         private string _lastPromptText;
+
+		[SerializeField] private Sprite _sprite;
 
         #endregion
     }
