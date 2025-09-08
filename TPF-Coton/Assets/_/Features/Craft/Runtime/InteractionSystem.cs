@@ -1,6 +1,7 @@
 using Interface.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Craft.Runtime
 {
@@ -14,12 +15,15 @@ namespace Craft.Runtime
             _uiManager = FindFirstObjectByType<UIManager.Runtime.UIManager>();
             if (_camera == null) _camera = Camera.main;
             _countObject = FindObjectOfType<CraftObject>();
-            
+
+            DetectControllerType();
+
         }
 
         private void OnEnable()
         {
             _playerInput.actions["Interact"].started += OnInteract;
+            InputSystem.onDeviceChange += OnDeviceChange;
         }
 
         private void Update()
@@ -61,6 +65,7 @@ namespace Craft.Runtime
         private void OnDisable()
         {
             _playerInput.actions["Interact"].started -= OnInteract;
+            InputSystem.onDeviceChange -= OnDeviceChange;
         }
 
         private void OnInteract(InputAction.CallbackContext context)
@@ -84,12 +89,12 @@ namespace Craft.Runtime
 
         private void ShowPrompt(string text, int count)
         {
-            string composedText = $"[E] {text} pour : {count}";
+            string composedText = $" {text} pour : {count}";
             
             if (composedText == _lastPromptText) return;
             
             _lastPromptText = composedText;
-            _uiManager.ShowPrompt(composedText);
+            _uiManager.ShowPrompt(composedText, _currentSprite);
         }
         
         private void HidePrompt()
@@ -103,6 +108,37 @@ namespace Craft.Runtime
             _currentInteractable = null;
             _lastPromptText = string.Empty;
             HidePrompt();
+        }
+
+        private void DetectControllerType()
+        {
+            // Par défaut : clavier/souris
+            _currentSprite = _spritePC;
+            
+            foreach (var device in Gamepad.all)
+            {
+                string name = device.name.ToLower();
+
+                if (name.Contains("xbox"))
+                {
+                    _currentSprite = _spriteX;
+                    return;
+                }
+
+                if (name.Contains("playstation") || name.Contains("dualshock") || name.Contains("dualsense"))
+                {
+                    _currentSprite = _spriteP;
+                    return;
+                }
+            }
+        }
+
+        private void OnDeviceChange(InputDevice device, InputDeviceChange change)
+        {
+            if (device is Gamepad)
+            {
+                DetectControllerType();
+            }
         }
         
         #endregion
@@ -128,6 +164,14 @@ namespace Craft.Runtime
         [SerializeField] private Transform _playerTransform;
         private CraftObject _craftObject;
         private string _lastPromptText;
+        
+        [Header("Sprites PC")]
+        [SerializeField] private Sprite _spritePC;
+        [Header("Sprites Xbox")]
+		[SerializeField] private Sprite _spriteX;
+        [Header("Sprite Playstation")]
+        [SerializeField] private Sprite _spriteP;
+        private Sprite _currentSprite;
 
         #endregion
     }

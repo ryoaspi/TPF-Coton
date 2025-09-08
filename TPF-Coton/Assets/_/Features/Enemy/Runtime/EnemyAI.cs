@@ -523,8 +523,11 @@ namespace Enemy.Runtime
         [Header("Attack Settings")]
         [SerializeField] private float _minAttackDistance = 3f;
         [SerializeField] private float _attackCooldown = 2f;
+        [SerializeField] private float _attackDelay = 1f;
         private WeaponEnemyDamage _enemySword;
         private float _lastAttackTime;
+        private bool _isPreparingAttack;
+        private float _attackPrepareStartTime;
 
         private NavMeshAgent _agent;
 
@@ -566,7 +569,7 @@ namespace Enemy.Runtime
 
         private EnemyBig _enemyBig;
         private bool _enemyIsDetected;
-
+        
         #endregion
     }
 }
