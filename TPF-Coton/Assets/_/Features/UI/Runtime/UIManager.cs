@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UIManager.Runtime
 {
@@ -25,15 +26,25 @@ namespace UIManager.Runtime
         
         #region Utils
 
-        public void ShowPrompt(string text)
+        public void ShowPrompt(string text, Sprite icon)
         {
             _text.text = text;
+            
+            if (_icon is not null)
+            {
+                _icon.sprite = icon;
+                _icon.enabled = icon is not null;
+            }
             _text.gameObject.SetActive(true);
+            
+            if (_icon is not null) _icon.gameObject.SetActive(true);
+
         }
 
         public void HidePrompt()
         {
-            _text.gameObject.SetActive(false);       
+            _text.gameObject.SetActive(false);
+            if (_icon is not null) _icon.gameObject.SetActive(false);
         }
         
         #endregion
@@ -42,6 +53,7 @@ namespace UIManager.Runtime
         #region Private And Protected
         
         [SerializeField] private TMP_Text _text;
+        [SerializeField] private Image _icon;
         
         #endregion
     }
