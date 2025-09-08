@@ -446,7 +446,11 @@ namespace Enemy.Runtime
             switch (m_enemyType)
             {
                 case EnemyType.Melee:
-                    if (distanceToPlayer > _minAttackDistance) _agent.SetDestination(_hit);
+                    if (distanceToPlayer > _minAttackDistance)
+                    {
+                        _agent.SetDestination(_hit);
+                        _isPreparingAttack = false;
+                    }
 
                     else
                     {
@@ -458,9 +462,25 @@ namespace Enemy.Runtime
                         }
                         if (!_enemySword.m_isAttacking && Time.time >= _lastAttackTime + _attackCooldown)
                         {
-                            _enemySword.m_isAttacking = true;
-                            _lastAttackTime = Time.time;
-                            _enemySword.Attack();
+                            if (!_isPreparingAttack)
+                            {
+                                _isPreparingAttack = true;
+                                _attackPrepareStartTime = Time.time;
+                            }
+
+                            else
+                            {
+                                if (Time.time >= _attackPrepareStartTime + _attackDelay)
+                                {
+                                    if (m_playerDetected && distanceToPlayer <= _minAttackDistance)
+                                    {
+                                        _enemySword.m_isAttacking = true;
+                                        _lastAttackTime = Time.time;
+                                        _isPreparingAttack = false;
+                                        _enemySword.Attack();
+                                    }
+                                }
+                            }
                         }
                     }
                     break;
