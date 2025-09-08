@@ -359,10 +359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 755679559932053819, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
+    - target: {fileID: 923647024602392687, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
+      propertyPath: _spritePC
+      value: 
+      objectReference: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
     - target: {fileID: 2138879745573778375, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -370,14 +370,6 @@ PrefabInstance:
     - target: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4248236268438881468, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4248236268438881468, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4795923031069056003, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_AnchorMax.y
@@ -795,6 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 669286566}
+  _icon: {fileID: 0}
 --- !u!1001 &490105316
 PrefabInstance:
   m_ObjectHideFlags: 0
