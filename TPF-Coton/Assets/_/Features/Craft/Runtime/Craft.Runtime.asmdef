@@ -7,8 +7,8 @@
         "UIManager.Runtime",
         "Unity.Cinemachine",
         "Object.Runtime",
-        "Core.Runtime",
-        "Interface.Runtime"
+        "Interface.Runtime",
+        "Core.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

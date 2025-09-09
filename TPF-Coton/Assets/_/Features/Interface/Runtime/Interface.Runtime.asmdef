@@ -1,9 +1,7 @@
 {
     "name": "Interface.Runtime",
     "rootNamespace": "Interface.Runtime",
-    "references": [
-        "GUID:661bec99ffa80d14bbb72c7714f05dc0"
-    ],
+    "references": ["GUID:661bec99ffa80d14bbb72c7714f05dc0"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
