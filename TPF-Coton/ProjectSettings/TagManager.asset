@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,6 +11,16 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Enemy
+  - BulletEnemy
+  - Shield
+  - WeaponEnemy
+  - Loot
+  - Coton
+  - Glouton
+  - Crafted
+  - Destructible
   - 
   - 
   - 
@@ -23,20 +33,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Boundarie
+  - BulletPlayer
+  - Ground
+  - Obstacle
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -50,27 +50,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 

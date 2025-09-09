@@ -1,0 +1,21 @@
+{
+    "name": "Craft.Runtime",
+    "rootNamespace": "Craft.Runtime",
+    "references": [
+        "GUID:9b9c073f07118994196edc218b10ccc0",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:ad6a5aaf6973dd14d9bf25d71f33d633",
+        "GUID:3431c28941788974d8096e7b787a8bc8",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:1782eacf253e7694f8613e81e9e40fd2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
