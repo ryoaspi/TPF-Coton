@@ -1,11 +1,7 @@
 {
-    "name": "Environment.Runtime",
-    "rootNamespace": "Environment.Runtime",
-    "references": [
-        "GUID:9b9c073f07118994196edc218b10ccc0",
-        "GUID:ef9e753b0ceb9fc4faddefd68c03659e",
-        "GUID:661bec99ffa80d14bbb72c7714f05dc0"
-    ],
+    "name": "Core.Runtime",
+    "rootNamespace": "Core.Runtime",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

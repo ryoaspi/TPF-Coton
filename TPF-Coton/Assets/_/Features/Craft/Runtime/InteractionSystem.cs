@@ -1,12 +1,20 @@
 using Interface.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using Core.Runtime;
+using DeviceType = Core.Runtime.DeviceType;
 
 namespace Craft.Runtime
 {
     public class InteractionSystem : MonoBehaviour
     {
+        #region Public
+        
+        
+        
+        #endregion
+     
+        
         #region Api Unity
 
         private void Awake()
@@ -15,7 +23,7 @@ namespace Craft.Runtime
             _uiManager = FindFirstObjectByType<UIManager.Runtime.UIManager>();
             if (_camera == null) _camera = Camera.main;
             _countObject = FindObjectOfType<CraftObject>();
-            
+            DetectControllerType(Mouse.current);
         }
 
         private void OnEnable()
@@ -37,7 +45,7 @@ namespace Craft.Runtime
             
             if (Physics.Raycast(ray, out RaycastHit hit, _interactionDetected, _layerMask, QueryTriggerInteraction.Collide))
             {
-                IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
+                
                 float distanceToHit = Vector3.Distance(_playerTransform.position, hit.point);
 
                 if (Physics.Raycast(_playerTransform.position, (hit.point - _playerTransform.position).normalized,
@@ -47,13 +55,30 @@ namespace Craft.Runtime
                     return;
                 }
                 
+                // D'abord les vrais interactable
+                IInteractable interactable = hit.collider.GetComponentInParent<IInteractable>();
                 if (interactable is not null && distanceToHit <= _maxInteractionDistance)
                 {
                     _lastCollider = hit.collider;
                     _currentInteractable = interactable;
-                    ShowPrompt(interactable.InteractionLabel[0], _countObject.m_craftLife);
+
+                    Sprite icon = interactable.GetIconForDevice(_currentDeviceType);
+                    string text = interactable.InteractionLabel[0];
+                    int cost = interactable.InteractionCost;
+                    
+                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon);
                     
                     return;
+                }
+                
+                // Check les objets inspectables
+                IInspectable inspectable = hit.collider.GetComponentInParent<IInspectable>();
+                if (inspectable is not null && distanceToHit <= _maxInteractionDistance)
+                {
+                    string text = inspectable.InspectionLabel;
+                    Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
+                    Debug.Log($"Device : {_currentDeviceType}, Icon : {icon?.name ?? "NULL"}");
+                    _uiManager.ShowPrompt(text, icon);
                 }
                 
             }
@@ -108,7 +133,7 @@ namespace Craft.Runtime
             if (composedText == _lastPromptText) return;
             
             _lastPromptText = composedText;
-            _uiManager.ShowPrompt(composedText, _currentSprite);
+            _uiManager.ShowPrompt(composedText,null);
         }
         
         private void HidePrompt()
@@ -124,6 +149,8 @@ namespace Craft.Runtime
             HidePrompt();
         }
 
+        private DeviceType _currentDeviceType = DeviceType.PC;
+
         private void DetectControllerType(InputDevice device)
         {
             string name = device.name.ToLower();
@@ -133,25 +160,29 @@ namespace Craft.Runtime
             {
                 if (name.Contains("xbox") || name.Contains("xinput") || displayName.Contains("xbox"))
                 {
-                    _currentSprite = _spriteX;
+                    _currentDeviceType = DeviceType.Xbox;
+                    
                     Debug.Log("🎮 Xbox controller active.");
                     return;
                 }
 
                 if (name.Contains("playstation") || name.Contains("dualshock") || name.Contains("dualsense") || displayName.Contains("playstation"))
                 {
-                    _currentSprite = _spriteP;
+                    _currentDeviceType = DeviceType.PlayStation;
+                    
                     Debug.Log("🎮 PlayStation controller active.");
                     return;
                 }
 
                 // Default for gamepads
-                _currentSprite = _spriteX;
+                _currentDeviceType = DeviceType.Xbox;
+                
                 return;
             }
 
             // Clavier/souris
-            _currentSprite = _spritePC;
+            _currentDeviceType = DeviceType.PC;
+            
             Debug.Log("⌨️ PC (Keyboard/Mouse) active.");
         
         }
@@ -194,13 +225,6 @@ namespace Craft.Runtime
         private CraftObject _craftObject;
         private string _lastPromptText;
         
-        [Header("Sprites PC")]
-        [SerializeField] private Sprite _spritePC;
-        [Header("Sprites Xbox")]
-		[SerializeField] private Sprite _spriteX;
-        [Header("Sprite Playstation")]
-        [SerializeField] private Sprite _spriteP;
-        private Sprite _currentSprite;
         private InputDevice _lastUsedDevice;
 
         #endregion

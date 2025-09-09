@@ -34,10 +34,9 @@ namespace UIManager.Runtime
             {
                 _icon.sprite = icon;
                 _icon.enabled = icon is not null;
+                _icon.gameObject.SetActive(icon is not null);
             }
             _text.gameObject.SetActive(true);
-            
-            if (_icon is not null) _icon.gameObject.SetActive(true);
 
         }
 
@@ -54,7 +53,7 @@ namespace UIManager.Runtime
         
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _icon;
-        
+
         #endregion
     }
 }
