@@ -28,20 +28,25 @@ namespace UIManager.Runtime
 
         public void ShowPrompt(string text, Sprite icon)
         {
+            Debug.Log($"[UIManager] ShowPrompt received: {text}, Icon: {(icon ? icon.name : "null")}");
+            
             _text.text = text;
+            _text.gameObject.SetActive(true);
             
             if (_icon is not null)
             {
                 _icon.sprite = icon;
-                _icon.enabled = icon is not null;
-                _icon.gameObject.SetActive(icon is not null);
+                bool iconIsValid = icon is not null;
+                _icon.enabled = iconIsValid;
+                _icon.gameObject.SetActive(iconIsValid);
+                
             }
-            _text.gameObject.SetActive(true);
 
         }
 
         public void HidePrompt()
         {
+            Debug.Log("[UIManager] HidePrompt received");
             _text.gameObject.SetActive(false);
             if (_icon is not null) _icon.gameObject.SetActive(false);
         }
