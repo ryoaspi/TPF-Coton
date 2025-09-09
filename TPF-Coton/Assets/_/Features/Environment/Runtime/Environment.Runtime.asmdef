@@ -2,10 +2,9 @@
     "name": "Environment.Runtime",
     "rootNamespace": "Environment.Runtime",
     "references": [
-        "Player.Runtime",
+        "GUID:9b9c073f07118994196edc218b10ccc0",
         "GUID:ef9e753b0ceb9fc4faddefd68c03659e",
-        "Core.Runtime",
-        "Interface.Runtime"
+        "GUID:661bec99ffa80d14bbb72c7714f05dc0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,11 +1,10 @@
-using Interface.Runtime;
 using UnityEngine;
 
 namespace Environment.Runtime
 {
-    public class InspectablePoint : MonoBehaviour, IInspectable
+    public class InspectablePoint : MonoBehaviour
     {
-        public string InspectionLabel => _label;
+        public string InspectLabel => _label;
         public Sprite InspectIconPC => _iconPC;
         public Sprite InspectIconXbox => _iconXbox;
         public Sprite InspectIconPS => _iconPS;
