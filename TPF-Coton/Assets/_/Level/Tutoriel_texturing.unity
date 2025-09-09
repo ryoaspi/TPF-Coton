@@ -1626,6 +1626,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 365472315}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!1 &206722779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 849304399}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!4 &346864029
 Transform:
   m_ObjectHideFlags: 0
@@ -2441,6 +2447,9 @@ MonoBehaviour:
   - Test 2
   _colliderSecurity:
   - {fileID: 1582598190}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPS: {fileID: 0}
 --- !u!4 &365472316
 Transform:
   m_ObjectHideFlags: 0
@@ -4519,6 +4528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 2127453032}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!1 &750910066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,6 +4601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 2127453032}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!1 &753047307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,6 +5382,9 @@ MonoBehaviour:
   - Test 2
   _colliderSecurity:
   - {fileID: 608362942}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPS: {fileID: 0}
 --- !u!4 &849304400
 Transform:
   m_ObjectHideFlags: 0
@@ -5634,6 +5652,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 1919367192}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!1001 &871287106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5791,6 +5812,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 1919367192}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!1001 &896904795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7568,6 +7592,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 849304399}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!4 &1132117480
 Transform:
   m_ObjectHideFlags: 0
@@ -12465,6 +12492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _craftObject: {fileID: 365472315}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPlayStation: {fileID: 0}
 --- !u!4 &1647551531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2523059665841128709, guid: 805d4aeacde03924884fefe738a024e3, type: 3}
@@ -14372,6 +14402,9 @@ MonoBehaviour:
   - Test 2
   _colliderSecurity:
   - {fileID: 942629392}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPS: {fileID: 0}
 --- !u!4 &1919367193
 Transform:
   m_ObjectHideFlags: 0
@@ -17796,6 +17829,9 @@ MonoBehaviour:
   - Test 2
   _colliderSecurity:
   - {fileID: 1099969247}
+  _iconPC: {fileID: 0}
+  _iconXbox: {fileID: 0}
+  _iconPS: {fileID: 0}
 --- !u!4 &2127453033
 Transform:
   m_ObjectHideFlags: 0
