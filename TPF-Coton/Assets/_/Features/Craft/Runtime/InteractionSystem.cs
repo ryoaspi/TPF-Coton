@@ -15,14 +15,13 @@ namespace Craft.Runtime
             _uiManager = FindFirstObjectByType<UIManager.Runtime.UIManager>();
             if (_camera == null) _camera = Camera.main;
             _countObject = FindObjectOfType<CraftObject>();
-
-            DetectControllerType();
-
+            
         }
 
         private void OnEnable()
         {
             _playerInput.actions["Interact"].started += OnInteract;
+            _playerInput.onActionTriggered += OnActionTriggered;
             InputSystem.onDeviceChange += OnDeviceChange;
         }
 
@@ -65,7 +64,22 @@ namespace Craft.Runtime
         private void OnDisable()
         {
             _playerInput.actions["Interact"].started -= OnInteract;
+            _playerInput.onActionTriggered -= OnActionTriggered;
             InputSystem.onDeviceChange -= OnDeviceChange;
+        }
+
+        private void OnActionTriggered(InputAction.CallbackContext context)
+        {
+            if (context.control == null) return;
+            
+            var device = context.control.device;
+
+            if (device != _lastUsedDevice)
+            {
+                _lastUsedDevice = device;
+                
+                DetectControllerType(device);
+            }
         }
 
         private void OnInteract(InputAction.CallbackContext context)
@@ -110,34 +124,49 @@ namespace Craft.Runtime
             HidePrompt();
         }
 
-        private void DetectControllerType()
+        private void DetectControllerType(InputDevice device)
         {
-            // Par défaut : clavier/souris
-            _currentSprite = _spritePC;
-            
-            foreach (var device in Gamepad.all)
-            {
-                string name = device.name.ToLower();
+            string name = device.name.ToLower();
+            string displayName = device.displayName.ToLower();
 
-                if (name.Contains("xbox"))
+            if (device is Gamepad)
+            {
+                if (name.Contains("xbox") || name.Contains("xinput") || displayName.Contains("xbox"))
                 {
                     _currentSprite = _spriteX;
+                    Debug.Log("🎮 Xbox controller active.");
                     return;
                 }
 
-                if (name.Contains("playstation") || name.Contains("dualshock") || name.Contains("dualsense"))
+                if (name.Contains("playstation") || name.Contains("dualshock") || name.Contains("dualsense") || displayName.Contains("playstation"))
                 {
                     _currentSprite = _spriteP;
+                    Debug.Log("🎮 PlayStation controller active.");
                     return;
                 }
+
+                // Default for gamepads
+                _currentSprite = _spriteX;
+                return;
             }
+
+            // Clavier/souris
+            _currentSprite = _spritePC;
+            Debug.Log("⌨️ PC (Keyboard/Mouse) active.");
+        
         }
 
         private void OnDeviceChange(InputDevice device, InputDeviceChange change)
         {
-            if (device is Gamepad)
+            if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
             {
-                DetectControllerType();
+                Debug.Log($"[Controller Detection] Device {device.name} connected.");
+            }
+
+            if (change == InputDeviceChange.Removed)
+            {
+                Debug.Log($"[Controller Detection] Device {device.name} disconnected.");
+                DetectControllerType(device);
             }
         }
         
@@ -172,6 +201,7 @@ namespace Craft.Runtime
         [Header("Sprite Playstation")]
         [SerializeField] private Sprite _spriteP;
         private Sprite _currentSprite;
+        private InputDevice _lastUsedDevice;
 
         #endregion
     }
