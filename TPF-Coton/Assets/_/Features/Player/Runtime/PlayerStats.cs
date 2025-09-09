@@ -127,6 +127,7 @@ namespace Player.Runtime
         public void UpdateTextHealth()
         {
            healthSlider.value = m_currentHealth;
+           _numberOfCoton.SetText(m_currentHealth.ToString());
         }
         
         
@@ -191,6 +192,7 @@ namespace Player.Runtime
         
         [Header ("UI")]
         [SerializeField]public Slider healthSlider;
+        [SerializeField]private TMP_Text _numberOfCoton;
         
         
         [Header("Hit")]
