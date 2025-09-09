@@ -1,6 +1,8 @@
 using Interface.Runtime;
 using Player.Runtime;
 using UnityEngine;
+using Core.Runtime;
+using DeviceType = Core.Runtime.DeviceType;
 
 namespace Craft.Runtime
 {
@@ -9,6 +11,7 @@ namespace Craft.Runtime
         #region Public
         
         [HideInInspector] public int m_craftLife;
+        public int InteractionCost => _craftCost;
         
         #endregion
         
@@ -43,7 +46,18 @@ namespace Craft.Runtime
         }
 
         public string[] InteractionLabel => new [] {_isCrafted ? _interactionLabel[1] : _interactionLabel[0]} ;
-        
+
+        public Sprite GetIconForDevice(DeviceType device)
+        {
+            return device switch
+            {
+                DeviceType.PC => _iconPC,
+                DeviceType.Xbox => _iconXbox,
+                DeviceType.PlayStation => _iconPS,
+                _ => _iconPC
+            };
+        }
+
         #endregion
         
         
@@ -88,6 +102,11 @@ namespace Craft.Runtime
         [SerializeField] private string[] _interactionLabel;
         [SerializeField] private Collider[] _colliderSecurity;
         private bool _isCrafted;
+
+        [SerializeField] private Sprite _iconPC;
+        [SerializeField] private Sprite _iconXbox;
+        [SerializeField] private Sprite _iconPS;
+        private IInteractable _interactableImplementation;
 
         #endregion
     }
