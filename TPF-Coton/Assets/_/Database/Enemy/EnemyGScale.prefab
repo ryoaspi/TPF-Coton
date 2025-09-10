@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6333633726784387936}
   - component: {fileID: 3225765196728376912}
   - component: {fileID: 9006169997761729185}
+  - component: {fileID: 8230807188634981465}
   - component: {fileID: 7121802832196409701}
   - component: {fileID: 8911824667232937951}
   - component: {fileID: 3003479567063060385}
@@ -129,7 +130,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -137,6 +138,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8230807188634981465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730634588216693546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f56d88784d5b894e8896d84f8378f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 9006169997761729185}
+  knockbackDuration: 0.3
 --- !u!114 &7121802832196409701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +169,7 @@ MonoBehaviour:
   m_enemyType: 2
   _minAttackDistance: 1
   _attackCooldown: 2
+  _attackDelay: 1
   _target:
   - {fileID: 0}
   - {fileID: 0}
@@ -161,10 +177,10 @@ MonoBehaviour:
   - {fileID: 0}
   _detectionDistance: 5
   _detectionAngle: 120
-  _lostPlayerDelay: 3
+  _lostPlayerDelay: 1
   _rotationSpeed: 5
-  _searchDuration: 3
-  _maxsearchTimer: 8
+  _searchDuration: 1
+  _maxsearchTimer: 5
   _arrivalEpsilon: 0.2
 --- !u!114 &8911824667232937951
 MonoBehaviour:
@@ -187,7 +203,7 @@ MonoBehaviour:
   _block: 0
   _Damage: 1
   _hits: 1
-  _coton: {fileID: 2963133468622554239, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
+  _coton: {fileID: 6944672673914833361, guid: 32f8cfb404796f34c9940a37dd530d88, type: 3}
   _distance: 1.5
   _arcHeight: 2
   _arcDuration: 1
@@ -208,7 +224,7 @@ MonoBehaviour:
   _counter: 5
   _layerCoton:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4224
 --- !u!1 &2503942376196605097
 GameObject:
   m_ObjectHideFlags: 0
