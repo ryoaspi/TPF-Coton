@@ -102,9 +102,9 @@ namespace Craft.Runtime
         [SerializeField] private Collider[] _colliderSecurity;
         private bool _isCrafted;
 
-        [SerializeField] private Sprite _iconPC;
-        [SerializeField] private Sprite _iconXbox;
-        [SerializeField] private Sprite _iconPS;
+        private Sprite _iconPC;
+        private Sprite _iconXbox;
+        private Sprite _iconPS;
         private IInteractable _interactableImplementation;
 
         #endregion
