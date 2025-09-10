@@ -29,14 +29,16 @@ namespace UIManager.Runtime
         public void ShowPrompt(string text, Sprite icon)
         {
             _text.text = text;
+            _text.gameObject.SetActive(true);
             
             if (_icon is not null)
             {
                 _icon.sprite = icon;
-                _icon.enabled = icon is not null;
-                _icon.gameObject.SetActive(icon is not null);
+                bool iconIsValid = icon is not null;
+                _icon.enabled = iconIsValid;
+                _icon.gameObject.SetActive(iconIsValid);
+                
             }
-            _text.gameObject.SetActive(true);
 
         }
 

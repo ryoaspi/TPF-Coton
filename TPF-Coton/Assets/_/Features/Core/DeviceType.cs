@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Core.Runtime
 {
     public enum DeviceType

@@ -72,18 +72,17 @@ namespace Craft.Runtime
                 }
                 
                 // Check les objets inspectables
-                IInspectable inspectable = hit.collider.GetComponentInParent<IInspectable>();
+                IInspectable inspectable = hit.collider.GetComponent<IInspectable>();
                 if (inspectable is not null && distanceToHit <= _maxInteractionDistance)
                 {
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
-                    Debug.Log($"Device : {_currentDeviceType}, Icon : {icon?.name ?? "NULL"}");
-                    _uiManager.ShowPrompt(text, icon);
+                    _uiManager.ShowPrompt($"{text}", icon);
                 }
                 
             }
             
-            ResetInteraction();
+            else ResetInteraction();
         }
 
         private void OnDisable()
@@ -162,7 +161,6 @@ namespace Craft.Runtime
                 {
                     _currentDeviceType = DeviceType.Xbox;
                     
-                    Debug.Log("🎮 Xbox controller active.");
                     return;
                 }
 
@@ -170,7 +168,6 @@ namespace Craft.Runtime
                 {
                     _currentDeviceType = DeviceType.PlayStation;
                     
-                    Debug.Log("🎮 PlayStation controller active.");
                     return;
                 }
 
@@ -183,7 +180,6 @@ namespace Craft.Runtime
             // Clavier/souris
             _currentDeviceType = DeviceType.PC;
             
-            Debug.Log("⌨️ PC (Keyboard/Mouse) active.");
         
         }
 
@@ -191,12 +187,10 @@ namespace Craft.Runtime
         {
             if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
             {
-                Debug.Log($"[Controller Detection] Device {device.name} connected.");
             }
 
             if (change == InputDeviceChange.Removed)
             {
-                Debug.Log($"[Controller Detection] Device {device.name} disconnected.");
                 DetectControllerType(device);
             }
         }
