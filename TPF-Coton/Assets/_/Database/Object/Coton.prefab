@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectibleDelay: 1
   _multiplicateurScale: 0.05
+  _parabolLerp: {fileID: 1573892852865808651}
 --- !u!114 &1573892852865808651
 MonoBehaviour:
   m_ObjectHideFlags: 0
