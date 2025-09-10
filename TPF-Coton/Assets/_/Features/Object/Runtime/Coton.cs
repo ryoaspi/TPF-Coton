@@ -87,7 +87,7 @@ namespace Object.Runtime
                 float upSize = _valueCoton * _multiplicateurScale;
                 transform.localScale = new Vector3(transform.localScale.x + upSize, transform.localScale.y + upSize,transform.localScale.z + upSize);    
             }
-            Debug.Log(_valueCoton);
+            
             return _valueCoton;
         }
         

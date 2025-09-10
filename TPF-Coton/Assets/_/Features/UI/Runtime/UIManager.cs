@@ -28,8 +28,6 @@ namespace UIManager.Runtime
 
         public void ShowPrompt(string text, Sprite icon)
         {
-            Debug.Log($"[UIManager] ShowPrompt received: {text}, Icon: {(icon ? icon.name : "null")}");
-            
             _text.text = text;
             _text.gameObject.SetActive(true);
             
@@ -46,7 +44,6 @@ namespace UIManager.Runtime
 
         public void HidePrompt()
         {
-            Debug.Log("[UIManager] HidePrompt received");
             _text.gameObject.SetActive(false);
             if (_icon is not null) _icon.gameObject.SetActive(false);
         }
