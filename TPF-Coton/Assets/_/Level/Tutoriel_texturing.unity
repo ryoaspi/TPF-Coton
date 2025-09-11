@@ -2834,7 +2834,7 @@ GameObject:
   - component: {fileID: 227086570}
   - component: {fileID: 227086569}
   m_Layer: 0
-  m_Name: nenu02 (2)
+  m_Name: Nenuphar_Leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3485,7 +3485,7 @@ GameObject:
   - component: {fileID: 306311953}
   - component: {fileID: 306311952}
   m_Layer: 0
-  m_Name: Cylinder.001 (1)
+  m_Name: Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3499,12 +3499,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306311950}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2614087, y: -3.0963609e-24, z: 5.8044395e-17, w: 0.96522826}
-  m_LocalPosition: {x: 0.717, y: -0.54194707, z: 6.247}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.20018634, y: -0.7924536, z: -0.4990657, w: 0.28788245}
+  m_LocalPosition: {x: -0.056672677, y: -0.33660042, z: -0.6029653}
+  m_LocalScale: {x: 1.0828866, y: 1.0197494, z: 1.0745467}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1654948846725166131}
+  m_Father: {fileID: 1443682810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &306311952
 MeshRenderer:
@@ -11380,7 +11380,7 @@ GameObject:
   - component: {fileID: 1172016731}
   - component: {fileID: 1172016730}
   m_Layer: 0
-  m_Name: nenuphare.002 (3)
+  m_Name: Nenuphar_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11451,7 +11451,8 @@ Transform:
   m_LocalPosition: {x: -52.3, y: -0.063550465, z: 41.91}
   m_LocalScale: {x: 0.9051183, y: 0.9401052, z: 0.9894918}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1449956739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180184349 stripped
@@ -11610,7 +11611,7 @@ GameObject:
   - component: {fileID: 1208601659}
   - component: {fileID: 1208601658}
   m_Layer: 0
-  m_Name: nenu02
+  m_Name: Nenuphar_Leaf 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11696,7 +11697,7 @@ GameObject:
   - component: {fileID: 1208743545}
   - component: {fileID: 1208743544}
   m_Layer: 0
-  m_Name: nenu02 (3)
+  m_Name: Nenuphar_Leaf 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12071,7 +12072,7 @@ GameObject:
   - component: {fileID: 1283291669}
   - component: {fileID: 1283291668}
   m_Layer: 0
-  m_Name: nenu02 (2)
+  m_Name: Nenuphar_Leaf 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14050,7 +14051,7 @@ GameObject:
   - component: {fileID: 1315275656}
   - component: {fileID: 1315275655}
   m_Layer: 0
-  m_Name: nenu02 (1)
+  m_Name: Nenuphar_Leaf 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14700,7 +14701,7 @@ GameObject:
   - component: {fileID: 1371089171}
   - component: {fileID: 1371089170}
   m_Layer: 0
-  m_Name: nenu02 (1)
+  m_Name: Nenuphar_Leaf 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15486,7 +15487,7 @@ GameObject:
   - component: {fileID: 1408041038}
   - component: {fileID: 1408041037}
   m_Layer: 0
-  m_Name: Cylinder.001 (2)
+  m_Name: Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15500,12 +15501,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408041035}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2614087, y: -3.0963609e-24, z: 5.8044395e-17, w: 0.96522826}
-  m_LocalPosition: {x: -4.154, y: -0.54194707, z: -11.171}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.20018634, y: -0.7924536, z: -0.4990657, w: 0.28788245}
+  m_LocalPosition: {x: 0.0016106956, y: -0.38496003, z: -0.5190437}
+  m_LocalScale: {x: 1.0828866, y: 1.0197494, z: 1.0745467}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1654948846725166131}
+  m_Father: {fileID: 1896253481}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1408041037
 MeshRenderer:
@@ -16130,7 +16131,7 @@ GameObject:
   - component: {fileID: 1443682809}
   - component: {fileID: 1443682808}
   m_Layer: 0
-  m_Name: nenuphare.002 (1)
+  m_Name: Nenuphar_Tree 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16201,7 +16202,8 @@ Transform:
   m_LocalPosition: {x: -30.060001, y: -0.063550465, z: 59.579998}
   m_LocalScale: {x: 0.9051183, y: 0.9401052, z: 0.9894918}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 306311951}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449956738
@@ -16216,7 +16218,7 @@ GameObject:
   - component: {fileID: 1449956741}
   - component: {fileID: 1449956740}
   m_Layer: 0
-  m_Name: Cylinder.001 (3)
+  m_Name: Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16230,12 +16232,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449956738}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2614087, y: -3.0963609e-24, z: 5.8044395e-17, w: 0.96522826}
-  m_LocalPosition: {x: -21.579, y: -0.54194707, z: -11.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.20018634, y: -0.7924536, z: -0.4990657, w: 0.28788245}
+  m_LocalPosition: {x: 0.03688636, y: -0.33093604, z: -0.5593081}
+  m_LocalScale: {x: 1.0828866, y: 1.0197494, z: 1.0745467}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1654948846725166131}
+  m_Father: {fileID: 1172016732}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1449956740
 MeshRenderer:
@@ -20260,7 +20262,7 @@ GameObject:
   - component: {fileID: 1896253480}
   - component: {fileID: 1896253479}
   m_Layer: 0
-  m_Name: nenuphare.002 (2)
+  m_Name: Nenuphar_Tree 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20331,7 +20333,8 @@ Transform:
   m_LocalPosition: {x: -34.940002, y: -0.063550465, z: 42.269997}
   m_LocalScale: {x: 0.9051183, y: 0.9401052, z: 0.9894918}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1408041036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1906975566
@@ -21477,7 +21480,7 @@ GameObject:
   - component: {fileID: 1999229927}
   - component: {fileID: 1999229926}
   m_Layer: 0
-  m_Name: nenu02 (3)
+  m_Name: Nenuphar_Leaf 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26088,7 +26091,7 @@ GameObject:
   - component: {fileID: 4266268164441670763}
   - component: {fileID: 2076197925352534177}
   m_Layer: 0
-  m_Name: nenu02
+  m_Name: Nenuphar_leaf 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26154,25 +26157,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -19.559, y: -32.12, z: -0.613}
---- !u!4 &1654948846725166131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142692636288265865}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.7, y: -0.092, z: 53.69}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5548152425978773769}
-  - {fileID: 306311951}
-  - {fileID: 1408041036}
-  - {fileID: 1449956739}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2076197925352534177
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26218,22 +26202,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2142692636288265865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1654948846725166131}
-  m_Layer: 0
-  m_Name: nenu03
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!33 &2916841621629617097
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -26252,7 +26220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4257546683007728741}
   m_Layer: 0
-  m_Name: nenu05
+  m_Name: Waterlily
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26310,7 +26278,7 @@ GameObject:
   - component: {fileID: 5651316382630329874}
   - component: {fileID: 6048906796663838664}
   m_Layer: 0
-  m_Name: nenuphare
+  m_Name: Nenuphar_Leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26336,7 +26304,8 @@ Transform:
   m_LocalPosition: {x: -30.017412, y: -0.063550465, z: 47.851357}
   m_LocalScale: {x: 0.9051183, y: 0.9401052, z: 0.9894918}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5548152425978773769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5216531496338624933
@@ -26351,7 +26320,7 @@ GameObject:
   - component: {fileID: 8732869201668768024}
   - component: {fileID: 748232185886689780}
   m_Layer: 0
-  m_Name: nenuphare.002
+  m_Name: Nenuphar_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26410,12 +26379,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447400839025521387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.2614087, y: -3.0963609e-24, z: 5.8044395e-17, w: 0.96522826}
-  m_LocalPosition: {x: 0.779288, y: -0.54194707, z: -5.471629}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.20018634, y: -0.7924536, z: -0.4990657, w: 0.28788245}
+  m_LocalPosition: {x: -0.07918192, y: -0.3453243, z: -0.6054214}
+  m_LocalScale: {x: 1.0828866, y: 1.0197494, z: 1.0745467}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1654948846725166131}
+  m_Father: {fileID: 5001021790175981373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5651316382630329874
 MeshFilter:
@@ -26561,7 +26530,7 @@ GameObject:
   - component: {fileID: 4880376684913608465}
   - component: {fileID: 5387620261259989705}
   m_Layer: 0
-  m_Name: petale01.003
+  m_Name: Lily
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26579,7 +26548,7 @@ GameObject:
   - component: {fileID: 2916841621629617097}
   - component: {fileID: 8312753250817375074}
   m_Layer: 0
-  m_Name: Cylinder.001
+  m_Name: Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26703,8 +26672,8 @@ SceneRoots:
   - {fileID: 1313531494}
   - {fileID: 2112170025}
   - {fileID: 1166887806}
-  - {fileID: 908337204526681038}
   - {fileID: 227086571}
+  - {fileID: 908337204526681038}
   - {fileID: 1208743546}
   - {fileID: 1315275657}
   - {fileID: 5001021790175981373}
@@ -26715,5 +26684,4 @@ SceneRoots:
   - {fileID: 1283291670}
   - {fileID: 1999229928}
   - {fileID: 1172016732}
-  - {fileID: 1654948846725166131}
   - {fileID: 4257546683007728741}
