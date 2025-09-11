@@ -38,8 +38,9 @@ namespace Player.Runtime
         private void FixedUpdate()
         {
             // Update _lastDirection based on current input
-            if (_moveDirection.sqrMagnitude > 0.001f && _playerDamage.m_isAttacking == false)
+            if (_moveDirection.sqrMagnitude > 0.1f && _playerDamage.m_isAttacking == false)
             {
+                
                 Vector3 camForward = _mainCamera.transform.forward;
                 Vector3 camRight = _mainCamera.transform.right;
                 camForward.y = 0;
@@ -49,7 +50,7 @@ namespace Player.Runtime
                 _lastDirection = (camForward * _moveDirection.y + camRight * _moveDirection.x).normalized;
             }
 
-            if (_isGrounded && _playerDamage.m_isAttacking == false)
+            if (_moveDirection.sqrMagnitude > 0.1f&&_isGrounded && _playerDamage.m_isAttacking == false)
             {
                 HandleMovement();
             }
