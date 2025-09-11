@@ -28,3 +28,4 @@ namespace Environment.Runtime
         [SerializeField] private Sprite _iconPS;
     }
 }
+
