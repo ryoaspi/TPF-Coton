@@ -7,14 +7,18 @@ namespace Environment.Runtime
     public class NarratifPoint : MonoBehaviour, IInspectable
     {
         public string InspectionLabel => _LabelNarratif;
-        public Sprite InspectIconPC { get; }
-        public Sprite InspectIconXbox { get; }
-        public Sprite InspectIconPS { get; }
+        public Sprite InspectIconPC => _spritePortrait;
+        public Sprite InspectIconXbox => _spritePortrait;
+        public Sprite InspectIconPS => _spritePortrait;
         public Sprite GetIconForDevice(DeviceType device)
         {
-            return null;
+            return device switch
+            {
+                _ => _spritePortrait
+            };
         }
 
         [SerializeField] private string _LabelNarratif;
+        [SerializeField] private Sprite _spritePortrait;
     }
 }
