@@ -33,8 +33,14 @@ EditorBuildSettings:
     path: Assets/_/Level/Tutoriel_model.unity
     guid: 90c35a6b559cb294bae8523d3e5feb26
   - enabled: 1
+    path: Assets/_/Level/MainMenu.unity
+    guid: be04808d769ca9843a05acffffedfe63
+  - enabled: 1
     path: Assets/_/Level/Tutoriel_texturing.unity
     guid: 7d9bcbbd92ccb9e4f87c910bec41a728
+  - enabled: 1
+    path: Assets/_/Level/Credit.unity
+    guid: afb2f58505bf3144b8466af0dacbd170
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a9f9dbcb6030e95468fabc1bd73894e7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
