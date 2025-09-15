@@ -18,6 +18,7 @@ namespace Player.Runtime
 
         private void Start()
         {
+            _shield=GetComponent<Shield>();
             _playerStats=GetComponent<PlayerStats>();
             _playerMovement=GetComponent<PlayerMovement>();
             m_coton = _playerStats.m_currentHealth;
@@ -28,7 +29,7 @@ namespace Player.Runtime
         {
             if (other.TryGetComponent(out ICollectable collectable))
             {
-                if (_playerStats.m_currentHealth < _playerStats.m_privateHP)
+                if (_playerStats.m_currentHealth < _playerStats.m_privateHP && !_shield.m_isShielding)
                 {
                     Coton coton = other.GetComponent<Coton>();
                     if (coton is not null && !coton.CanBeCollected()) return;
@@ -91,7 +92,8 @@ namespace Player.Runtime
         [SerializeField] private TMP_Text _textCoton;
         private int _cotonState;
         private PlayerStats _playerStats;
-        private PlayerMovement _playerMovement;
+        private PlayerMovement _playerMovement; 
+        private Shield _shield;
         
         [Header("Speed")]
         [SerializeField] private float _minimalSpeed=5;
