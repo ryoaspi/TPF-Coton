@@ -1547,6 +1547,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 2782277196747858626}
   _icon: {fileID: 8781637571936382001}
+  _pressToCloseText: {fileID: 0}
+  _pressToCloseButton: {fileID: 0}
 --- !u!1 &4164145454389470643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,6 +2275,13 @@ MonoBehaviour:
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 2147483777
+  _persistentPromptMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _spriteKeyboard: {fileID: 0}
+  _spriteXbox: {fileID: 0}
+  _spritePlayStation: {fileID: 0}
+  _closePromptText: Pour Fermer
   _playerInput: {fileID: 3470936859141013514}
   _playerTransform: {fileID: 374765836647447604}
 --- !u!1 &4527197302954071222

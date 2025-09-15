@@ -242,7 +242,7 @@ namespace Craft.Runtime
         
         private string GetClosePromptText()
         {
-            return "Appuyez sur";
+            return _closePromptText;
         }
         
         #endregion
@@ -259,6 +259,7 @@ namespace Craft.Runtime
         [SerializeField] private Sprite _spriteKeyboard;
         [SerializeField] private Sprite _spriteXbox;
         [SerializeField] private Sprite _spritePlayStation;
+        [SerializeField] private string _closePromptText = "Pour Fermer";
         
         [Header("References")]
         private Camera _camera;
