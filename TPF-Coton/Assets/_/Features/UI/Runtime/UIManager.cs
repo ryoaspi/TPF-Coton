@@ -31,6 +31,8 @@ namespace UIManager.Runtime
             _text.text = text;
             _text.gameObject.SetActive(true);
             
+            if (_pressToCloseTextObject is not null) _pressToCloseTextObject.SetActive(showCloseHint);
+            
             if (_icon is not null)
             {
                 _icon.sprite = icon;
@@ -61,6 +63,8 @@ namespace UIManager.Runtime
         public void HidePrompt()
         {
             _text.gameObject.SetActive(false);
+            
+            if (_pressToCloseTextObject is not null) _pressToCloseTextObject.SetActive(false);
 
             if (_icon is not null)
             {
@@ -91,6 +95,7 @@ namespace UIManager.Runtime
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _pressToCloseText;
         [SerializeField] private Image _pressToCloseButton;
+        [SerializeField] private GameObject _pressToCloseTextObject;
 
         #endregion
     }
