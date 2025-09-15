@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2788741230281995543
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_arbre4_top
+  m_Name: M_Pine1_top
   m_Shader: {fileID: 4800000, guid: 9f6e9468949ea454eb72b4edd48e6e3b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: b4413fb44ed1a3b4eb4702795cdf7afb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1987c2e05c58ec943816fcf3f1bf2fa5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -61,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: cf4e68aeecc3ac04e9653250467c40a9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5af62567583bbee4a8432a1bebef8d3c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FurMap:
@@ -69,11 +56,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c78bb13a28de9b74ea8181bac3e429aa, type: 3}
+        m_Texture: {fileID: 2800000, guid: e04b09c4d94858e44a0aaf384c05a4e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 7081c85024954864da874d9d470ced4e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 50d50d499f60fb043bb96ef3a56621cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -140,7 +127,7 @@ Material:
     - _RandomDirection: 1
     - _ReceiveShadows: 1
     - _RimLightIntensity: 0
-    - _RimLightPower: 1
+    - _RimLightPower: 6
     - _ShadowExtraBias: -0.3
     - _Smoothness: 0.569
     - _SmoothnessTextureChannel: 0
@@ -155,12 +142,25 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 1}
-    - _BaseColor: {r: 0.49803922, g: 0.79607844, b: 0.47843137, a: 1}
+    - _BaseColor: {r: 0.011764707, g: 0.23529413, b: 0.10980393, a: 1}
     - _BaseMove: {r: 0, g: -0, b: 0, a: 3}
-    - _Color: {r: 0.49803913, g: 0.79607844, b: 0.47843128, a: 1}
+    - _Color: {r: 0.011764707, g: 0.2352941, b: 0.10980389, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WindFreq: {r: 0.5, g: 0.7, b: 0.9, a: 1}
     - _WindMove: {r: 0.2, g: 0.3, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &880270146632597752
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
