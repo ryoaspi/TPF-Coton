@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76e7ab6d5c3eb0c418e46489a2036a13
+guid: b3e31fb1ab582734db66188b0cf66475
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: FlonFlon@Idle
-      internalID: 8297052371195653571
+      name: Walk
+      takeName: Flonflon@Walk
+      internalID: -7948242317587045406
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
