@@ -19,6 +19,8 @@ namespace Enemy.Runtime
             _timer = 0;
             _timeTouch = 0;
             _isTouch = false;
+            m_damage = _damage;
+
 
         }
 
@@ -87,12 +89,13 @@ namespace Enemy.Runtime
         
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _duration = 1;
+        [SerializeField] private int _damage;
         
         private Vector3 _direction;
         private bool _isTouch;
         private float _timer;
         private float _timeTouch;
-
+        
         #endregion
     }
 }

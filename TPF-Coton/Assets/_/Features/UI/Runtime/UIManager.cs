@@ -26,7 +26,7 @@ namespace UIManager.Runtime
         
         #region Utils
 
-        public void ShowPrompt(string text, Sprite icon)
+        public void ShowPrompt(string text, Sprite icon, bool showCloseHint = false, string closeHintText = "", Sprite closeHintIcon = null)
         {
             _text.text = text;
             _text.gameObject.SetActive(true);
@@ -40,12 +40,39 @@ namespace UIManager.Runtime
                 
             }
 
+            if (_pressToCloseText is not null)
+            {
+                if (showCloseHint && !string.IsNullOrEmpty(closeHintText))
+                {
+                    _pressToCloseText.text = closeHintText;
+                    _pressToCloseText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    _pressToCloseText.gameObject.SetActive(false);
+                }
+            }
+
+            if (_pressToCloseButton is not null)
+            {
+                if (showCloseHint && closeHintIcon is not null)
+                {
+                    _pressToCloseButton.sprite = closeHintIcon;
+                    _pressToCloseButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    _pressToCloseButton.gameObject.SetActive(false);
+                }
+            }
+
         }
 
         public void HidePrompt()
         {
             _text.gameObject.SetActive(false);
             if (_icon is not null) _icon.gameObject.SetActive(false);
+            if (_pressToCloseText is not null) _pressToCloseText.gameObject.SetActive(false);
         }
         
         #endregion
@@ -55,6 +82,8 @@ namespace UIManager.Runtime
         
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _icon;
+        [SerializeField] private TMP_Text _pressToCloseText;
+        [SerializeField] private Image _pressToCloseButton;
 
         #endregion
     }

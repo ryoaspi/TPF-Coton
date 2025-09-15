@@ -34,20 +34,19 @@ namespace Enemy.Runtime
 
         public GameObject GetFromPool()
         {
-            GameObject ammo;
-            
-            if (_ammoQueue.Count > 0)
+            if (_ammoQueue.Count == 0)
             {
-                ammo = _ammoQueue.Dequeue();
-                ammo.SetActive(true);
-            }
-
-            else
-            {
-                ammo = Instantiate(_ammoPrefab);
-                ammo.transform.SetParent(_ammoParent.transform);
+                for (int i = 0; i < _ammoCount; i++)
+                {
+                    GameObject newAmmo = Instantiate(_ammoPrefab);
+                    newAmmo.transform.SetParent(_ammoParent.transform);
+                    newAmmo.SetActive(false);
+                    _ammoQueue.Enqueue(newAmmo);
+                }
             }
             
+            GameObject ammo = _ammoQueue.Dequeue();
+            ammo.SetActive(true);
             return ammo;
         }
 

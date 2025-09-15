@@ -83,7 +83,9 @@ namespace Craft.Runtime
                 {
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
-                    _uiManager.ShowPrompt($"{text}", icon);
+                    _uiManager.ShowPrompt($"{text}", icon , IsPersistentPrompt(hit.collider.gameObject),
+                        IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptText() : "",
+                        IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptSprite() : null);
                     
                     if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
                 }
@@ -95,6 +97,8 @@ namespace Craft.Runtime
                 ResetInteraction();
             }
         }
+
+
 
         private void OnDisable()
         {
@@ -220,6 +224,26 @@ namespace Craft.Runtime
         {
             return (_persistentPromptMask.value & (1 << obj.layer)) != 0;
         }
+
+        private Sprite GetClosePromptSprite()
+        {
+            switch (_currentDeviceType)
+            {
+                case DeviceType.PC:
+                    return _spriteKeyboard;
+                case DeviceType.Xbox:
+                    return _spriteXbox;
+                case DeviceType.PlayStation:
+                    return _spritePlayStation;
+                default:
+                    return null;
+            }
+        }
+        
+        private string GetClosePromptText()
+        {
+            return "Appuyez sur";
+        }
         
         #endregion
         
@@ -232,6 +256,9 @@ namespace Craft.Runtime
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private LayerMask _obstacleMask;
         [SerializeField] private LayerMask _persistentPromptMask;
+        [SerializeField] private Sprite _spriteKeyboard;
+        [SerializeField] private Sprite _spriteXbox;
+        [SerializeField] private Sprite _spritePlayStation;
         
         [Header("References")]
         private Camera _camera;
