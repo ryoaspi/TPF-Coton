@@ -30,11 +30,14 @@ namespace Craft.Runtime
         {
             _playerInput.actions["Interact"].started += OnInteract;
             _playerInput.onActionTriggered += OnActionTriggered;
+            _playerInput.actions["ClosePrompt"].started += OnClosePrompt;
             InputSystem.onDeviceChange += OnDeviceChange;
         }
 
         private void Update()
         {
+            if (_isPromptLocked) return;
+            
             float offsetX = 0f;
             float offsetY = 100f;
             
@@ -68,6 +71,9 @@ namespace Craft.Runtime
                     
                     _uiManager.ShowPrompt($"{text} pour : {cost}",icon);
                     
+                    // Nouveau: verrouillage uniquement si layer correspont
+                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
+                    
                     return;
                 }
                 
@@ -78,17 +84,23 @@ namespace Craft.Runtime
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
                     _uiManager.ShowPrompt($"{text}", icon);
+                    
+                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
                 }
                 
             }
             
-            else ResetInteraction();
+            else if (!_isPromptLocked)
+            {
+                ResetInteraction();
+            }
         }
 
         private void OnDisable()
         {
             _playerInput.actions["Interact"].started -= OnInteract;
             _playerInput.onActionTriggered -= OnActionTriggered;
+            _playerInput.actions["ClosePrompt"].started -= OnClosePrompt;
             InputSystem.onDeviceChange -= OnDeviceChange;
         }
 
@@ -118,6 +130,15 @@ namespace Craft.Runtime
                 }
             }
             
+        }
+
+        private void OnClosePrompt(InputAction.CallbackContext context)
+        {
+            if (_isPromptLocked)
+            {
+                ResetInteraction();
+                _isPromptLocked = false;
+            }
         }
 
         #endregion
@@ -194,6 +215,11 @@ namespace Craft.Runtime
                 DetectControllerType(device);
             }
         }
+
+        private bool IsPersistentPrompt(GameObject obj)
+        {
+            return (_persistentPromptMask.value & (1 << obj.layer)) != 0;
+        }
         
         #endregion
         
@@ -205,6 +231,7 @@ namespace Craft.Runtime
         [SerializeField] private float _maxInteractionDistance = 2f;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private LayerMask _obstacleMask;
+        [SerializeField] private LayerMask _persistentPromptMask;
         
         [Header("References")]
         private Camera _camera;
@@ -220,6 +247,7 @@ namespace Craft.Runtime
         private string _lastPromptText;
         
         private InputDevice _lastUsedDevice;
+        private bool _isPromptLocked;
 
         #endregion
     }
