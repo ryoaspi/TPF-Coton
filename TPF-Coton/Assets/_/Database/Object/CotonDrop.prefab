@@ -55,7 +55,7 @@ MonoBehaviour:
   _parabolLerp: {fileID: 4164520622961293107}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 1073742016
+    m_Bits: 1073741824
 --- !u!114 &4164520622961293107
 MonoBehaviour:
   m_ObjectHideFlags: 0
