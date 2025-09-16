@@ -69,10 +69,8 @@ namespace Craft.Runtime
                     string text = interactable.InteractionLabel[0];
                     int cost = interactable.InteractionCost;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon);
-                    
-                    // Nouveau: verrouillage uniquement si layer correspont
-                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
+                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon, true, "", null);
+					
                     
                     return;
                 }
@@ -276,6 +274,7 @@ namespace Craft.Runtime
         
         private InputDevice _lastUsedDevice;
         private bool _isPromptLocked;
+		
 
         #endregion
     }
