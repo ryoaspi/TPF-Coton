@@ -9,25 +9,39 @@ namespace Enemy.Runtime
         [HideInInspector] public bool m_isAttacking;
         
         #endregion
+        
+        
+        #region Api Unity
+
+        private void Awake()
+        {
+            _collider = GetComponent<Collider>();
+            _collider.enabled = false;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!m_isAttacking) return;
+            
+        }
+
+        #endregion
 
         
         #region Utils
 
-        public void Attack()
+        public void ActivateDamage()
         {
-            if (!_target || !_origin) return;
+            m_isAttacking = true;
+            _collider.enabled = true;
             
-            if (m_isAttacking)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, _target.position) <= 0.1f)
-                    m_isAttacking = false;
-            }
             
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _origin.position, _speed * Time.deltaTime);
-            }
+        }
+
+        public void DeactivateDamage()
+        {
+            m_isAttacking = false;
+            _collider.enabled = false;
         }
         
         #endregion
@@ -35,10 +49,8 @@ namespace Enemy.Runtime
         
         #region Private And Protected
         
-        [SerializeField] private float _speed = 10f;
-        [SerializeField] private Transform _target;
-        [SerializeField] private Transform _origin;
-
+        [SerializeField] private Collider _collider;
+        
         #endregion
     }
 }

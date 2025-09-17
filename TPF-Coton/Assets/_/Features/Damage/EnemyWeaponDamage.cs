@@ -13,13 +13,17 @@ namespace Damage.Runtime
         {
             _enemyStat = GetComponentInParent<EnemyStat>();
             _enemyAI = GetComponentInParent<EnemyAI>();
-            
+            _weaponEnemyDamage = GetComponent<WeaponEnemyDamage>();
             //Détection manuelle des objets dédjà dans le collider au moment de l'activation
             DetectInitialOverlaps();
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Melee)
+            {
+                if (_weaponEnemyDamage == null || !_weaponEnemyDamage.m_isAttacking) return;
+            }
             HandleCollision(other);
         }
 
@@ -98,6 +102,7 @@ namespace Damage.Runtime
         private EnemyAI _enemyAI;
         private bool _hasExploded;
         private bool _hasDamagedPlayer;
+        private WeaponEnemyDamage _weaponEnemyDamage;
 
         #endregion
     }
