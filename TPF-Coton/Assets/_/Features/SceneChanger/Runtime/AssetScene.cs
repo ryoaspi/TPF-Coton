@@ -1,26 +1,30 @@
-// using UnityEngine;
-// using UnityEngine.SceneManagement;
-// using UnityEngine.InputSystem;
-// namespace SceneChanger.Runtime
-// {
-//     public class AssetScene : MonoBehaviour
-//     {
-//         private PlayerInput _playerInput;
-//
-//         public void Awake()
-//         {
-//             _playerInput = GetComponent<PlayerInput>();
-//         }
-//         public void LoadAssetScene()
-//         {
-//             
-//             SceneManager.LoadScene("Lucie");
-//         }
-//
-//         public void LoadenemyScene()
-//         {
-//             
-//             SceneManager.LoadScene("Thomas");
-//         }
-//     }
-// }
+using UnityEngine;
+using UnityEngine.SceneManagement;
+namespace SceneChanger.Runtime
+{
+    public class AssetScene : MonoBehaviour
+    {
+      
+        public void LoadGameScene()
+        {
+            
+            SceneManager.LoadScene("Tutoriel_texturing");
+        }
+
+        public void LoadCreditScene()
+        {
+            
+            SceneManager.LoadScene("Credit");
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+
+        public void LoadMainMenuScene()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+}
