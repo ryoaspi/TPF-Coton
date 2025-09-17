@@ -1351,6 +1351,63 @@ Transform:
   - {fileID: 8235965691219736994}
   m_Father: {fileID: 1597990226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1327586519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 97.77278
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.518696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.71325105
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70090866
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
+      propertyPath: m_Name
+      value: falaise_lp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10039a4ce21670346bccfe879d12812d, type: 3}
 --- !u!1001 &1330960291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3925,3 +3982,4 @@ SceneRoots:
   - {fileID: 4672482233515225584}
   - {fileID: 3707820382745149861}
   - {fileID: 1552832160}
+  - {fileID: 1327586519}
