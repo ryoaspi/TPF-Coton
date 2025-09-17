@@ -31,6 +31,8 @@ namespace UIManager.Runtime
             _text.text = text;
             _text.gameObject.SetActive(true);
             
+            if (_pressToCloseTextObject is not null) _pressToCloseTextObject.SetActive(showCloseHint);
+            
             if (_icon is not null)
             {
                 _icon.sprite = icon;
@@ -47,23 +49,13 @@ namespace UIManager.Runtime
                     _pressToCloseText.text = closeHintText;
                     _pressToCloseText.gameObject.SetActive(true);
                 }
-                else
-                {
-                    _pressToCloseText.gameObject.SetActive(false);
-                }
             }
 
             if (_pressToCloseButton is not null)
             {
-                if (showCloseHint && closeHintIcon is not null)
-                {
-                    _pressToCloseButton.sprite = closeHintIcon;
-                    _pressToCloseButton.gameObject.SetActive(true);
-                }
-                else
-                {
-                    _pressToCloseButton.gameObject.SetActive(false);
-                }
+                _pressToCloseButton.sprite = closeHintIcon;
+                _pressToCloseButton.enabled = closeHintIcon is not null;
+                _pressToCloseButton.gameObject.SetActive(closeHintIcon is not null);
             }
 
         }
@@ -71,8 +63,27 @@ namespace UIManager.Runtime
         public void HidePrompt()
         {
             _text.gameObject.SetActive(false);
-            if (_icon is not null) _icon.gameObject.SetActive(false);
-            if (_pressToCloseText is not null) _pressToCloseText.gameObject.SetActive(false);
+            
+            if (_pressToCloseTextObject is not null) _pressToCloseTextObject.SetActive(false);
+
+            if (_icon is not null)
+            {
+                _icon.sprite = null;
+                _icon.gameObject.SetActive(false);
+            }
+
+            if (_pressToCloseText is not null)
+            {
+                _pressToCloseText.text = string.Empty;
+                _pressToCloseText.gameObject.SetActive(false);
+            }
+
+            if (_pressToCloseButton is not null)
+            {
+                _pressToCloseButton.sprite = null;
+                _pressToCloseButton.enabled = false;
+                _pressToCloseButton.gameObject.SetActive(false);
+            }
         }
         
         #endregion
@@ -84,6 +95,7 @@ namespace UIManager.Runtime
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _pressToCloseText;
         [SerializeField] private Image _pressToCloseButton;
+        [SerializeField] private GameObject _pressToCloseTextObject;
 
         #endregion
     }

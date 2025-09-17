@@ -34,13 +34,24 @@ namespace Enemy.Runtime
             _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
             _enemyBig = GetComponent<EnemyBig>();
-            
+            _animator = GetComponentInChildren<Animator>();
             _canInitOnEnable = true;
         }
 
         private void OnEnable()
         {
             if (_canInitOnEnable) _agent.SetDestination(_target[1].position);
+        }
+
+        private void Update()
+        {
+            if (m_enemyType == EnemyType.Ranged)
+            {
+                if (_animator is not null)
+                {
+                    _animator.SetFloat("Speed", _agent.velocity.magnitude);
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -589,7 +600,8 @@ namespace Enemy.Runtime
 
         private EnemyBig _enemyBig;
         private bool _enemyIsDetected;
-        
+        private Animator _animator;
+
         #endregion
     }
 }

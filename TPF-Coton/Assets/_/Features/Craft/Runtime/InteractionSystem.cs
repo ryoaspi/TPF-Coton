@@ -69,10 +69,8 @@ namespace Craft.Runtime
                     string text = interactable.InteractionLabel[0];
                     int cost = interactable.InteractionCost;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon);
-                    
-                    // Nouveau: verrouillage uniquement si layer correspont
-                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
+                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon, true, "", null);
+					
                     
                     return;
                 }
@@ -242,7 +240,7 @@ namespace Craft.Runtime
         
         private string GetClosePromptText()
         {
-            return "Appuyez sur";
+            return _closePromptText;
         }
         
         #endregion
@@ -259,6 +257,7 @@ namespace Craft.Runtime
         [SerializeField] private Sprite _spriteKeyboard;
         [SerializeField] private Sprite _spriteXbox;
         [SerializeField] private Sprite _spritePlayStation;
+        [SerializeField] private string _closePromptText = "Pour Fermer";
         
         [Header("References")]
         private Camera _camera;
@@ -275,6 +274,7 @@ namespace Craft.Runtime
         
         private InputDevice _lastUsedDevice;
         private bool _isPromptLocked;
+		
 
         #endregion
     }
