@@ -15,14 +15,18 @@ namespace Enemy.Runtime
 
         private void Awake()
         {
-            _collider = GetComponent<Collider>();
-            _collider.enabled = false;
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Melee)
+            {
+                _collider = GetComponent<Collider>();
+                _collider.enabled = false;
+                _collider.isTrigger = true;
+            }
+
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (!m_isAttacking) return;
-            
         }
 
         #endregion
@@ -48,7 +52,8 @@ namespace Enemy.Runtime
         #region Private And Protected
         
         [SerializeField] private Collider _collider;
-        
+        private EnemyAI _enemyAI;
+
         #endregion
     }
 }
