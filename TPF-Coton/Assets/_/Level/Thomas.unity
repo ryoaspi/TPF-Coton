@@ -233,11 +233,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4472106963547878539, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
   m_PrefabInstance: {fileID: 317691188}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &269272089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6944672673914833361, guid: 32f8cfb404796f34c9940a37dd530d88, type: 3}
-  m_PrefabInstance: {fileID: 5866313199518202144}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &282211485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1770,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 416690481434878969, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: _coton
       value: 
-      objectReference: {fileID: 269272089}
+      objectReference: {fileID: 6944672673914833361, guid: 32f8cfb404796f34c9940a37dd530d88, type: 3}
     - target: {fileID: 3460779415506067722, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_Name
       value: EnnemiePVP
@@ -2077,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1451700205
 Transform:
   m_ObjectHideFlags: 0
@@ -3046,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3588370383370977673, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8147766533774570031, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
       propertyPath: m_text
