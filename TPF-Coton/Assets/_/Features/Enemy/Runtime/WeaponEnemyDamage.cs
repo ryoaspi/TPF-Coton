@@ -34,8 +34,6 @@ namespace Enemy.Runtime
         {
             m_isAttacking = true;
             _collider.enabled = true;
-            
-            
         }
 
         public void DeactivateDamage()

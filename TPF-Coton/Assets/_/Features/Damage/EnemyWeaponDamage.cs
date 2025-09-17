@@ -14,6 +14,7 @@ namespace Damage.Runtime
             _enemyStat = GetComponentInParent<EnemyStat>();
             _enemyAI = GetComponentInParent<EnemyAI>();
             _weaponEnemyDamage = GetComponent<WeaponEnemyDamage>();
+            
             //Détection manuelle des objets dédjà dans le collider au moment de l'activation
             DetectInitialOverlaps();
         }

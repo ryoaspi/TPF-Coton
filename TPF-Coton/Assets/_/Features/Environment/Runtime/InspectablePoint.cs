@@ -26,6 +26,7 @@ namespace Environment.Runtime
         [SerializeField] private Sprite _iconPC;
         [SerializeField] private Sprite _iconXbox;
         [SerializeField] private Sprite _iconPS;
+        
     }
 }
 
