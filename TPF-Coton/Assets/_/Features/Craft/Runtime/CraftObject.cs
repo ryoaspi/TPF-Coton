@@ -1,7 +1,6 @@
 using Interface.Runtime;
 using Player.Runtime;
 using UnityEngine;
-using Core.Runtime;
 using DeviceType = Core.Runtime.DeviceType;
 
 namespace Craft.Runtime
@@ -103,9 +102,9 @@ namespace Craft.Runtime
         [SerializeField] private Collider[] _colliderSecurity;
         private bool _isCrafted;
 
-        [SerializeField] private Sprite _iconPC;
-        [SerializeField] private Sprite _iconXbox;
-        [SerializeField] private Sprite _iconPS;
+        private Sprite _iconPC;
+        private Sprite _iconXbox;
+        private Sprite _iconPS;
         private IInteractable _interactableImplementation;
 
         #endregion

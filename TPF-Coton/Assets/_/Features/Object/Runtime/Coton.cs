@@ -11,7 +11,7 @@ namespace Object.Runtime
 
         private void Awake()
         {
-            
+            _parabolLerp = GetComponent<ParabolLerp>();
         }
 
         private void OnEnable()
@@ -22,7 +22,8 @@ namespace Object.Runtime
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
             _col.isTrigger = true;
-            
+            _parabolLerp.OnLerpComplete += HandleLerpCompletes;
+
         }
 
         private void Update()
@@ -39,12 +40,13 @@ namespace Object.Runtime
 
         private void OnDisable()
         {
+            _parabolLerp.OnLerpComplete -= HandleLerpCompletes;
             Destroy(gameObject);
         }
-
+        
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 _rb.isKinematic = true;
                 _col.isTrigger = true;
@@ -52,7 +54,7 @@ namespace Object.Runtime
             
         }
 
-        private void OntriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (!CanBeCollected())return;
         }
@@ -88,7 +90,7 @@ namespace Object.Runtime
                 float upSize = _valueCoton * _multiplicateurScale;
                 transform.localScale = new Vector3(transform.localScale.x + upSize, transform.localScale.y + upSize,transform.localScale.z + upSize);    
             }
-            Debug.Log(_valueCoton);
+            
             return _valueCoton;
         }
         
@@ -97,7 +99,11 @@ namespace Object.Runtime
         
         #region Main Methods
 
-        
+        private void HandleLerpCompletes()
+        {
+            _rb.isKinematic = false;
+            _col.isTrigger = false;
+        }
         
         #endregion
         
@@ -113,6 +119,8 @@ namespace Object.Runtime
         private float _spawnTime;
         [SerializeField] private float _collectibleDelay = 0.5f;
         [SerializeField] private float _multiplicateurScale = 0.05f;
+        [SerializeField] private ParabolLerp _parabolLerp;
+        [SerializeField] private LayerMask _layerMask;
 
         private bool _wasCollectable;
         private int _valueCoton = 1;

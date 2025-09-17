@@ -30,11 +30,14 @@ namespace Craft.Runtime
         {
             _playerInput.actions["Interact"].started += OnInteract;
             _playerInput.onActionTriggered += OnActionTriggered;
+            _playerInput.actions["ClosePrompt"].started += OnClosePrompt;
             InputSystem.onDeviceChange += OnDeviceChange;
         }
 
         private void Update()
         {
+            if (_isPromptLocked) return;
+            
             float offsetX = 0f;
             float offsetY = 100f;
             
@@ -66,30 +69,40 @@ namespace Craft.Runtime
                     string text = interactable.InteractionLabel[0];
                     int cost = interactable.InteractionCost;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon);
+                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon, true, "", null);
+					
                     
                     return;
                 }
                 
                 // Check les objets inspectables
-                IInspectable inspectable = hit.collider.GetComponentInParent<IInspectable>();
+                IInspectable inspectable = hit.collider.GetComponent<IInspectable>();
                 if (inspectable is not null && distanceToHit <= _maxInteractionDistance)
                 {
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
-                    Debug.Log($"Device : {_currentDeviceType}, Icon : {icon?.name ?? "NULL"}");
-                    _uiManager.ShowPrompt(text, icon);
+                    _uiManager.ShowPrompt($"{text}", icon , IsPersistentPrompt(hit.collider.gameObject),
+                        IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptText() : "",
+                        IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptSprite() : null);
+                    
+                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
                 }
                 
             }
             
-            ResetInteraction();
+            else if (!_isPromptLocked)
+            {
+                ResetInteraction();
+            }
         }
+
+
 
         private void OnDisable()
         {
             _playerInput.actions["Interact"].started -= OnInteract;
             _playerInput.onActionTriggered -= OnActionTriggered;
+            _playerInput.actions["ClosePrompt"].started -= OnClosePrompt;
             InputSystem.onDeviceChange -= OnDeviceChange;
         }
 
@@ -119,6 +132,15 @@ namespace Craft.Runtime
                 }
             }
             
+        }
+
+        private void OnClosePrompt(InputAction.CallbackContext context)
+        {
+            if (_isPromptLocked)
+            {
+                ResetInteraction();
+                _isPromptLocked = false;
+            }
         }
 
         #endregion
@@ -162,7 +184,6 @@ namespace Craft.Runtime
                 {
                     _currentDeviceType = DeviceType.Xbox;
                     
-                    Debug.Log("🎮 Xbox controller active.");
                     return;
                 }
 
@@ -170,7 +191,6 @@ namespace Craft.Runtime
                 {
                     _currentDeviceType = DeviceType.PlayStation;
                     
-                    Debug.Log("🎮 PlayStation controller active.");
                     return;
                 }
 
@@ -183,7 +203,6 @@ namespace Craft.Runtime
             // Clavier/souris
             _currentDeviceType = DeviceType.PC;
             
-            Debug.Log("⌨️ PC (Keyboard/Mouse) active.");
         
         }
 
@@ -191,14 +210,37 @@ namespace Craft.Runtime
         {
             if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
             {
-                Debug.Log($"[Controller Detection] Device {device.name} connected.");
             }
 
             if (change == InputDeviceChange.Removed)
             {
-                Debug.Log($"[Controller Detection] Device {device.name} disconnected.");
                 DetectControllerType(device);
             }
+        }
+
+        private bool IsPersistentPrompt(GameObject obj)
+        {
+            return (_persistentPromptMask.value & (1 << obj.layer)) != 0;
+        }
+
+        private Sprite GetClosePromptSprite()
+        {
+            switch (_currentDeviceType)
+            {
+                case DeviceType.PC:
+                    return _spriteKeyboard;
+                case DeviceType.Xbox:
+                    return _spriteXbox;
+                case DeviceType.PlayStation:
+                    return _spritePlayStation;
+                default:
+                    return null;
+            }
+        }
+        
+        private string GetClosePromptText()
+        {
+            return _closePromptText;
         }
         
         #endregion
@@ -211,6 +253,11 @@ namespace Craft.Runtime
         [SerializeField] private float _maxInteractionDistance = 2f;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private LayerMask _obstacleMask;
+        [SerializeField] private LayerMask _persistentPromptMask;
+        [SerializeField] private Sprite _spriteKeyboard;
+        [SerializeField] private Sprite _spriteXbox;
+        [SerializeField] private Sprite _spritePlayStation;
+        [SerializeField] private string _closePromptText = "Pour Fermer";
         
         [Header("References")]
         private Camera _camera;
@@ -226,6 +273,8 @@ namespace Craft.Runtime
         private string _lastPromptText;
         
         private InputDevice _lastUsedDevice;
+        private bool _isPromptLocked;
+		
 
         #endregion
     }

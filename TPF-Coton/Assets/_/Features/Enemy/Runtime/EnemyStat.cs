@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Object.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -26,6 +27,19 @@ namespace Enemy.Runtime
             _origin = transform.position;
             _enemyAI = GetComponent<EnemyAI>();
             _enemyBig = GetComponent<EnemyBig>();
+            
+            _renderers =  GetComponentsInChildren<Renderer>();
+            _originalColors.Clear();
+
+            foreach (var renderer in _renderers)
+            {
+                var colors = new Color[renderer.materials.Length];
+                for (var i = 0; i < renderer.materials.Length; i++)
+                {
+                    colors[i] = renderer.materials[i].color;
+                }
+                _originalColors.Add(colors);
+            }
         }
 
         private void OnEnable()
@@ -43,16 +57,15 @@ namespace Enemy.Runtime
         
         private void Update()
         {
-            if (_renderer.material.color == Color.red)
+            if (_isFlashing)
             {
-                _hits -= Time.deltaTime;
-                if (_hits <= 0)
+                _flashTimer -= Time.deltaTime;
+                if (_flashTimer <= 0)
                 {
-                    _renderer.material.color = Color.gray;
-                    _hits = 1f;
+                    ResetColot();
+                    _isFlashing = false;
                 }
             }
-            
         }
         
         #endregion
@@ -123,7 +136,10 @@ namespace Enemy.Runtime
 
         private void Hit()
         {
-            _renderer.material.color = Color.red;
+            SetColot(Color.red);
+            _isFlashing = true;
+            _flashTimer = _hits;
+
         }
         
         [ContextMenu("Death")]
@@ -167,32 +183,38 @@ namespace Enemy.Runtime
                 
             // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
             lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
-            
-            // for (int i = 0; i < damageToApply; i++)
-            // {
-            //     GameObject newCoton = Instantiate(_coton, transform.position, Quaternion.identity);
-            //
-            //     Vector2 offset = Random.insideUnitCircle;
-            //     offset.y = Mathf.Abs(offset.y);
-            //     
-            //     Vector3 targetPos = transform.position + new Vector3(offset.x,0,offset.y) * _distance;
-            //     
-            //     var contonComp = newCoton.GetComponent<Coton>();
-            //     var lerpComp = newCoton.GetComponent<ParabolLerp>();
-            //     
-            //     // Désactive la physique pendant le lerp
-            //     contonComp.SetPhysicsActive(false);
-            //     
-            //     // Lance le lerp
-            //     lerpComp.Lerp(transform.position, targetPos, _arcHeight, _arcDuration);;
-            //     
-            //     // Quand le Lerp est terminé, réactive la physique pour la chute naturel.
-            //     lerpComp.OnLerpComplete += () => contonComp.SetPhysicsActive(true);
-            // }
 
             if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
             {
                 _enemyBig.LoseCoton(damageToApply,true);
+            }
+        }
+
+        private void SetColot(Color color)
+        {
+            foreach (var renderer in _renderers)
+            {
+                foreach (var material in renderer.materials)
+                {
+                    material.color = color;
+                }
+            }
+        }
+
+        private void ResetColot()
+        {
+            for (int r = 0; r < _renderers.Length; r++)
+            {
+                Renderer renderer = _renderers[r];
+                Color[] savedColors = _originalColors[r];
+
+                for (int c = 0; c < renderer.materials.Length; c++)
+                {
+                    if (c < savedColors.Length)
+                    {
+                        renderer.materials[c].color = savedColors[c];
+                    }
+                }
             }
         }
         
@@ -222,6 +244,11 @@ namespace Enemy.Runtime
         private Vector3 _origin;
         private EnemyAI _enemyAI;
         private EnemyBig _enemyBig;
+        
+        private Renderer[] _renderers;
+        private List<Color[]> _originalColors = new ();
+        private bool _isFlashing;
+        private float _flashTimer;
 
 
         #endregion
