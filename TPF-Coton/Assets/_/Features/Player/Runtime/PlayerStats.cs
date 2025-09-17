@@ -141,7 +141,7 @@ namespace Player.Runtime
             _playerMovement.m_speedSave = _littleSpeed;
             transform.localScale= new Vector3(0.5f-_littleScale,0.5f-_littleScale,0.5f-_littleScale);
             m_currentState = 1;
-            _playerMovement.groundCheckDistance = 0.27f;
+            _playerMovement.groundCheckDistance = 0.35f;
             _playerMovement.groundCheckRadius = 0.15f;
         }
         
@@ -154,7 +154,7 @@ namespace Player.Runtime
             _playerMovement.m_speedSave = _mediumSpeed;
             transform.localScale= new Vector3(0.5f,0.5f,0.5f);
             m_currentState = 2;
-            _playerMovement.groundCheckDistance = 0.38f;
+            _playerMovement.groundCheckDistance = 0.5f;
             _playerMovement.groundCheckRadius = 0.2f;
         }
         public void BigState()

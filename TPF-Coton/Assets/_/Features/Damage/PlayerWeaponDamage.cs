@@ -8,17 +8,26 @@ namespace Damage.Runtime
 {
     public class PlayerWeaponDamage : MonoBehaviour
     {
-        #region Unity Api
+        #region Unity API
 
         private void Awake()
         {
             _playerStats = FindFirstObjectByType<PlayerStats>();
             _playerDamage = FindFirstObjectByType<PlayerDamage>();
         }
-        
+
         private void OnEnable()
         {
             _enemiesHitThisSwing.Clear();
+
+            // --- AJOUT --- s'abonne à l'event pour reset chaque attaque
+            PlayerDamage.OnAttackStart += ResetHitEnemies;
+        }
+
+        private void OnDisable()
+        {
+            // --- AJOUT --- désabonnement
+            PlayerDamage.OnAttackStart -= ResetHitEnemies;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -30,8 +39,8 @@ namespace Damage.Runtime
                 {
                     if (_playerDamage.m_isAttacking)
                     {
-                         _damage = _playerStats.m_publicDamage;
-                         enemyStat.DoDamage(_damage, _playerStats.transform);
+                        _damage = _playerStats.m_publicDamage;
+                        enemyStat.DoDamage(_damage, _playerStats.transform);
                         _enemiesHitThisSwing.Add(enemyStat);
                     }
                     else
@@ -40,33 +49,28 @@ namespace Damage.Runtime
                         enemyStat.DoDamage(_damage, _playerStats.transform);
                         _enemiesHitThisSwing.Add(enemyStat);
                     }
-                   
                 }
-                return;
             }
-
         }
 
         #endregion
-        
-        
+
         #region Utils
 
         public void ResetHitEnemies()
         {
             _enemiesHitThisSwing.Clear();
         }
-        
+
         #endregion
-        
-        
-        #region Private And Protected
-        
+
+        #region Private
+
         private PlayerStats _playerStats;
         private int _damage;
         private PlayerDamage _playerDamage;
         private HashSet<EnemyStat> _enemiesHitThisSwing = new HashSet<EnemyStat>();
-        
+
         #endregion
     }
 }
