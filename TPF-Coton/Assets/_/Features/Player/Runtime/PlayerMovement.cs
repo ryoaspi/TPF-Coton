@@ -30,6 +30,7 @@ namespace Player.Runtime
 
         private void Start()
         {
+            m_isWalking=false;
             _rb = GetComponent<Rigidbody>();
             _rb.freezeRotation = true;
             _mainCamera = Camera.main;
@@ -58,7 +59,10 @@ namespace Player.Runtime
             {
                 TeleportOnGround();
             }
-            
+            else
+            {
+                m_isWalking = false;
+            }
             Quaternion targetRotation = Quaternion.LookRotation(_lastDirection, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
@@ -86,7 +90,7 @@ namespace Player.Runtime
         private void HandleMovement()
         {
             // ... (le reste du code est inchangé)
-            
+            m_isWalking = true;
             Vector3 camForward = _mainCamera.transform.forward;
             Vector3 camRight = _mainCamera.transform.right;
             float stickMagnitude = Mathf.Clamp01(_moveDirection.magnitude);
@@ -230,6 +234,7 @@ namespace Player.Runtime
         private Vector3 _moveDir;
         private PlayerDamage _playerDamage;
         private Vector3 _baseGravity;
+        [HideInInspector][FormerlySerializedAs("_isWalking")] public bool m_isWalking;
 
         #endregion
     }
