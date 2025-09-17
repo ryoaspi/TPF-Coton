@@ -478,6 +478,8 @@ namespace Enemy.Runtime
                     break;
                 
                 case EnemyType.Ranged:
+                    if (!m_playerDetected) return;
+                    
                     if (distanceToPlayer > _minAttackDistance)
                     {
                         _agent.SetDestination(_hit);
@@ -489,7 +491,9 @@ namespace Enemy.Runtime
                         if (_enemyShoot is not null && Time.time >= _lastAttackTime + _attackCooldown)
                         {
                             _lastAttackTime = Time.time;
-                            _enemyShoot.Shooting();
+                            
+                            _animator.SetTrigger("IsAttack");
+                            // _enemyShoot.Shooting();
                         }
                     }
                     break;
