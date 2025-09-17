@@ -34,13 +34,24 @@ namespace Enemy.Runtime
             _enemySword = GetComponentInChildren<WeaponEnemyDamage>();
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
             _enemyBig = GetComponent<EnemyBig>();
-            
+            _animator = GetComponentInChildren<Animator>();
             _canInitOnEnable = true;
         }
 
         private void OnEnable()
         {
             if (_canInitOnEnable) _agent.SetDestination(_target[1].position);
+        }
+
+        private void Update()
+        {
+            if (m_enemyType == EnemyType.Ranged || m_enemyType == EnemyType.Melee)
+            {
+                if (_animator is not null)
+                {
+                    _animator.SetFloat("Speed", _agent.velocity.magnitude);
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -115,18 +126,6 @@ namespace Enemy.Runtime
 
                 float distanceToPlayer = Vector3.Distance(transform.position, _hit);
                 
-                if (m_enemyType == EnemyType.Melee && _enemySword is not null)
-                {
-                    //Melee Logic
-                    if (!_enemySword.m_isAttacking && distanceToPlayer <= _minAttackDistance &&
-                        Time.time >= _lastAttackTime + _attackCooldown)
-                    {
-                        _enemySword.m_isAttacking = true;
-                        _lastAttackTime = Time.time;
-                    }
-                
-                    _enemySword.Attack();
-                }
                 
             }
 
@@ -325,6 +324,7 @@ namespace Enemy.Runtime
                             // Ne se rapproche pas si trop proche
                             if (distance > _minAttackDistance)
                             {
+                                angle = _detectionAngle;
                                 _agent.SetDestination(_hit);
                             }
                             else
@@ -448,6 +448,7 @@ namespace Enemy.Runtime
                 case EnemyType.Melee:
                     if (distanceToPlayer > _minAttackDistance)
                     {
+                        
                         _agent.SetDestination(_hit);
                         _isPreparingAttack = false;
                     }
@@ -460,32 +461,25 @@ namespace Enemy.Runtime
                         {
                             break;
                         }
-                        if (!_enemySword.m_isAttacking && Time.time >= _lastAttackTime + _attackCooldown)
-                        {
-                            if (!_isPreparingAttack)
-                            {
-                                _isPreparingAttack = true;
-                                _attackPrepareStartTime = Time.time;
-                            }
 
-                            else
+                        if (Time.time >= _lastAttackTime + _attackCooldown)
+                        {
+                            _lastAttackTime = Time.time;
+                            _animator.SetTrigger("IsAttack");
+
+                            if (_enemySword is not null)
                             {
-                                if (Time.time >= _attackPrepareStartTime + _attackDelay)
-                                {
-                                    if (m_playerDetected && distanceToPlayer <= _minAttackDistance)
-                                    {
-                                        _enemySword.m_isAttacking = true;
-                                        _lastAttackTime = Time.time;
-                                        _isPreparingAttack = false;
-                                        _enemySword.Attack();
-                                    }
-                                }
+                                _enemySword.ActivateDamage();
+                                Invoke(nameof(_enemySword.DeactivateDamage),_attackDelay);
                             }
                         }
+                        
                     }
                     break;
                 
                 case EnemyType.Ranged:
+                    if (!m_playerDetected) return;
+                    
                     if (distanceToPlayer > _minAttackDistance)
                     {
                         _agent.SetDestination(_hit);
@@ -497,7 +491,9 @@ namespace Enemy.Runtime
                         if (_enemyShoot is not null && Time.time >= _lastAttackTime + _attackCooldown)
                         {
                             _lastAttackTime = Time.time;
-                            _enemyShoot.Shooting();
+                            
+                            _animator.SetTrigger("IsAttack");
+                            // _enemyShoot.Shooting();
                         }
                     }
                     break;
@@ -589,7 +585,8 @@ namespace Enemy.Runtime
 
         private EnemyBig _enemyBig;
         private bool _enemyIsDetected;
-        
+        private Animator _animator;
+
         #endregion
     }
 }
