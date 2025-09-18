@@ -3610,6 +3610,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
+      objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
       value: 10
@@ -4449,6 +4453,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7422,6 +7430,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
+      objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
       value: 10
@@ -8182,11 +8194,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6602392302240367088, guid: d2577fd1e07e2924dbade168031fc1cf, type: 3}
---- !u!1 &575605894 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3584637778921026509, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
-  m_PrefabInstance: {fileID: 924340492}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &575718094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 756673486339295273, guid: 93d3b9c280569794eb9a75b894f0274e, type: 3}
@@ -8304,6 +8311,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
@@ -11936,6 +11947,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
+      objectReference: {fileID: 0}
     - target: {fileID: 1232763264080889791, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -12351,6 +12366,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
@@ -13057,7 +13076,7 @@ PrefabInstance:
     - target: {fileID: 3520633801309587532, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: _pressToCloseTextObject
       value: 
-      objectReference: {fileID: 575605894}
+      objectReference: {fileID: 0}
     - target: {fileID: 4210584169379710260, guid: 013c5e8879de81741865e6b99a87b074, type: 3}
       propertyPath: m_Name
       value: Player
@@ -14040,6 +14059,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
@@ -17234,6 +17257,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
@@ -25673,6 +25700,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
+      objectReference: {fileID: 0}
     - target: {fileID: 1534299345242973732, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: _Damage
       value: 10
@@ -28074,6 +28105,10 @@ PrefabInstance:
     - target: {fileID: 4273062989659732912, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747072553118924701, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Core
       objectReference: {fileID: 0}
     - target: {fileID: 1232763264080889791, guid: a40cb37baff967d4db70df4f989b4ecc, type: 3}
       propertyPath: m_Enabled
