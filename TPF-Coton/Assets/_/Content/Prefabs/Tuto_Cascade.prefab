@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996948488124317421}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.017810553, z: -0, w: 0.99984145}
+  m_LocalRotation: {x: 0, y: 0.017810145, z: 0, w: 0.9998414}
   m_LocalPosition: {x: -31.36, y: -1.66, z: -18.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -413,7 +413,7 @@ Transform:
   - {fileID: 7866524929080119081}
   - {fileID: 783083351474374057}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -87.959, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 2.041, z: 0}
 --- !u!1 &2286559588713418559
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 5900464868755957105}
   - component: {fileID: 8121685583552119785}
   - component: {fileID: 4423471209784462352}
+  - component: {fileID: 5784158200125745978}
   m_Layer: 0
   m_Name: RocherCascade
   m_TagString: Untagged
@@ -868,6 +869,28 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!64 &5784158200125745978
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608638201080874048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 577575909065787259, guid: 8c37f60431599a2419c578309938f1ca, type: 3}
 --- !u!1 &2701061925056500714
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +902,7 @@ GameObject:
   - component: {fileID: 2606059967280638011}
   - component: {fileID: 5824635449557948135}
   - component: {fileID: 3889778226524324612}
+  - component: {fileID: 4097156793375640509}
   m_Layer: 0
   m_Name: Arbre4
   m_TagString: Untagged
@@ -955,6 +979,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4097156793375640509
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701061925056500714}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4852504023235083679, guid: 7699a31a4cb5eeb47853f0e9bcd8d96f, type: 3}
 --- !u!1 &3375323323801620441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,6 +3126,7 @@ GameObject:
   - component: {fileID: 5354581034453511440}
   - component: {fileID: 2027509055357337520}
   - component: {fileID: 8057441804196951526}
+  - component: {fileID: 7485653838847963804}
   m_Layer: 0
   m_Name: RocherCoter
   m_TagString: Untagged
@@ -3176,6 +3223,28 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!64 &7485653838847963804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592196741105354925}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4792094543930012775, guid: 74234db1c03196e40a4cc8e93b69e564, type: 3}
 --- !u!1 &8824722134405459215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3344,7 @@ GameObject:
   - component: {fileID: 7748615559281824697}
   - component: {fileID: 2343983188425503610}
   - component: {fileID: 6221562875008973840}
+  - component: {fileID: 2316465206983126351}
   m_Layer: 0
   m_Name: RocherCentre
   m_TagString: Untagged
@@ -3371,6 +3441,28 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!64 &2316465206983126351
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000730490991034147}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6947388716912585773, guid: d180e4c0740d86b44b74375a213ef05f, type: 3}
 --- !u!1001 &25661697100688929
 PrefabInstance:
   m_ObjectHideFlags: 0
