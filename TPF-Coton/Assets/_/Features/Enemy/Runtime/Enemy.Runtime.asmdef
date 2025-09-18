@@ -4,7 +4,8 @@
     "references": [
         "Object.Runtime",
         "Knockback.Runtime",
-        "Interface.Runtime"
+        "Interface.Runtime",
+        "Player.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

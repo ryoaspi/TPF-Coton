@@ -506,7 +506,8 @@ namespace Enemy.Runtime
                         if (Time.time >= _lastAttackTime + _attackCooldown)
                         {
                             _lastAttackTime = Time.time;
-                            _enemyBig.Fight();
+                            _animator.SetTrigger("IsAttack");
+                            // _enemyBig.Fight();
                         }
                     }
                     break;

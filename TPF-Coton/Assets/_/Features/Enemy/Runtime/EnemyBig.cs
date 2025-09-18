@@ -1,6 +1,7 @@
 using Interface.Runtime;
 using Object.Runtime;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.Runtime
 {
@@ -22,6 +23,9 @@ namespace Enemy.Runtime
             _enemyStat = GetComponent<EnemyStat>();
             _enemyAI = GetComponent<EnemyAI>();
             _enemyStat.OnCotonLost += (int amount) => LoseCoton(amount, true);
+            _animator =  GetComponent<Animator>();
+            _agent = GetComponent<NavMeshAgent>();
+            _agentSpeed = _agent.velocity;
             
             _baseDamage = _enemyStat.m_damage;
             _baseBlock = _enemyStat.m_block;
@@ -30,16 +34,16 @@ namespace Enemy.Runtime
 
         private void Update()
         {
-            if (_isAttacking)
-            {
-                _attackTimer += Time.deltaTime;
-                if (_attackTimer >= _attackDuration)
-                {
-                    m_colliderDommage.SetActive(false);
-                    _isAttacking = false;
-                    _attackTimer = 0;
-                }
-            }
+            // if (_isAttacking)
+            // {
+            //     _attackTimer += Time.deltaTime;
+            //     if (_attackTimer >= _attackDuration)
+            //     {
+            //         m_colliderDommage.SetActive(false);
+            //         _isAttacking = false;
+            //         _attackTimer = 0;
+            //     }
+            // }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -51,7 +55,6 @@ namespace Enemy.Runtime
                 
                 int cotonCollected = collectable.Collect();
                 other.gameObject.SetActive(false);
-
                 _enemyAI.ResetCotonCollection();
                 
                 // === Soin si PV perdus ===
@@ -104,6 +107,18 @@ namespace Enemy.Runtime
             _attackTimer = 0f;
             m_colliderDommage.SetActive(true);
         }
+
+        public void EndAttack()
+        {
+            m_colliderDommage.SetActive(false);
+            _isAttacking = false;
+            _attackTimer = 0;
+        }
+
+        public void EndEat()
+        {
+            _agent.velocity = _agentSpeed;
+        }
         
         #endregion
 
@@ -146,6 +161,9 @@ namespace Enemy.Runtime
         private float _attackTimer;
         private float _attackDuration =1f;
         private bool _isAttacking;
+        private Animator _animator;
+        private NavMeshAgent _agent;
+        private Vector3 _agentSpeed;
         
         #endregion
     }
