@@ -2707,6 +2707,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5027850974616098178, guid: 00a9328564874b043be30d52f9311902, type: 3}
   m_PrefabInstance: {fileID: 3746092783524743747}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4235843763568488720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.031237695
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6029693
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.03042496
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.79657173
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 175.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -254.216
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709341927329490188, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.7519989
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086043770131300278, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
+      propertyPath: m_Name
+      value: Tente
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b3a30ce3b1dda541af97c16e0a07939, type: 3}
 --- !u!1001 &4322597851211291140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3891,3 +3948,4 @@ SceneRoots:
   - {fileID: 3707820382745149861}
   - {fileID: 1891978044124671418}
   - {fileID: 8310606175775425083}
+  - {fileID: 4235843763568488720}
