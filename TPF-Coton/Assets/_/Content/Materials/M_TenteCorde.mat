@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Tente
+  m_Name: M_TenteCorde
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -41,11 +41,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 35f67cf3eed9c064aa275e869602fe17, type: 3}
+        m_Texture: {fileID: 2800000, guid: b28ade4296b68244fb00518a1fdf5b62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 65ca7113551cd3344bdf35ccb3363e7d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 30d74e10711cb224ab29cbde0c8c088d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -61,15 +61,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 31a267dde9619f247a876b5f04e60267, type: 3}
+        m_Texture: {fileID: 2800000, guid: c4e9222ef1a197441aaca028a27b692c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 35f67cf3eed9c064aa275e869602fe17, type: 3}
+        m_Texture: {fileID: 2800000, guid: b28ade4296b68244fb00518a1fdf5b62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: f3280eb622536054ca777d8175170af7, type: 3}
+        m_Texture: {fileID: 2800000, guid: c3d1ce3fcf6f4454da1b85b5fe36da67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
