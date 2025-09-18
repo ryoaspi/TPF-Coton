@@ -45,12 +45,9 @@ namespace Enemy.Runtime
 
         private void Update()
         {
-            if (m_enemyType == EnemyType.Ranged || m_enemyType == EnemyType.Melee)
+            if (_animator is not null)
             {
-                if (_animator is not null)
-                {
-                    _animator.SetFloat("Speed", _agent.velocity.magnitude);
-                }
+                _animator.SetFloat("Speed", _agent.velocity.magnitude);
             }
         }
 
