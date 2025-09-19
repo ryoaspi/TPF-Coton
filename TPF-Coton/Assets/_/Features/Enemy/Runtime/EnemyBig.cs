@@ -56,6 +56,9 @@ namespace Enemy.Runtime
                 int cotonCollected = collectable.Collect();
                 other.gameObject.SetActive(false);
                 _enemyAI.ResetCotonCollection();
+                _enemyAI.m_isEating = true;
+                _agent.isStopped = true;
+                _animator.SetTrigger("Eat");
                 
                 // === Soin si PV perdus ===
                 int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
