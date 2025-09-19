@@ -5,6 +5,7 @@ namespace Environment.Runtime
 {
     public class InspectablePoint : MonoBehaviour, IInspectable
     {
+        [HideInInspector] public bool m_See;
 
         public string InspectionLabel => _label;
         public Sprite InspectIconPC => _iconPC;

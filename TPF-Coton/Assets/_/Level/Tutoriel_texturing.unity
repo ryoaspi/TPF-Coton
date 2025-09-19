@@ -2908,6 +2908,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1158027755384850881, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
   m_PrefabInstance: {fileID: 1052347919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &491546107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491546110}
+  - component: {fileID: 491546109}
+  - component: {fileID: 491546108}
+  m_Layer: 16
+  m_Name: Inspectable_Fronde
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &491546108
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491546107}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.613863, y: 4.036899, z: 9.3682375}
+  m_Center: {x: -0.08814621, y: 1.5184498, z: 0.158916}
+--- !u!114 &491546109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491546107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87275e69d3b143a4fa7eebda5b3b9a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: Fronde
+  _iconPC: {fileID: 21300000, guid: 9c38dcb97d04c764888f3734e3c03a1f, type: 3}
+  _iconXbox: {fileID: 21300000, guid: 598313522538c8a4b87a3d51f3e25177, type: 3}
+  _iconPS: {fileID: 21300000, guid: 330b78f9bf312814caf0457dd8c141b7, type: 3}
+--- !u!4 &491546110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491546107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.35, y: 0.361, z: 38.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508305333
 GameObject:
   m_ObjectHideFlags: 0
@@ -11768,6 +11838,76 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &1611654142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1611654145}
+  - component: {fileID: 1611654144}
+  - component: {fileID: 1611654143}
+  m_Layer: 16
+  m_Name: Inspectable_Bouclier
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1611654143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611654142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.613863, y: 4.036899, z: 9.3682375}
+  m_Center: {x: -0.08814621, y: 1.5184498, z: 0.158916}
+--- !u!114 &1611654144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611654142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87275e69d3b143a4fa7eebda5b3b9a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: Bouclier
+  _iconPC: {fileID: 21300000, guid: 9c38dcb97d04c764888f3734e3c03a1f, type: 3}
+  _iconXbox: {fileID: 21300000, guid: 598313522538c8a4b87a3d51f3e25177, type: 3}
+  _iconPS: {fileID: 21300000, guid: 330b78f9bf312814caf0457dd8c141b7, type: 3}
+--- !u!4 &1611654145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611654142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0.361, z: 32.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624253708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6900858977958169994, guid: 447b32681a69d234ab2897c18d1db8eb, type: 3}
@@ -12686,7 +12826,7 @@ GameObject:
   - component: {fileID: 1774677680}
   - component: {fileID: 1774677682}
   m_Layer: 16
-  m_Name: Inspectable
+  m_Name: Inspectable_Frapper
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -12706,8 +12846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: Frapper
   _iconPC: {fileID: 21300000, guid: 9c38dcb97d04c764888f3734e3c03a1f, type: 3}
-  _iconXbox: {fileID: 21300000, guid: d8ae4c9049d646f4fb08785ffd14a64a, type: 3}
-  _iconPS: {fileID: 21300000, guid: d8ae4c9049d646f4fb08785ffd14a64a, type: 3}
+  _iconXbox: {fileID: 21300000, guid: 598313522538c8a4b87a3d51f3e25177, type: 3}
+  _iconPS: {fileID: 21300000, guid: 330b78f9bf312814caf0457dd8c141b7, type: 3}
 --- !u!4 &1774677681
 Transform:
   m_ObjectHideFlags: 0
@@ -16793,4 +16933,6 @@ SceneRoots:
   - {fileID: 2112170025}
   - {fileID: 1166887806}
   - {fileID: 1774677681}
+  - {fileID: 1611654145}
+  - {fileID: 491546110}
   - {fileID: 1327588747}

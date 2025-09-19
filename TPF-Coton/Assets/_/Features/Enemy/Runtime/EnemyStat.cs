@@ -80,7 +80,7 @@ namespace Enemy.Runtime
             
             damageToApply = Mathf.Min(damageToApply, _currentHealth);
 
-            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed && _enemyBig is not null)
             {
                 _enemyBig.LoseCoton(damageToApply);
             }

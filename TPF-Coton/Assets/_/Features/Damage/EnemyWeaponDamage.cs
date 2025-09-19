@@ -25,6 +25,7 @@ namespace Damage.Runtime
             {
                 if (_weaponEnemyDamage == null || !_weaponEnemyDamage.m_isAttacking) return;
             }
+            
             HandleCollision(other);
         }
 
@@ -49,20 +50,26 @@ namespace Damage.Runtime
             if (other == null || _enemyStat == null) return;
 
             int otherLayer = other.gameObject.layer;
-
+            
             // Gestion des dégâts sur un autre ennemi (pour le type Puffed)
             if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed &&
                 otherLayer == LayerMask.NameToLayer("Enemy") &&
                 !_hasDamagedPlayer)
             {
-                var otherEnemy = other.GetComponentInParent<EnemyStat>();
-                if (otherEnemy != null && otherEnemy != _enemyStat)
+                
+                if (other.transform.IsChildOf(transform)) return;
+
+                EnemyStat otherEnemy = other.GetComponentInParent<EnemyStat>();
+
+                if (otherEnemy == null || otherEnemy == _enemyStat)
                 {
-                    _damage = _enemyStat.m_currentHealth;
                     
-                    otherEnemy.DoDamage(_damage, transform);
-                    _hasDamagedPlayer = true;
+                    return;
                 }
+
+                _damage = _enemyStat.m_currentHealth;
+                otherEnemy.DoDamage(_damage, transform);
+                _hasDamagedPlayer = true;
             }
 
             // Gestion des dégâts sur le joueur
