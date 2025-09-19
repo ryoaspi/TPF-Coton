@@ -78,7 +78,7 @@ namespace Craft.Runtime
                 
                 // Check les objets inspectables
                 IInspectable inspectable = hit.collider.GetComponent<IInspectable>();
-                if (inspectable is not null && distanceToHit <= _maxInteractionDistance && !((InspectablePoint)inspectable).HasBeenInspected)
+                if (inspectable is not null && distanceToHit <= _maxInteractionDistance && !inspectable.HasBeenInspected)
                 {
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
