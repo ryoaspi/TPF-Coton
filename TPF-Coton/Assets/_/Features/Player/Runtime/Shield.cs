@@ -64,7 +64,6 @@ namespace Player.Runtime
             {
                 m_isShielding = true;
                 _shield.SetActive(true);
-                _playerMovement.m_speed = 0;
             }
                 
             
@@ -73,7 +72,7 @@ namespace Player.Runtime
         private void OnBlockCancelled(InputAction.CallbackContext context)
         {
             
-                _playerMovement.m_speed = _playerMovement.m_speedSave;
+                
                 m_isShielding = false;
                 _shield.SetActive(false);
                 
