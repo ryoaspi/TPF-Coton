@@ -63,7 +63,6 @@ namespace Damage.Runtime
 
                 if (otherEnemy == null || otherEnemy == _enemyStat)
                 {
-                    
                     return;
                 }
 

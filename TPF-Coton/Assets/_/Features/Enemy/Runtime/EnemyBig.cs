@@ -31,21 +31,7 @@ namespace Enemy.Runtime
             _baseBlock = _enemyStat.m_block;
             _baseHealth = _enemyStat.m_currentHealth;
         }
-
-        private void Update()
-        {
-            // if (_isAttacking)
-            // {
-            //     _attackTimer += Time.deltaTime;
-            //     if (_attackTimer >= _attackDuration)
-            //     {
-            //         m_colliderDommage.SetActive(false);
-            //         _isAttacking = false;
-            //         _attackTimer = 0;
-            //     }
-            // }
-        }
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out ICollectable collectable))
