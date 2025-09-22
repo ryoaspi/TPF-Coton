@@ -1,13 +1,7 @@
 {
-    "name": "Enemy.Runtime",
-    "rootNamespace": "Enemy.Runtime",
-    "references": [
-        "Object.Runtime",
-        "Knockback.Runtime",
-        "Interface.Runtime",
-        "Player.Runtime",
-        "Sound.Runtime"
-    ],
+    "name": "Sound.Runtime",
+    "rootNamespace": "Sound.Runtime",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
