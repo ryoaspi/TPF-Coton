@@ -141,7 +141,7 @@ namespace Enemy.Runtime
             int newHealth = _baseHealth + buffLevel;
             
             GameObject parent = transform.parent.gameObject;
-            float upScale = buffLevel * 0.1f;
+            float upScale = buffLevel * _ModificateurScale;
             parent.transform.localScale = new Vector3(1 + upScale, 1 + upScale, 1 + upScale);
             _enemyStat.SetStat(newDamage,newBlock,newHealth);
             
@@ -154,6 +154,7 @@ namespace Enemy.Runtime
         
         #region Private And Protected
 
+        [SerializeField] private float _ModificateurScale= 0.3f;
         [SerializeField] private int _counter = 5;
         private int _coton;
         private EnemyStat _enemyStat;
@@ -173,6 +174,8 @@ namespace Enemy.Runtime
         private Vector3 _agentSpeed;
         
         private GameObject _colliderDisable;
+        
+        
         
         #endregion
     }

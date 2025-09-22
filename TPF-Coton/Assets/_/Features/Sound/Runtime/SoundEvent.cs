@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Sound.Runtime
 {
@@ -20,6 +22,7 @@ namespace Sound.Runtime
 
         private Dictionary<string, NamedSound> _soundDict;
         private AudioSource _audioSource;
+        private Action _onCompleteCallback;
 
         void Awake()
         {
@@ -50,6 +53,36 @@ namespace Sound.Runtime
                 var selectedClip = sound.m_audioClips[randomIndex];
                 
                 _audioSource.PlayOneShot(selectedClip,sound.m_volume);
+                
+            }
+
+            else
+            {
+                Debug.LogWarning($"Son '{soundName}' non trouvé sur  {gameObject.name}");
+            }
+        }
+        
+        public void PlaySoundEventScript(string soundName, Action onComplete = null)
+        {
+            if (_soundDict.TryGetValue(soundName, out var sound))
+            {
+                if (sound.m_audioClips.Count == 0)
+                {
+                    Debug.LogWarning($"Aucun clip défini pour '{soundName}' sur {gameObject.name}");
+                    return;
+                }
+                
+                // Choisir un clip aléatoire
+                var randomIndex = Random.Range(0, sound.m_audioClips.Count);
+                var selectedClip = sound.m_audioClips[randomIndex];
+                
+                _audioSource.PlayOneShot(selectedClip,sound.m_volume);
+
+                if (onComplete != null)
+                {
+                    _onCompleteCallback = onComplete;
+                    Invoke(nameof(InvokeOnComplete),selectedClip.length);
+                }
             }
 
             else
@@ -58,5 +91,11 @@ namespace Sound.Runtime
             }
         }
 
+        private void InvokeOnComplete()
+        {
+            _onCompleteCallback?.Invoke();
+            CancelInvoke(nameof(InvokeOnComplete));
+            _onCompleteCallback = null;
+        }
     }
 }

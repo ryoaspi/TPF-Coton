@@ -41,7 +41,7 @@ namespace Object.Runtime
         private void OnDisable()
         {
             _parabolLerp.OnLerpComplete -= HandleLerpCompletes;
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
         
         private void OnCollisionEnter(Collision other)
