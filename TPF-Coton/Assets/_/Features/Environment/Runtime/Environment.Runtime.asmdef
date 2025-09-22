@@ -4,7 +4,8 @@
     "references": [
         "Player.Runtime",
         "Core.Runtime",
-        "Interface.Runtime"
+        "Interface.Runtime",
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

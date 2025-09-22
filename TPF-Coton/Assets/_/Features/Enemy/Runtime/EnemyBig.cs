@@ -40,12 +40,12 @@ namespace Enemy.Runtime
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
                 int cotonCollected = collectable.Collect();
-                other.gameObject.SetActive(false);
+                _colliderDisable = other.gameObject;
                 _enemyAI.ResetCotonCollection();
                 _enemyAI.m_isEating = true;
                 _agent.isStopped = true;
                 _animator.SetTrigger("Eat");
-                
+                                
                 // === Soin si PV perdus ===
                 int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
                 
@@ -104,10 +104,20 @@ namespace Enemy.Runtime
             _attackTimer = 0;
         }
 
+        public void Eat()
+        {
+            if (_colliderDisable is not null)
+            {
+                _colliderDisable.SetActive(false);
+                _colliderDisable = null;
+            }
+        }
+        
         public void EndEat()
         {
             _agent.velocity = _agentSpeed;
         }
+
         
         #endregion
 
@@ -153,6 +163,8 @@ namespace Enemy.Runtime
         private Animator _animator;
         private NavMeshAgent _agent;
         private Vector3 _agentSpeed;
+        
+        private GameObject _colliderDisable;
         
         #endregion
     }
