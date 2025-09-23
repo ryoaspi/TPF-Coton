@@ -12502,15 +12502,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.518272
+      value: -48.8
       objectReference: {fileID: 0}
     - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.18
+      value: 51.1
       objectReference: {fileID: 0}
     - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.11
+      value: 48.9
       objectReference: {fileID: 0}
     - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12541,6 +12541,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: lengthInSec
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 50
       objectReference: {fileID: 0}
@@ -12549,12 +12553,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: EmissionModule.rateOverTime.minScalar
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3495905877405199779, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
       propertyPath: m_Name
