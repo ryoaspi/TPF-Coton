@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_test1
+  m_Name: M_Cotton1
   m_Shader: {fileID: -6465566751694194690, guid: d9ac659a26b9db048bbd90089a2a827b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
