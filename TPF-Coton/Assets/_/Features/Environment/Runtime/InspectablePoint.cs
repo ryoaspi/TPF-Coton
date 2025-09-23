@@ -5,6 +5,11 @@ namespace Environment.Runtime
 {
     public class InspectablePoint : MonoBehaviour, IInspectable
     {
+        public bool HasBeenInspected => _hasBeenInspected;
+        public void MarkInspected()
+        {
+            _hasBeenInspected = true;
+        }
 
         public string InspectionLabel => _label;
         public Sprite InspectIconPC => _iconPC;
@@ -26,6 +31,8 @@ namespace Environment.Runtime
         [SerializeField] private Sprite _iconPC;
         [SerializeField] private Sprite _iconXbox;
         [SerializeField] private Sprite _iconPS;
+        
+        private bool _hasBeenInspected;
         
     }
 }

@@ -26,6 +26,7 @@ namespace Player.Runtime
             _playerDamage = GetComponent<PlayerDamage>();
             _baseGravity=Physics.gravity;
             _groundCheckMask=LayerMask.GetMask("Ground");
+            _shield = GetComponent<Shield>();
         }
 
         private void Start()
@@ -51,7 +52,7 @@ namespace Player.Runtime
                 _lastDirection = (camForward * _moveDirection.y + camRight * _moveDirection.x).normalized;
             }
 
-            if (_moveDirection.sqrMagnitude > 0.1f&&_isGrounded && _playerDamage.m_isAttacking == false)
+            if (_moveDirection.sqrMagnitude > 0.1f&&_isGrounded && _playerDamage.m_isAttacking == false && !_shield.m_isShielding)
             {
                 HandleMovement();
             }
@@ -235,6 +236,7 @@ namespace Player.Runtime
         private PlayerDamage _playerDamage;
         private Vector3 _baseGravity;
         [HideInInspector][FormerlySerializedAs("_isWalking")] public bool m_isWalking;
+        private Shield _shield;
 
         #endregion
     }
