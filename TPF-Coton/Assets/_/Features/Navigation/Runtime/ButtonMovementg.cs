@@ -27,7 +27,7 @@ namespace Navigation.Runtime
                     case "Credit":
                         _Selected[1].gameObject.SetActive(true);
                         break;
-                    case "Quit":
+                    case "QuitButton":
                         _Selected[2].gameObject.SetActive(true);
                         break;
                 }

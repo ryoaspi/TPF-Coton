@@ -1,5 +1,6 @@
 using Interface.Runtime;
 using Object.Runtime;
+using Sound.Runtime;
 using TMPro;
 using UnityEngine;
 
@@ -33,6 +34,7 @@ namespace Player.Runtime
                 {
                     Coton coton = other.GetComponent<Coton>();
                     if (coton is not null && !coton.CanBeCollected()) return;
+                    _soundEvent.PlaySoundEventScript("GetCoton");
                     _playerStats.m_currentHealth += collectable.Collect();
                     m_coton = _playerStats.m_currentHealth; 
                     CheckSize();
@@ -63,14 +65,33 @@ namespace Player.Runtime
         {
             if (m_coton <= _cotonForLittleState)
             {
+                if (_playerStats.m_currentState == 2)
+                {
+                    _soundEvent.PlaySoundEventScript("LevelDown");
+                }
+
                 _playerStats.LittleState();
             }
             else if (m_coton >= _cotonForBigState)
             {
+                if (_playerStats.m_currentState == 2)
+                {
+                    _soundEvent.PlaySoundEventScript("LevelUp");
+                }
+                
                 _playerStats.BigState();
             }
             else
             {
+                if (_playerStats.m_currentState==3)
+                {
+                    _soundEvent.PlaySoundEventScript("LevelDown");
+                }
+
+                if (_playerStats.m_currentState == 1)
+                {
+                    _soundEvent.PlaySoundEventScript("LevelUp");
+                }
                 _playerStats.MediumState();
             }
         }
@@ -97,6 +118,7 @@ namespace Player.Runtime
         
         [Header("Speed")]
         [SerializeField] private float _minimalSpeed=5;
+        [SerializeField] private SoundEvent _soundEvent;
 
         #endregion
     }
