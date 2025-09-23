@@ -12492,6 +12492,79 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2433475018940539290, guid: ee67cf579cb543348b843d48809a619e, type: 3}
+--- !u!1001 &844139146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.518272
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 58.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856240747655429482, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461615276664424734, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3495905877405199779, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: m_Name
+      value: Flocon_Coton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153801218927345488, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a2f4ffc963a5d744b96601fade8c0550, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b23fcc03222d64549b418e88cbc83b62, type: 3}
 --- !u!1 &844182991
 GameObject:
   m_ObjectHideFlags: 0
@@ -42350,3 +42423,4 @@ SceneRoots:
   - {fileID: 1415987746}
   - {fileID: 1238880274}
   - {fileID: 1870541253}
+  - {fileID: 844139146}
