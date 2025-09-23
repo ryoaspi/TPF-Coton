@@ -41,7 +41,7 @@ namespace Object.Runtime
         private void OnDisable()
         {
             _parabolLerp.OnLerpComplete -= HandleLerpCompletes;
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
         
         private void OnCollisionEnter(Collision other)
@@ -92,6 +92,16 @@ namespace Object.Runtime
             }
             
             return _valueCoton;
+        }
+
+        public bool TryCollect(out int value)
+        {
+            value = 0;
+            if (_collected || !CanBeCollected()) return false;
+
+            _collected = true;
+            value = _valueCoton;
+            return true;
         }
         
         #endregion

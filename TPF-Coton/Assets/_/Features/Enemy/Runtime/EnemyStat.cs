@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Object.Runtime;
+using Sound.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -80,7 +81,7 @@ namespace Enemy.Runtime
             
             damageToApply = Mathf.Min(damageToApply, _currentHealth);
 
-            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed && _enemyBig is not null)
             {
                 _enemyBig.LoseCoton(damageToApply);
             }
@@ -98,6 +99,12 @@ namespace Enemy.Runtime
             
             if (m_currentHealth <= 0)
             {
+                if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
+                {
+                    _soundEvent.PlaySoundEventScript("Death", (() => {Death();}));
+                    return;
+                }
+                
                 Death();
             }
         }
@@ -139,6 +146,8 @@ namespace Enemy.Runtime
             SetColot(Color.red);
             _isFlashing = true;
             _flashTimer = _hits;
+            
+            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed) _soundEvent.PlaySoundEvent("hit");
 
         }
         
@@ -250,6 +259,8 @@ namespace Enemy.Runtime
         private bool _isFlashing;
         private float _flashTimer;
 
+        [SerializeField] private SoundEvent _soundEvent;
+        [SerializeField] private AudioSource _audio;
 
         #endregion
     }
