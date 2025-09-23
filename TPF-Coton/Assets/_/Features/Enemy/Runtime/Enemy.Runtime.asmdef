@@ -5,7 +5,8 @@
         "Object.Runtime",
         "Knockback.Runtime",
         "Interface.Runtime",
-        "Player.Runtime"
+        "Player.Runtime",
+        "Sound.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

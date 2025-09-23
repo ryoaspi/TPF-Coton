@@ -322,7 +322,7 @@ namespace Enemy.Runtime
                     if (angle <= _detectionAngle / 2f)
                     {
                         Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
-                        if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
+                        if (!Physics.Raycast(raycastOrigin, direction, distance, _obstacleMask))
                         {
                             m_playerDetected = true;
                             _hit = collider.transform.position;
@@ -583,6 +583,7 @@ namespace Enemy.Runtime
         [SerializeField] private float _maxsearchTimer = 8f;
         [SerializeField] private float _arrivalEpsilon = 0.2f;
         private float _globalSearchTimer;
+        [SerializeField] private LayerMask _obstacleMask = default;
         
         private bool _isSearching;
         private float _searchTimer;

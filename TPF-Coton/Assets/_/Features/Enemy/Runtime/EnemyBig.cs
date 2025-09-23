@@ -39,31 +39,35 @@ namespace Enemy.Runtime
                 Coton coton = other.GetComponent<Coton>();
                 if (coton is not null && !coton.CanBeCollected()) return;
                 
-                int cotonCollected = collectable.Collect();
-                _colliderDisable = other.gameObject;
-                _enemyAI.ResetCotonCollection();
-                _enemyAI.m_isEating = true;
-                _agent.isStopped = true;
-                _animator.SetTrigger("Eat");
-                                
-                // === Soin si PV perdus ===
-                int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
-                
-                int healAmount = Mathf.Min(cotonCollected, missingHealth);
-
-                if (healAmount > 0)
+                if (coton.TryCollect(out int cotonCollected))
                 {
-                    _enemyStat.Heal(healAmount);
-                }
-                
-                // === le surplus est utilisé pour le buff ===
-                int cotonForBuff = cotonCollected - healAmount;
-                if (cotonForBuff > 0)
-                {
-                    m_currentCoton += cotonForBuff;
-                    UpdateStats();
+                    _colliderDisable = other.gameObject;
+                    _enemyAI.ResetCotonCollection();
+                    _enemyAI.m_isEating = true;
+                    _agent.isStopped = true;
+                    _animator.SetTrigger("Eat");
                     
+                                                    
+                    // === Soin si PV perdus ===
+                    int missingHealth = _enemyStat.m_currentHealth < _baseHealth ? _baseHealth - _enemyStat.m_currentHealth : 0;
+                
+                    int healAmount = Mathf.Min(cotonCollected, missingHealth);
+
+                    if (healAmount > 0)
+                    {
+                        _enemyStat.Heal(healAmount);
+                    }
+                
+                    // === le surplus est utilisé pour le buff ===
+                    int cotonForBuff = cotonCollected - healAmount;
+                    if (cotonForBuff > 0)
+                    {
+                        m_currentCoton += cotonForBuff;
+                        UpdateStats();
+                    
+                    }
                 }
+                
             }
         }
         
@@ -108,7 +112,11 @@ namespace Enemy.Runtime
         {
             if (_colliderDisable is not null)
             {
-                _colliderDisable.SetActive(false);
+                if (_colliderDisable.TryGetComponent<Transform>(out _))
+                {
+                    _colliderDisable.SetActive(false);
+                }
+                
                 _colliderDisable = null;
             }
         }
@@ -133,7 +141,7 @@ namespace Enemy.Runtime
             int newHealth = _baseHealth + buffLevel;
             
             GameObject parent = transform.parent.gameObject;
-            float upScale = buffLevel * 0.1f;
+            float upScale = buffLevel * _ModificateurScale;
             parent.transform.localScale = new Vector3(1 + upScale, 1 + upScale, 1 + upScale);
             _enemyStat.SetStat(newDamage,newBlock,newHealth);
             
@@ -146,6 +154,7 @@ namespace Enemy.Runtime
         
         #region Private And Protected
 
+        [SerializeField] private float _ModificateurScale= 0.3f;
         [SerializeField] private int _counter = 5;
         private int _coton;
         private EnemyStat _enemyStat;
@@ -165,6 +174,8 @@ namespace Enemy.Runtime
         private Vector3 _agentSpeed;
         
         private GameObject _colliderDisable;
+        
+        
         
         #endregion
     }

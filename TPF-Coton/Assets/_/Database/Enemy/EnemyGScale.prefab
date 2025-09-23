@@ -1212,6 +1212,8 @@ GameObject:
   - component: {fileID: 4342300969408932869}
   - component: {fileID: 2178105187756865318}
   - component: {fileID: 1145216329181100823}
+  - component: {fileID: 4968623595306776041}
+  - component: {fileID: 7878410708699854259}
   m_Layer: 13
   m_Name: 3d_enn_Gonflant
   m_TagString: Untagged
@@ -1290,6 +1292,9 @@ MonoBehaviour:
   _searchDuration: 1
   _maxsearchTimer: 5
   _arrivalEpsilon: 0.1
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6605914772006615050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,6 +1334,7 @@ MonoBehaviour:
   _distance: 1.5
   _arcHeight: 2
   _arcDuration: 1
+  _soundEvent: {fileID: 7878410708699854259}
 --- !u!114 &1055718532399457887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,6 +1411,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAi: {fileID: 3120962576996238499}
+--- !u!82 &4968623595306776041
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640008446853888860}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7878410708699854259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640008446853888860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcadbbac6a9d4943a7dc324bfabca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sounds:
+  - m_name: Step
+    m_audioClips:
+    - {fileID: 8300000, guid: 80b807871f426c547ad5871d7442f72c, type: 3}
+    - {fileID: 8300000, guid: 9ef78234b707ea9408bd43ace19e11e2, type: 3}
+    - {fileID: 8300000, guid: 908f4e98556e6d147b790aa8c98cb642, type: 3}
+    - {fileID: 8300000, guid: 506d5407ffd15e747b7f09f597ed9821, type: 3}
+    - {fileID: 8300000, guid: fb1930598bace054ebe00a05b6bdd6fa, type: 3}
+    - {fileID: 8300000, guid: 781ac3f6b164efa4ab56bf1f7317b926, type: 3}
+    m_volume: 0.5
+  - m_name: hit
+    m_audioClips:
+    - {fileID: 8300000, guid: f08665d96e7b96246ace266b2a7ebdff, type: 3}
+    - {fileID: 8300000, guid: 27abed50b8932a04780318277fbbbaab, type: 3}
+    m_volume: 1
+  - m_name: Eat
+    m_audioClips:
+    - {fileID: 8300000, guid: a2588a1d63f90d74987eacb43a7de2a3, type: 3}
+    - {fileID: 8300000, guid: 309b8340ffc7a934f8fc60f2996e2d21, type: 3}
+    m_volume: 0.5
+  - m_name: Punch
+    m_audioClips:
+    - {fileID: 8300000, guid: f2443d95a3176cb4a888567d57883dfc, type: 3}
+    - {fileID: 8300000, guid: eebcab80acaf7ca4e9bbffde74186573, type: 3}
+    - {fileID: 8300000, guid: abda048d82923e742a7bbcf8d60c5c18, type: 3}
+    m_volume: 1
 --- !u!1 &6855952138923366412
 GameObject:
   m_ObjectHideFlags: 0
