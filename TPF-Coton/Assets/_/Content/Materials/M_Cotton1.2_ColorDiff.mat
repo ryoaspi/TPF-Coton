@@ -62,6 +62,6 @@ Material:
     - _Smoothness: 0.163
     m_Colors:
     - _PrimaryColor: {r: 1, g: 1, b: 1, a: 0}
-    - _SecondaryColor: {r: 0.9843138, g: 0.6078432, b: 0.8666667, a: 1}
+    - _SecondaryColor: {r: 0.58911103, g: 0.40773934, b: 0.7132075, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
