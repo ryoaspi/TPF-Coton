@@ -21,7 +21,7 @@ namespace Cinematics.Runtime
             {
                 if (enemy == null) continue;
 
-                EnemyStat enemyStat = enemy.GetComponent<EnemyStat>();
+                EnemyStat enemyStat = enemy.GetComponentInChildren<EnemyStat>();
                 if (enemyStat != null) 
                 {
                     enemyStat.OnDeath += OnEnemyDeath;
