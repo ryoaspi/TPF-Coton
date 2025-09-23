@@ -5,6 +5,8 @@ namespace Interface.Runtime
 {
     public interface IInspectable
     {
+        bool HasBeenInspected { get; }
+        void MarkInspected();
         string InspectionLabel { get; }
         Sprite InspectIconPC { get; }
         Sprite InspectIconXbox { get; }

@@ -1,0 +1,492 @@
+<REAPER_PROJECT 0.1 "7.43/win64" 1758100497
+  AUTHOR "Michel GRIGORAKIS"
+  <NOTES 1 1
+  >
+  RIPPLE 0 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 129
+  ENVATTACH 0
+  POOLEDENVATTACH 0
+  MIXERUIFLAGS 11 49
+  ENVFADESZ10 40
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 600
+  GRID 3455 8 1 8 1 0 0 0
+  TIMEMODE 5 2 5 25 0 -1 -1
+  PANMODE 3
+  CURSOR 47.20388124311116
+  ZOOM 6.49054715231345 0 0
+  VZOOMEX 4 0
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 25 100 40 1000 300 0 0 1 0 0
+  LOOP 1
+  LOOPGRAN 0 4
+  RECORD_PATH "" ""
+  <RECORD_CFG
+    ZXZhdxgIAA==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN ""
+  RENDER_FMT 0 2 44100
+  RENDER_1X 0
+  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  RENDER_NORMALIZE 65 0.070795 0.891251 0 0 1 1
+  TIMELOCKMODE 0
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 0
+  DEFPITCHMODE 393216 0
+  TAKELANE 1
+  SAMPLERATE 48000 0 0
+  <RENDER_CFG
+    ZXZhdxgAAA==
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    BEATLEN 4
+    FREQ 800 1600 1
+    SAMPLES "" "" "" ""
+    SPLIGNORE 0 0
+    SPLDEF 2 660 "" 0 ""
+    SPLDEF 3 440 "" 0 ""
+    PATTERN 0 169
+    PATTERNSTR ABBB
+    MULT 1
+  >
+  GLOBAL_AUTO -1
+  TEMPO 120 4 4 0
+  PLAYRATE 1 0 0.5 2
+  SELECTION 143.93221428970551 0
+  SELECTION2 143.93221428970551 0
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 0 0 0 0 0 0 0 0 0
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_PANMODE 3
+  MASTER_PANLAWFLAGS 3
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERPLAYSPEEDENV
+    EGUID {8440AD49-494B-4BB4-9AC3-76E7C4E1E145}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 2 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {F4C687EE-7264-4531-B967-CE051A8373F5}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  <PROJBAY
+  >
+  <TRACK {3D7F9A69-5732-46F9-9656-C54A0BFAF688}
+    NAME "QP02 0139 Wind modern light variable wires"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {3D7F9A69-5732-46F9-9656-C54A0BFAF688}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 148
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {B8ADCE28-0D8E-41F3-B76E-09F07A9DE542}
+      IID 1
+      NAME "QP02 0139 Wind modern light variable wires.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {28BBE916-DF81-483C-B2F9-F7BCC3020BDD}
+      <SOURCE WAVE
+        FILE "C:\Users\s_13652_soundgaming\Desktop\SOUND BANKZ 283Go\Boom Libraries Bundle WAV\Winds Of Nature\QP02 0139 Wind modern light variable wires.wav"
+      >
+    >
+  >
+  <TRACK {3AE17279-8B6D-48D8-88BB-5352E13122B1}
+    NAME "QP01 0128 Canyon owl"
+    PEAKCOL 23093344
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {3AE17279-8B6D-48D8-88BB-5352E13122B1}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 147.64408163265307
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 5 2.56627360959253 0 5 0 0 0
+      FADEOUT 1 8.05435044421066 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {27887D5F-FE7C-4CF0-BFA4-EE4DD2E0CD45}
+      IID 11
+      NAME Sunset-Landscape(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {298D8404-1FB2-46D3-9CC0-4ECEEB3EB52E}
+      <SOURCE MP3
+        FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\Sunset-Landscape(chosic.com).mp3" 1
+      >
+      <VOLENV
+        EGUID {CE3F2F05-2CF2-4E6D-9120-4E746B12ED22}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 2 0.14791084 2
+        PT 8 0.26811203 2
+        PT 24.80731156 1.34896287 2
+        PT 27.60688277 0.11481537 2 0 1
+        PT 41 0.91201083 2
+        PT 74 0.51286138 2
+        PT 76.91044242 0.18197008 2
+        PT 83.5 0.13803842 2
+        PT 89 0.39810717 2
+        PT 123.5 0.97723721 2
+        PT 134 0.14791084 2
+      >
+    >
+  >
+  <TRACK {81D97D66-809C-4391-BADB-B8C146790812}
+    NAME 13-Slainte-Fanny-Power(chosic.com)
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 1
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {81D97D66-809C-4391-BADB-B8C146790812}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 6
+      SNAPOFFS 0
+      LENGTH 55
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 5.24187339158038 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {84688C26-C2B8-44A5-98D7-AAA0FEE1354D}
+      IID 12
+      NAME 13-Slainte-Fanny-Power(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {945F7202-1402-434F-8F2A-1D35448D2676}
+      <SOURCE MP3
+        FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\13-Slainte-Fanny-Power(chosic.com).mp3" 1
+      >
+      <VOLENV
+        EGUID {9FE18252-50BD-4619-9E35-358225EF5775}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 0.14350349 0.00724436 2
+        PT 9.78647099 0.04511944 2
+        PT 44.5 0.67608298 2
+        PT 47.02253122 0.30199516 2
+        PT 49.40129623 0.20648274 2
+        PT 53.64641996 0.00537032 2 0 1
+      >
+    >
+    <ITEM
+      POSITION 62.625927153342
+      SNAPOFFS 0
+      LENGTH 59.1731056149649
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 4 1.54534081555225 0 4 0 1 1
+      FADEOUT 1 4.08938794619282 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {D5E44667-1E5D-4EFA-AA67-E29EFAC44192}
+      IID 12
+      NAME 13-Slainte-Fanny-Power(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 55
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {8171C813-1FD7-4140-B484-3AD5A7CFBC63}
+      <SOURCE MP3
+        FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\13-Slainte-Fanny-Power(chosic.com).mp3" 1
+      >
+      <VOLENV
+        EGUID {F4309950-925F-47F7-8111-A90E5C528591}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 0 0.04265795 2
+        PT 1.05003927 0.15590108 2
+        PT 7.78416144 0.9332543 2 0 1
+        PT 17.55068168 0.87096359 2
+        PT 36.99214842 0.79432823 2
+        PT 42.5 0.40738028 2
+        PT 51.5 0.16218101 2
+        PT 58.5 0.03235937 2
+      >
+    >
+    <ITEM
+      POSITION 194
+      SNAPOFFS 0
+      LENGTH 217.4252617319739
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {6698F837-973D-435F-B8C5-B4E56C1B8A37}
+      IID 12
+      NAME 13-Slainte-Fanny-Power(chosic.com).mp3
+      VOLPAN 0.418605 0 1 -1
+      SOFFS 114.1731056149649
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {146435F7-0363-4BCF-B4D4-4E9165669FEC}
+      <SOURCE MP3
+        FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\13-Slainte-Fanny-Power(chosic.com).mp3" 1
+      >
+    >
+  >
+  <TRACK {3B1652B1-9918-492E-95FB-0E984A8D32CA}
+    NAME 06-Slainte-The-Manx-Lullaby(chosic.com)
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {3B1652B1-9918-492E-95FB-0E984A8D32CA}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 22.5
+      SNAPOFFS 0
+      LENGTH 16.91061619244351
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 2.11756180860218 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {6E98EBAC-D508-4CAF-9D8D-2F6228E92B6C}
+      IID 16
+      NAME 06-Slainte-The-Manx-Lullaby(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {CB04E32A-298D-4752-B9A8-576F6067617B}
+      <SOURCE SECTION
+        LENGTH 16.91061619244351
+        STARTPOS 1.11641111162881
+        OVERLAP 0.01
+        <SOURCE MP3
+          FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\06-Slainte-The-Manx-Lullaby(chosic.com).mp3" 1
+        >
+      >
+      <VOLENV
+        EGUID {22E2593D-3B80-4E68-A924-D6E3D54BD412}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 0.20763315 0.1023293 2 0 1
+        PT 3 0.79432823 2
+        PT 12 0.91201084 2
+        PT 16.91061619 0.16595869 2
+      >
+    >
+    <ITEM
+      POSITION 51
+      SNAPOFFS 0
+      LENGTH 16.91061619244351
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 2.78836926013248 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {C6668C99-BF7A-4233-9D99-C9CB736F4C42}
+      IID 16
+      NAME 06-Slainte-The-Manx-Lullaby(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {21523490-BEA1-43CE-A762-C1E98B184AEE}
+      <SOURCE SECTION
+        LENGTH 16.91061619244351
+        STARTPOS 1.11641111162881
+        OVERLAP 0.01
+        <SOURCE MP3
+          FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\06-Slainte-The-Manx-Lullaby(chosic.com).mp3" 1
+        >
+      >
+      <VOLENV
+        EGUID {0D9E6922-E553-4BE3-84C7-FC456E58FE58}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 0 0.03548134 2
+        PT 2 0.26915348 2
+        PT 5 0.87096359 2
+        PT 10 0.72443596 2
+        PT 14.20149518 0.25703958 2 0 1
+        PT 16 0.01905461 2
+      >
+    >
+    <ITEM
+      POSITION 84
+      SNAPOFFS 0
+      LENGTH 16.91061619244351
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {05C46AD6-36DD-4883-A7C6-1D222FF4D453}
+      IID 16
+      NAME 06-Slainte-The-Manx-Lullaby(chosic.com).mp3
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {D08AEEF9-5661-450D-B66F-A237A9BFC3CE}
+      <SOURCE SECTION
+        LENGTH 16.91061619244351
+        STARTPOS 1.11641111162881
+        OVERLAP 0.01
+        <SOURCE MP3
+          FILE "C:\Users\s_13652_soundgaming\Desktop\instrument\06-Slainte-The-Manx-Lullaby(chosic.com).mp3" 1
+        >
+      >
+      <VOLENV
+        EGUID {7D9C29AE-6D60-4590-A9E4-F1D66AA1E470}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 0
+        DEFSHAPE 2 -1 -1
+        VOLTYPE 1
+        PT 0 0.1023293 2
+        PT 4.5 1.23026877 2
+        PT 10 0.67608298 2 0 1
+        PT 13.5 0.17782794 2
+        PT 16.5 0.07943282 2
+      >
+    >
+  >
+  <EXTENSIONS
+  >
+>

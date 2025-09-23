@@ -180,6 +180,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 90b61e8540f87114fabf3625096fe3c3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0688e717c24ce94448f11661ad56a28f, type: 2}
     - target: {fileID: 919132149155446097, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
       propertyPath: m_Name
       value: Coton_lp (2)
@@ -262,6 +270,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 90b61e8540f87114fabf3625096fe3c3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0688e717c24ce94448f11661ad56a28f, type: 2}
     - target: {fileID: 919132149155446097, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
       propertyPath: m_Name
       value: Coton_lp
@@ -344,6 +360,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 90b61e8540f87114fabf3625096fe3c3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0688e717c24ce94448f11661ad56a28f, type: 2}
     - target: {fileID: 919132149155446097, guid: 984d5c2ac2b6f084a9ad443c6857cd29, type: 3}
       propertyPath: m_Name
       value: Coton_lp (1)
