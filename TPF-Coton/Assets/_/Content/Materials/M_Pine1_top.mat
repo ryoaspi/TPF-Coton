@@ -114,7 +114,7 @@ Material:
     - _FaceNormalFactor: 0
     - _FaceViewProdThresh: 1
     - _FinJointNum: 3
-    - _FinLength: 0.113
+    - _FinLength: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -141,8 +141,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientColor: {r: 0, g: 0, b: 0, a: 1}
-    - _BaseColor: {r: 0.22352943, g: 0.54901963, b: 0.4784314, a: 1}
+    - _AmbientColor: {r: 0, g: 0.38993713, b: 0.4528302, a: 1}
+    - _BaseColor: {r: 0.7254902, g: 0.8470589, b: 0.86666673, a: 1}
     - _BaseMove: {r: 0, g: -0, b: 0, a: 3}
     - _Color: {r: 0.011764707, g: 0.2352941, b: 0.10980389, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
