@@ -34,12 +34,32 @@ namespace Enemy.Runtime
 
             if (_deadCount == _enemies.Count && _enemies.Count > 0)
             {
-                // Action à faire quand tous les ennemis sont morts.
-                if (_addGameObjects)
-                {
-                    _door.SetActive(true);
-                }
-                else _door.SetActive(false);
+                TriggerAction();
+            }
+        }
+
+        private void TriggerAction()
+        {
+            switch (_actionToPerform)
+            {
+                case ActionType.None:
+                    break;
+                
+                case ActionType.ActivateGameObject:
+                    if (_door != null) _door.SetActive(true);
+                    break;
+                
+                case ActionType.DeactivateGameObject:
+                    if (_door != null) _door.SetActive(false);
+                    break;
+                
+                case ActionType.PlayVFX:
+                    if (_vfx != null) _vfx.Play();
+                    break;
+                case ActionType.Both:
+                    if(_door != null) _door.SetActive(true);
+                    if(_vfx != null) _vfx.Play();
+                    break;
             }
         }
         
@@ -49,10 +69,23 @@ namespace Enemy.Runtime
         #region Private And Protected
         
         [SerializeField] private List<GameObject> _enemies;
-        [SerializeField] private bool _addGameObjects;
         private int _deadCount;
 
-        [Header("Open")] [SerializeField] private GameObject _door;
+        [Header("Action Settings")]
+        [SerializeField] private ActionType _actionToPerform =  ActionType.None;
+        
+        [Header("Object to Trigger")] 
+        [SerializeField] private GameObject _door;
+        [SerializeField] private ParticleSystem _vfx;
+
+        private enum ActionType
+        {
+            None,
+            ActivateGameObject,
+            DeactivateGameObject,
+            PlayVFX,
+            Both
+        }
 
         #endregion
     }
