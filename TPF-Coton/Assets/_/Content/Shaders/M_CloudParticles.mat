@@ -39,10 +39,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _Color_Divide_Blur: 4.69
-    - _Color_Divide_Height: -1.73
+    - _Color_Divide_Height: -1.98
     - _Displacement_Intensity: 0.3
     - _Displacement_Scale: 10
     - _Displacement_Speed: 0.05
+    - _Fade_Depth: 0
+    - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
