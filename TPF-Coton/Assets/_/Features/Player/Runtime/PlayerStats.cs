@@ -1,4 +1,5 @@
 using System;
+using Sound.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -90,6 +91,7 @@ namespace Player.Runtime
         {
             if (_shield.m_isShielding == false && _isChronoOn==false)
             {
+                _soundEvent.PlaySoundEventScript("Hit");
                 _playerDropCoton.DropCotonDamage(damage);
                 _playerBuff.LoseCoton(damage);
                 _playerBuff.CheckSize();
@@ -107,8 +109,15 @@ namespace Player.Runtime
         {
             if (m_currentHealth <= 0)
             {
-                gameObject.SetActive(false);
+                _soundEvent.PlaySoundEventScript("Death", (() => {Dead();}));
+
+                
             }
+        }
+
+        private void Dead()
+        {
+            gameObject.SetActive(false);
         }
 
         private void DamageUpdate()
@@ -205,7 +214,7 @@ namespace Player.Runtime
         private PlayerDropCoton _playerDropCoton;
         private PlayerMovement _playerMovement;
         private Fronde _fronde;
-        
+        [SerializeField]private SoundEvent _soundEvent;
         #endregion
     }
 }
