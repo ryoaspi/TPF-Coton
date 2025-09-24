@@ -21,7 +21,7 @@ namespace Damage.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Melee)
+            if (_enemyAI != null && _enemyAI.m_enemyType == EnemyAI.EnemyType.Melee)
             {
                 if (_weaponEnemyDamage == null || !_weaponEnemyDamage.m_isAttacking) return;
             }
