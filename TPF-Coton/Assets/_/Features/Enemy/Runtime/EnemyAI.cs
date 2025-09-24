@@ -8,6 +8,7 @@ namespace Enemy.Runtime
     {
         #region Public
 
+        [HideInInspector] public bool m_isEating;
         [HideInInspector] public bool m_playerDetected;
         [HideInInspector] public bool m_isCotonDetected;
         [Header("Enemy Type")] 
@@ -58,6 +59,11 @@ namespace Enemy.Runtime
             
             if (m_enemyType == EnemyType.Puffed)
             {
+                if (m_isEating)
+                {
+                    _agent.isStopped = true;
+                    return;
+                }
                 
                 if (_isCollectingCoton)
                 {
@@ -266,6 +272,19 @@ namespace Enemy.Runtime
                 }
             }
         }
+
+        public void EndEating()
+        {
+            m_isEating = false;
+            _agent.isStopped = false;
+            _agent.ResetPath();
+            
+            // Redémarrer la patrouille
+            if (_target.Count > 0)
+            {
+                _agent.SetDestination(_target[_currentTarget].position);
+            }
+        }
         
         #endregion
 
@@ -303,7 +322,7 @@ namespace Enemy.Runtime
                     if (angle <= _detectionAngle / 2f)
                     {
                         Vector3 raycastOrigin = transform.position + Vector3.up * 0.5f;
-                        if (!Physics.Raycast(raycastOrigin, direction, distance, LayerMask.GetMask("Default")))
+                        if (!Physics.Raycast(raycastOrigin, direction, distance, _obstacleMask))
                         {
                             m_playerDetected = true;
                             _hit = collider.transform.position;
@@ -506,7 +525,8 @@ namespace Enemy.Runtime
                         if (Time.time >= _lastAttackTime + _attackCooldown)
                         {
                             _lastAttackTime = Time.time;
-                            _enemyBig.Fight();
+                            _animator.SetTrigger("IsAttack");
+                            // _enemyBig.Fight();
                         }
                     }
                     break;
@@ -563,6 +583,7 @@ namespace Enemy.Runtime
         [SerializeField] private float _maxsearchTimer = 8f;
         [SerializeField] private float _arrivalEpsilon = 0.2f;
         private float _globalSearchTimer;
+        [SerializeField] private LayerMask _obstacleMask = default;
         
         private bool _isSearching;
         private float _searchTimer;

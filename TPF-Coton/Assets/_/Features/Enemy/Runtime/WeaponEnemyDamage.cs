@@ -15,6 +15,7 @@ namespace Enemy.Runtime
 
         private void Awake()
         {
+            _enemyAI = GetComponentInParent<EnemyAI>();
             if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Melee)
             {
                 _collider = GetComponent<Collider>();

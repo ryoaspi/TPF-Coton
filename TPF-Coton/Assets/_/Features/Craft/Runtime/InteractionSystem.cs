@@ -2,6 +2,7 @@ using Interface.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Core.Runtime;
+using Environment.Runtime;
 using DeviceType = Core.Runtime.DeviceType;
 
 namespace Craft.Runtime
@@ -77,15 +78,19 @@ namespace Craft.Runtime
                 
                 // Check les objets inspectables
                 IInspectable inspectable = hit.collider.GetComponent<IInspectable>();
-                if (inspectable is not null && distanceToHit <= _maxInteractionDistance)
+                if (inspectable is not null && distanceToHit <= _maxInteractionDistance && !inspectable.HasBeenInspected)
                 {
                     string text = inspectable.InspectionLabel;
                     Sprite icon = inspectable.GetIconForDevice(_currentDeviceType);
                     _uiManager.ShowPrompt($"{text}", icon , IsPersistentPrompt(hit.collider.gameObject),
                         IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptText() : "",
                         IsPersistentPrompt(hit.collider.gameObject) ? GetClosePromptSprite() : null);
-                    
-                    if (IsPersistentPrompt(hit.collider.gameObject)) _isPromptLocked = true;
+
+                    if (IsPersistentPrompt(hit.collider.gameObject))
+                    {
+                        _isPromptLocked = true;
+                        inspectable.MarkInspected();
+                    }
                 }
                 
             }

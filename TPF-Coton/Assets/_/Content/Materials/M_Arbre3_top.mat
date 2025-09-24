@@ -28,8 +28,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _FinLength: 0
+    m_Colors:
+    - _BaseColor: {r: 0.7137255, g: 0.6392157, b: 0.76470596, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2969720693621074831
