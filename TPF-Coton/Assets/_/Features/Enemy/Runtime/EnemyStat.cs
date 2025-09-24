@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using Object.Runtime;
 using Sound.Runtime;
+using UnityEditor;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 namespace Enemy.Runtime
@@ -99,13 +101,10 @@ namespace Enemy.Runtime
             
             if (m_currentHealth <= 0)
             {
-                if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed)
-                {
-                    _soundEvent.PlaySoundEventScript("Death", (() => {Death();}));
-                    return;
-                }
-                
-                Death();
+                ParticulSystem();
+                //Stop all behaviors
+                DisableBehaviourOnDeath();
+                _soundEvent.PlaySoundEventScript("Death", (() => {Death();}));
             }
         }
 
@@ -147,7 +146,7 @@ namespace Enemy.Runtime
             _isFlashing = true;
             _flashTimer = _hits;
             
-            if (_enemyAI.m_enemyType == EnemyAI.EnemyType.Puffed) _soundEvent.PlaySoundEvent("hit");
+            _soundEvent.PlaySoundEvent("hit");
 
         }
         
@@ -161,7 +160,19 @@ namespace Enemy.Runtime
             
             gameObject.SetActive(false);
         }
-        
+
+        private void ParticulSystem()
+        {
+            if (_CloudDeath is not null)
+            {
+                ParticleSystem psInstance = Instantiate(_CloudDeath, transform.position, Quaternion.identity);
+                psInstance.Play();
+                
+                //détruit automatiquement l'instance après sa durée + lifetime max
+                Destroy(psInstance.gameObject, psInstance.main.duration + psInstance.main.startLifetime.constantMax);
+            }
+        }
+
         [ContextMenu("Damage")]
         private void DebugDamage() => DoDamage(1,null);
         
@@ -226,6 +237,34 @@ namespace Enemy.Runtime
                 }
             }
         }
+
+        private void DisableBehaviourOnDeath()
+        {
+            MonoBehaviour[] behaviours = GetComponents<MonoBehaviour>();
+            foreach (var behaviour in behaviours)
+            {
+                
+                if (behaviour != _soundEvent && behaviour != _audio)
+                {
+                    behaviour.enabled = false;
+                }
+            }
+
+            foreach (Transform child in transform)
+            {
+                foreach (var childcom in child.GetComponentsInChildren<MonoBehaviour>())
+                {
+                    childcom.enabled = false;
+                }
+            }
+            
+            Animator[] animators = GetComponents<Animator>();
+            foreach (var animator in animators)
+            {
+                animator.enabled = false;
+            }
+        }
+        
         
         #endregion
         
@@ -258,9 +297,13 @@ namespace Enemy.Runtime
         private List<Color[]> _originalColors = new ();
         private bool _isFlashing;
         private float _flashTimer;
-
+        
+        [Header("Audio")]
         [SerializeField] private SoundEvent _soundEvent;
         [SerializeField] private AudioSource _audio;
+        
+        [Header("VFX")]
+        [SerializeField] private ParticleSystem _CloudDeath;
 
         #endregion
     }

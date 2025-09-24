@@ -32,10 +32,14 @@ namespace Player.Runtime
         private void OnTriggerEnter(Collider other)
         {
             if (LayerMask.LayerToName(other.gameObject.layer) == "WeaponEnemy") return;
-            
-               _isTouch = true;
-                _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
-                FrondePool.Instance.ReturnToPool(gameObject); 
+            if (LayerMask.LayerToName(other.gameObject.layer) == "NoContactBulletPlayer") return;
+            if (LayerMask.LayerToName(other.gameObject.layer) == "Boundarie") return;
+            if (LayerMask.LayerToName(other.gameObject.layer) == "Crafted") return;
+            if (LayerMask.LayerToName(other.gameObject.layer) == "Ignore Raycast") return;
+               
+            _isTouch = true;
+            _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
+            FrondePool.Instance.ReturnToPool(gameObject); 
             
             
         }

@@ -15,6 +15,13 @@ namespace Environment.Runtime
         
         [Tooltip("Facteur de tessellation quand la caméra est loin.")]
         public float m_minTessellation = 1f;
+        
+        [Header("Length Settings")]
+        [Tooltip("Facteur de tessellation quand la caméra est proche. Ne pas mettre plus que 0.113")]
+        public float m_maxLength = 0.113f;
+        
+        [Tooltip("Facteur de tessellation quand la caméra est loin.")]
+        public float m_minLength = 0f;
 
         private Renderer _rend;
         private MaterialPropertyBlock _propBlock;
@@ -45,10 +52,14 @@ namespace Environment.Runtime
             float distance = Vector3.Distance(transform.position, _cameraTransform.position);
             float t = Mathf.Clamp01(distance / m_maxDistance);
             float tessFactor = Mathf.Lerp(m_maxTessellation, m_minTessellation, t);
+            float LengthFactor = Mathf.Lerp(m_minLength, m_maxLength, t);
             
             _rend.SetPropertyBlock(_propBlock);
+            
             _propBlock.SetFloat("_TessellationFactor", tessFactor);
+            _propBlock.SetFloat("_FinLength", LengthFactor);
             _rend.SetPropertyBlock(_propBlock);
+            
         }
     }
 }
