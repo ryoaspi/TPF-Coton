@@ -1,5 +1,6 @@
 using Interface.Runtime;
 using Player.Runtime;
+using Sound.Runtime;
 using UnityEngine;
 using DeviceType = Core.Runtime.DeviceType;
 
@@ -72,6 +73,17 @@ namespace Craft.Runtime
                 foreach (var collider in _colliderSecurity) collider.enabled= false;
                 _craftPrefab.gameObject.SetActive(true);
                 _isCrafted = true;
+
+                if (_particleCraft is not null && _interactionPoint.Length > 0)
+                { 
+                    Vector3 position = (_interactionPoint[0].transform.position + _interactionPoint[1].transform.position) / 2;
+                    _particleCraft.transform.position = position;
+                    Debug.Log("Lancement VFX de craft à " + _particleCraft.transform.position);
+                    _particleCraft.Play();
+                }
+                
+                _soundEvent.PlaySoundEvent("Craft");
+                
                 return true;
             }
             return false;
@@ -85,6 +97,16 @@ namespace Craft.Runtime
                 foreach (var collider in _colliderSecurity) collider.enabled = true;
                 _craftPrefab.gameObject.SetActive(false);
                 _isCrafted = false;
+                if (_particleDecraft is not null)
+                {
+                    Vector3 position = (_interactionPoint[0].transform.position + _interactionPoint[1].transform.position) / 2;
+                    _particleDecraft.transform.position = position;
+                    Debug.Log("Lancement VFX de craft à " + _particleCraft.transform.position);
+                    _particleDecraft.Play();
+                }
+                
+                _soundEvent.PlaySoundEvent("Decraft");
+                
                 return true;
             }
             return false;
@@ -106,6 +128,15 @@ namespace Craft.Runtime
         private Sprite _iconXbox;
         private Sprite _iconPS;
         private IInteractable _interactableImplementation;
+        
+        [Header("VFX")]
+        [SerializeField] private InteractionPoint[] _interactionPoint;
+        [SerializeField] private ParticleSystem _particleCraft;
+        [SerializeField] private ParticleSystem _particleDecraft;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private SoundEvent _soundEvent;
 
         #endregion
     }
