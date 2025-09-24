@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SG_FX_stylizedWaterVoronoi
+  m_Name: LakeShader
   m_Shader: {fileID: -6465566751694194690, guid: f94aed81bcf0fb14999ef7e706bb46c3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -54,13 +54,13 @@ Material:
     - Vector1_063d8ad067e84f24a36d29a5d040c525: 20
     - Vector1_1d30b7a3bef3453892ed125d510161d5: 0.818
     - Vector1_320b00fb1e0b4117837c42094f521177: 0
-    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.02
-    - Vector1_69e265a5284f48d4ba341450a5e85e75: 1
+    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.01
+    - Vector1_69e265a5284f48d4ba341450a5e85e75: 0
     - Vector1_d2bec4241b694aabab28b22ddfd9c59a: 20
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_33261d8186f8460eba99fa9fd85d9827: {r: 0.22641507, g: 0.66526735, b: 0.9056604, a: 0}
-    - Color_6bd674b7f642464583ef967bee37de8b: {r: 0, g: 0.47519016, b: 0.764151, a: 0}
+    - Color_33261d8186f8460eba99fa9fd85d9827: {r: 0.2581765, g: 0.6775006, b: 0.90588236, a: 0}
+    - Color_6bd674b7f642464583ef967bee37de8b: {r: 0.171008, g: 0.47748637, b: 0.66800004, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
