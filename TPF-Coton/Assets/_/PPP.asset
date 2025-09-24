@@ -40,7 +40,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 4.6
+    m_Value: 5.71
   intensity:
     m_OverrideState: 1
     m_Value: 7.28
@@ -48,7 +48,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0.35
   clamp:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 65472
   tint:
     m_OverrideState: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &-4766879433863560483
 MonoBehaviour:
@@ -87,10 +87,10 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 58.2
+    m_Value: 59.5
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 82.7
+    m_Value: 70.4
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 0.5
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_Value: 0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 15.2
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -279,7 +279,7 @@ MonoBehaviour:
     m_Value: 1
   firstFlareIntensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.21
   secondaryFlareIntensity:
     m_OverrideState: 1
     m_Value: 1
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb4b772797da9440885e8bd939e9560, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   master:
     m_OverrideState: 1
     m_Value:
@@ -444,10 +444,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.6061885
-          value: 0.79710144
-          inSlope: 0.31107482
-          outSlope: 0.31107482
+          time: 0.5676856
+          value: 0.6392694
+          inSlope: -1.4377861
+          outSlope: -1.4377861
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -635,8 +635,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   scale:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 3.44
 --- !u!114 &9057288244248828186
 MonoBehaviour:
   m_ObjectHideFlags: 3
