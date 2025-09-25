@@ -3,7 +3,22 @@ guid: da5491841890b114eb27d3aec46002ab
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CordeFronde
+    second: {fileID: 2100000, guid: 79dc72e27ff4bae448df4c5ad8e00091, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CuirFronde
+    second: {fileID: 2100000, guid: 70e85f1e99ba4ea4b84727b9df01260e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_MancheFronde
+    second: {fileID: 2100000, guid: 185b80dbe8e0ee0429b7ef24b95b8469, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
