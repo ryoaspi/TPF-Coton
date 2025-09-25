@@ -8,7 +8,7 @@ namespace SceneChanger.Runtime
         public void LoadGameScene()
         {
             
-            SceneManager.LoadScene("Tutoriel_texturing");
+            SceneManager.LoadScene("DEMO");
         }
 
         public void LoadCreditScene()
