@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Color_Divide_Blur: 4.69
-    - _Color_Divide_Height: -1.98
+    - _Color_Divide_Height: 5
     - _Displacement_Intensity: 0.3
     - _Displacement_Scale: 10
     - _Displacement_Speed: 0.05
