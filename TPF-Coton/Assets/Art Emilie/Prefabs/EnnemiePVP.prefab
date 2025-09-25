@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d3e993e672a25324a807a8144b99f841, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4031852223784908398, guid: d3e993e672a25324a807a8144b99f841, type: 3}
       propertyPath: m_Layer
@@ -468,6 +468,10 @@ PrefabInstance:
     - target: {fileID: 6095442200230597658, guid: 12797ae7d2efe7d4ea2e5d62cb2600f0, type: 3}
       propertyPath: m_Name
       value: Cloud_Coton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386236272190389583, guid: 12797ae7d2efe7d4ea2e5d62cb2600f0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
