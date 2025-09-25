@@ -36,6 +36,7 @@ namespace Enemy.Runtime
             _enemyShoot = GetComponentInChildren<EnemyShoot>();
             _enemyBig = GetComponent<EnemyBig>();
             _animator = GetComponentInChildren<Animator>();
+            _enemyStat = GetComponent<EnemyStat>();
             _canInitOnEnable = true;
         }
 
@@ -46,6 +47,8 @@ namespace Enemy.Runtime
 
         private void Update()
         {
+            if (_enemyStat.m_isDeath) return;
+            
             if (_animator is not null)
             {
                 _animator.SetFloat("Speed", _agent.velocity.magnitude);
@@ -54,6 +57,7 @@ namespace Enemy.Runtime
 
         private void FixedUpdate()
         {
+            if (_enemyStat.m_isDeath) return;
             IsPlayerDetected();
             
             
@@ -604,6 +608,7 @@ namespace Enemy.Runtime
         private EnemyBig _enemyBig;
         private bool _enemyIsDetected;
         private Animator _animator;
+        private EnemyStat _enemyStat;
 
         #endregion
     }

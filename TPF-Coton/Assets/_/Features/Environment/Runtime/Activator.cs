@@ -24,7 +24,7 @@ namespace Environment.Runtime
 
                 foreach (GameObject objectToDeactivate in _objectToDeactivate)
                 {
-                    var enemyStat = objectToDeactivate.GetComponent<EnemyStat>();
+                    var enemyStat = objectToDeactivate.GetComponentInChildren<EnemyStat>();
                     if (enemyStat is not null)
                     {
                         enemyStat.Kill();

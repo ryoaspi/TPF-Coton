@@ -164,6 +164,8 @@ namespace Enemy.Runtime
         {
            
             m_isDeath = true;
+            _agent.speed = 0;
+            _agent.isStopped = true;
             
             OnDeath?.Invoke();
             
