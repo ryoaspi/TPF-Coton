@@ -14,6 +14,11 @@ namespace Environment.Runtime
                 {
                     objectToActivate.SetActive(true);
                 }
+
+                foreach (GameObject objectToDeactivate in _objectToDeactivate)
+                {
+                    objectToDeactivate.SetActive(false);
+                }
             }
         }
         
@@ -23,6 +28,7 @@ namespace Environment.Runtime
         #region Private And Protected
         
         [SerializeField] private GameObject[] _objectToActivate;
+        [SerializeField] private GameObject[] _objectToDeactivate;
         
         #endregion
     }

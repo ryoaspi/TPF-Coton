@@ -4,6 +4,7 @@ using Object.Runtime;
 using Sound.Runtime;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
@@ -30,6 +31,7 @@ namespace Enemy.Runtime
             _origin = transform.position;
             _enemyAI = GetComponent<EnemyAI>();
             _enemyBig = GetComponent<EnemyBig>();
+            _agent = GetComponent<NavMeshAgent>();
             
             _renderers =  GetComponentsInChildren<Renderer>();
             _originalColors.Clear();
@@ -101,6 +103,7 @@ namespace Enemy.Runtime
             
             if (m_currentHealth <= 0)
             {
+                _agent.speed = 0;
                 ParticulSystem();
                 //Stop all behaviors
                 DisableBehaviourOnDeath();
@@ -297,6 +300,7 @@ namespace Enemy.Runtime
         private List<Color[]> _originalColors = new ();
         private bool _isFlashing;
         private float _flashTimer;
+        private NavMeshAgent _agent;
         
         [Header("Audio")]
         [SerializeField] private SoundEvent _soundEvent;
