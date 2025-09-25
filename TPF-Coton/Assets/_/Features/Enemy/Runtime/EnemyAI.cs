@@ -455,6 +455,8 @@ namespace Enemy.Runtime
         }
         private void HandleCombat()
         {
+            if (_enemyStat is not null && _enemyStat.m_isDeath)  return;
+            
             // Rotation vers le joueur
             Vector3 direction = (_hit - transform.position).normalized;
             direction.y = 0;

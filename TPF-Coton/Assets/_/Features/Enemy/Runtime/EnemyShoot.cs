@@ -17,6 +17,8 @@ namespace Enemy.Runtime
 
         public void Shooting()
         {
+            if (_enemyStat is not null && _enemyStat.m_isDeath) return;
+            
             _bullet = AmmoPool.Instance.GetFromPool();
             _bullet.transform.position = _firePoint.position;
             _bullet.transform.rotation = _firePoint.rotation;

@@ -39,7 +39,8 @@ namespace Enemy.Runtime
                 var colors = new Color[renderer.materials.Length];
                 for (var i = 0; i < renderer.materials.Length; i++)
                 {
-                    colors[i] = renderer.materials[i].color;
+                    Material mat = renderer.materials[i];
+                    if (mat.HasProperty("_Color")) colors[i] = renderer.materials[i].color;
                 }
                 _originalColors.Add(colors);
             }
