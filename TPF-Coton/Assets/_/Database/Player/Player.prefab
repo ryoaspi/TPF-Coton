@@ -245,11 +245,11 @@ Transform:
   m_GameObject: {fileID: 898032591262401357}
   serializedVersion: 2
   m_LocalRotation: {x: 0.34167555, y: -0.6096736, z: 0.7021215, w: 0.13631313}
-  m_LocalPosition: {x: 0.024, y: 0.016, z: 0.053}
-  m_LocalScale: {x: 0.14652105, y: 0.14652105, z: 0.14652109}
+  m_LocalPosition: {x: 0.039625, y: 0.022359, z: 0.073958}
+  m_LocalScale: {x: 0.16590579, y: 0.16590579, z: 0.16590583}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2022925843597209041}
+  m_Father: {fileID: 2032118137935199334}
   m_LocalEulerAnglesHint: {x: 71.673, y: 85.785, z: 225.744}
 --- !u!33 &8785844451197604769
 MeshFilter:
@@ -349,8 +349,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.77603126, y: 6.040989, z: 0.7854131}
-  m_Center: {x: -0.036671318, y: 1.3866293, z: 0.03363909}
+  m_Size: {x: 1.2165486, y: 5.422361, z: 1.1647092}
+  m_Center: {x: -0.20221294, y: 1.6959411, z: 0.22329131}
 --- !u!1 &1086383517034018073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 5399143446865916344}
   - component: {fileID: 923647024602392687}
   - component: {fileID: 6701678600555454604}
+  - component: {fileID: 3526221275220806768}
   - component: {fileID: 6542083872721531333}
   m_Layer: 6
   m_Name: Player
@@ -1739,13 +1740,13 @@ MonoBehaviour:
     m_Bits: 81920
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 2147483777
+    m_Bits: 2415919233
   _persistentPromptMask:
     serializedVersion: 2
     m_Bits: 65536
   _spriteKeyboard: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
-  _spriteXbox: {fileID: 21300000, guid: d8ae4c9049d646f4fb08785ffd14a64a, type: 3}
-  _spritePlayStation: {fileID: 21300000, guid: 16c7dd064824653408b02a7b1d74ffa9, type: 3}
+  _spriteXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
+  _spritePlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
   _closePromptText: Fermer
   _playerInput: {fileID: 3470936859141013514}
   _playerTransform: {fileID: 374765836647447604}
@@ -1771,6 +1772,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3526221275220806768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210584169379710260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d749b04d678c374bb27d5c170168d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerCoton:
+    serializedVersion: 2
+    m_Bits: 4096
+  _detectionDistance: 5
+  _attractionSpeed: 5
 --- !u!81 &6542083872721531333
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2690,16 +2708,11 @@ PrefabInstance:
     - {fileID: 5866666021909216657, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 552765749742909020, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4248236268438881468}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
---- !u!4 &2022925843597209041 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 552765749742909020, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
-  m_PrefabInstance: {fileID: 1997682694036396941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2032118137935199334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9cc220d2e9ff714583d6cfc224ccf90, type: 3}
