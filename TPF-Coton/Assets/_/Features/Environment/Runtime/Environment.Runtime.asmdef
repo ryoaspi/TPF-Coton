@@ -5,7 +5,8 @@
         "Player.Runtime",
         "Core.Runtime",
         "Interface.Runtime",
-        "UnityEditor.TestRunner"
+        "UnityEditor.TestRunner",
+        "Enemy.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
