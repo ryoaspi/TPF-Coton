@@ -36,6 +36,8 @@ namespace Player.Runtime
             if (LayerMask.LayerToName(other.gameObject.layer) == "Boundarie") return;
             if (LayerMask.LayerToName(other.gameObject.layer) == "Crafted") return;
             if (LayerMask.LayerToName(other.gameObject.layer) == "Ignore Raycast") return;
+            if (LayerMask.LayerToName(other.gameObject.layer) == "Coton") return;
+            if(LayerMask.LayerToName(other.gameObject.layer) == "BulletEnemy") return;
                
             _isTouch = true;
             _playerDropCoton.DropCotonDamage(_fronde.m_hpLoss);
