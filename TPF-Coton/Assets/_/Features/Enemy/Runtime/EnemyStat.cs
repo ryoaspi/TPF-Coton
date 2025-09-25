@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using Object.Runtime;
 using Sound.Runtime;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 namespace Enemy.Runtime
