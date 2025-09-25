@@ -1,3 +1,5 @@
+using System;
+using Enemy.Runtime;
 using UnityEngine;
 
 namespace Environment.Runtime
@@ -5,6 +7,11 @@ namespace Environment.Runtime
     public class Activator : MonoBehaviour
     {
         #region Unity Api
+
+        private void Awake()
+        {
+            
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,7 +24,12 @@ namespace Environment.Runtime
 
                 foreach (GameObject objectToDeactivate in _objectToDeactivate)
                 {
-                    objectToDeactivate.SetActive(false);
+                    var enemyStat = objectToDeactivate.GetComponent<EnemyStat>();
+                    if (enemyStat is not null)
+                    {
+                        enemyStat.Kill();
+                    }
+                    else Debug.LogWarning($"EnemyStat component not found on {objectToDeactivate.name}");
                 }
             }
         }

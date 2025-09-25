@@ -138,6 +138,12 @@ namespace Enemy.Runtime
             m_currentHealth = _currentHealth;
         }
 
+        public void Kill()
+        {
+            if (m_isDeath) return;
+            Death();
+        }
+
         #endregion
         
         
