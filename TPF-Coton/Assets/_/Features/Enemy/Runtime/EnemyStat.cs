@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using Object.Runtime;
 using Sound.Runtime;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 namespace Enemy.Runtime
@@ -41,7 +39,8 @@ namespace Enemy.Runtime
                 var colors = new Color[renderer.materials.Length];
                 for (var i = 0; i < renderer.materials.Length; i++)
                 {
-                    colors[i] = renderer.materials[i].color;
+                    Material mat = renderer.materials[i];
+                    if (mat.HasProperty("_Color")) colors[i] = renderer.materials[i].color;
                 }
                 _originalColors.Add(colors);
             }
@@ -164,6 +163,8 @@ namespace Enemy.Runtime
         {
            
             m_isDeath = true;
+            _agent.speed = 0;
+            _agent.isStopped = true;
             
             OnDeath?.Invoke();
             
