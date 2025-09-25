@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -7,6 +8,12 @@ namespace Navigation.Runtime
     public class ButtonMovementg : MonoBehaviour
     {
         [SerializeField] private Image[] _Selected;
+
+        private void Start()
+        {
+            
+                Cursor.visible = false;
+        }
 
         void Update()
         {
@@ -27,7 +34,7 @@ namespace Navigation.Runtime
                     case "Credit":
                         _Selected[1].gameObject.SetActive(true);
                         break;
-                    case "QuitButton":
+                    case "Quit":
                         _Selected[2].gameObject.SetActive(true);
                         break;
                 }
