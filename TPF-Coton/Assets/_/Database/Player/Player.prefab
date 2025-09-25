@@ -1571,6 +1571,10 @@ MonoBehaviour:
   _renderer: {fileID: 2656677349121253865}
   _invinsibilityTime: 1
   _soundEvent: {fileID: 4848439027405711642}
+  _slider: {fileID: 8246156864027079995}
+  _lowHpMaterial: {fileID: 2100000, guid: f42653c1dbad1604183fb73355837612, type: 2}
+  _mediumHpMaterial: {fileID: 2100000, guid: 0bb759ccb2e9445478d81de25d365c81, type: 2}
+  _highHpMaterial: {fileID: 2100000, guid: f8eeeb8894355284ab53c396ddba57ca, type: 2}
 --- !u!114 &305251056436206390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,8 +1647,8 @@ MonoBehaviour:
   m_coolDownCharge: 0
   m_aimVisualPrefab: {fileID: 670959206365110277}
   m_rayLength: 5
+  m_isCharging: 0
   _maxCoolDown: 1
-  _speedLoss: 3
 --- !u!54 &8130931757048351921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1735,20 +1739,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a25e8859e123f44ebabae0f2bfa6b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionDetected: 3
-  _maxInteractionDistance: 3.2
+  _interactionDetected: 1.5
+  _maxInteractionDistance: 1.8
   _layerMask:
     serializedVersion: 2
     m_Bits: 81920
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 2147483777
+    m_Bits: 2415919233
   _persistentPromptMask:
     serializedVersion: 2
     m_Bits: 65536
   _spriteKeyboard: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
-  _spriteXbox: {fileID: 21300000, guid: d8ae4c9049d646f4fb08785ffd14a64a, type: 3}
-  _spritePlayStation: {fileID: 21300000, guid: 16c7dd064824653408b02a7b1d74ffa9, type: 3}
+  _spriteXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
+  _spritePlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
   _closePromptText: Fermer
   _playerInput: {fileID: 3470936859141013514}
   _playerTransform: {fileID: 374765836647447604}
@@ -1781,7 +1785,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4210584169379710260}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!82 &7151340904999185144
 AudioSource:
   m_ObjectHideFlags: 0
