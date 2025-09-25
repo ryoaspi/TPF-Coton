@@ -44,7 +44,7 @@ namespace Player.Runtime
 
         private void Update()
         {
-            if (_isCharging)
+            if (m_isCharging)
             {
                 _chargeTimer += Time.deltaTime;
                 UpdateAimVisual();
@@ -109,14 +109,14 @@ namespace Player.Runtime
             {
                 
                 _chargeTimer = 0f;
-                _isCharging = true;
+                m_isCharging = true;
                 if (_aimVisual != null) _aimVisual.SetActive(true);
-                _playerMovement.m_speed -= _speedLoss;
+                _playerMovement.m_speed -= _playerMovement.m_speed;
             }
-            else if (context.canceled && _isCharging)
+            else if (context.canceled && m_isCharging)
             {
                 _playerStats.FrondeSelfDamage(m_hpLoss);
-                _isCharging = false;
+                m_isCharging = false;
                 _playerMovement.m_speed = _playerMovement.m_speedSave;
                 HideAimVisual();
 
@@ -143,7 +143,7 @@ namespace Player.Runtime
         #region Private
         private PlayerInput _playerInput;
         private float _chargeTimer;
-        private bool _isCharging;
+        [FormerlySerializedAs("_isCharging")] public bool m_isCharging;
         private GameObject _bullet;
 
         [Header("Fronde Variables")]

@@ -10,6 +10,7 @@ namespace Player.Runtime
             _playerMovement = GetComponent<PlayerMovement>();
             _shield = GetComponent<Shield>();
             _playerDamage = GetComponent<PlayerDamage>();
+            _fronde= GetComponent<Fronde>();
         }
 
         private void Update()
@@ -22,6 +23,9 @@ namespace Player.Runtime
 
             // Attack
             _animator.SetBool("IsAttacking", _playerDamage.m_isAttacking);
+            
+            //Fronde
+            _animator.SetBool("IsShooting", _fronde.m_isCharging);
         }
 
         #region private
@@ -31,6 +35,7 @@ namespace Player.Runtime
         private PlayerMovement _playerMovement;
         private PlayerDamage _playerDamage;
         private Shield _shield;
+        private Fronde _fronde;
 
         #endregion
     }
