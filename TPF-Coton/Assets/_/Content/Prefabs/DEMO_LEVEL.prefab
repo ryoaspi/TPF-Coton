@@ -10976,7 +10976,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9969
+  m_VersionIndex: 9972
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -15646,7 +15646,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 10469
+  m_VersionIndex: 10472
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -16113,6 +16113,81 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2965342649721022055, guid: b3a9b5d7a7fc92c4b8fcd70cb32c17be, type: 3}
+--- !u!1 &3073454552759406077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9167814582218635938}
+  - component: {fileID: 83836009326627413}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9167814582218635938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073454552759406077}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.30868456, y: -0.00085815776, z: 0.00027967987, w: -0.951164}
+  m_LocalPosition: {x: -2.435, y: 3.269, z: -2.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1761720599169796701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83836009326627413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073454552759406077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 7576731131185583653}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 62.817585
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1 &3102814285944932845
 GameObject:
   m_ObjectHideFlags: 0
@@ -19260,7 +19335,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7243
+  m_VersionIndex: 7246
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -28151,7 +28226,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4530
+  m_VersionIndex: 4533
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -31488,7 +31563,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7795
+  m_VersionIndex: 7798
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -33824,7 +33899,8 @@ Transform:
   m_LocalPosition: {x: -17.034576, y: 2.707981, z: -12.827175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9167814582218635938}
   m_Father: {fileID: 8450200087776801034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2073188021001914357
@@ -33841,7 +33917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _freeLook: {fileID: 0}
   _virtualCamera:
-  - {fileID: 0}
+  - {fileID: 3073454552759406077}
 --- !u!114 &6308392983764615856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33854,7 +33930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1aba830dc472c84eb90570a2b6e3664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemies: []
+  _enemies:
+  - {fileID: 5945305173230619454}
   _cinematicIndex: 0
   _cinematicDuration: 3
 --- !u!114 &7144196611390357193
@@ -40136,7 +40213,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3943
+  m_VersionIndex: 3946
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -43791,7 +43868,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7646465381694207612, guid: f09c9d51e8c10bd4a8545902c8bb59bb, type: 3}
+    - {fileID: 202557257701959430, guid: f09c9d51e8c10bd4a8545902c8bb59bb, type: 3}
+    - {fileID: 3224947392880937794, guid: f09c9d51e8c10bd4a8545902c8bb59bb, type: 3}
+    - {fileID: 6645450276286068167, guid: f09c9d51e8c10bd4a8545902c8bb59bb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7336189718771698425, guid: f09c9d51e8c10bd4a8545902c8bb59bb, type: 3}
       insertIndex: 0
@@ -44797,6 +44878,10 @@ PrefabInstance:
       propertyPath: '_target.Array.data[1]'
       value: 
       objectReference: {fileID: 9072313083735255108}
+    - target: {fileID: 1522808803858742276, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1522808803858742276, guid: ee2360955def4c94393e40b0eebc6434, type: 3}
       propertyPath: _detectionAngle
       value: 110

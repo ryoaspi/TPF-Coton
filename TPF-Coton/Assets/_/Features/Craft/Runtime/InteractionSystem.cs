@@ -69,7 +69,7 @@ namespace Craft.Runtime
                     int cost = interactable.InteractionCost;
                     Sprite coton = interactable.CotonIcon;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost} <sprite name=\"barre_coton\">",icon, true, "", null);
+                    _uiManager.ShowPrompt($"{text} pour : {cost}   <sprite name=\"barre_coton\">",icon, true, "", null);
 					
                     
                     return;
