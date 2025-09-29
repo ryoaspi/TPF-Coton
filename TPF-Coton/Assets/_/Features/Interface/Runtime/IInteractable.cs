@@ -10,6 +10,7 @@ namespace Interface.Runtime
         int InteractionCost { get; }
 
         Sprite GetIconForDevice(DeviceType device);
+        Sprite CotonIcon { get; }
     }
     
 }

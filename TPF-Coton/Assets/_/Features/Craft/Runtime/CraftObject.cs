@@ -58,6 +58,8 @@ namespace Craft.Runtime
             };
         }
 
+        public Sprite CotonIcon => _cotonSprite;
+
         #endregion
         
         
@@ -78,7 +80,6 @@ namespace Craft.Runtime
                 { 
                     Vector3 position = (_interactionPoint[0].transform.position + _interactionPoint[1].transform.position) / 2;
                     _particleCraft.transform.position = position;
-                    Debug.Log("Lancement VFX de craft à " + _particleCraft.transform.position);
                     _particleCraft.Play();
                 }
                 
@@ -101,7 +102,6 @@ namespace Craft.Runtime
                 {
                     Vector3 position = (_interactionPoint[0].transform.position + _interactionPoint[1].transform.position) / 2;
                     _particleDecraft.transform.position = position;
-                    Debug.Log("Lancement VFX de craft à " + _particleCraft.transform.position);
                     _particleDecraft.Play();
                 }
                 
@@ -118,6 +118,7 @@ namespace Craft.Runtime
         #region Private And Protected
         
         [SerializeField] private int _craftCost = 5;
+        [SerializeField] private Sprite _cotonSprite;
         private PlayerBuff _coton;
         [SerializeField] private GameObject _craftPrefab;
         [SerializeField] private string[] _interactionLabel;

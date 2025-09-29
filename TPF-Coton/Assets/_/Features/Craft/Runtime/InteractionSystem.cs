@@ -1,8 +1,6 @@
 using Interface.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Core.Runtime;
-using Environment.Runtime;
 using DeviceType = Core.Runtime.DeviceType;
 
 namespace Craft.Runtime
@@ -69,8 +67,9 @@ namespace Craft.Runtime
                     Sprite icon = interactable.GetIconForDevice(_currentDeviceType);
                     string text = interactable.InteractionLabel[0];
                     int cost = interactable.InteractionCost;
+                    Sprite coton = interactable.CotonIcon;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost}",icon, true, "", null);
+                    _uiManager.ShowPrompt($"{text} pour : {cost} <sprite name=\"barre_coton\">",icon, true, "", null);
 					
                     
                     return;
