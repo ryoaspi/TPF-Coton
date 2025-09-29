@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Sound.Runtime
 {
-    public class AudioListener : MonoBehaviour
+    public class CustomAudioListener : MonoBehaviour
     {
         private void Awake()
         {

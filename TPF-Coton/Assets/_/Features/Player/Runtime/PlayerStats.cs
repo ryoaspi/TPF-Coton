@@ -32,6 +32,7 @@ namespace Player.Runtime
 
 
             _isChronoOn = false;
+            _imageFill=_slider.fillRect.GetComponent<Image>();
             _shield = GetComponent<Shield>();
             _playerBuff = GetComponent<PlayerBuff>();
             _playerDropCoton=GetComponent<PlayerDropCoton>();
@@ -41,12 +42,11 @@ namespace Player.Runtime
              m_currentHealth = _maxHealth/2;
              m_publicHP = _maxHealth;
              m_publicDamage = _mediumStatDamage;
+            _imageFill.material = _mediumHpMaterial;
         }
 
         void Start()
         {
-            _imageFill=_slider.fillRect.GetComponent<Image>();
-            _imageFill.material = _mediumHpMaterial;
             FrondeDamageUpdate();
             UpdateTextHealth();
             DamageUpdate();
