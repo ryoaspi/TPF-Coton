@@ -163,8 +163,12 @@ namespace Enemy.Runtime
         {
            
             m_isDeath = true;
-            _agent.speed = 0;
-            _agent.isStopped = true;
+
+            if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
+            {
+                _agent.speed = 0;
+                _agent.isStopped = true;
+            }
             
             OnDeath?.Invoke();
             
