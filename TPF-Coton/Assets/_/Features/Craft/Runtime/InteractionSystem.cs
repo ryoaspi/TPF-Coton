@@ -113,7 +113,11 @@ namespace Craft.Runtime
 
         private void OnActionTriggered(InputAction.CallbackContext context)
         {
-            if (context.control == null) return;
+            // ignore si le contexte est invalide
+            if (!context.performed || context.control == null) return;
+            
+            // Ne traite que l'action "Interact"
+            if (context.action.name != "Interact")  return;
             
             var device = context.control.device;
 
