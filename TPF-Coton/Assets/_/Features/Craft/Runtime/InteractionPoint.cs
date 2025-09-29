@@ -25,7 +25,9 @@ namespace Craft.Runtime
                 _ => _iconPC
             };
         }
-        
+
+        public Sprite CotonIcon => null;
+
         [SerializeField] private Sprite _iconPC;
         [SerializeField] private Sprite _iconXbox;
         [SerializeField] private Sprite _iconPlayStation;
