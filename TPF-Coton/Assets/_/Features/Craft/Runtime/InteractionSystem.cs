@@ -22,7 +22,7 @@ namespace Craft.Runtime
             _uiManager = FindFirstObjectByType<UIManager.Runtime.UIManager>();
             if (_camera == null) _camera = Camera.main;
             _countObject = FindObjectOfType<CraftObject>();
-            DetectControllerType(Mouse.current);
+            DetectInitialDevice();
         }
 
         private void OnEnable()
@@ -35,6 +35,13 @@ namespace Craft.Runtime
 
         private void Update()
         {
+            InputDevice activeDevice = GetCurrentInputDevice();
+            if (activeDevice != null && activeDevice != _lastUsedDevice)
+            {
+                _lastUsedDevice = activeDevice;
+                DetectControllerType(activeDevice);
+            }
+            
             if (_isPromptLocked) return;
             
             float offsetX = 0f;
@@ -100,6 +107,36 @@ namespace Craft.Runtime
             }
         }
 
+        private InputDevice GetCurrentInputDevice()
+        {
+            if (Gamepad.current is not null && Gamepad.current.wasUpdatedThisFrame) return Gamepad.current;
+            
+            if (Mouse.current is not null && (Mouse.current.delta.ReadValue() != Vector2.zero || Mouse.current.leftButton.wasPressedThisFrame)) return Mouse.current;
+            
+            if (Keyboard.current is not null && Keyboard.current.anyKey.wasPressedThisFrame) return Keyboard.current;
+
+            return null;
+        }
+
+        private void DetectInitialDevice()
+        {
+            if (_playerInput != null && _playerInput.devices.Count > 0)
+            {
+                var device = _playerInput.devices[0];
+                _lastUsedDevice = device;
+                DetectControllerType(device);
+                return;
+            }
+
+            if (Gamepad.current != null)
+            {
+                _lastUsedDevice = Gamepad.current;
+                DetectControllerType(Gamepad.current);
+                return;
+            }
+            _lastUsedDevice = Mouse.current;
+            DetectControllerType(Mouse.current);
+        }
 
 
         private void OnDisable()
@@ -223,6 +260,7 @@ namespace Craft.Runtime
         {
             if (change == InputDeviceChange.Added || change == InputDeviceChange.Reconnected)
             {
+                DetectControllerType(device);
             }
 
             if (change == InputDeviceChange.Removed)
@@ -246,6 +284,8 @@ namespace Craft.Runtime
                     return _spriteXbox;
                 case DeviceType.PlayStation:
                     return _spritePlayStation;
+                case DeviceType.Switch:
+                    return _spriteSwitch;
                 default:
                     return null;
             }
