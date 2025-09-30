@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterFallShader
+  m_Name: WaterFallShaderfloor
   m_Shader: {fileID: -6465566751694194690, guid: f94aed81bcf0fb14999ef7e706bb46c3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -52,15 +52,15 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_063d8ad067e84f24a36d29a5d040c525: 19.44
-    - Vector1_1d30b7a3bef3453892ed125d510161d5: 1
-    - Vector1_320b00fb1e0b4117837c42094f521177: 0.027
-    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.08
-    - Vector1_69e265a5284f48d4ba341450a5e85e75: 0.64
-    - Vector1_d2bec4241b694aabab28b22ddfd9c59a: -12.44
+    - Vector1_1d30b7a3bef3453892ed125d510161d5: 0.818
+    - Vector1_320b00fb1e0b4117837c42094f521177: 0
+    - Vector1_3b0ca59d02b5497484ece7c571bb190f: 0.01
+    - Vector1_69e265a5284f48d4ba341450a5e85e75: 0.7
+    - Vector1_d2bec4241b694aabab28b22ddfd9c59a: -11.1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_33261d8186f8460eba99fa9fd85d9827: {r: 0.42075467, g: 0.79630935, b: 1, a: 0}
+    - Color_33261d8186f8460eba99fa9fd85d9827: {r: 0.42000002, g: 0.796044, b: 1, a: 0}
     - Color_6bd674b7f642464583ef967bee37de8b: {r: 0.171008, g: 0.47748637, b: 0.66800004, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
