@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: flonflon Fur Fin Lit 2 head
+  m_Shader: {fileID: 4800000, guid: 9f6e9468949ea454eb72b4edd48e6e3b, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 8ee2af8fa1dfbda4daae9c786a5b535f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FurMap:
+        m_Texture: {fileID: 2800000, guid: 06a14a1f370dddc4d852be45219dc8fc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 29048a14b68a57d4da6e6bf1430eefc9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutout: 1
+    - _AppendMoreFins: 0
+    - _Density: 10
+    - _DrawOrigPolygon: 0
+    - _FaceNormalFactor: 0
+    - _FaceViewProdThresh: 0.699
+    - _FinJointNum: 8
+    - _FinLength: 0.026
+    - _Metallic: 0
+    - _NormalFactor: 0.196
+    - _NormalScale: 0
+    - _Occlusion: 0
+    - _RandomDirection: 0
+    - _RimLightIntensity: 0
+    - _RimLightPower: 1
+    - _ShadowExtraBias: -0.43
+    - _Smoothness: 0.487
+    - _TessFactor: 4.41
+    - _TessMaxDist: 19.3
+    - _TessMinDist: 0.1
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0.9712627, b: 0.8132075, a: 1}
+    - _BaseMove: {r: -0.67, g: 0.07, b: 0, a: 0.005}
+    - _WindFreq: {r: 0, g: 0, b: 0, a: 0}
+    - _WindMove: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
