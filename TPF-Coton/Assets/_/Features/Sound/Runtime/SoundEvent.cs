@@ -23,6 +23,7 @@ namespace Sound.Runtime
         private Dictionary<string, NamedSound> _soundDict;
         private AudioSource _audioSource;
         private Action _onCompleteCallback;
+        private int _lastClipIndex = -1;
 
         void Awake()
         {
@@ -73,7 +74,7 @@ namespace Sound.Runtime
                 }
                 
                 // Choisir un clip aléatoire
-                var randomIndex = Random.Range(0, sound.m_audioClips.Count);
+                var randomIndex = GetNonRepeatingRandomIndex(sound.m_audioClips.Count);
                 var selectedClip = sound.m_audioClips[randomIndex];
                 
                 _audioSource.PlayOneShot(selectedClip,sound.m_volume);
@@ -96,6 +97,20 @@ namespace Sound.Runtime
             _onCompleteCallback?.Invoke();
             CancelInvoke(nameof(InvokeOnComplete));
             _onCompleteCallback = null;
+        }
+
+        private int GetNonRepeatingRandomIndex(int count)
+        {
+            if (count <= 1) return 0;
+
+            int newIndex;
+            do
+            {
+                newIndex = Random.Range(0, count);
+            } while  (newIndex == _lastClipIndex);
+            
+            _lastClipIndex = newIndex;
+            return newIndex;
         }
     }
 }

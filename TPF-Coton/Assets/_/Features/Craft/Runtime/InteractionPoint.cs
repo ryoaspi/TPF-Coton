@@ -22,6 +22,7 @@ namespace Craft.Runtime
                 DeviceType.PC => _iconPC,
                 DeviceType.Xbox => _iconXbox,
                 DeviceType.PlayStation => _iconPlayStation,
+                DeviceType.Switch => _iconSwitch,
                 _ => _iconPC
             };
         }
@@ -31,5 +32,6 @@ namespace Craft.Runtime
         [SerializeField] private Sprite _iconPC;
         [SerializeField] private Sprite _iconXbox;
         [SerializeField] private Sprite _iconPlayStation;
+        [SerializeField] private Sprite _iconSwitch;
     }
 }

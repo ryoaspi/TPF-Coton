@@ -69,7 +69,7 @@ namespace Craft.Runtime
                     int cost = interactable.InteractionCost;
                     Sprite coton = interactable.CotonIcon;
                     
-                    _uiManager.ShowPrompt($"{text} pour : {cost} <sprite name=\"barre_coton\">",icon, true, "", null);
+                    _uiManager.ShowPrompt($"{text} pour : {cost}   <sprite name=\"barre_coton\">",icon, true, "", null);
 					
                     
                     return;
@@ -202,6 +202,11 @@ namespace Craft.Runtime
                     return;
                 }
 
+                if (name.Contains("switch") || displayName.Contains("switch"))
+                {
+                    _currentDeviceType = DeviceType.Switch;
+                }
+
                 // Default for gamepads
                 _currentDeviceType = DeviceType.Xbox;
                 
@@ -265,6 +270,7 @@ namespace Craft.Runtime
         [SerializeField] private Sprite _spriteKeyboard;
         [SerializeField] private Sprite _spriteXbox;
         [SerializeField] private Sprite _spritePlayStation;
+        [SerializeField] private Sprite _spriteSwitch;
         [SerializeField] private string _closePromptText = "Pour Fermer";
         
         [Header("References")]

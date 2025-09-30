@@ -15,6 +15,7 @@ namespace Environment.Runtime
         public Sprite InspectIconPC => _iconPC;
         public Sprite InspectIconXbox => _iconXbox;
         public Sprite InspectIconPS => _iconPS;
+        public Sprite InspectIconSwitch => _iconSwitch;
 
         public Sprite GetIconForDevice(Core.Runtime.DeviceType device)
         {
@@ -31,9 +32,9 @@ namespace Environment.Runtime
         [SerializeField] private Sprite _iconPC;
         [SerializeField] private Sprite _iconXbox;
         [SerializeField] private Sprite _iconPS;
+        [SerializeField] private Sprite _iconSwitch;
         
         private bool _hasBeenInspected;
-        
     }
 }
 

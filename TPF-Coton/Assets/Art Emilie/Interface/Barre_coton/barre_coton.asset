@@ -41,7 +41,7 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
-    m_Scale: 1
+    m_Scale: 2
     m_Name: barre_coton
   m_GlyphTable:
   - m_Index: 0

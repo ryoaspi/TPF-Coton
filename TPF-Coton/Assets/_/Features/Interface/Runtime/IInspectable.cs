@@ -11,6 +11,7 @@ namespace Interface.Runtime
         Sprite InspectIconPC { get; }
         Sprite InspectIconXbox { get; }
         Sprite InspectIconPS { get; }
+        Sprite InspectIconSwitch { get; }
         Sprite GetIconForDevice(DeviceType device);
     }
 }
