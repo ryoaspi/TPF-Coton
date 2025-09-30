@@ -138,8 +138,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4116, y: 1.2}
-  m_SizeDelta: {x: -2.4256, y: 178.6433}
+  m_AnchoredPosition: {x: 3.4115982, y: -0.31259918}
+  m_SizeDelta: {x: -37.9727, y: 178.6433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4914434180587252375
 CanvasRenderer:
@@ -1939,6 +1939,7 @@ MonoBehaviour:
   _spriteKeyboard: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _spriteXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _spritePlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _spriteSwitch: {fileID: 21300000, guid: c327cca6c4cc03a41b051aa32012bc2e, type: 3}
   _closePromptText: Fermer
   _playerInput: {fileID: 3470936859141013514}
   _playerTransform: {fileID: 374765836647447604}
@@ -2085,33 +2086,21 @@ MonoBehaviour:
   - m_name: Step
     m_audioClips:
     - {fileID: 8300000, guid: ae1cbcdeeb49998458086add9d422389, type: 3}
-    - {fileID: 8300000, guid: 61c79094e1bb2254c9d9ef7bce57e54e, type: 3}
     - {fileID: 8300000, guid: 603df314f4ef7e3479380ebd3c822ad9, type: 3}
-    - {fileID: 8300000, guid: bd0e5a64ea93b5c40aa4285a7834d7ad, type: 3}
     - {fileID: 8300000, guid: 4022f0925ebe7f949aab741afdf075fe, type: 3}
-    - {fileID: 8300000, guid: 5ca2809ad56ef31469d624807edd2d8c, type: 3}
     - {fileID: 8300000, guid: 11393591f8487b046823d86bca9cf12c, type: 3}
-    - {fileID: 8300000, guid: a37fdfd417c3eb149bb48a2910ea76c5, type: 3}
     - {fileID: 8300000, guid: 8947077d72df8cf4a99453595a5b3cab, type: 3}
-    - {fileID: 8300000, guid: 684b8996f0629ad45bb2e902a9708491, type: 3}
     - {fileID: 8300000, guid: 558df114fed895e4292333dd5646c79e, type: 3}
-    - {fileID: 8300000, guid: 91889e829c2fc24449349ece1c1b6866, type: 3}
     - {fileID: 8300000, guid: cdb7f41134311c045b59484db0d72512, type: 3}
-    - {fileID: 8300000, guid: 6e1562f90599eff44a24a83806b2cf57, type: 3}
     - {fileID: 8300000, guid: d12bbe0ea15c8be49b9dfda53d61f60b, type: 3}
-    - {fileID: 8300000, guid: 29a226cdaed8b814188f0f215f066e41, type: 3}
     - {fileID: 8300000, guid: 41c666e51e04e524da1a72f0c6588779, type: 3}
     m_volume: 0.5
   - m_name: Sword
     m_audioClips:
-    - {fileID: 8300000, guid: 28473ae28785318469a8788fa0923bad, type: 3}
     - {fileID: 8300000, guid: 3cdca8177b2efb045a332800f9191f0d, type: 3}
-    - {fileID: 8300000, guid: 336f4b1400bb2db46beb7b193a13d18b, type: 3}
     - {fileID: 8300000, guid: 9a8016780c5f8fc4f8e39ff311c38e45, type: 3}
-    - {fileID: 8300000, guid: cbd490a2d05c56f4c8ee7b9c432863ea, type: 3}
     - {fileID: 8300000, guid: bdc17a25357dd1845bbc4f382460ed77, type: 3}
     - {fileID: 8300000, guid: faa62d7a1f6163541b4f9d5ff27a5980, type: 3}
-    - {fileID: 8300000, guid: 7adfc2222cb741345978ca796d7f766e, type: 3}
     m_volume: 0.5
   - m_name: Shield
     m_audioClips:
@@ -2139,9 +2128,12 @@ MonoBehaviour:
   - m_name: GetCoton
     m_audioClips:
     - {fileID: 8300000, guid: 0b1813627885aae40b818756ad07be83, type: 3}
-    - {fileID: 8300000, guid: 3c9db33f5e3819d40a494ead8dc2ea6d, type: 3}
     - {fileID: 8300000, guid: 115279aa403b07f44bd02ac4079515e5, type: 3}
-    - {fileID: 8300000, guid: 4b886fc064e2ea241809864f64f8cd1b, type: 3}
+    m_volume: 0.5
+  - m_name: GetCoton
+    m_audioClips:
+    - {fileID: 8300000, guid: 4897f11ee0b46d944a955dc8020622f7, type: 3}
+    - {fileID: 8300000, guid: 0cdda8efbbdc8114f9acaf5b73340b6a, type: 3}
     m_volume: 0.5
 --- !u!114 &3800660821436921929
 MonoBehaviour:
