@@ -17,7 +17,6 @@ namespace Object.Runtime
         private void OnEnable()
         {
             _spawnTime = Time.time;
-            _currentTime = 0;
             _col = GetComponent<Collider>();
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = false;
@@ -121,7 +120,6 @@ namespace Object.Runtime
         #region private and protected
         
         private bool _collected;
-        private float _currentTime;
         private bool _isDone;
         private Collider _col;
         private Rigidbody _rb;
