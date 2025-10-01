@@ -59,7 +59,7 @@ namespace Cinematics.Runtime
             // Stop tous les NavMeshAgents
             foreach (var agent in _allAgents)
             {
-                if (agent != null) agent.isStopped = true;
+                if (agent != null && agent.isOnNavMesh && agent.isActiveAndEnabled) agent.isStopped = true;
             }
 
             _cinematicTimer = 0f;
@@ -73,7 +73,7 @@ namespace Cinematics.Runtime
             // Reprendre tous les NavMeshAgents
             foreach (var agent in _allAgents)
             {
-                if (agent != null) agent.isStopped = false;
+                if (agent is not null && agent.isOnNavMesh && agent.isActiveAndEnabled) agent.isStopped = false;
             }
 
             _isCinematicActive = false;

@@ -38,9 +38,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorThreshold: 0.2
-    - _Float: 0
+    - _Float: 0.0042
     - _Fluffy_Opacity: 0.9
-    - _Fluffy_Power: 0
+    - _Fluffy_Power: 0.0119
     - _Fluffy_Scale: 5000
     - _Fluffy_Speed: 1
     - _Fullscreen_AlphaBlendOperation: 0
