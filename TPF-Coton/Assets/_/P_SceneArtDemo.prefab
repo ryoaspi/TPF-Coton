@@ -3341,6 +3341,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &7009805700674598689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4983,6 +4984,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &4693269074039381346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5359,6 +5361,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: 132b7fa89fee74f4eb0e88992b023cd0, type: 3}
   _iconXbox: {fileID: 21300000, guid: 53ba925dbbb2c0c4598ed8381327c73a, type: 3}
   _iconPS: {fileID: 21300000, guid: b65b1d930d4e4e645b9f210b99604804, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &4251632386389662645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8436,7 +8439,6 @@ Transform:
   - {fileID: 4485796922319596465}
   - {fileID: 5074724001496953099}
   - {fileID: 2822436636823326099}
-  - {fileID: 4598888897884975405}
   - {fileID: 7223216502306452831}
   - {fileID: 6570622862998711620}
   m_Father: {fileID: 0}
@@ -10951,6 +10953,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: 50e423e1b27b831459e2062e3900059b, type: 3}
   _iconPS: {fileID: 21300000, guid: a379031e038c770469337c09b785d82e, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &6637512494499123038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11302,6 +11305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftLife: 0
   _craftCost: 5
+  _cotonSprite: {fileID: 0}
   _craftPrefab: {fileID: 823176024830374605}
   _interactionLabel:
   - Construire pour
@@ -11921,6 +11925,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: 9c38dcb97d04c764888f3734e3c03a1f, type: 3}
   _iconXbox: {fileID: 21300000, guid: 598313522538c8a4b87a3d51f3e25177, type: 3}
   _iconPS: {fileID: 21300000, guid: 330b78f9bf312814caf0457dd8c141b7, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &2837288020193704856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13498,6 +13503,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &7089656925235159879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13717,6 +13723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftLife: 0
   _craftCost: 5
+  _cotonSprite: {fileID: 0}
   _craftPrefab: {fileID: 2361869511692818619}
   _interactionLabel:
   - Construire pour
@@ -14014,6 +14021,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &5253267678298408033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14084,6 +14092,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: 9c38dcb97d04c764888f3734e3c03a1f, type: 3}
   _iconXbox: {fileID: 21300000, guid: 598313522538c8a4b87a3d51f3e25177, type: 3}
   _iconPS: {fileID: 21300000, guid: 330b78f9bf312814caf0457dd8c141b7, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &6900317718837073809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14536,6 +14545,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &3185503594223162756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16324,6 +16334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftLife: 0
   _craftCost: 5
+  _cotonSprite: {fileID: 0}
   _craftPrefab: {fileID: 7338402340910296985}
   _interactionLabel:
   - Construire
@@ -16706,6 +16717,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &3371908522523138653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17543,6 +17555,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &6777377698991003871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18330,6 +18343,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &2710012910435125231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21170,6 +21184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftLife: 0
   _craftCost: 5
+  _cotonSprite: {fileID: 0}
   _craftPrefab: {fileID: 6936983554969815788}
   _interactionLabel:
   - Construire pour
@@ -22199,6 +22214,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &522272049524172324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22952,6 +22968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_craftLife: 0
   _craftCost: 5
+  _cotonSprite: {fileID: 0}
   _craftPrefab: {fileID: 7165480846647579985}
   _interactionLabel:
   - Construire pour
@@ -23452,6 +23469,7 @@ MonoBehaviour:
   _iconPC: {fileID: 21300000, guid: dfa2bd435c3739346b748b4a42e5e3c4, type: 3}
   _iconXbox: {fileID: 21300000, guid: a8b3a9f760c86d649b5129d6468ed690, type: 3}
   _iconPlayStation: {fileID: 21300000, guid: 643f0c9e553e7814bbd68d0965b92484, type: 3}
+  _iconSwitch: {fileID: 0}
 --- !u!65 &11959637780527246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24772,6 +24790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToActivate:
   - {fileID: 134094901635270628}
+  _objectToDeactivate: []
 --- !u!1 &8305142021687833557
 GameObject:
   m_ObjectHideFlags: 0
@@ -32877,76 +32896,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1158027755384850881, guid: 28ddc8df66c9ea642b3818b1c2a8b308, type: 3}
   m_PrefabInstance: {fileID: 4423295298296244105}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4427372151792666670
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3575284129381372285}
-    m_Modifications:
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 57.53556
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8642006
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -45.060932
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2034076082142053215, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_Name
-      value: PPP (ancien)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2034076082142053215, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3240921787456866058, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 170204e571326b74d87997eff2d638c2, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
---- !u!4 &4598888897884975405 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 190178771983464707, guid: 730ff126e1ecafa4985a35bf6b85779c, type: 3}
-  m_PrefabInstance: {fileID: 4427372151792666670}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4439209442894546057
 PrefabInstance:
