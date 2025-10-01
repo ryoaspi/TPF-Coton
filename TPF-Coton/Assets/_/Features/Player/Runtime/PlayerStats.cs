@@ -74,6 +74,11 @@ namespace Player.Runtime
 
         }
 
+        private void OnEnable()
+        {
+            _deathScreen.SetActive(false);
+        }
+
         #endregion
 
 
@@ -118,6 +123,8 @@ namespace Player.Runtime
 
         private void Dead()
         {
+            _deathScreen.SetActive(true);
+            Time.timeScale = 0;
             gameObject.SetActive(false);
         }
 
@@ -215,6 +222,7 @@ namespace Player.Runtime
         [Header ("UI")]
         [SerializeField]public Slider healthSlider;
         [SerializeField]private TMP_Text _numberOfCoton;
+        [SerializeField]private GameObject _deathScreen;
         
         
         [Header("Hit")]
