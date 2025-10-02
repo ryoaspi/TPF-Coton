@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Enemy.Runtime;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Cinematics.Runtime
 {
@@ -11,9 +13,10 @@ namespace Cinematics.Runtime
         {
             _cameraChanger=GetComponent<CameraChanger>();
             _deadCount = 0;
-
+            
             // Récupère tous les NavMeshAgents actifs dans la scène
             NavMeshAgent[] agents = FindObjectsOfType<NavMeshAgent>();
+            _playerInput = FindObjectOfType<PlayerInput>();
             _allAgents.AddRange(agents);
 
             // Lier l'événement OnDeath pour chaque ennemi de la liste
@@ -68,6 +71,15 @@ namespace Cinematics.Runtime
 
         private void EndCinematic()
         {
+            if (_isCinematicEnd)
+            {
+                _victoryScreen.SetActive(true);
+                _playerInput.SwitchCurrentActionMap("UI");
+                EventSystem.current.SetSelectedGameObject(_firstButtonOnVictoryScreen);
+
+                return;
+            }
+            
             _cameraChanger.StopCinematic(_cinematicIndex);
 
             // Reprendre tous les NavMeshAgents
@@ -87,10 +99,15 @@ namespace Cinematics.Runtime
         private CameraChanger _cameraChanger;
         [SerializeField] private int _cinematicIndex = 0;
         [SerializeField] private float _cinematicDuration = 3f;
+        
+        [SerializeField] private bool _isCinematicEnd;
+        [SerializeField] private GameObject _victoryScreen;
 
         private bool _isCinematicActive = false;
         private float _cinematicTimer = 0f;
+        private PlayerInput _playerInput;
 
         private List<NavMeshAgent> _allAgents = new List<NavMeshAgent>();
+        [SerializeField] private GameObject _firstButtonOnVictoryScreen = null;
     }
 }

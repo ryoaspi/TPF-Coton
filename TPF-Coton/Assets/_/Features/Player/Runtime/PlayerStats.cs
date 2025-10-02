@@ -1,9 +1,10 @@
-using System;
 using Sound.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+
 namespace Player.Runtime
 {
     public class PlayerStats : MonoBehaviour
@@ -124,6 +125,7 @@ namespace Player.Runtime
         private void Dead()
         {
             _deathScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(_buttonDeath);
             Time.timeScale = 0;
             gameObject.SetActive(false);
         }
@@ -223,6 +225,7 @@ namespace Player.Runtime
         [SerializeField]public Slider healthSlider;
         [SerializeField]private TMP_Text _numberOfCoton;
         [SerializeField]private GameObject _deathScreen;
+        [SerializeField]private GameObject _buttonDeath;
         
         
         [Header("Hit")]

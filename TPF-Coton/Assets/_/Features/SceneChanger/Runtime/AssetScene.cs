@@ -8,7 +8,7 @@ namespace SceneChanger.Runtime
         public void LoadGameScene()
         {
             
-            SceneManager.LoadScene("DEMO");
+            SceneManager.LoadScene("_/Level/Thomas");
         }
 
         public void LoadCreditScene()
