@@ -302,6 +302,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credit
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766533774570031, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147766533774570031, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147766533774570031, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147766533774570031, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 8973883446134350456, guid: f3f4f1378a85ea54c8660568abe09f04, type: 3}
       propertyPath: m_Pivot.x
       value: 0
